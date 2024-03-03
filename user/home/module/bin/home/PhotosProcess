@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+in="/storage/hot/docker/cloud/data/data/cakee/files/media/photo/"
+out="/storage/cold_1/backup/tmp/photo/"
+
+docker run --rm -v "${in}":/in -v "${out}":/out voronind.com/photoprocess:latest
