@@ -4,7 +4,7 @@
 		description = "Sync music from Yandex.Music.";
 		serviceConfig = {
 			Type      = "oneshot";
-			ExecStart = "/root/app/bin/home/YandexMusic";
+			ExecStart = "/etc/bin/YandexMusic";
 		};
 		path = with pkgs; [
 			bashInteractive

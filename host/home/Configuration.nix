@@ -18,6 +18,9 @@
 		10.1.0.2 pass.voronind.com
 	'';
 
+	# Extra binaries.
+	environment.etc.bin.source = ./bin;
+
 	# Filesystems.
 	fileSystems."/storage/cold_1" = {
 		device  = "/dev/storage/cold_1";
