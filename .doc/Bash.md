@@ -16,6 +16,12 @@ Command|Description
 ---|---
 `emulator [NAME]`|Start an Android emulator. Default name is `main`.   
 
+## App.
+
+Command|Description
+---|---
+`steam_link`|  Start steam in Steam Link mode. 
+
 ## Archive.
 
 Command|Description
@@ -36,7 +42,6 @@ Command|Description
 Command|Description
 ---|---
 `ask <QUERY>`|Ask general AI.   
-`ask_code <QUERY>`|Ask code AI.   
 
 ## Battery.
 
@@ -288,6 +293,8 @@ Command|Description
 `nix_shell [NAME]`|Spawn shell with specified nix environment. Uses flake.nix in current dir by default.   
 `nix_tmpshell <PACKAGES>`|Spawn nix-shell with specified packages.   
 `nix_live`|  Build live image. 
+`nix_generations`|  List nixos generations. 
+`nixdroid_switch`|  Switch nix-on-droid. 
 
 ## Notify.
 
