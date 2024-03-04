@@ -9,7 +9,28 @@ in {
 		vimAlias = true;
 		configure = {
 			customRC = ''
-				set runtimepath+=~/.cache/nvim,~/.cache/nvim/treesitter,${inputs.nvimTrouble},${inputs.nvimAlign},${inputs.nvimAutoclose},${inputs.nvimBufferline},${inputs.nvimCloseBuffers},${inputs.nvimDevicons},${inputs.nvimGitsigns},${inputs.nvimGruvbox},${inputs.nvimIndentoMatic},${inputs.nvimLspconfig},${inputs.nvimLualine},${inputs.nvimOllama},${inputs.nvimPlenary},${inputs.nvimSingleComment},${inputs.nvimTelescope},${inputs.nvimTodo},${inputs.nvimTokyonight},${inputs.nvimTree},${inputs.nvimTreesitter},${inputs.nvimWhichKey}
+				set runtimepath+=~/.cache/nvim
+				set runtimepath+=~/.cache/nvim/treesitter
+				set runtimepath+=${inputs.nvimAlign}
+				set runtimepath+=${inputs.nvimAutoclose}
+				set runtimepath+=${inputs.nvimBufferline}
+				set runtimepath+=${inputs.nvimCloseBuffers}
+				set runtimepath+=${inputs.nvimDevicons}
+				set runtimepath+=${inputs.nvimGitsigns}
+				set runtimepath+=${inputs.nvimGruvbox}
+				set runtimepath+=${inputs.nvimIndentoMatic}
+				set runtimepath+=${inputs.nvimLspconfig}
+				set runtimepath+=${inputs.nvimLualine}
+				set runtimepath+=${inputs.nvimOllama}
+				set runtimepath+=${inputs.nvimPlenary}
+				set runtimepath+=${inputs.nvimSingleComment}
+				set runtimepath+=${inputs.nvimTelescope}
+				set runtimepath+=${inputs.nvimTodo}
+				set runtimepath+=${inputs.nvimTokyonight}
+				set runtimepath+=${inputs.nvimTreesitter}
+				set runtimepath+=${inputs.nvimTree}
+				set runtimepath+=${inputs.nvimTrouble}
+				set runtimepath+=${inputs.nvimWhichKey}
 
 				lua dofile("${nvimSrc}/key/Rekey.lua")
 				lua dofile("${nvimSrc}/key/Leader.lua")
