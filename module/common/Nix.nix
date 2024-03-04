@@ -6,7 +6,7 @@
 		experimental-features = nix-command flakes
 		keep-derivations = true
 		keep-outputs = true
-		min-free = ${toString (10 * 1024 * 1024 * 1024)}
+		min-free = ${toString (50 * 1024 * 1024 * 1024)}
 	'';
 	# max-free = ${toString (10 * 1024 * 1024 * 1024)}
 	# nix.gc = {
