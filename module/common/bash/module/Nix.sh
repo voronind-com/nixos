@@ -66,6 +66,11 @@ function nix_live() {
 	nix build "${_nix_system_config}#nixosConfigurations.live.config.system.build.isoImage"
 }
 
+# List nixos generations.
+function nix_generations() {
+	nix-env -p /nix/var/nix/profiles/system --list-generations
+}
+
 # Switch nix-on-droid.
 function nixdroid_switch() {
 	nix-on-droid switch --flake .config/linux/system
