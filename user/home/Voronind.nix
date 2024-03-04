@@ -9,13 +9,14 @@ in {
 		home.stateVersion  = inputs.self.nixosModules.const.stateVersion;
 
 		home.file = {
-			"app/bin".source = ./module/bin;
+			".config/btop".source      = ./module/top/btop;
+			".config/gtk-2.0".source   = ./module/gtk/2;
+			".config/gtk-3.0".source   = ./module/gtk/3;
+			".config/gtk-4.0".source   = ./module/gtk/4;
+			".config/htop".source      = ./module/top/htop;
+			".editorconfig".source     = ./module/Editorconfig;
 			".parallel/will-cite".text = "";
-			".config/btop".source = ./module/top/btop;
-			".config/htop".source = ./module/top/htop;
-			".config/gtk-2.0".source = ./module/gtk/2;
-			".config/gtk-3.0".source = ./module/gtk/3;
-			".config/gtk-4.0".source = ./module/gtk/4;
+			"app/bin".source           = ./module/bin;
 		};
 
 		# Directories.
