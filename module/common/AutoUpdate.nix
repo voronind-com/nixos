@@ -3,7 +3,7 @@
 		enable      = true;
 		allowReboot = false;
 		dates       = "daily";
-		flake       = "/root/.config/linux/system";
+		flake       = "git+https://git.voronind.com/voronind/nixos.git";
 		operation   = "boot";
 		persistent  = true;
 	};
