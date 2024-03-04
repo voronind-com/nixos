@@ -12,9 +12,11 @@ in {
 
 	# Specify default apps.
 	xdg.mime.defaultApplications = {
+		# Use `xdg-mime query default "text/plain"` to find out.
 		"image/png"  = "org.gnome.Loupe.desktop";
 		"image/jpeg" = "org.gnome.Loupe.desktop";
 		"image/jxl"  = "org.gnome.Loupe.desktop";
+		"text/plain" = "nvim.desktop"
 	};
 
 	# Disable some apps.
