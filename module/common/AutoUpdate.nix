@@ -2,7 +2,7 @@
 	system.autoUpgrade = {
 		enable      = true;
 		allowReboot = false;
-		dates       = "daily";
+		dates       = "03:00";
 		flake       = "git+https://git.voronind.com/voronind/nixos.git";
 		operation   = "boot";
 		persistent  = true;
