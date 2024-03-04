@@ -213,7 +213,7 @@
 			system   = "x86_64-linux";
 			modules = [
 				./module/AmdCpu.nix
-				# ./module/AmdGpu.nix
+				./module/AmdGpu.nix
 				./module/Desktop.nix
 				./module/Gnome.nix
 				./module/Ollama.nix
