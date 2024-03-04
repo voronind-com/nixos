@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1709510817,
-        "narHash": "sha256-yKC7uwfSf1AVY6VyJbUbfYC5Tjb3aFzX3iesYZH+kLY=",
+        "lastModified": 1709511258,
+        "narHash": "sha256-BBoMFDsX8GrH8nzulpw4mHk3uI+ga5lwsbYhZ4amMy0=",
         "ref": "refs/heads/main",
-        "rev": "4d7e654eac628c6244ab11832e3709b9344ac54a",
-        "revCount": 2,
+        "rev": "2cfcfbdc192aa90e9960f6b8ca6ea6dee03a0920",
+        "revCount": 4,
         "type": "git",
         "url": "https://git.voronind.com/voronind/nixos.git"
       },
