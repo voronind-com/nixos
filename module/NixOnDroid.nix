@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, const, ... }: {
 	environment.packages = with pkgs; [
 		android-tools
 		binwalk
@@ -37,4 +37,14 @@
 		yt-dlp
 		zip unzip
 	];
+
+	home-manager.config = {
+		home.stateVersion = const.droidStateVersion;
+		home.file = {
+			"nixos".source = inputs.dotfiles;
+		};
+		programs.bash = {
+			bashrcExtra = "source ~/nixos/module/common/bash/Bashrc.sh";
+		};
+	};
 }

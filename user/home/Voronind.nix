@@ -1,4 +1,4 @@
-{ inputs, ... }: let
+{ const, ... }: let
 	username = "voronind";
 	homeDir  = "/home/voronind";
 in {
@@ -6,7 +6,7 @@ in {
 		programs.home-manager.enable = true;
 		home.username      = username;
 		home.homeDirectory = homeDir;
-		home.stateVersion  = inputs.self.nixosModules.const.stateVersion;
+		home.stateVersion  = const.stateVersion;
 
 		home.file = {
 			".config/btop".source      = ./module/top/btop;

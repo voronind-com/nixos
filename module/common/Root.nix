@@ -1,3 +1,3 @@
-{ specialArgs, ... }: {
-	users.users.root.hashedPassword = specialArgs.const.hashedPassword;
+{ const, ... }: {
+	users.users.root.hashedPassword = const.hashedPassword;
 }

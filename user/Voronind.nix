@@ -1,9 +1,9 @@
-{ pkgs, lib, specialArgs, ... }: {
+{ pkgs, lib, const, ... }: {
 	imports = [
 		./home/Voronind.nix
 	];
 	users.users.voronind = {
-		hashedPassword = specialArgs.const.hashedPassword;
+		hashedPassword = const.hashedPassword;
 		uid            = 1000;
 		createHome     = true;
 		isNormalUser   = true;

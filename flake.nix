@@ -14,7 +14,8 @@
 		# Android.
 		nix-on-droid = {
 			url = "github:t184256/nix-on-droid/release-23.05";
-			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.nixpkgs.follows      = "nixpkgs";
+			inputs.home-manager.follows = "home-manager";
 		};
 
 		# Nvim plugins.
@@ -103,8 +104,9 @@
 	outputs = { self, nixpkgs, dotfiles, nix-on-droid, home-manager, ... } @inputs: {
 		# Constant values.
 		nixosModules.const = {
-			hashedPassword = "$y$j9T$oqCB16i5E2t1t/HAWaFd5.$tTaHtAcifXaDVpTcRv.yH2/eWKxKE9xM8KcqXHfHrD7"; # Use `mkpasswd`.
-			stateVersion   = "23.11";
+			hashedPassword    = "$y$j9T$oqCB16i5E2t1t/HAWaFd5.$tTaHtAcifXaDVpTcRv.yH2/eWKxKE9xM8KcqXHfHrD7"; # Use `mkpasswd`.
+			stateVersion      = "23.11";
+			droidStateVersion = "22.11";
 		};
 
 		# Common modules used across all hosts.
@@ -144,7 +146,7 @@
 			modules = [
 				./host/${hostname}/Configuration.nix
 				{ networking.hostName = hostname; }
-				{ system.stateVersion = inputs.self.nixosModules.const.stateVersion; }
+				{ system.stateVersion = self.nixosModules.const.stateVersion; }
 				inputs.self.nixosModules.common
 				home-manager.nixosModules.home-manager
 			] ++ modules;
@@ -258,6 +260,9 @@
 				{ system.stateVersion = inputs.self.nixosModules.const.stateVersion; }
 				./module/NixOnDroid.nix
 			];
+			extraSpecialArgs.const  = self.nixosModules.const;
+			extraSpecialArgs.flake  = self;
+			extraSpecialArgs.inputs = inputs;
 		};
 	};
 }
