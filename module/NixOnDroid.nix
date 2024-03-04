@@ -41,10 +41,15 @@
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
-			"nixos".source = inputs.dotfiles;
+			".nixos".source = inputs.dotfiles;
 		};
 		programs.bash = {
-			bashrcExtra = "source ~/nixos/module/common/bash/Bashrc.sh";
+			enable = true;
+			bashrcExtra = ''
+				for module in ~/.nixos/module/common/bash/module/*.sh; do
+					source ''${module}
+				done
+			'';
 		};
 	};
 }
