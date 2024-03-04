@@ -8,7 +8,6 @@
 		cryptsetup
 		curl
 		ddrescue
-		dxvk
 		ffmpeg
 		file
 		gamescope
@@ -17,10 +16,7 @@
 		gnumake
 		gnused
 		imagemagick
-		jdk
-		jdk11
-		jdk19
-		jdk20
+		jdk jdk11 jdk19 jdk20
 		jellyfin-media-player
 		jq
 		lm_sensors
@@ -43,9 +39,8 @@
 		tree
 		universal-android-debloater
 		ventoy
-		vkd3d
 		wget
-		wine64
+		wine64 dxvk vkd3d
 		wl-clipboard
 		yt-dlp
 		zip unzip
