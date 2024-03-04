@@ -43,11 +43,9 @@ function __prompt_command() {
 	# PS1+="\${PWD}"
 
 	# Add git branch if available.
-	if ! _git_is_dotfiles; then
-		local git_branch="$(_git_current_branch)"
-		if [[ "${git_branch}" != "" ]]; then
-			PS1+=" \[${color_bblue}\]@${git_branch}"
-		fi
+	local git_branch="$(_git_current_branch)"
+	if [[ "${git_branch}" != "" ]]; then
+		PS1+=" \[${color_bblue}\]@${git_branch}"
 	fi
 
 	# set error red
