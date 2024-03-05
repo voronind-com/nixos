@@ -265,12 +265,16 @@
     "nvimGruvbox": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-/EkfdTi+YA3hcRRkHNQJOshqmjza3STfZicdEvjYs5U=",
-        "type": "file",
+        "lastModified": 1692021846,
+        "narHash": "sha256-goRu7008Iag99QieKZxQkwEyMRc7wY1ipA8z7YoCC+M=",
+        "ref": "refs/heads/master",
+        "rev": "f1ecde848f0cdba877acb0c740320568252cc482",
+        "revCount": 192,
+        "type": "git",
         "url": "https://git.voronind.com/mirror/gruvbox.git"
       },
       "original": {
-        "type": "file",
+        "type": "git",
         "url": "https://git.voronind.com/mirror/gruvbox.git"
       }
     },
