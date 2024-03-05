@@ -17,6 +17,7 @@ in {
 				set runtimepath+=${inputs.nvimCloseBuffers}
 				set runtimepath+=${inputs.nvimDevicons}
 				set runtimepath+=${inputs.nvimGitsigns}
+				set runtimepath+=${inputs.nvimGruvboxMaterial}
 				set runtimepath+=${inputs.nvimGruvbox}
 				set runtimepath+=${inputs.nvimIndentoMatic}
 				set runtimepath+=${inputs.nvimLspconfig}

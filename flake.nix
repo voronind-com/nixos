@@ -43,8 +43,12 @@
 			url   = "git+https://git.voronind.com/mirror/gitsigns.nvim.git";
 			flake = false;
 		};
-		nvimGruvbox = {
+		nvimGruvboxMaterial = {
 			url   = "git+https://git.voronind.com/mirror/gruvbox-material.git";
+			flake = false;
+		};
+		nvimGruvbox = {
+			url   = "https://git.voronind.com/mirror/gruvbox.git";
 			flake = false;
 		};
 		nvimIndentoMatic = {
