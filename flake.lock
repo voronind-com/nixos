@@ -262,22 +262,6 @@
         "url": "https://git.voronind.com/mirror/gitsigns.nvim.git"
       }
     },
-    "nvimGruvbox": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1692021846,
-        "narHash": "sha256-goRu7008Iag99QieKZxQkwEyMRc7wY1ipA8z7YoCC+M=",
-        "ref": "refs/heads/master",
-        "rev": "f1ecde848f0cdba877acb0c740320568252cc482",
-        "revCount": 192,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/gruvbox.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/gruvbox.git"
-      }
-    },
     "nvimGruvboxMaterial": {
       "flake": false,
       "locked": {
@@ -514,7 +498,6 @@
         "nvimCloseBuffers": "nvimCloseBuffers",
         "nvimDevicons": "nvimDevicons",
         "nvimGitsigns": "nvimGitsigns",
-        "nvimGruvbox": "nvimGruvbox",
         "nvimGruvboxMaterial": "nvimGruvboxMaterial",
         "nvimIndentoMatic": "nvimIndentoMatic",
         "nvimLspconfig": "nvimLspconfig",

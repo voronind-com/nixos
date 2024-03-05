@@ -47,10 +47,6 @@
 			url   = "git+https://git.voronind.com/mirror/gruvbox-material.git";
 			flake = false;
 		};
-		nvimGruvbox = {
-			url   = "git+https://git.voronind.com/mirror/gruvbox.git";
-			flake = false;
-		};
 		nvimIndentoMatic = {
 			url   = "git+https://git.voronind.com/mirror/indent-o-matic.git";
 			flake = false;
