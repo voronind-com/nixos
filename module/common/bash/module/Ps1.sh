@@ -1,4 +1,19 @@
 export PROMPT_COMMAND=(__prompt_command "${PROMPT_COMMAND[@]}")
+export COLOR_BACKGROUND="235"
+export COLOR_USER_ROOT="203"
+export COLOR_USER_NORMAL="109"
+export COLOR_FOREGROUND="230"
+export COLOR_ACCENT="223"
+export COLOR_ERROR="203"
+export COLOR_PATH="108"
+export COLOR_GIT="142"
+
+function __prompt_color() {
+	local color="${1}"
+	[[ "${color}" = "" ]] && color="${COLOR_FOREGROUND}"
+	# echo "\[\033[48;5;${COLOR_BACKGROUND};38;5;${color}m\]" # With backgroud.
+	echo "\[\033[38;5;${color}m\]" # Only foreground.
+}
 
 # Custom terminal prompt format.
 function __prompt_command() {
@@ -6,73 +21,73 @@ function __prompt_command() {
 	local is_error=false
 	local is_root=false
 
-	if [[ $last_status != 0 && $last_status != 130 ]]; then
+	if [[ ${last_status} != 0 && ${last_status} != 130 ]]; then
 		is_error=true
 	fi
-	if [[ "$UID" -eq 0 ]]; then
+	if [[ "${UID}" -eq 0 ]]; then
 		is_root=true
 	fi
 
-	# add newline
+	# Add newline.
 	PS1="\n"
 
-	# set error red
-	if $is_error; then
-		PS1+="\[${color_bred}\]"
+	# Set error red.
+	if ${is_error}; then
+		PS1+="$(__prompt_color ${COLOR_ERROR})"
 		PS1+="["
 	else
-		PS1+="\[${color_default}\]"
+		PS1+="$(__prompt_color)"
 		PS1+="["
 	fi
 
-	# add time
-	PS1+="\[${color_white}\]"
+	# Add time.
+	PS1+="$(__prompt_color ${COLOR_ACCENT})"
 	PS1+="$(date +%H:%M) "
 
-	# set root red
-	if $is_root; then
-		PS1+="\[${color_red}\]"
+	# Set root red.
+	if ${is_root}; then
+		PS1+="$(__prompt_color ${COLOR_USER_ROOT})"
 	else
-		PS1+="\[${color_cyan}\]"
+		PS1+="$(__prompt_color ${COLOR_USER_NORMAL})"
 	fi
 
-	# add user, host and working dir
+	# Add user, host and working dir.
 	PS1+="\u@\h "
-	PS1+="\[${color_blue}\]"
+	PS1+="$(__prompt_color ${COLOR_PATH})"
 	PS1+="\w"
 	# PS1+="\${PWD}"
 
 	# Add git branch if available.
 	local git_branch="$(_git_current_branch)"
 	if [[ "${git_branch}" != "" ]]; then
-		PS1+=" \[${color_bblue}\]@${git_branch}"
+		PS1+=" $(__prompt_color ${COLOR_GIT})@${git_branch}"
 	fi
 
-	# set error red
-	if $is_error; then
-		PS1+="\[${color_bred}\]"
+	# Set error red.
+	if ${is_error}; then
+		PS1+="$(__prompt_color ${COLOR_ERROR})"
 		PS1+="] "
 	else
-		PS1+="\[${color_default}\]"
+		PS1+="$(__prompt_color)"
 		PS1+="] "
 	fi
 
 	# If error, show code.
 	if ${is_error}; then
-		PS1+="\[${color_red}\]("
+		PS1+="$(__prompt_color ${COLOR_ERROR})("
 		PS1+="${last_status}"
 		local error_type="$(_ps1error ${last_status})"
 		[[ "${error_type}" != "" ]] && PS1+=" ${error_type}"
-		PS1+=")\[${color_default}\] "
+		PS1+=")$(__prompt_color) "
 	fi
 
-	# command on new line
+	# Command on new line.
 	PS1+="\n"
-	PS1+="\[${color_default}\]"
+	PS1+="$(__prompt_color ${COLOR_ACCENT})"
 
 	# Show nix shell name.
 	if [ -n "${NIX_SHELL}" ]; then
-		PS1+="\[${color_white}\]${NIX_SHELL}\[${color_default}\] "
+		PS1+="${NIX_SHELL} "
 	fi
 
 	# Show remote connections.
@@ -80,12 +95,17 @@ function __prompt_command() {
 		PS1+=">"
 	fi
 
-	# set user tag
-	if $is_root; then
+	PS1+="$(__prompt_color)"
+
+	# Set user tag.
+	if ${is_root}; then
 		PS1+="# "
 	else
 		PS1+="$ "
 	fi
+
+	# Reset color.
+	PS1+="\[\033[0m\]"
 }
 
 # Convert error code into short description.
