@@ -41,7 +41,7 @@
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
-			".nixos".source      = inputs.dotfiles;
+			".nixos".source      = inputs.self;
 			".bash".source       = ./common/bash;
 			".ssh/config".source = ./common/ssh/Config;
 		};
@@ -56,6 +56,16 @@
 		programs.tmux = {
 			enable      = true;
 			extraConfig = builtins.readFile ./common/tmux/tmux.conf;
+		};
+		programs.git = {
+			enable = true;
+			extraConfig = {
+				credential.helper    = "store";
+				init.defaultBranch   = "main";
+				pull.rebase          = true;
+				push.autoSetupRemote = true;
+				rebase.autoStash     = true;
+			};
 		};
 	};
 }
