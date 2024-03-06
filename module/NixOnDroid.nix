@@ -42,7 +42,7 @@ in {
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
-			".nixos".source      = inputs.self;
+			".dotfiles".source   = inputs.self;
 			".bash".source       = ./common/bash;
 			".nvim".source       = ./common/nvim;
 			".ssh/config".source = ./common/ssh/Config;
@@ -69,7 +69,7 @@ in {
 				rebase.autoStash     = true;
 			};
 		};
-		programs.neovim = {
+		programs.neovim = { # TODO: Find a way to reuse global config.
 			enable   = true;
 			viAlias  = true;
 			vimAlias = true;
