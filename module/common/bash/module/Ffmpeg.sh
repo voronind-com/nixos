@@ -30,7 +30,8 @@ function ffmpeg_mux_cover() {
 		#	 ;;
 		*)
 			for file in *.${format}; do
-				ffmpeg -i "${file}" -i "${cover}" -map 0 -map 0:-v? -map 1 -codec copy -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" -disposition:v attached_pic ./out/"${file}" || return 1
+				# ffmpeg -i "${file}" -i "${cover}" -map 0 -map 0:-v? -map 1 -codec copy -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" -disposition:v attached_pic ./out/"${file}" || return 1
+				ffmpeg -i "${file}" -i "${cover}" -map 0 -map 1 -codec copy -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" -disposition:v attached_pic ./out/"${file}" || return 1
 			done
 		;;
 	esac
