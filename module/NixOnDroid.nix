@@ -53,5 +53,9 @@
 			enable      = true;
 			bashrcExtra = "source ~/.bash/Bashrc.sh";
 		};
+		programs.tmux = {
+			enable      = true;
+			extraConfig = builtins.readFile ./common/tmux/tmux.conf;
+		};
 	};
 }
