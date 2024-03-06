@@ -58,6 +58,7 @@ in {
 				lua dofile("${nvimSrc}/plugin/Ollama.lua")
 				lua dofile("${nvimSrc}/key/Autocomplete.lua")
 				lua dofile("${nvimSrc}/key/Buffer.lua")
+				lua dofile("${nvimSrc}/key/Colorscheme.lua")
 				lua dofile("${nvimSrc}/key/Comment.lua")
 				lua dofile("${nvimSrc}/key/Common.lua")
 				lua dofile("${nvimSrc}/key/Filetree.lua")
