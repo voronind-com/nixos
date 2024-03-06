@@ -73,7 +73,7 @@ function nix_generations() {
 
 # Switch nix-on-droid.
 function nixdroid_switch() {
-	nix-on-droid switch --flake .config/linux/system
+	nix-on-droid switch --flake "${_nix_system_config}"
 }
 
 # Autocomplete with available hosts.
