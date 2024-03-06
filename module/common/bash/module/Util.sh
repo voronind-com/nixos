@@ -62,6 +62,9 @@ function _iterate_targets() {
 		echo -e "${color_bred}Failed: ${failed}.${color_default}"
 		false
 	fi
+
+	# Ring a bell.
+	_bell
 }
 
 # Skip current iteration.
