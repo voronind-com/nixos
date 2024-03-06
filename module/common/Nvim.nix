@@ -1,5 +1,5 @@
 { environment, inputs, ... }: let
-	nvimSrc = "/etc/nvim/";
+	nvimSrc = "/etc/nvim";
 in {
 	environment.etc.nvim.source = ./nvim;
 
