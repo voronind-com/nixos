@@ -14,5 +14,8 @@
 
 		# Nix.
 		NIX_CURRENT_SYSTEM = "${pkgs.stdenv.system}";
+
+		# Shell.
+		TERM = "screen-256color";
 	};
 }

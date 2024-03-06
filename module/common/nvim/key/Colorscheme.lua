@@ -15,6 +15,7 @@ function toggle_light()
 	elseif vim.o.background == "dark" then
 		vim.o.background = "light"
 	end
+	-- require("lualine").setup()
 end
 
 rekey_normal("<Leader>[", "<cmd>lua toggle_contrast()<cr>")

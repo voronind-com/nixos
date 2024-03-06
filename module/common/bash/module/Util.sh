@@ -126,3 +126,8 @@ function _is_tmux() {
 function _is_root() {
 	[[ "${UID}" = 0 ]]
 }
+
+# Ring a bell.
+function _bell() {
+	echo -e '\a'
+}
