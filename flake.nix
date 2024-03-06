@@ -6,10 +6,6 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		dotfiles = {
-			url   = "git+https://git.voronind.com/voronind/nixos.git";
-			flake = false;
-		};
 
 		# Android.
 		nix-on-droid = {
@@ -101,7 +97,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, dotfiles, nix-on-droid, home-manager, ... } @inputs: {
+	outputs = { self, nixpkgs, nix-on-droid, home-manager, ... } @inputs: {
 		# Constant values.
 		nixosModules.const = {
 			hashedPassword    = "$y$j9T$oqCB16i5E2t1t/HAWaFd5.$tTaHtAcifXaDVpTcRv.yH2/eWKxKE9xM8KcqXHfHrD7"; # Use `mkpasswd`.

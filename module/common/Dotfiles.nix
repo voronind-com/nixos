@@ -1,3 +1,3 @@
 { inputs, ... }: {
-	environment.etc.dotfiles.source = inputs.dotfiles;
+	environment.etc.dotfiles.source = inputs.self;
 }

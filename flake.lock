@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "dotfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709511258,
-        "narHash": "sha256-BBoMFDsX8GrH8nzulpw4mHk3uI+ga5lwsbYhZ4amMy0=",
-        "ref": "refs/heads/main",
-        "rev": "2cfcfbdc192aa90e9960f6b8ca6ea6dee03a0920",
-        "revCount": 4,
-        "type": "git",
-        "url": "https://git.voronind.com/voronind/nixos.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/voronind/nixos.git"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -488,7 +472,6 @@
     },
     "root": {
       "inputs": {
-        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nix-on-droid": "nix-on-droid",
         "nixpkgs": "nixpkgs",
