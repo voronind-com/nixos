@@ -34,9 +34,6 @@ function recursive() {
 	# return back on complete.
 	cd "${current}" || failed=${?}
 
-	# Ring a bell.
-	_bell
-
 	return ${failed}
 }
 
@@ -75,9 +72,6 @@ function recursive1() {
 
 	# return back on complete.
 	cd "${current}"
-
-	# Ring a bell.
-	_bell
 
 	return ${failed}
 }
