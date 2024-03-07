@@ -29,6 +29,7 @@ in {
 		parallel
 		pv
 		ripgrep
+		rsync
 		sqlite
 		tmux
 		tree
