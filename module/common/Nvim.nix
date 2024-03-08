@@ -1,4 +1,4 @@
-{ inputs, util, ... }: let
+{ inputs, ... }: let
 	nvimRc = { cfgPath, runtimes, cfgs }: let
 		runtimeRc = builtins.foldl' (acc: r:
 			acc + "set runtimepath+=${r}\n"
@@ -14,7 +14,7 @@ in {
 		viAlias  = true;
 		vimAlias = true;
 		configure = {
-			customRC = util.nvimRc {
+			customRC = nvimRc {
 				cfgPath = "/etc/nvim";
 				runtimes = [
 					"~/.cache/nvim"
