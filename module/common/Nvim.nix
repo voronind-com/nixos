@@ -1,5 +1,13 @@
 { environment, inputs, ... }: let
 	nvimSrc = "/etc/nvim";
+	nvimRc = { runtimes, cfgs }: let
+		runtimeRc = builtins.foldl' (acc: r:
+			acc + "set runtimepath+=${r}\n"
+		) "" runtimes;
+		cfgRc = builtins.foldl' (acc: c:
+			acc + "lua dofile(\"${nvimSrc}/${c}\")\n"
+		) "" cfgs;
+	in runtimeRc + cfgRc;
 in {
 	environment.etc.nvim.source = ./nvim;
 
@@ -8,73 +16,76 @@ in {
 		viAlias  = true;
 		vimAlias = true;
 		configure = {
-			customRC = ''
-				set runtimepath+=~/.cache/nvim
-				set runtimepath+=~/.cache/nvim/treesitter
-				set runtimepath+=${inputs.nvimAlign}
-				set runtimepath+=${inputs.nvimAutoclose}
-				set runtimepath+=${inputs.nvimBufferline}
-				set runtimepath+=${inputs.nvimCloseBuffers}
-				set runtimepath+=${inputs.nvimDevicons}
-				set runtimepath+=${inputs.nvimGitsigns}
-				set runtimepath+=${inputs.nvimGruvboxMaterial}
-				set runtimepath+=${inputs.nvimIndentoMatic}
-				set runtimepath+=${inputs.nvimLspconfig}
-				set runtimepath+=${inputs.nvimLualine}
-				set runtimepath+=${inputs.nvimOllama}
-				set runtimepath+=${inputs.nvimPlenary}
-				set runtimepath+=${inputs.nvimSingleComment}
-				set runtimepath+=${inputs.nvimTelescope}
-				set runtimepath+=${inputs.nvimTodo}
-				set runtimepath+=${inputs.nvimTokyonight}
-				set runtimepath+=${inputs.nvimTreesitter}
-				set runtimepath+=${inputs.nvimTree}
-				set runtimepath+=${inputs.nvimTrouble}
-				set runtimepath+=${inputs.nvimWhichKey}
-
-				lua dofile("${nvimSrc}/key/Rekey.lua")
-				lua dofile("${nvimSrc}/key/Leader.lua")
-				lua dofile("${nvimSrc}/config/Autoread.lua")
-				lua dofile("${nvimSrc}/config/Etc.lua")
-				lua dofile("${nvimSrc}/config/Search.lua")
-				lua dofile("${nvimSrc}/config/Tab.lua")
-				lua dofile("${nvimSrc}/plugin/Filetree.lua")
-				lua dofile("${nvimSrc}/plugin/lsp/Rust.lua")
-				lua dofile("${nvimSrc}/plugin/lsp/Tex.lua")
-				lua dofile("${nvimSrc}/plugin/Gruvbox.lua")
-				lua dofile("${nvimSrc}/plugin/Bufferline.lua")
-				lua dofile("${nvimSrc}/plugin/Lualine.lua")
-				lua dofile("${nvimSrc}/plugin/Autoclose.lua")
-				lua dofile("${nvimSrc}/plugin/Gitsigns.lua")
-				lua dofile("${nvimSrc}/plugin/Trouble.lua")
-				lua dofile("${nvimSrc}/plugin/Tokyonight.lua")
-				lua dofile("${nvimSrc}/plugin/Closebuffers.lua")
-				lua dofile("${nvimSrc}/plugin/Telescope.lua")
-				lua dofile("${nvimSrc}/plugin/Todo.lua")
-				lua dofile("${nvimSrc}/plugin/Indent.lua")
-				lua dofile("${nvimSrc}/plugin/Align.lua")
-				lua dofile("${nvimSrc}/plugin/Treesitter.lua")
-				lua dofile("${nvimSrc}/plugin/Fold.lua")
-				lua dofile("${nvimSrc}/plugin/Ollama.lua")
-				lua dofile("${nvimSrc}/key/Autocomplete.lua")
-				lua dofile("${nvimSrc}/key/Buffer.lua")
-				lua dofile("${nvimSrc}/key/Colorscheme.lua")
-				lua dofile("${nvimSrc}/key/Comment.lua")
-				lua dofile("${nvimSrc}/key/Common.lua")
-				lua dofile("${nvimSrc}/key/Filetree.lua")
-				lua dofile("${nvimSrc}/key/Fold.lua")
-				lua dofile("${nvimSrc}/key/Gitsigns.lua")
-				lua dofile("${nvimSrc}/key/Lsp.lua")
-				lua dofile("${nvimSrc}/key/Navigation.lua")
-				lua dofile("${nvimSrc}/key/Ollama.lua")
-				lua dofile("${nvimSrc}/key/Sort.lua")
-				lua dofile("${nvimSrc}/key/Telescope.lua")
-				lua dofile("${nvimSrc}/key/Terminal.lua")
-				lua dofile("${nvimSrc}/key/Todo.lua")
-				lua dofile("${nvimSrc}/key/Trouble.lua")
-				lua dofile("${nvimSrc}/key/Update.lua")
-				lua dofile("${nvimSrc}/key/Whichkey.lua")
-			'';
+			customRC = nvimRc {
+				runtimes = [
+					"~/.cache/nvim"
+					"~/.cache/nvim/treesitter"
+					"${inputs.nvimAlign}"
+					"${inputs.nvimAutoclose}"
+					"${inputs.nvimBufferline}"
+					"${inputs.nvimCloseBuffers}"
+					"${inputs.nvimDevicons}"
+					"${inputs.nvimGitsigns}"
+					"${inputs.nvimGruvboxMaterial}"
+					"${inputs.nvimIndentoMatic}"
+					"${inputs.nvimLspconfig}"
+					"${inputs.nvimLualine}"
+					"${inputs.nvimOllama}"
+					"${inputs.nvimPlenary}"
+					"${inputs.nvimSingleComment}"
+					"${inputs.nvimTelescope}"
+					"${inputs.nvimTodo}"
+					"${inputs.nvimTokyonight}"
+					"${inputs.nvimTreesitter}"
+					"${inputs.nvimTree}"
+					"${inputs.nvimTrouble}"
+					"${inputs.nvimWhichKey}"
+				];
+				cfgs = [
+					"key/Rekey.lua"
+					"key/Leader.lua"
+					"config/Autoread.lua"
+					"config/Etc.lua"
+					"config/Search.lua"
+					"config/Tab.lua"
+					"plugin/Filetree.lua"
+					"plugin/lsp/Rust.lua"
+					"plugin/lsp/Tex.lua"
+					"plugin/Gruvbox.lua"
+					"plugin/Bufferline.lua"
+					"plugin/Lualine.lua"
+					"plugin/Autoclose.lua"
+					"plugin/Gitsigns.lua"
+					"plugin/Trouble.lua"
+					"plugin/Tokyonight.lua"
+					"plugin/Closebuffers.lua"
+					"plugin/Telescope.lua"
+					"plugin/Todo.lua"
+					"plugin/Indent.lua"
+					"plugin/Align.lua"
+					"plugin/Treesitter.lua"
+					"plugin/Fold.lua"
+					"plugin/Ollama.lua"
+					"key/Autocomplete.lua"
+					"key/Buffer.lua"
+					"key/Colorscheme.lua"
+					"key/Comment.lua"
+					"key/Common.lua"
+					"key/Filetree.lua"
+					"key/Fold.lua"
+					"key/Gitsigns.lua"
+					"key/Lsp.lua"
+					"key/Navigation.lua"
+					"key/Ollama.lua"
+					"key/Sort.lua"
+					"key/Telescope.lua"
+					"key/Terminal.lua"
+					"key/Todo.lua"
+					"key/Trouble.lua"
+					"key/Update.lua"
+					"key/Whichkey.lua"
+				];
+			};
 		};
 	};
 }
