@@ -6,7 +6,6 @@ in {
 		home.file = {
 			".dotfiles".source   = inputs.self;
 			".bash".source       = ./common/bash;
-			".nvim".source       = ./common/nvim;
 			".ssh/config".source = ./common/ssh/config;
 		};
 		home.sessionVariables = {
