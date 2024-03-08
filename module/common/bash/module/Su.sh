@@ -2,5 +2,5 @@
 # Root by default.
 # Usage: s [USER]
 function s() {
-	su "${@}"
+	su - "${@}"
 }
