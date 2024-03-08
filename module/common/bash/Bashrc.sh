@@ -5,7 +5,7 @@
 [[ -f /etc/bashrc ]] && source /etc/bashrc
 
 # Src custom modules.
-for module in ${BASH_MODULE_PATH}/*.sh; do
+for module in ${BASH_PATH}/module/*.sh; do
 	source "${module}"
 done
 

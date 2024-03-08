@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-self=$(realpath ${0})
+self=$(/usr/bin/env realpath ${0})
 cd ${self%/*}
+
+export BASH_PATH="../module/common/bash"
+
+# Source modules.
+for file in ${BASH_PATH}/module/*.sh; do
+	source "${file}"
+done
 
 IFS=$'\n'
 file="Bash.md"
@@ -25,7 +32,7 @@ echo >> "${file}"
 # Fill with data.
 for module in $(find_module); do
 	# Skip if no functions.
-	[[ "$(find_function ${module} | grep -v ^_)" = "" ]] && continue
+	[[ "$(find_function ${module} | /usr/bin/env grep -v ^_)" = "" ]] && continue
 
 	# Print module title.
 	echo "## ${module^}." >> "${file}"
@@ -40,8 +47,8 @@ for module in $(find_module); do
 		[[ "${fun}" =~ ^_.* ]] && continue
 
 		# Parse help info.
-		desc="$(help ${fun} | grep -v Usage\: | tr '\n' ' ')"
-		usage="$(help ${fun} | grep Usage\: | sed -e s\/Usage\:\ \/\/)"
+		desc="$(help ${fun} | /usr/bin/env grep -v Usage\: | /usr/bin/env tr '\n' ' ')"
+		usage="$(help ${fun} | /usr/bin/env grep Usage\: | /usr/bin/env sed -e s\/Usage\:\ \/\/)"
 
 		# Use function name if no usage info available.
 		[[ "${usage}" = "" ]] && usage="${fun}"

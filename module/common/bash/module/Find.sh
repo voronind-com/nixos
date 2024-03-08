@@ -6,7 +6,7 @@ function find_ext() {
 
 # Find all modules.
 function find_module() {
-	ls "${BASH_MODULE_PATH}" | sed -e "s/.sh$//"
+	/usr/bin/env ls "${BASH_PATH}/module" | /usr/bin/env sed -e "s/.sh$//"
 }
 
 # Find all module functions.
@@ -15,7 +15,7 @@ function find_module() {
 function find_function() {
 	local module="${1}"
 	[[ "${module}" = "" ]] && module="*"
-	cat "${BASH_MODULE_PATH}"/${module}.sh | grep "^function.*()" | sed -e "s/^function //" -e "s/().*//"
+	/usr/bin/env cat "${BASH_PATH}/module"/${module}.sh | /usr/bin/env grep "^function.*()" | /usr/bin/env sed -e "s/^function //" -e "s/().*//"
 }
 
 # Autocomplete with module.

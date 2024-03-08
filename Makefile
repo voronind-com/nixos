@@ -1,3 +1,3 @@
 .PHONY: doc
 doc:
-	@.doc/Generate.sh
+	@env -i .doc/Generate.sh

@@ -49,8 +49,7 @@ in {
 			".ssh/config".source = ./common/ssh/Config;
 		};
 		home.sessionVariables = {
-			BASH_MODULE_PATH = "${homePath}/.bash/module";
-			BASH_PATH        = "${homePath}/.bash";
+			BASH_PATH = "${homePath}/.bash";
 		};
 		programs.bash = {
 			enable      = true;
