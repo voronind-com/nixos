@@ -2,8 +2,8 @@ export _nix_system_config="git+https://git.voronind.com/voronind/nixos.git"
 
 # Rebuild system.
 # Optionally force the hostname.
-# Usage: nix_rebuild [HOSTNAME]
-function nix_rebuild() {
+# Usage: nixos_rebuild [HOSTNAME]
+function nixos_rebuild() {
 	local target="${1}"
 	[[ "${target}" = "" ]] && target="${HOSTNAME}"
 
@@ -12,18 +12,12 @@ function nix_rebuild() {
 
 # Rebuild and switch system.
 # Optionally force the hostname.
-# Usage: nix_switch [HOSTNAME]
-function nix_switch() {
+# Usage: nixos_switch [HOSTNAME]
+function nixos_switch() {
 	local target="${1}"
 	[[ "${target}" = "" ]] && target="${HOSTNAME}"
 
 	nixos-rebuild switch --flake "${_nix_system_config}#${target}" --refresh
-}
-
-# Update system versions.
-# Usage: nix_update
-function nix_update() {
-	nix flake update
 }
 
 # Spawn shell with specified nix environment.
@@ -33,12 +27,14 @@ function nix_shell() {
 	local target="${1}"
 	[[ "${target}" = "" ]] && target="default"
 
+	# Create Nix GC root in .NixRoot{NAME}.
 	nix build ".#devShells.${NIX_CURRENT_SYSTEM}.${target}" -o ".NixRoot${target^}"
+
 	NIX_SHELL="${target}" nix develop ".#devShells.${NIX_CURRENT_SYSTEM}.${target}"
 }
 alias shell="nix_shell"
 
-# Spawn nix-shell with specified packages.
+# Spawn temporary nix-shell with specified packages.
 # Usage: nix_tmpshell <PACKAGES>
 function nix_tmpshell() {
 	local IFS=$'\n'
@@ -62,12 +58,12 @@ function nix_tmpshell() {
 alias tmpshell="nix_tmpshell"
 
 # Build live image.
-function nix_live() {
+function nixos_live() {
 	nix build "${_nix_system_config}#nixosConfigurations.live.config.system.build.isoImage"
 }
 
 # List nixos generations.
-function nix_generations() {
+function nixos_generations() {
 	nix-env -p /nix/var/nix/profiles/system --list-generations
 }
 
