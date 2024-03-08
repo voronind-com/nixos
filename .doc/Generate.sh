@@ -31,8 +31,10 @@ echo >> "${file}"
 
 # Fill with data.
 for module in $(find_module); do
+	functions=($(find_function ${module} ))
+
 	# Skip if no functions.
-	[[ "$(find_function ${module} | /usr/bin/env grep -v ^_)" = "" ]] && continue
+	[[ "$(printf "%s\n" ${functions[@]} | /usr/bin/env grep -v ^_)" = "" ]] && continue
 
 	# Print module title.
 	echo "## ${module^}." >> "${file}"
@@ -42,7 +44,7 @@ for module in $(find_module); do
 	echo "Command|Description" >> "${file}"
 	echo "---|---" >> "${file}"
 
-	for fun in $(find_function ${module}); do
+	for fun in ${functions[@]}; do
 		# Skip private functions.
 		[[ "${fun}" =~ ^_.* ]] && continue
 
