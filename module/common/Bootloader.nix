@@ -1,6 +1,6 @@
-{ lib, ... }: {
+{ ... }: {
 	# Enable non-free firmware.
-	hardware.enableRedistributableFirmware = lib.mkDefault true;
+	hardware.enableRedistributableFirmware = true;
 
 	# Configure bootloader.
 	boot.loader.systemd-boot.enable      = true;

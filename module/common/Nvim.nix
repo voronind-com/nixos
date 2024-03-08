@@ -1,22 +1,21 @@
-{ environment, inputs, ... }: let
-	nvimSrc = "/etc/nvim";
-	nvimRc = { runtimes, cfgs }: let
+{ inputs, util, ... }: let
+	nvimRc = { cfgPath, runtimes, cfgs }: let
 		runtimeRc = builtins.foldl' (acc: r:
 			acc + "set runtimepath+=${r}\n"
 		) "" runtimes;
 		cfgRc = builtins.foldl' (acc: c:
-			acc + "lua dofile(\"${nvimSrc}/${c}\")\n"
+			acc + "lua dofile(\"${cfgPath}/${c}\")\n"
 		) "" cfgs;
 	in runtimeRc + cfgRc;
 in {
 	environment.etc.nvim.source = ./nvim;
-
 	programs.neovim = {
 		enable   = true;
 		viAlias  = true;
 		vimAlias = true;
 		configure = {
-			customRC = nvimRc {
+			customRC = util.nvimRc {
+				cfgPath = "/etc/nvim";
 				runtimes = [
 					"~/.cache/nvim"
 					"~/.cache/nvim/treesitter"

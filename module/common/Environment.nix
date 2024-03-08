@@ -1,4 +1,4 @@
-{ environment, pkgs, ... }: {
+{ pkgs, ... }: {
 	security.loginDefs.settings.UMASK = "077";
 	environment.variables = {
 		# Neovim.

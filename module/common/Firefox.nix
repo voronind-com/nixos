@@ -1,4 +1,4 @@
-{ pkgs, environment, ... }: {
+{ pkgs, ... }: {
 	# Disable profile switching on rebuild.
 	environment.variables.MOZ_LEGACY_PROFILES = "1";
 	programs.firefox = {

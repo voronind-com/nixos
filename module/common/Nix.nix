@@ -1,4 +1,4 @@
-{ environment, ... }: {
+{ ... }: {
 	environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
 	nixpkgs.config.allowUnfree       = true;
 	nix.settings.auto-optimise-store = true;

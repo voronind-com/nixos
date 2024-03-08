@@ -1,3 +1,3 @@
-{ environment, ... }: {
+{ ... }: {
 	users.mutableUsers = false;
 }

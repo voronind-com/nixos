@@ -253,7 +253,7 @@
 		# Android.
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
 			modules = [
-				{ system.stateVersion = inputs.self.nixosModules.const.stateVersion; }
+				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
 				./module/NixOnDroid.nix
 			];
 			extraSpecialArgs.const  = self.nixosModules.const;

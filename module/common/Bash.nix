@@ -1,4 +1,4 @@
-{ environment, lib, ... }: {
+{ lib, ... }: {
 	environment.etc.bash.source        = ./bash;
 	environment.shellAliases           = lib.mkForce {};
 	environment.variables.BASH_PATH    = "/etc/bash";
