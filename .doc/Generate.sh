@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-self=$(realpath .)
+self=$(realpath ${0})
 cd ${self%/*}
 
 IFS=$'\n'

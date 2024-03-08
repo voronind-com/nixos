@@ -155,12 +155,6 @@ Command|Description
 `dcpu [SERVICES]`|Docker compose pull & up specified services.   
 `dcul [SERVICES]`|Docker compose up & attach to logs for specified services.   
 
-## Doc.
-
-Command|Description
----|---
-`doc_bash`|Generate a markdown file with all the help info.   Outputs to `~/.doc/Bash.md`. 
-
 ## Dvd.
 
 Command|Description
@@ -287,13 +281,12 @@ Command|Description
 
 Command|Description
 ---|---
-`nix_rebuild [HOSTNAME]`|Rebuild system. Optionally force the hostname.   
-`nix_switch [HOSTNAME]`|Rebuild and switch system. Optionally force the hostname.   
-`nix_update`|Update system versions.   
+`nixos_rebuild [HOSTNAME]`|Rebuild system. Optionally force the hostname.   
+`nixos_switch [HOSTNAME]`|Rebuild and switch system. Optionally force the hostname.   
 `nix_shell [NAME]`|Spawn shell with specified nix environment. Uses flake.nix in current dir by default.   
-`nix_tmpshell <PACKAGES>`|Spawn nix-shell with specified packages.   
-`nix_live`|  Build live image. 
-`nix_generations`|  List nixos generations. 
+`nix_tmpshell <PACKAGES>`|Spawn temporary nix-shell with specified packages.   
+`nixos_live`|  Build live image. 
+`nixos_generations`|  List nixos generations. 
 `nixdroid_switch`|  Switch nix-on-droid. 
 
 ## Notify.
