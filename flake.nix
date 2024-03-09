@@ -178,7 +178,7 @@
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/Print.nix
-				./module/RemoteBuild.nix
+				# ./module/RemoteBuild.nix
 				./module/VirtManager.nix
 				./user/Voronind.nix
 			];
@@ -203,7 +203,7 @@
 				./module/Gnome.nix
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
-				./module/RemoteBuilder.nix
+				# ./module/RemoteBuilder.nix
 				./user/Voronind.nix
 			];
 		};
