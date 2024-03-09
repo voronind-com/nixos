@@ -6,7 +6,7 @@ function ssh_mount() {
 
 # Generate private an public keys on a local host and print a public key.
 function ssh_keygen() {
-	ssh-keygen -f ~/.ssh/key && cat ~/.ssh/key.pub
+	ssh-keygen && cat ~/.ssh/*.pub
 }
 
 complete -o nospace -F _sshfs sshmount
