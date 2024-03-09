@@ -200,6 +200,7 @@
 				./module/Docker.nix
 				./module/Ftpd.nix
 				./module/Gnome.nix
+				./module/NixServe.nix
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./user/Voronind.nix
