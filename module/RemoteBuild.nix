@@ -6,7 +6,8 @@
 		maxJobs     = 1;
 		speedFactor = 2;
 		mandatoryFeatures = [ ];
-		supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+		supportedFeatures = [ ];
+		# supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
 	}];
 	nix.distributedBuilds = true;
 	nix.extraOptions = ''
