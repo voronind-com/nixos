@@ -1,6 +1,7 @@
 { ... }: {
 	users.users.root.openssh.authorizedKeys.keys = [
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGIf192IxsksM6u8UY+eqpHopebgV+NNq2G03ssdXIgz root@desktop"
+		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJSWdbkYsRiDlKu8iT/k+JN4KY08iX9qh4VyqxlpEZcE root@home"
 	];
 	services.openssh = {
 		enable    = true;
