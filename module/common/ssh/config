@@ -22,9 +22,6 @@ Host home
 	HostName 192.168.1.2
 	User root
 	Port 22143
-	ControlPath ~/.ssh/S.%r@%h:%p
-	ControlMaster auto
-	ControlPersist 15m
 
 Host laptop
 	Hostname 192.168.1.9
