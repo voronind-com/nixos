@@ -163,6 +163,7 @@
 				./module/IntelCpu.nix
 				./module/PowersaveIntel.nix
 				./module/Print.nix
+				./module/RemoteBuild.nix
 				./user/Dasha.nix
 			];
 		};
@@ -219,6 +220,7 @@
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/Print.nix
+				./module/RemoteBuild.nix
 				./user/Dasha.nix
 				./user/Voronind.nix
 			];
@@ -248,6 +250,7 @@
 				./module/Powerlimit.nix
 				./module/PowersaveIntel.nix
 				./module/Print.nix
+				./module/RemoteBuild.nix
 				./user/Voronind.nix
 			];
 		};
@@ -257,6 +260,7 @@
 			modules = [
 				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
 				./module/NixOnDroid.nix
+				./module/RemoteBuild.nix
 			];
 			extraSpecialArgs.const  = self.nixosModules.const;
 			extraSpecialArgs.flake  = self;
