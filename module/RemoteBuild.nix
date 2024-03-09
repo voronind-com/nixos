@@ -2,7 +2,11 @@
 	nix.buildMachines = [{
 		hostName = "home";
 		protocol = "ssh-ng";
-		system   = "x86_64-linux";
+		systems  = [
+			"x86_64-linux"
+			"i686-linux"
+			"aarch64-linux"
+		];
 		maxJobs     = 1;
 		speedFactor = 2;
 		mandatoryFeatures = [ ];
