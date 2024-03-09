@@ -236,6 +236,7 @@
 				{ systemd.timers.autoupdate.wantedBy  = nixpkgs.lib.mkForce [ ]; }
 				({ pkgs, ... }: { boot.kernelPackages = nixpkgs.lib.mkForce pkgs.linuxPackages; })
 				./module/Gnome.nix
+				./module/RemoteBuild.nix
 			];
 		};
 
