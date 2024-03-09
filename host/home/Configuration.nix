@@ -16,6 +16,7 @@
 		10.1.0.2 git.voronind.com
 		10.1.0.2 iot.voronind.com
 		10.1.0.2 pass.voronind.com
+		10.1.0.2 nixcache.voronind.com
 	'';
 
 	# Extra binaries.
