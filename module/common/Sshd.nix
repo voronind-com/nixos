@@ -9,12 +9,12 @@
 				port = 22143;
 			}
 		];
-		settings = {
+		settings = { # TODO: Migrate from passwords.
 			AllowUsers      = [ "root" ];
 			LoginGraceTime  = "1m";
-			MaxAuthTries    = 1;
+			MaxAuthTries    = 4;
 			MaxSessions     = 10;
-			PermitRootLogin = "yes";
+			PermitRootLogin = "yes"; # TODO: Make `prohibit-password`.
 			StrictModes     = false;
 
 			UseDns = false;
@@ -26,7 +26,7 @@
 			KerberosAuthentication       = false;
 			PasswordAuthentication       = true;
 			PermitEmptyPasswords         = false;
-			PubkeyAuthentication         = false;
+			PubkeyAuthentication         = true;
 		};
 	};
 }
