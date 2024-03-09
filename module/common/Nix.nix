@@ -7,9 +7,9 @@
 		keep-derivations = true
 		keep-outputs = true
 		min-free = ${toString (50 * 1024 * 1024 * 1024)}
-		extra-substituters = https://nixcache.voronind.com
-		extra-trusted-substituters = https://nixcache.voronind.com
-		extra-trusted-public-keys = nixcache.voronind.com:i9dE2VZI40/LCM/mmUGs8kwal1bQo3xbSjrzxhInmOw=
+		extra-substituters = ssh-ng://home
+		extra-trusted-substituters = ssh-ng://home
+		extra-trusted-public-keys = home:i9dE2VZI40/LCM/mmUGs8kwal1bQo3xbSjrzxhInmOw=
 	'';
 	# max-free = ${toString (10 * 1024 * 1024 * 1024)}
 	# nix.gc = {
