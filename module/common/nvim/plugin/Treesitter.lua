@@ -7,6 +7,7 @@ require("nvim-treesitter.configs").setup {
 		additional_vim_regex_highlighting = false,
 		enable = true,
 		use_languagetree = true,
+		disable = { "lua" },
 	},
 	indent = {
 		enable = true,
