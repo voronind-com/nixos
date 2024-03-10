@@ -232,9 +232,11 @@
 			modules = [
 				"${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
 				"${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-				{ networking.wireless.enable          = nixpkgs.lib.mkForce false; }
-				{ systemd.timers.autoupdate.wantedBy  = nixpkgs.lib.mkForce [ ]; }
-				({ pkgs, ... }: { boot.kernelPackages = nixpkgs.lib.mkForce pkgs.linuxPackages; })
+				{ networking.wireless.enable                       = nixpkgs.lib.mkForce false; }
+				{ services.openssh.settings.PasswordAuthentication = nixpkgs.lib.mkForce true; }
+				{ services.openssh.settings.PermitRootLogin        = nixpkgs.lib.mkForce "yes"; }
+				{ system.autoUpgrade.enable                        = nixpkgs.lib.mkForce false; }
+				({ pkgs, ... }: { boot.kernelPackages              = nixpkgs.lib.mkForce pkgs.linuxPackages; })
 				./module/Gnome.nix
 				./module/RemoteBuild.nix
 			];
