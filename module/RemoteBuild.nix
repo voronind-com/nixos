@@ -17,6 +17,6 @@
 		builders-use-substitutes = true
 		extra-substituters = ssh-ng://home
 		extra-trusted-substituters = ssh-ng://home
-		extra-trusted-public-keys = nixcache.voronind.com:i9dE2VZI40/LCM/mmUGs8kwal1bQo3xbSjrzxhInmOw=
+		extra-trusted-public-keys = home-1:Skghjixd8lPzNe2ZEgYLM9Pu/wF9wiZtZGsdm3bo9h0=
 	'';
 }
