@@ -17,6 +17,7 @@ in {
 			".editorconfig".source     = ./module/Editorconfig;
 			".parallel/will-cite".text = "";
 			"app/bin".source           = ./module/bin;
+			"media/template".source    = ./module/template;
 		};
 
 		# Directories.
