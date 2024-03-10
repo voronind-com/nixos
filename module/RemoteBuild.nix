@@ -15,5 +15,8 @@
 	nix.distributedBuilds = true;
 	nix.extraOptions = ''
 		builders-use-substitutes = true
+		extra-substituters = ssh-ng://home
+		extra-trusted-substituters = ssh-ng://home
+		extra-trusted-public-keys = home:i9dE2VZI40/LCM/mmUGs8kwal1bQo3xbSjrzxhInmOw=
 	'';
 }
