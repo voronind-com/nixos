@@ -59,7 +59,7 @@ alias tmpshell="nix_tmpshell"
 
 # Build live image.
 function nixos_live() {
-	nix build "${_nix_system_config}#nixosConfigurations.live.config.system.build.isoImage"
+	nix build "${_nix_system_config}#nixosConfigurations.live.config.system.build.isoImage" --refresh
 }
 
 # List nixos generations.
