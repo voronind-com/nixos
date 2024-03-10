@@ -9,10 +9,11 @@ in {
 			[[ -f "${keyPath}/private-key" ]] && exit
 			mkdir ${keyPath} || true
 			nix-store --generate-binary-cache-key "$HOSTNAME-1" "${keyPath}/private-key" "${keyPath}/public-key"
+			nix store sign --all -k "${keyPath}/private-key"
 		'';
 	};
 	# To apply: nix store sign --all -k /path/to/secret-key-file
 	nix.extraOptions = ''
-		secret-key-files = /root/.nixcache/private-key
+		secret-key-files = ${keyPath}/private-key
 	'';
 }
