@@ -2,7 +2,9 @@
 
 This is my own custom config that I use on my GNU/Linux machines. Not meant to be used by anyone else.
 
-For references, go to the [doc directory](src/branch/main/.doc).
+For references, go to the [doc directory](.doc).
+
+[Grab wallpaper (3440x1440)](module/common/wallpaper/Forest.jpg)
 
 # Conventions.
 
