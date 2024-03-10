@@ -237,7 +237,6 @@
 				{ services.openssh.settings.PermitRootLogin        = nixpkgs.lib.mkForce "yes"; }
 				{ system.autoUpgrade.enable                        = nixpkgs.lib.mkForce false; }
 				({ pkgs, ... }: { boot.kernelPackages              = nixpkgs.lib.mkForce pkgs.linuxPackages; })
-				./module/Gnome.nix
 				./module/RemoteBuild.nix
 			];
 		};
