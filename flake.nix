@@ -202,7 +202,6 @@
 				./module/Docker.nix
 				./module/Ftpd.nix
 				./module/Gnome.nix
-				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/RemoteBuilder.nix
 				./user/Voronind.nix
