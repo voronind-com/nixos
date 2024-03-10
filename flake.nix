@@ -261,7 +261,6 @@
 			modules = [
 				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
 				./module/NixOnDroid.nix
-				./module/RemoteBuild.nix
 			];
 			extraSpecialArgs.const  = self.nixosModules.const;
 			extraSpecialArgs.flake  = self;
