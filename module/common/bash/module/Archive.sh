@@ -234,13 +234,23 @@ function unarchive() {
 		# Validate.
 		# _archive_check "${target}" || return 1
 
+		# Remote archives.
+		local remote
+		local file="${target}"
+
+		if [[ "${target//\\:/}" == *:* ]]; then
+			local host="${target%%:*}"
+			file="${target#*:}"
+			remote=("sudo" "ssh" "${host}")
+		fi
+
 		# Extract.
-		case "${target##*.}" in
+		case "${file##*.}" in
 			"txz")
-				pv ${target} | xz -d | tar -xf -
+				${remote[@]} pv ${file} | xz -d | tar -xf -
 				;;
 			"tgz")
-				pv ${target} | gzip -d | tar -xf -
+				${remote[@]} pv ${file} | gzip -d | tar -xf -
 				;;
 		esac
 	}
