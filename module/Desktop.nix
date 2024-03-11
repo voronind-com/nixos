@@ -1,5 +1,6 @@
 { pkgs, ... }: {
 	environment.systemPackages = with pkgs; [
+		adwsteamgtk
 		android-studio
 		blender-hip
 		bottles
