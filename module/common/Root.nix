@@ -1,6 +1,9 @@
 { const, ... }: {
 	users.users.root.hashedPassword = const.hashedPassword;
-	# security.sudo.extraConfig = ''
-	# 	Defaults rootpw
-	# '';
+	security.sudo = {
+		enable = false;
+		extraConfig = ''
+			Defaults rootpw
+		'';
+	};
 }
