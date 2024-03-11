@@ -26,6 +26,7 @@
 		mangohud
 		mpv
 		ncdu
+		networkmanager_strongswan
 		nmap
 		parallel
 		parted
@@ -35,6 +36,8 @@
 		smartmontools
 		sqlite
 		steam-run
+		strongswan
+		strongswanNM
 		testdisk
 		tree
 		universal-android-debloater
