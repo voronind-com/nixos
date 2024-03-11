@@ -224,7 +224,8 @@ function archive_name() {
 }
 
 # Extract previously created archive with checksum validation.
-# Usage: unarchive [FILES]
+# Supports unarchiving exact paths from the remote machines (rsync syntax).
+# Usage: unarchive [HOST:FILES]
 function unarchive() {
 	local IFS=$'\n'
 	local targets=(${@})
@@ -247,10 +248,10 @@ function unarchive() {
 		# Extract.
 		case "${file##*.}" in
 			"txz")
-				${remote[@]} pv ${file} | xz -d | tar -xf -
+				${remote[@]} "pv -f" ${file} | xz -d | tar -xf -
 				;;
 			"tgz")
-				${remote[@]} pv ${file} | gzip -d | tar -xf -
+				${remote[@]} "pv -f" ${file} | gzip -d | tar -xf -
 				;;
 		esac
 	}
