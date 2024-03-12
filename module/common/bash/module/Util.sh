@@ -69,7 +69,7 @@ function _iterate_targets() {
 function _iterate_skip() {
 	((skipped++))
 
-	[[ "${*}" = "" ]] || echo -e "${color_byellow}${*}${color_default}"
+	[[ "${*}" != "" ]] && echo -e "${color_byellow}${*}${color_default}"
 }
 
 # Report an error.

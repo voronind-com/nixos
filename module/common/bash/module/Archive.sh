@@ -234,6 +234,10 @@ function unarchive() {
 	process() {
 		# Validate.
 		# _archive_check "${target}" || return 1
+		if ! _is_archive "${target}"; then
+			_iterate_skip "Not an archive."
+			return 0
+		fi
 
 		# Remote archives.
 		local remote
