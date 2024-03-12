@@ -246,16 +246,16 @@ function unarchive() {
 		if [[ "${target//\\:/}" == *:* ]]; then
 			local host="${target%%:*}"
 			file="${target#*:}"
-			remote=("sudo" "ssh" "${host}")
+			remote=(sudo ssh ${host})
 		fi
 
 		# Extract.
 		case "${file##*.}" in
 			"txz")
-				${remote[@]} "pv -f" ${file} | xz -d | tar -xf -
+				${remote[@]} pv -f ${file} | xz -d | tar -xf -
 				;;
 			"tgz")
-				${remote[@]} "pv -f" ${file} | gzip -d | tar -xf -
+				${remote[@]} pv -f ${file} | gzip -d | tar -xf -
 				;;
 		esac
 	}
