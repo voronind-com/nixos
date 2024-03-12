@@ -56,11 +56,11 @@ cd -
 
 # Prune media copies.
 cd ${path_backup}/paper/
-archive_prune
+archive_prune Paper 7
 cd -
 
 cd ${path_backup}/cold/
-archive_prune
+archive_prune ColdMediaTxt 30
 cd -
 
 # Prune old Docker copies.
