@@ -8,7 +8,7 @@ function s() {
 # Run something as root. Runs command as a current user if su is not available.
 # Usage: sudo <COMMAND>
 function sudo() {
-	if command -v su; then
+	if command -v su &> /dev/null; then
 		su -c "$(echo ${*} | tr '\n' ' ')"
 	else
 		${*}
