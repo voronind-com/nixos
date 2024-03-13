@@ -5,10 +5,15 @@ function s() {
 	su - ${1}
 }
 
-# Run something as root.
+# Run something as root. Runs command as a current user if su is not available.
 # Usage: sudo <COMMAND>
 function sudo() {
-	su -c "$(echo ${*} | tr '\n' ' ')"
+	if command -v su; then
+		su -c "$(echo ${*} | tr '\n' ' ')"
+	else
+		${*}
+	fi
+
 }
 
 function _complete_s() {
