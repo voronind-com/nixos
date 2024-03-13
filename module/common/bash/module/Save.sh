@@ -12,7 +12,7 @@ function save() {
 	done
 
 	_info "Uploading..."
-	try rcp "${files[@]}" home:/storage/cold_1/backup/save/
+	try sudo rcp "${files[@]}" home:/storage/cold_1/backup/save/
 
 	_info "Cleaning..."
 	archive_prune 2> /dev/null
