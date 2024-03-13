@@ -387,7 +387,7 @@ function _archive_check() {
 	[[ "${actual}" = "${saved}" ]]
 }
 
-complete -o filenames -F _comp_archive_grep        archive_check unarchive archive_rm archive_touch
-complete -o filenames -F _comp_archive_grep_fast   archive_xz
+# complete -o filenames -F _comp_archive_grep        archive_check unarchive archive_rm archive_touch
+# complete -o filenames -F _comp_archive_grep_fast   archive_xz
 complete -o filenames -F _comp_archive_name        archive_name
 complete -o filenames -F _comp_archive_names       archive_prune
