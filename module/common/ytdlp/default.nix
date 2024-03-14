@@ -6,6 +6,7 @@ in stdenv.mkDerivation {
 
 	dontUnpack = true;
 
+	# https://github.com/yt-dlp/yt-dlp
 	src = fetchurl {
 		url    = "https://github.com/yt-dlp/yt-dlp/releases/download/${version}/yt-dlp_linux";
 		sha256 = "${hash}";
