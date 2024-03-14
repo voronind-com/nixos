@@ -45,7 +45,7 @@
 		wget
 		wine64 dxvk vkd3d
 		wl-clipboard
-		yt-dlp
+		# yt-dlp
 		zip unzip
 	];
 

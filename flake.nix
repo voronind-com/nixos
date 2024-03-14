@@ -133,6 +133,7 @@
 			./module/common/Tmux.nix
 			./module/common/Users.nix
 			./module/common/Wallpaper.nix
+			./module/common/YtDlp.nix
 		];
 
 		# Function to create a host.
