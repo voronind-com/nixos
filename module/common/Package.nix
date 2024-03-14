@@ -1,5 +1,6 @@
 { pkgs, ... }: {
 	environment.systemPackages = with pkgs; [
+		# yt-dlp
 		appimage-run
 		binwalk
 		btop
@@ -12,6 +13,7 @@
 		file
 		gamescope
 		gcc
+		gdu
 		gnome.gnome-tweaks
 		gnumake
 		gnused
@@ -25,7 +27,6 @@
 		ltex-ls
 		mangohud
 		mpv
-		ncdu
 		networkmanager_strongswan
 		nmap
 		parallel
@@ -45,7 +46,6 @@
 		wget
 		wine64 dxvk vkd3d
 		wl-clipboard
-		# yt-dlp
 		zip unzip
 	];
 

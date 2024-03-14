@@ -47,6 +47,7 @@ in {
 		ffmpeg
 		file
 		findutils
+		gdu
 		git
 		gnugrep
 		gnumake
@@ -58,7 +59,6 @@ in {
 		jq
 		lsof
 		man
-		ncdu
 		nmap
 		openssh
 		parallel
