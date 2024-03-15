@@ -27,6 +27,7 @@
 		ltex-ls
 		mangohud
 		mpv
+		neofetch
 		networkmanager_strongswan
 		nmap
 		parallel

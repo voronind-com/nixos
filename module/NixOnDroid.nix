@@ -59,6 +59,7 @@ in {
 		jq
 		lsof
 		man
+		neofetch
 		nmap
 		openssh
 		parallel
