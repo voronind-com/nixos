@@ -7,7 +7,7 @@ function nixos_rebuild() {
 	local target="${1}"
 	[[ "${target}" = "" ]] && target="${HOSTNAME}"
 
-	nixos-rebuild boot --flake "${_nix_system_config}#${target}" --refresh
+	nixos-rebuild boot --flake "${_nix_system_config}#${target}" --refresh ${@}
 }
 
 # Rebuild and switch system.
@@ -17,7 +17,7 @@ function nixos_switch() {
 	local target="${1}"
 	[[ "${target}" = "" ]] && target="${HOSTNAME}"
 
-	nixos-rebuild switch --flake "${_nix_system_config}#${target}" --refresh
+	nixos-rebuild switch --flake "${_nix_system_config}#${target}" --refresh ${@}
 }
 
 # Spawn shell with specified nix environment.
@@ -59,7 +59,7 @@ alias tmpshell="nix_tmpshell"
 
 # Build live image.
 function nixos_live() {
-	nix build "${_nix_system_config}#nixosConfigurations.live.config.system.build.isoImage" --refresh
+	nix build "${_nix_system_config}#nixosConfigurations.live.config.system.build.isoImage" --refresh ${@}
 }
 
 # List nixos generations.
@@ -69,7 +69,7 @@ function nixos_generations() {
 
 # Switch nix-on-droid.
 function nixdroid_switch() {
-	nix-on-droid switch --flake "${_nix_system_config}"
+	nix-on-droid switch --flake "${_nix_system_config}" ${@}
 }
 
 # Autocomplete with available hosts.
