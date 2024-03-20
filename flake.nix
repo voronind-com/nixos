@@ -174,6 +174,7 @@
 			hostname = "desktop";
 			system   = "x86_64-linux";
 			modules = [
+				./module/AmdCompute.nix
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
 				./module/Desktop.nix
