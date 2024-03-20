@@ -281,7 +281,7 @@ in {
 
 				"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
 					binding = "<Super>Escape";
-					command = "kgx";
+					command = "kgx -e bash -c 'tmux new-session -A -s main; bash'";
 					name    = "gnome-terminal";
 				};
 
