@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ -z ${BASH_PATH} ]]; then
-	echo "BASH_PATH not defined."
-	exit 1
-fi
-
 # Source modules.
-for file in ${BASH_PATH}/module/*.sh; do
+for file in /etc/bash/module/*.sh; do
 	source "${file}"
 done
 
