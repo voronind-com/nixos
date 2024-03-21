@@ -72,9 +72,7 @@ in {
 
 				"org/gnome/desktop/background" = {
 					color-shading-type = "solid";
-					picture-options    = "zoom";
-					picture-uri        = "file:///etc/wallpaper/Forest.jpg";
-					picture-uri-dark   = "file:///etc/wallpaper/Forest.jpg";
+					picture-options    = "none";
 					primary-color      = "#000000000000";
 					secondary-color    = "#000000000000";
 				};

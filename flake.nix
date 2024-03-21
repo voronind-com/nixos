@@ -131,7 +131,6 @@
 			./module/common/Swap.nix
 			./module/common/Tmux.nix
 			./module/common/Users.nix
-			./module/common/Wallpaper.nix
 			./module/common/YtDlp.nix
 			./user/Root.nix
 		];
