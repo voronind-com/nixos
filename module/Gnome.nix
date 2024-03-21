@@ -212,7 +212,7 @@ in {
 				"org/gnome/desktop/wm/preferences" = {
 					action-middle-click-titlebar = "minimize";
 					action-right-click-titlebar  = "menu";
-					focus-mode    = "sloppy"; # `click` or `sloppy`.
+					focus-mode    = "click"; # `click` or `sloppy`.
 					button-layout = "appmenu:close";
 					titlebar-font = "SF Pro Display 11";
 				};
