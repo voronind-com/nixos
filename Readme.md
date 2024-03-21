@@ -5,7 +5,6 @@ This is my own custom config that I use on my GNU/Linux machines. Not meant to b
 # ✂️ Shortcuts.
 
 [📖 Documentation](.doc).  
-[🌉 Wallpaper (3440x1440)](module/common/wallpaper/Forest.jpg).  
 
 [Bash config](module/common/bash/).  
 [Neovim config](module/common/nvim/).  
