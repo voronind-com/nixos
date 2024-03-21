@@ -1,10 +1,12 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
 	imports = [
 		./Tablet.nix
 	];
 
-	# Disable flatpak install.
-	systemd.services.flatpakinstall.wantedBy = lib.mkForce [ ];
+	environment.systemPackages = with pkgs; [
+		networkmanager-l2tp
+		gnome.networkmanager-l2tp
+	];
 
 	# Filesystems.
 	fileSystems."/storage/hot" = {
