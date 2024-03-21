@@ -2,8 +2,8 @@
 	imports = [
 		(import ./Default.nix {
 			const    = const;
-			username = "voronind";
-			homeDir  = "/home/voronind";
+			username = "root";
+			homeDir  = "/root";
 		})
 	];
 }

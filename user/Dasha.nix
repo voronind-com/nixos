@@ -1,4 +1,7 @@
 { pkgs, lib, ... }: {
+	imports = [
+		./home/Dasha.nix
+	];
 	users.users.dasha = {
 		hashedPassword = "$y$j9T$WGMPv/bRhGBUidcZLZ7CE/$raZhwFFdI/XvegVZVHLILJLMiBkOxSErc6gao/Cxt33"; # Use `mkpasswd`.
 		uid            = 1001;

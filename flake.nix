@@ -127,7 +127,6 @@
 			./module/common/Nix.nix
 			./module/common/Nvim.nix
 			./module/common/Package.nix
-			./module/common/Root.nix
 			./module/common/Ssh.nix
 			./module/common/Sshd.nix
 			./module/common/Swap.nix
@@ -135,6 +134,7 @@
 			./module/common/Users.nix
 			./module/common/Wallpaper.nix
 			./module/common/YtDlp.nix
+			./user/Root.nix
 		];
 
 		# Function to create a host.
