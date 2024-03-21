@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1709988192,
-        "narHash": "sha256-qxwIkl85P0I1/EyTT+NJwzbXdOv86vgZxcv4UKicjK8=",
+        "lastModified": 1710974515,
+        "narHash": "sha256-jZpdsypecYTOO9l12Vy77otGmh9uz8tGzcguifA30Vs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b0b0c3d94345050a7f86d1ebc6c56eea4389d030",
+        "rev": "1c2acec99933f9835cc7ad47e35303de92d923a4",
         "type": "github"
       },
       "original": {
@@ -72,11 +72,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1709703039,
-        "narHash": "sha256-6hqgQ8OK6gsMu1VtcGKBxKQInRLHtzulDo9Z5jxHEFY=",
+        "lastModified": 1710806803,
+        "narHash": "sha256-qrxvLS888pNJFwJdK+hf1wpRCSQcqA6W5+Ox202NDa0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9df3e30ce24fd28c7b3e2de0d986769db5d6225d",
+        "rev": "b06025f1533a1e07b6db3e75151caa155d1c7eb3",
         "type": "github"
       },
       "original": {
@@ -217,11 +217,11 @@
     "nvimDevicons": {
       "flake": false,
       "locked": {
-        "lastModified": 1709357380,
-        "narHash": "sha256-XYE+LI9meFwI5VX/dVOm23DywZo2RPkvRj1YUQGJoUo=",
+        "lastModified": 1710551591,
+        "narHash": "sha256-3AKsnCvNiQloFfgFKsAHTga0rEEfL8TGmN0BEeO0EQ0=",
         "ref": "refs/heads/master",
-        "rev": "4adea17610d140a99c313e3f79a9dc01825d59ae",
-        "revCount": 245,
+        "rev": "cb0c967c9723a76ccb1be0cc3a9a10e577d2f6ec",
+        "revCount": 249,
         "type": "git",
         "url": "https://git.voronind.com/mirror/nvim-web-devicons.git"
       },
@@ -233,11 +233,11 @@
     "nvimGitsigns": {
       "flake": false,
       "locked": {
-        "lastModified": 1706372432,
-        "narHash": "sha256-SLDaqzbvBTTuJEP9H2WOADuxsguMntR+upsGPW8aOEk=",
+        "lastModified": 1710707879,
+        "narHash": "sha256-Hde3mGfqPYd8U5JExTei+TBHo2DHl+i07+1yEHQj6sw=",
         "ref": "refs/heads/main",
-        "rev": "2c2463dbd82eddd7dbab881c3a62cfbfbe3c67ae",
-        "revCount": 818,
+        "rev": "078041e9d060a386b0c9d3a8c7a7b019a35d3fb0",
+        "revCount": 821,
         "type": "git",
         "url": "https://git.voronind.com/mirror/gitsigns.nvim.git"
       },
@@ -281,11 +281,11 @@
     "nvimLspconfig": {
       "flake": false,
       "locked": {
-        "lastModified": 1709879366,
-        "narHash": "sha256-sRu8LtKcxqjKpCdYUeHAvL48i6eaC9SKzxF+XlqIJsY=",
+        "lastModified": 1710924139,
+        "narHash": "sha256-wW6vmaCLBpiLtk87UXzppIP2WRzG/gdtsIcPPCnwucM=",
         "ref": "refs/heads/master",
-        "rev": "94cf4adb81158817520e18d2174963d8e1424df9",
-        "revCount": 2803,
+        "rev": "d67715d3b746a19e951b6b0a99663fa909bb9e64",
+        "revCount": 2828,
         "type": "git",
         "url": "https://git.voronind.com/mirror/nvim-lspconfig.git"
       },
@@ -297,11 +297,11 @@
     "nvimLualine": {
       "flake": false,
       "locked": {
-        "lastModified": 1709556301,
-        "narHash": "sha256-G4npmdS7vue68h5QN8vWx3Oh5FHdvmzFHGxqMIRC+Mk=",
+        "lastModified": 1710998293,
+        "narHash": "sha256-+2fi58GolO3e0O7+kl+idNeFuTfJA1b5yCBdY2RnVjA=",
         "ref": "refs/heads/master",
-        "rev": "8b56462bfb746760465264de41b4907310f113ec",
-        "revCount": 681,
+        "rev": "b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67",
+        "revCount": 687,
         "type": "git",
         "url": "https://git.voronind.com/mirror/lualine.nvim.git"
       },
@@ -361,11 +361,11 @@
     "nvimTelescope": {
       "flake": false,
       "locked": {
-        "lastModified": 1709849420,
-        "narHash": "sha256-i+pGEMw8MQnFse5WGZdX9MMjEoR4H4rzHswCaT/zoso=",
+        "lastModified": 1710983957,
+        "narHash": "sha256-7dNteBl4vCkJCSM9xVO3YwyyGI1A5x2ksFHQlP8wamE=",
         "ref": "refs/heads/master",
-        "rev": "7472420f8734c710bd7009081cef9b97f08a3821",
-        "revCount": 1351,
+        "rev": "221778e93bfaa58bce4be4e055ed2edecc26f799",
+        "revCount": 1362,
         "type": "git",
         "url": "https://git.voronind.com/mirror/telescope.nvim.git"
       },
@@ -393,11 +393,11 @@
     "nvimTokyonight": {
       "flake": false,
       "locked": {
-        "lastModified": 1706697570,
-        "narHash": "sha256-mzCdcf7FINhhVLUIPv/eLohm4qMG9ndRJ5H4sFU2vO0=",
+        "lastModified": 1710964283,
+        "narHash": "sha256-p99mx8XJpHbQmJwd8y8Savgf+bHQA9Yrbk92821Cq7w=",
         "ref": "refs/heads/main",
-        "rev": "610179f7f12db3d08540b6cc61434db2eaecbcff",
-        "revCount": 571,
+        "rev": "fbe3a27378fdd51a8ddd04f57012455436916a62",
+        "revCount": 577,
         "type": "git",
         "url": "https://git.voronind.com/mirror/tokyonight.nvim.git"
       },
@@ -409,11 +409,11 @@
     "nvimTree": {
       "flake": false,
       "locked": {
-        "lastModified": 1709429117,
-        "narHash": "sha256-wDzRQDGvrCL6Dtyj7DrTFn82mneK/DOhHYkG3aLWASs=",
+        "lastModified": 1710552913,
+        "narHash": "sha256-ss+MGbHAPf4Ho2v2AzLEECPiSQPBPsvLTZnDSuhitSU=",
         "ref": "refs/heads/master",
-        "rev": "efafd73efa9bc8c26282aed563ba0f01c7465b06",
-        "revCount": 1444,
+        "rev": "f7c09bd72e50e1795bd3afb9e2a2b157b4bfb3c3",
+        "revCount": 1454,
         "type": "git",
         "url": "https://git.voronind.com/mirror/nvim-tree.lua.git"
       },
@@ -425,11 +425,11 @@
     "nvimTreesitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1709898757,
-        "narHash": "sha256-1Q9tVgRKuTkRIh7FfQruOayIQm6QPSjqlcEC+0ZVaak=",
+        "lastModified": 1711032686,
+        "narHash": "sha256-jkZ8NuCUjUqHmpr8v1g/dbPDBTO6WRWmEhEJHY9HZWM=",
         "ref": "refs/heads/master",
-        "rev": "57205313dda0ac82ac69e21d5e2a80f3297c14cc",
-        "revCount": 4940,
+        "rev": "722617e6726c1508adadf83d531f54987c703be0",
+        "revCount": 4983,
         "type": "git",
         "url": "https://git.voronind.com/mirror/nvim-treesitter.git"
       },
