@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-music="/storage/hot/media/music/"
-
-docker run --rm -v "${music}":/music voronind.com/yamusic:latest
