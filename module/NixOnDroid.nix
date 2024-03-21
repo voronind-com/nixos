@@ -10,6 +10,8 @@ in {
 		};
 		home.sessionVariables = {
 			BASH_PATH          = "${homePath}/.bash";
+			EDITOR             = "nvim";
+			MANPAGER           = "nvim +Man!";
 			NIX_CURRENT_SYSTEM = "${pkgs.stdenv.system}";
 			TERM               = "xterm-256color";
 		};

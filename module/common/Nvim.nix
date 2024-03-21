@@ -8,7 +8,13 @@
 		) "" cfgs;
 	in runtimeRc + cfgRc;
 in {
-	environment.etc.nvim.source = ./nvim;
+	environment = {
+		etc.nvim.source = ./nvim;
+		variables = {
+			EDITOR   = "nvim";
+			MANPAGER = "nvim +Man!";
+		};
+	};
 	programs.neovim = {
 		enable   = true;
 		viAlias  = true;

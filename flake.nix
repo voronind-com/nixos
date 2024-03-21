@@ -113,7 +113,6 @@
 			./module/common/Bootloader.nix
 			./module/common/Distrobox.nix
 			./module/common/Dotfiles.nix
-			./module/common/Environment.nix
 			./module/common/Filesystem.nix
 			./module/common/Firefox.nix
 			./module/common/Firewall.nix

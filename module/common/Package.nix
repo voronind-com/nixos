@@ -25,7 +25,6 @@
 		lshw
 		lsof
 		ltex-ls
-		mangohud
 		mpv
 		neofetch
 		networkmanager_strongswan
