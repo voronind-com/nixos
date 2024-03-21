@@ -33,14 +33,14 @@
 		variables = {
 			# MangoHud.
 			MANGOHUD = "1";
-			MANGOHUD_CONFIGFILE  = "/etc/mangohud/MangoHud.conf";
-			MANGOHUD_PRESETSFILE = "/etc/mangohud/MangoPresets.conf";
+			MANGOHUD_CONFIGFILE  = ./mangohud/MangoHud.conf;
+			MANGOHUD_PRESETSFILE = ./mangohud/MangoPresets.conf;
 
 			# Proton.
 			WINEFSYNC = "1";
 		};
 
-		etc.mangohud.source = ./mangohud;
+		# etc.mangohud.source = ./mangohud;
 	};
 
 	# Special packages.
