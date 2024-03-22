@@ -49,6 +49,7 @@ in {
 		ffmpeg
 		file
 		findutils
+		gawk
 		gdu
 		git
 		gnugrep
