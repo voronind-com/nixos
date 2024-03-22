@@ -22,7 +22,7 @@ function archive() {
 		[[ -f "${target}/.archiveignore" ]] && exclude="--exclude-from=${target}/.archiveignore"
 
 		# create archive.
-		local hash=$(tar ${exclude} -c ${target} | pv -s $(/usr/bin/env du -sb ${target} | awk '{print $1}') | xz -9e | tee ${name}.txz | sha1sum | cut -d\  -f1)
+		local hash=$(tar ${exclude} -c ${target} | pv -s $(/usr/bin/env du -sb ${target} | awk '{print $1}') | xz -9e --threads=1 | tee ${name}.txz | sha1sum | cut -d\  -f1)
 
 		# append hash to target name.
 		local new_name="${name}_${date}-${hash}.txz"
@@ -176,7 +176,7 @@ function archive_xz() {
 		_archive_check "${target}" || return 1
 
 		# Recompress.
-		local hash=$(pv "${target}" | gzip -d | xz -9e | tee "${tmp}" | sha1sum | cut -d\  -f1)
+		local hash=$(pv "${target}" | gzip -d | xz -9e --threads=1 | tee "${tmp}" | sha1sum | cut -d\  -f1)
 
 		# Rename.
 		local new_name="${data[0]}_${data[1]}-${hash}.txz"
