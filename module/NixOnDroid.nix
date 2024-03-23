@@ -5,11 +5,10 @@ in {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
 			".dotfiles".source   = inputs.self;
-			".bash".source       = ./common/bash;
 			".ssh/config".source = ./common/ssh/config;
 		};
 		home.sessionVariables = {
-			BASH_PATH          = "${homePath}/.bash";
+			BASH_PATH          = ./common/bash;
 			EDITOR             = "nvim";
 			MANPAGER           = "nvim +Man!";
 			NIX_CURRENT_SYSTEM = "${pkgs.stdenv.system}";
@@ -17,7 +16,7 @@ in {
 		};
 		programs.bash = {
 			enable      = true;
-			bashrcExtra = "source ${homePath}/.bash/Bashrc.sh";
+			bashrcExtra = "source $BASH_PATH/Bashrc.sh";
 		};
 		programs.tmux = {
 			enable      = true;
@@ -37,6 +36,7 @@ in {
 			enable   = true;
 			viAlias  = true;
 			vimAlias = true;
+			extraConfig = (import ./common/Nvim.nix { inputs = inputs; }).customRc;
 		};
 	};
 
