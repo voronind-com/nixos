@@ -14,20 +14,16 @@
 	environment = {
 		systemPackages = with pkgs; [
 			adwsteamgtk
-			android-studio
+			android-studio jetbrains.idea-community
 			blender-hip
-			bottles
-			dxvk
-			gamescope
+			bottles dxvk gamescope mangohud vkd3d wine64
 			gimp
+			godot gdtoolkit
 			gradience
 			jellyfin
-			jetbrains.idea-community
-			mangohud
 			obs-studio
 			onlyoffice-bin
 			tor-browser
-			vkd3d
 		];
 
 		variables = {
@@ -39,8 +35,6 @@
 			# Proton.
 			WINEFSYNC = "1";
 		};
-
-		# etc.mangohud.source = ./mangohud;
 	};
 
 	# Special packages.

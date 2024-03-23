@@ -44,7 +44,6 @@
 		universal-android-debloater
 		ventoy
 		wget
-		wine64 dxvk vkd3d
 		wl-clipboard
 		zip unzip
 	];
