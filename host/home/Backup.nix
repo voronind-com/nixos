@@ -4,7 +4,7 @@
 		description = "Home system backup.";
 		serviceConfig = {
 			Type      = "oneshot";
-			ExecStart = "/etc/bin/Backup";
+			ExecStart = ./bin/Backup;
 		};
 		path = with pkgs; [
 			bashInteractive

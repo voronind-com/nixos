@@ -1,5 +1,4 @@
 { ... }: {
-	environment.etc.docker.source       = ./docker;
-	environment.variables.DOCKER_CONFIG = "/etc/docker";
+	environment.variables.DOCKER_CONFIG = ./docker;
 	virtualisation.docker.enable        = true;
 }

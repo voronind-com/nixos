@@ -9,7 +9,6 @@
 	in runtimeRc + cfgRc;
 in {
 	environment = {
-		etc.nvim.source = ./nvim;
 		variables = {
 			EDITOR   = "nvim";
 			MANPAGER = "nvim +Man!";
@@ -21,7 +20,7 @@ in {
 		vimAlias = true;
 		configure = {
 			customRC = nvimRc {
-				cfgPath = "/etc/nvim";
+				cfgPath = ./nvim;
 				runtimes = [
 					"~/.cache/nvim"
 					"~/.cache/nvim/treesitter"

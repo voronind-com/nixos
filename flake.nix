@@ -118,7 +118,6 @@
 			./module/common/Firewall.nix
 			./module/common/Font.nix
 			./module/common/Git.nix
-			./module/common/Gtk.nix
 			./module/common/Kernel.nix
 			./module/common/Ld.nix
 			./module/common/Locale.nix

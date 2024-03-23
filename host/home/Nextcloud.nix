@@ -4,7 +4,7 @@
 		description = "Nextcloud worker.";
 		serviceConfig = {
 			Type      = "oneshot";
-			ExecStart = "/etc/bin/Nextcloud";
+			ExecStart = ./bin/Nextcloud;
 		};
 		path = with pkgs; [
 			bashInteractive

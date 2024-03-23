@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }: {
 	imports = [
 		./Backup.nix
-		./GnomeRdp.nix
 		./Nextcloud.nix
 		./PhotosProcess.nix
 		./YandexMusic.nix
@@ -16,11 +15,7 @@
 		10.1.0.2 git.voronind.com
 		10.1.0.2 iot.voronind.com
 		10.1.0.2 pass.voronind.com
-		10.1.0.2 nixcache.voronind.com
 	'';
-
-	# Extra binaries.
-	environment.etc.bin.source = ./bin;
 
 	# Filesystems.
 	fileSystems."/storage/cold_1" = {

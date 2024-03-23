@@ -4,7 +4,7 @@
 		description = "Process uploaded photos.";
 		serviceConfig = {
 			Type      = "oneshot";
-			ExecStart = "/etc/bin/PhotosProcess";
+			ExecStart = ./bin/PhotosProcess;
 		};
 		path = with pkgs; [
 			bashInteractive

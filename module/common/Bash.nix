@@ -1,9 +1,8 @@
 { lib, ... }: {
-	programs.bash.interactiveShellInit = "source /etc/bash/Bashrc.sh";
-	environment.etc.bash.source = ./bash;
-	environment.shellAliases    = lib.mkForce {};
+	programs.bash.interactiveShellInit = "source $BASH_PATH/Bashrc.sh";
+	environment.shellAliases = lib.mkForce {};
 	environment.variables = {
-		BASH_PATH = "/etc/bash";
+		BASH_PATH = ./bash;
 		TERM      = "xterm-256color";
 	};
 }
