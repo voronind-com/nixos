@@ -1,33 +1,25 @@
 { pkgs, ... }: {
 	environment.systemPackages = with pkgs; [
-		# yt-dlp
-		appimage-run
 		binwalk
 		btop
-		calibre
 		coreutils
 		cryptsetup
 		curl
-		ddrescue
+		ddrescue testdisk
 		ffmpeg
 		file
-		gamescope
 		gcc
 		gdu
-		gnome.gnome-tweaks
 		gnumake
 		gnused
 		imagemagick
 		jdk jdk11 jdk19 jdk20
-		jellyfin-media-player
 		jq
 		lm_sensors
 		lshw
 		lsof
 		ltex-ls
-		mpv
 		neofetch
-		networkmanager_strongswan
 		nmap
 		parallel
 		parted
@@ -36,15 +28,10 @@
 		scanmem
 		smartmontools
 		sqlite
-		steam-run
-		strongswan
-		strongswanNM
-		testdisk
 		tree
 		universal-android-debloater
 		ventoy
 		wget
-		wl-clipboard
 		zip unzip
 	];
 

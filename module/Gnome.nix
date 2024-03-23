@@ -18,6 +18,12 @@ in {
 		"text/*"  = "nvim.desktop";
 	};
 
+	# Extra apps.
+	environment.systemPackages = with pkgs; [
+		gnome.gnome-tweaks
+		wl-clipboard
+	];
+
 	# Disable some apps.
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.gnome.excludePackages = with pkgs.gnome; [
