@@ -36,7 +36,7 @@ in {
 			enable   = true;
 			viAlias  = true;
 			vimAlias = true;
-			# extraConfig = (import ./common/Nvim.nix { inputs = inputs; }).customRc;
+			extraConfig = (import ./common/nvim/Init.nix { inputs = inputs; }).customRc;
 		};
 	};
 
