@@ -20,7 +20,7 @@
 			bottles dxvk gamescope mangohud vkd3d wine64
 			calibre
 			gimp
-			godot gdtoolkit
+			godot_4 gdtoolkit
 			gradience
 			jellyfin-media-player
 			mpv

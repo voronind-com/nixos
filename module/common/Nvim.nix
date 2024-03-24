@@ -1,4 +1,4 @@
-{ inputs, ... }: let
+{ inputs, lib, ... }: let
 	nvimRc = { cfgPath, runtimes, cfgs }: let
 		runtimeRc = builtins.foldl' (acc: r:
 			acc + "set runtimepath+=${r}\n"
@@ -81,8 +81,6 @@
 		];
 	};
 in {
-	inherit customRc;
-
 	environment = {
 		variables = {
 			EDITOR   = "nvim";
