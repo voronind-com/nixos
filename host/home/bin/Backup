@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source modules.
-for file in /etc/bash/module/*.sh; do
+for file in ${BASH_PATH}/module/*.sh; do
 	source "${file}"
 done
 

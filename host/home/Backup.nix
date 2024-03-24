@@ -14,6 +14,9 @@
 			gawk
 			pv
 		];
+		environment = {
+			BASH_PATH = ../../module/common/bash;
+		};
 		# wantedBy = [ "multi-user.target" ];
 	};
 
