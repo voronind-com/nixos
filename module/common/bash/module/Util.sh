@@ -47,19 +47,19 @@ function _iterate_targets() {
 		fi
 
 		# Add newline if not the last one.
-		[[ "${count}" = "${total}" ]] || echo
+		[[ "${count}" = "${total}" ]] || _info
 	done
 
 	# Show skipped.
 	if [[ ${skipped} != 0 ]]; then
-		echo
-		echo -e "${color_byellow}Skipped: ${skipped}.${color_default}"
+		_warn
+		_warn "${color_byellow}Skipped: ${skipped}.${color_default}"
 	fi
 
 	# Show error.
 	if [[ ${failed} != 0 ]]; then
-		[[ "${skipped}" = 0 ]] && echo
-		echo -e "${color_bred}Failed: ${failed}.${color_default}"
+		[[ "${skipped}" = 0 ]] && _error
+		_error "${color_bred}Failed: ${failed}.${color_default}"
 		false
 	fi
 }
@@ -69,7 +69,7 @@ function _iterate_targets() {
 function _iterate_skip() {
 	((skipped++))
 
-	[[ "${*}" != "" ]] && echo -e "${color_byellow}${*}${color_default}"
+	[[ "${*}" != "" ]] && _warn "${color_byellow}${*}${color_default}"
 }
 
 # Report an error.
