@@ -1,6 +1,46 @@
 { pkgs, inputs, const, ... }: let
 	homePath = "/data/data/com.termux.nix/files/home";
 in {
+	# NOTE: Split into modules?
+	environment.packages = with pkgs; [
+		android-tools
+		binwalk
+		coreutils
+		curl
+		diffutils
+		ffmpeg
+		file
+		findutils
+		gawk
+		gcc
+		gdu
+		git
+		gnugrep
+		gnumake
+		gnused
+		gnutar
+		gzip
+		hostname
+		imagemagick
+		jq
+		lsof
+		man
+		neofetch
+		nmap
+		openssh
+		parallel
+		pv
+		rsync
+		sqlite
+		tmux
+		tree
+		utillinux
+		wget
+		xz
+		yt-dlp
+		zip unzip
+	];
+
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
@@ -39,42 +79,4 @@ in {
 			extraConfig = (import ./common/nvim/Init.nix { inputs = inputs; }).customRc;
 		};
 	};
-
-	environment.packages = with pkgs; [
-		android-tools
-		binwalk
-		coreutils
-		curl
-		diffutils
-		ffmpeg
-		file
-		findutils
-		gawk
-		gdu
-		git
-		gnugrep
-		gnumake
-		gnused
-		gnutar
-		gzip
-		hostname
-		imagemagick
-		jq
-		lsof
-		man
-		neofetch
-		nmap
-		openssh
-		parallel
-		pv
-		rsync
-		sqlite
-		tmux
-		tree
-		utillinux
-		wget
-		xz
-		yt-dlp
-		zip unzip
-	];
 }
