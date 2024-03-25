@@ -1,4 +1,6 @@
 { const, username, homeDir, ... }: {
+	home-manager.backupFileExtension = "old";
+
 	home-manager.users.${username} = {
 		programs.home-manager.enable = true;
 		home.username      = username;
@@ -29,7 +31,6 @@
 			templates   = "${homeDir}/media/template/";
 			videos      = "${homeDir}/media/video/";
 			extraConfig = {
-				XDG_APP_DIR = "${homeDir}/app/";
 				XDG_TMP_DIR = "${homeDir}/tmp/";
 			};
 		};
