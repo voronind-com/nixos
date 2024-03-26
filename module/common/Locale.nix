@@ -1,5 +1,5 @@
-{ ... }: {
-	time.timeZone      = "Europe/Moscow";
+{ const, ... }: {
+	time.timeZone      = const.timeZone;
 	i18n.defaultLocale = "en_US.UTF-8";
 	i18n.extraLocaleSettings = {
 		LC_ADDRESS        = "ru_RU.UTF-8";

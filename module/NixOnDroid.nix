@@ -42,7 +42,7 @@ in {
 		zip unzip
 	];
 
-	time.timeZone = "Europe/Moscow";
+	time.timeZone = const.timeZone;
 	nix.extraOptions = ''
 		experimental-features = nix-command flakes
 	'';

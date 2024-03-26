@@ -104,6 +104,7 @@
 			hashedPassword = "$y$j9T$oqCB16i5E2t1t/HAWaFd5.$tTaHtAcifXaDVpTcRv.yH2/eWKxKE9xM8KcqXHfHrD7"; # Use `mkpasswd`.
 			droidStateVersion = "22.11";
 			stateVersion      = "23.11";
+			timeZone = "Europe/Moscow";
 		};
 
 		# Common modules used across all hosts.
