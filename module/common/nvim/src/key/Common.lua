@@ -20,7 +20,7 @@ function toggle_tab_width()
 	end
 end
 
-rekey_normal("<Leader>'", "<cmd>lua toggle_tab_width()<cr>")
+rekey_normal("<Leader><Tab>", "<cmd>lua toggle_tab_width()<cr>")
 
 -- Repeat previous command.
 rekey_normal("<Leader>.", "@:")
