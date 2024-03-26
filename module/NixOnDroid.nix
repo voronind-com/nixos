@@ -30,6 +30,7 @@ in {
 		openssh
 		parallel
 		pv
+		ripgrep
 		rsync
 		sqlite
 		tmux
@@ -41,6 +42,10 @@ in {
 		zip unzip
 	];
 
+	nix.extraOptions = ''
+		experimental-features = nix-command flakes
+	'';
+
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
@@ -51,11 +56,12 @@ in {
 			'';
 		};
 		home.sessionVariables = {
-			BASH_PATH          = ./common/bash;
-			EDITOR             = "nvim";
-			MANPAGER           = "nvim +Man!";
-			NIX_CURRENT_SYSTEM = "${pkgs.stdenv.system}";
-			TERM               = "xterm-256color";
+			BASH_PATH            = ./common/bash;
+			EDITOR               = "nvim";
+			MANPAGER             = "nvim +Man!";
+			NIXPKGS_ALLOW_UNFREE = "1";
+			NIX_CURRENT_SYSTEM   = "${pkgs.stdenv.system}";
+			TERM                 = "xterm-256color";
 		};
 		programs.bash = {
 			enable      = true;
