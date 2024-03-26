@@ -20,5 +20,5 @@ function ww() {
 	watch -n 0 "${@}"
 }
 
-# autocomplete.
+# Autocomplete.
 complete -F _autocomplete_nested w ww
