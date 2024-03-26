@@ -66,7 +66,6 @@ in {
 			"key/Comment.lua"
 			"key/Common.lua"
 			"key/Filetree.lua"
-			"key/Fold.lua"
 			"key/Gitsigns.lua"
 			"key/Lsp.lua"
 			"key/Navigation.lua"
