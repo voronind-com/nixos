@@ -44,8 +44,11 @@ in {
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
-			".dotfiles".source   = inputs.self;
-			".ssh/config".source = ./common/ssh/config;
+			".dotfiles".source        = inputs.self;
+			".ssh/config".source      = ./common/ssh/config;
+			".termux/font.ttf_".source = pkgs.runCommandNoCC "font" {} ''
+				cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
+			'';
 		};
 		home.sessionVariables = {
 			BASH_PATH          = ./common/bash;
