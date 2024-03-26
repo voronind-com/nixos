@@ -42,6 +42,7 @@ in {
 		zip unzip
 	];
 
+	time.timeZone = "Europe/Moscow";
 	nix.extraOptions = ''
 		experimental-features = nix-command flakes
 	'';
