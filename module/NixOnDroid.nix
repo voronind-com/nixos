@@ -46,7 +46,7 @@ in {
 		home.file = {
 			".dotfiles".source        = inputs.self;
 			".ssh/config".source      = ./common/ssh/config;
-			".termux/font.ttf_".source = pkgs.runCommandNoCC "font" {} ''
+			".termux/_font.ttf".source = pkgs.runCommandNoCC "font" {} ''
 				cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 			'';
 		};
@@ -59,7 +59,13 @@ in {
 		};
 		programs.bash = {
 			enable      = true;
-			bashrcExtra = "source $BASH_PATH/Bashrc.sh";
+			bashrcExtra = ''
+				source $BASH_PATH/Bashrc.sh
+				[[ -f ~/.termux/font.ttf ]] || {
+					cp ~/.termux/_font.ttf ~/.termux/font.ttf
+					_warn "Nerd font installed, please restart."
+				};
+			'';
 		};
 		programs.tmux = {
 			enable      = true;
