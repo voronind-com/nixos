@@ -3,18 +3,13 @@ shopt -s globstar
 shopt -s autocd
 shopt -s extglob
 
-#################### VIM ####################
-# FOR MORE INFORMATION CHECK:
-# https://wiki.archlinux.org/index.php/Readline
-
-# TURN ON VIM (E.G. FOR READLINE)
+# Enable vim mode.
 bind 'set editing-mode vi'
-
-# SHOW THE VIM MODE IN THE PROMPT (COMMAND OR INSERT)
 bind 'set show-mode-in-prompt on'
+bind 'set keyseq-timeout 0'
 
-# SET THE MODE STRING AND CURSOR TO INDICATE THE VIM MODE
-#   FOR THE NUMBER AFTER `\e[`:
+# Set the mode string and cursor to indicate the vim mode
+#   For the number after `\e[`:
 #     0: blinking block
 #     1: blinking block (default)
 #     2: steady block
