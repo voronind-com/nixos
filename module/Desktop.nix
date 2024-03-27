@@ -13,7 +13,6 @@
 
 	environment = {
 		systemPackages = with pkgs; [
-			adwsteamgtk
 			android-studio jetbrains.idea-community
 			appimage-run
 			blender-hip
@@ -21,7 +20,6 @@
 			calibre
 			gimp
 			godot_4 gdtoolkit
-			gradience
 			jellyfin-media-player
 			mpv
 			obs-studio

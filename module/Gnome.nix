@@ -24,7 +24,9 @@ in {
 
 	# Extra apps.
 	environment.systemPackages = with pkgs; [
+		adwsteamgtk
 		gnome.gnome-tweaks
+		gradience
 		wl-clipboard
 	];
 
