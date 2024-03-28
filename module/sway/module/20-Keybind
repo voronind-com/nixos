@@ -1,5 +1,5 @@
 # Start a terminal.
-bindsym $mod+Escape exec $term -e bash -c 'tmux new-session -A -s main; bash'
+bindsym $mod+Escape exec $term -e bash -c "tmux new-session -A -s $USER; bash"
 
 # Kill focused window.
 bindsym $mod+x kill
@@ -23,3 +23,9 @@ bindsym $mod+Shift+z exec swaynag -t warning -m 'You pressed the exit shortcut. 
 # Show last notification.
 bindsym $mod+m exec makoctl restore
 bindsym $mod+shift+m exec makoctl dismiss --all
+
+# Bluetooth.
+bindsym $mod+b exec 'blueman-manager'
+
+# NetworkManager.
+bindsym $mod+n exec 'nm-connection-editor'

@@ -1,5 +1,0 @@
-for_window [app_id=".blueman-manager-wrapped"] {
-	move scratchpad
-	scratchpad show
-}
-bindsym $mod+b exec 'blueman-manager'

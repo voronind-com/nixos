@@ -1,4 +1,0 @@
-# Fix for a goddamn Firefox WebRTC indicator.
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {
-	kill
-}
