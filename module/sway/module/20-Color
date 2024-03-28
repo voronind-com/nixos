@@ -1,0 +1,21 @@
+set $bg         #282828
+set $bg_2       #504945
+set $fg         #ebdbb2
+set $fg_1       #FBF1C7
+set $fg_2       #D5C4A1
+set $red        #cc241d
+set $green      #98971a
+set $yellow     #d79921
+set $blue       #458588
+set $blue_faded #076678
+set $purple     #b16286
+set $aqua       #689d68
+set $gray       #a89984
+set $darkgray   #1d2021
+
+# Class                 Border  Bground Text    Indicator ChildBorder
+client.focused          $yellow $yellow $fg     $yellow   $yellow
+client.focused_inactive $bg_2   #5F676A $fg     #484E50   #5F676A
+client.unfocused        $bg_2   #282828 #888888 #292D2E   #222222
+client.urgent           #2F343A #CC241D $fg_1   #CC241D   #CC241D
+client.placeholder      #1D2021 #0C0C0C $fg      #000000   #0C0C0C
