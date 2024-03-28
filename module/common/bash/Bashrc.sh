@@ -16,3 +16,8 @@ function bashrc() {
 
 # Export all functions.
 export -f $(find_function | tr '\n' ' ')
+
+# Autostart Sway.
+if [[ -z ${DISPLAY} ]] && [[ "$(tty)" = "/dev/tty1" ]]; then
+	exec sway
+fi
