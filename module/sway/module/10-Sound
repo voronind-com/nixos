@@ -3,5 +3,9 @@ bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute        exec 'pactl set-sink-mute   @DEFAULT_SINK@ toggle'
 
-# Open sound control.
+# Open sound control. # NOTE: Get id with `swaymsg -t get_tree`.
+for_window [app_id="pavucontrol"] {
+	move scratchpad
+	scratchpad show
+}
 bindsym $mod+p exec 'pavucontrol'

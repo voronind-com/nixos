@@ -1,1 +1,5 @@
+for_window [app_id="nm-connection-editor"] {
+	move scratchpad
+	scratchpad show
+}
 bindsym $mod+n exec 'nm-connection-editor'
