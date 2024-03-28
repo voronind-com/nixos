@@ -178,6 +178,16 @@ function gv() {
 	git rev-list HEAD --count
 }
 
+# Open the remote web url in default browser.
+# Usage: gw [REMOTE]
+function gw() {
+	local remote="${1}"
+	[[ "${remote}" = "" ]] && remote="$(git remote | head -n1)"
+
+	local url="$(git remote get-url ${remote})"
+	open "${url}"
+}
+
 # Show current branch.
 function _git_current_branch() {
 	git branch --show-current 2> /dev/null
@@ -211,25 +221,26 @@ function _git_is_dotfiles() {
 	done
 }
 
-# autocomplete.
+# Autocomplete.
 _completion_loader git &> /dev/null
-__git_complete gps _git_push &> /dev/null
-__git_complete gpsf _git_push &> /dev/null
-__git_complete gpl _git_pull &> /dev/null
-__git_complete gl _git_log &> /dev/null
-__git_complete gs _git_status &> /dev/null
-__git_complete gst _git_stash &> /dev/null
-__git_complete gd _git_diff &> /dev/null
-__git_complete gdc _git_diff &> /dev/null
-__git_complete gc _git_commit &> /dev/null
-__git_complete gch _git_checkout &> /dev/null
+__git_complete gps  _git_push     &> /dev/null
+__git_complete gpsf _git_push     &> /dev/null
+__git_complete gpl  _git_pull     &> /dev/null
+__git_complete gl   _git_log      &> /dev/null
+__git_complete gs   _git_status   &> /dev/null
+__git_complete gst  _git_stash    &> /dev/null
+__git_complete gd   _git_diff     &> /dev/null
+__git_complete gdc  _git_diff     &> /dev/null
+__git_complete gc   _git_commit   &> /dev/null
+__git_complete gch  _git_checkout &> /dev/null
 __git_complete gchb _git_checkout &> /dev/null
-__git_complete gb _git_branch &> /dev/null
-__git_complete gbd _git_branch &> /dev/null
-__git_complete gf _git_fetch &> /dev/null
-__git_complete gt _git_tag &> /dev/null
-__git_complete gp _git_apply &> /dev/null
-__git_complete ga _git_add &> /dev/null
+__git_complete gb   _git_branch   &> /dev/null
+__git_complete gbd  _git_branch   &> /dev/null
+__git_complete gf   _git_fetch    &> /dev/null
+__git_complete gt   _git_tag      &> /dev/null
+__git_complete gp   _git_apply    &> /dev/null
+__git_complete ga   _git_add      &> /dev/null
+__git_complete gw   _git_pull     &> /dev/null
 
 # Autocomplete with my git emails.
 function _gu() {
