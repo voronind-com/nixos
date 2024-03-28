@@ -13,6 +13,7 @@
 			".config/gtk-3.0".source   = ./module/gtk/3;
 			".config/gtk-4.0".source   = ./module/gtk/4;
 			".config/htop".source      = ./module/top/htop;
+			".config/mako".source      = ./module/mako;
 			".editorconfig".source     = ./module/Editorconfig;
 			".parallel/will-cite".text = "";
 			"media/template".source    = ./module/template;
