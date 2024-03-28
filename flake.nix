@@ -200,8 +200,8 @@
 				./module/AmdGpu.nix
 				./module/Docker.nix
 				./module/Ftpd.nix
-				./module/Gnome.nix
 				./module/RemoteBuilder.nix
+				./module/Sway.nix
 				./user/Voronind.nix
 			];
 		};
