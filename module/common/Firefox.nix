@@ -1,6 +1,9 @@
 { pkgs, ... }: {
 	# Disable profile switching on rebuild.
-	environment.variables.MOZ_LEGACY_PROFILES = "1";
+	environment.variables = {
+		MOZ_LEGACY_PROFILES = "1";
+		MOZ_ENABLE_WAYLAND  = "1";
+	};
 	programs.firefox = {
 		enable  = true;
 		package = pkgs.firefox-esr;

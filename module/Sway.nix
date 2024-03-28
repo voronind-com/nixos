@@ -28,17 +28,6 @@
 		wl-clipboard # Clipboard.
 	];
 
-	# Sound.
-	sound.enable = true;
-	hardware.pulseaudio.enable = false;
-	security.rtkit.enable      = true;
-	services.pipewire = {
-		enable            = true;
-		alsa.enable       = true;
-		alsa.support32Bit = true;
-		pulse.enable      = true;
-	};
-
 	# Sway.
 	programs.sway = {
 		enable = true;
@@ -49,6 +38,11 @@
 		extraOptions = [
 			"--config=${./sway/Config}"
 		];
+	};
+
+	# Portals.
+	xdg.portal.wlr = {
+		enable = true;
 	};
 
 	# Brightness control.
