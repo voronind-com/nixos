@@ -52,6 +52,11 @@
 		SWAY_CONFIG = ./sway/module;
 	};
 
+	# Extra performance.
+	security.pam.loginLimits = [
+		{ domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
+	];
+
 	# Dconf.
 # 	programs.dconf.enable = true;
 # 	programs.dconf.profiles.user = {
