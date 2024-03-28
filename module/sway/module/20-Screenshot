@@ -1,0 +1,5 @@
+# Fullscreen screenshot.
+bindsym $mod+shift+v grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
+
+# Select screenshot.
+# bindsym $mod+v # TODO: Add selectable screenshot.
