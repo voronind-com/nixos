@@ -22,6 +22,7 @@
 		grim         # Screenshot.
 		mako         # Notification system.
 		pamixer      # Audio.
+		pavucontrol  # Audio.
 		pulseaudio   # Audio.
 		slurp        # Screenshot.
 		wl-clipboard # Clipboard.
