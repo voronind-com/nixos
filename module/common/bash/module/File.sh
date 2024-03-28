@@ -1,8 +1,9 @@
 # Open file/dir in GUI.
-# Usage: o <FILE>
-function o() {
+# Usage: open <FILE>
+function open() {
 	xdg-open "${@}"
 }
+alias o="open"
 
 # Play media file from CLI. All files by default.
 # Usage: play [FILE]
