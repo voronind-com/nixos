@@ -2,8 +2,8 @@
 # You can send windows there and get them back later.
 
 # Move the currently focused window to the scratchpad
-bindsym $mod+shift+Enter move scratchpad
+bindsym $mod+shift+return move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+Enter scratchpad show
+bindsym $mod+return scratchpad show
