@@ -22,14 +22,11 @@
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.systemPackages = with pkgs; [
-		grim                 # Screenshot.
-		mako                 # Notification system.
+		grim slurp # Screenshot.
+		mako # Notification system.
 		networkmanagerapplet # Internet configuration.
-		pamixer              # Audio.
-		pavucontrol          # Audio.
-		pulseaudio           # Audio.
-		slurp                # Screenshot.
-		wl-clipboard         # Clipboard.
+		pamixer pavucontrol pulseaudio # Audio.
+		wl-clipboard # Clipboard.
 	];
 
 	programs.sway = {
