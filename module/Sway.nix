@@ -1,5 +1,10 @@
 { pkgs, lib, ... }: {
-	# Specify default apps.
+	imports = [
+		./desktop/App.nix
+		./desktop/Dconf.nix
+		./desktop/Sound.nix
+	];
+
 	xdg.mime.defaultApplications = {
 		# Use `file -i file.txt` to find file mime type.
 		# Use `xdg-mime query default "text/plain"` to find default app.
@@ -56,17 +61,4 @@
 	security.pam.loginLimits = [
 		{ domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
 	];
-
-	# Dconf.
-# 	programs.dconf.enable = true;
-# 	programs.dconf.profiles.user = {
-# 		enableUserDb = true; # Delete `~/.config/dconf/user` to reset user settings.
-# 		databases = [{
-# 			settings = with lib.gvariant; {
-# 				"org/gnome/desktop/a11y" = {
-# 					always-show-universal-access-status = true;
-# 				};
-# 			};
-# 		}];
-# 	};
 }

@@ -158,7 +158,6 @@
 			system   = "x86_64-linux";
 			modules = [
 				./module/AmdGpu.nix
-				./module/Desktop.nix
 				./module/Gnome.nix
 				./module/IntelCpu.nix
 				./module/PowersaveIntel.nix
@@ -175,7 +174,6 @@
 				./module/AmdCompute.nix
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
-				./module/Desktop.nix
 				./module/Gnome.nix
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
@@ -214,7 +212,6 @@
 			modules = [
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
-				./module/Desktop.nix
 				./module/Gnome.nix
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
@@ -243,7 +240,6 @@
 			hostname = "work";
 			system   = "x86_64-linux";
 			modules = [
-				./module/Desktop.nix
 				./module/IntelCpu.nix
 				./module/Ollama.nix
 				./module/Powerlimit.nix
