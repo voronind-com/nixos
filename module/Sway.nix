@@ -1,7 +1,11 @@
 { pkgs, lib, ... }: {
 	imports = [
 		./desktop/App.nix
+		./desktop/Bluetooth.nix
+		./desktop/Brightness.nix
 		./desktop/Dconf.nix
+		./desktop/Portal.nix
+		./desktop/Realtime.nix
 		./desktop/Sound.nix
 	];
 
@@ -16,7 +20,6 @@
 		"video/*" = "mpv.desktop";
 	};
 
-	# Extra apps.
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.systemPackages = with pkgs; [
 		grim                 # Screenshot.
@@ -29,7 +32,6 @@
 		wl-clipboard         # Clipboard.
 	];
 
-	# Sway.
 	programs.sway = {
 		enable = true;
 		wrapperFeatures = {
@@ -41,46 +43,8 @@
 		];
 	};
 
-	# Portals.
-	xdg.portal = {
-		enable = true;
-		extraPortals = with pkgs; [
-			xdg-desktop-portal-gnome
-			xdg-desktop-portal-gtk
-			xdg-desktop-portal-kde
-		];
-		config = {
-			common = {
-				default = [
-					"gtk"
-					"wlr"
-					"gnome"
-					"kde"
-				];
-			};
-		};
-		wlr = {
-			enable = true;
-		};
-		xdgOpenUsePortal = true;
-	};
-
-	# Brightness control.
-	programs.light.enable = true;
-
-	# Bluetooth.
-	hardware.bluetooth.enable      = true;
-	hardware.bluetooth.powerOnBoot = true;
-	services.blueman.enable        = true;
-
-	# Configs.
 	environment.variables = {
 		FOOT_CONFIG = ./foot/Foot.ini;
 		SWAY_CONFIG = ./sway/module;
 	};
-
-	# Extra performance.
-	security.pam.loginLimits = [
-		{ domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
-	];
 }
