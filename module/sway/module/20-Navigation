@@ -25,3 +25,6 @@ bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Up    move up
+
+# Focus mouse following.
+focus_follows_mouse no
