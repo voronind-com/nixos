@@ -1,6 +1,4 @@
-{ pkgs, lib, ... }: let
-	dconfConfig = "~/.config/linux/Gnome.dconf";
-in {
+{ pkgs, lib, ... }: {
 	# GUI.
 	services.xserver.enable = true;
 	services.xserver.displayManager.gdm.enable   = true;
