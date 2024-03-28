@@ -1,3 +1,6 @@
 anchor=top-center
-background-color=#d79921
+font="SF Pro Display" Medium 14
+background-color=#282828
+text-color=#ffffff
+border-color=#000000
 default-timeout=5000
