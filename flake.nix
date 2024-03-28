@@ -174,11 +174,11 @@
 				./module/AmdCompute.nix
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
-				./module/Gnome.nix
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/Print.nix
 				./module/RemoteBuild.nix
+				./module/Sway.nix
 				./module/VirtManager.nix
 				./user/Voronind.nix
 			];
