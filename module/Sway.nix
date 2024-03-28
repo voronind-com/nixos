@@ -21,6 +21,8 @@
 	environment.systemPackages = with pkgs; [
 		grim         # Screenshot.
 		mako         # Notification system.
+		pamixer      # Audio.
+		pulseaudio   # Audio.
 		slurp        # Screenshot.
 		wl-clipboard # Clipboard.
 	];
