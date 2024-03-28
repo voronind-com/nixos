@@ -25,8 +25,10 @@ in {
 	# Extra apps.
 	environment.systemPackages = with pkgs; [
 		adwsteamgtk
+		gnome.gnome-remote-desktop
 		gnome.gnome-tweaks
 		gradience
+		openssl
 		wl-clipboard
 	];
 
