@@ -1,0 +1,1 @@
+bindsym $mod+n exec 'nm-connection-editor'

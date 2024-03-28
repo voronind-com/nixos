@@ -1,0 +1,1 @@
+bindsym $mod+b exec 'blueman-manager'

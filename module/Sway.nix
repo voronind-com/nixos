@@ -19,13 +19,14 @@
 	# Extra apps.
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.systemPackages = with pkgs; [
-		grim         # Screenshot.
-		mako         # Notification system.
-		pamixer      # Audio.
-		pavucontrol  # Audio.
-		pulseaudio   # Audio.
-		slurp        # Screenshot.
-		wl-clipboard # Clipboard.
+		grim                 # Screenshot.
+		mako                 # Notification system.
+		networkmanagerapplet # Internet configuration.
+		pamixer              # Audio.
+		pavucontrol          # Audio.
+		pulseaudio           # Audio.
+		slurp                # Screenshot.
+		wl-clipboard         # Clipboard.
 	];
 
 	# Sway.
@@ -66,6 +67,9 @@
 
 	# Brightness control.
 	programs.light.enable = true;
+
+	# Bluetooth.
+	services.blueman.enable = true;
 
 	# Configs.
 	environment.variables = {
