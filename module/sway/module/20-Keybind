@@ -1,0 +1,21 @@
+# Start a terminal.
+bindsym $mod+Escape exec $term
+
+# Kill focused window.
+bindsym $mod+x kill
+
+# Start your launcher.
+bindsym $mod+space exec $menu
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file.
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session).
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'

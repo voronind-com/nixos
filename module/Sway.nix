@@ -48,6 +48,7 @@
 	};
 
 	environment.variables = {
-		FOOT_CONFIG = ./sway/Foot.ini;
+		FOOT_CONFIG = ./foot/Foot.ini;
+		SWAY_CONFIG = ./sway/module;
 	};
 }
