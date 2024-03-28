@@ -1,5 +1,5 @@
 # Toggle tiling.
-# bindsym $mod+Shift+space floating toggle
+bindsym $mod+Tab floating toggle
 
 # Swap focus between the tiling area and the floating area
 # bindsym $mod+space focus mode_toggle
@@ -11,11 +11,8 @@
 bindsym $mod+backslash splith
 bindsym $mod+minus     splitv
 
-# Switch the current container between different layout styles
-# TODO: Rekey.
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+# Switch the current container between different layout styles.
+bindsym $mod+Shift+Tab layout toggle split tabbed
 
 # Fullscreen.
 bindsym $mod+f fullscreen
