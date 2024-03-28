@@ -1,11 +1,4 @@
 { pkgs, lib, ... }: {
-	# GUI.
-	services.xserver.enable = true;
-	services.xserver.xkb = {
-		layout  = "us,ru";
-		options = "grp:caps_toggle,lv3:ralt_switch";
-	};
-
 	# Specify default apps.
 	xdg.mime.defaultApplications = {
 		# Use `file -i file.txt` to find file mime type.
