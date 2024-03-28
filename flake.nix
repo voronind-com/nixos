@@ -244,7 +244,6 @@
 			system   = "x86_64-linux";
 			modules = [
 				./module/Desktop.nix
-				./module/Gnome.nix
 				./module/IntelCpu.nix
 				./module/Ollama.nix
 				./module/Powerlimit.nix
