@@ -51,4 +51,17 @@
 		FOOT_CONFIG = ./foot/Foot.ini;
 		SWAY_CONFIG = ./sway/module;
 	};
+
+	# Dconf.
+# 	programs.dconf.enable = true;
+# 	programs.dconf.profiles.user = {
+# 		enableUserDb = true; # Delete `~/.config/dconf/user` to reset user settings.
+# 		databases = [{
+# 			settings = with lib.gvariant; {
+# 				"org/gnome/desktop/a11y" = {
+# 					always-show-universal-access-status = true;
+# 				};
+# 			};
+# 		}];
+# 	};
 }
