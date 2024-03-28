@@ -1,5 +1,5 @@
 # Start a terminal.
-bindsym $mod+Escape exec $term
+bindsym $mod+Escape exec $term -e bash -c 'tmux new-session -A -s main; bash'
 
 # Kill focused window.
 bindsym $mod+x kill
