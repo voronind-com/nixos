@@ -35,8 +35,7 @@
 		variables = {
 			FOOT_CONFIG = ./foot/Foot.ini;
 			SWAY_CONFIG = ./sway/module;
-			PATH        = [ "/etc/swaybin" ];
+			# PATH        = [ "/etc/swaybin" ]; # NOTE: Kept as an example on PATH modification.
 		};
-		etc.swaybin.source = ./sway/bin;
 	};
 }
