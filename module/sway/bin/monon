@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+swaymsg 'output "ASUSTek COMPUTER INC ASUS VA24E R2LMTF127165" power on'
