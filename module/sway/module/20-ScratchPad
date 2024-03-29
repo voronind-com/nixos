@@ -1,5 +1,6 @@
 # Sway has a "scratchpad", which is a bag of holding for windows.
 # You can send windows there and get them back later.
+# NOTE: Get id with `swaymsg -t get_tree`.
 
 # Move the currently focused window to the scratchpad
 bindsym $mod+shift+return move scratchpad

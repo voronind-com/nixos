@@ -44,10 +44,8 @@
 		variables = {
 			FOOT_CONFIG = ./foot/Foot.ini;
 			SWAY_CONFIG = ./sway/module;
+			PATH        = [ "/etc/swaybin" ];
 		};
 		etc.swaybin.source = ./sway/bin;
-		extraInit = ''
-			export PATH="/etc/swaybin:$PATH"
-		'';
 	};
 }

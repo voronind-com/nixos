@@ -4,3 +4,6 @@ background-color=#282828
 text-color=#ffffff
 border-color=#000000
 default-timeout=5000
+width=480
+height=120
+margin=16
