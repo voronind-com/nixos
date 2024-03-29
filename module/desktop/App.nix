@@ -24,15 +24,15 @@
 
 	environment = {
 		systemPackages = with pkgs; [
+			adwsteamgtk gradience
 			android-studio jetbrains.idea-community
 			appimage-run
 			blender-hip
 			bottles dxvk gamescope mangohud vkd3d wine64
 			calibre
-			evince
+			evince loupe
 			gimp
 			jellyfin-media-player
-			loupe
 			mpv
 			obs-studio
 			onlyoffice-bin
