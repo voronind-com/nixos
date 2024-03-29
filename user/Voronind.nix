@@ -2,6 +2,7 @@
 	imports = [
 		./home/Voronind.nix
 	];
+
 	users.users.voronind = {
 		createHome     = true;
 		description    = "Dmitry Voronin";
@@ -9,6 +10,7 @@
 		isNormalUser   = true;
 		uid            = 1000;
 		extraGroups = [
+			"libvirtd"
 			"networkmanager"
 			"video"
 		];
