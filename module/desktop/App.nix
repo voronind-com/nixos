@@ -31,7 +31,6 @@
 			calibre
 			evince
 			gimp
-			godot_4 gdtoolkit
 			jellyfin-media-player
 			loupe
 			mpv
