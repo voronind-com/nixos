@@ -17,7 +17,7 @@ function sudo() {
 }
 
 function _complete_s() {
-	_autocomplete "voronind" "dasha"
+	_autocomplete_first $(_get_users)
 }
 
 complete -F _complete_s s

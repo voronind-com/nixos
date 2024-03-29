@@ -131,3 +131,8 @@ function _is_root() {
 function _bell() {
 	echo -e '\a'
 }
+
+function _get_users() {
+	local users=("voronind" "dasha")
+	echo ${users[@]}
+}
