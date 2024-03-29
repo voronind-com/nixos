@@ -1,4 +1,15 @@
 { pkgs, ... }: {
+	xdg.mime.defaultApplications = {
+		# Use `file -i file.txt` to find file mime type.
+		# Use `xdg-mime query default "text/plain"` to find default app.
+		"application/pdf" = "org.gnome.Evince.desktop";
+		"application/vnd.openxmlformats-officedocument.*" = "onlyoffice-desktopeditors.desktop";
+		"audio/*" = "mpv.desktop";
+		"image/*" = "org.gnome.Loupe.desktop";
+		"text/*"  = "nvim.desktop";
+		"video/*" = "mpv.desktop";
+	};
+
 	hardware.opengl = let
 		packages = with pkgs; [
 			dxvk
@@ -18,9 +29,11 @@
 			blender-hip
 			bottles dxvk gamescope mangohud vkd3d wine64
 			calibre
+			evince
 			gimp
 			godot_4 gdtoolkit
 			jellyfin-media-player
+			loupe
 			mpv
 			obs-studio
 			onlyoffice-bin

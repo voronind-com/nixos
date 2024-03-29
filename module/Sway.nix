@@ -9,16 +9,6 @@
 		./desktop/Sound.nix
 	];
 
-	xdg.mime.defaultApplications = {
-		# Use `file -i file.txt` to find file mime type.
-		# Use `xdg-mime query default "text/plain"` to find default app.
-		"application/pdf" = "org.gnome.Evince.desktop"; # TODO: Different apps?
-		"application/vnd.openxmlformats-officedocument.*" = "onlyoffice-desktopeditors.desktop";
-		"audio/*" = "mpv.desktop";
-		"image/*" = "org.gnome.Loupe.desktop";
-		"text/*"  = "nvim.desktop";
-		"video/*" = "mpv.desktop";
-	};
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.systemPackages = with pkgs; [

@@ -6,19 +6,6 @@
 		./desktop/Sound.nix
 	];
 
-	# Default apps.
-	xdg.mime.defaultApplications = {
-		# Use `file -i file.txt` to find file mime type.
-		# Use `xdg-mime query default "text/plain"` to find default app.
-		"application/pdf" = "org.gnome.Evince.desktop";
-		"application/vnd.openxmlformats-officedocument.*" = "onlyoffice-desktopeditors.desktop";
-		"audio/*" = "mpv.desktop";
-		"image/*" = "org.gnome.Loupe.desktop";
-		"text/*"  = "nvim.desktop";
-		"video/*" = "mpv.desktop";
-	};
-
-	# Extra apps.
 	environment.systemPackages = with pkgs; [
 		adwsteamgtk
 		gnome.gnome-remote-desktop
@@ -28,7 +15,6 @@
 		wl-clipboard
 	];
 
-	# Disable some apps.
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.gnome.excludePackages = with pkgs.gnome; [
 		# baobab      # Disk usage analyzer.
