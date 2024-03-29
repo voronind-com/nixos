@@ -7,7 +7,7 @@ function nixos_rebuild() {
 	local target="${1}"
 	[[ "${target}" = "" ]] && target="${HOSTNAME}"
 
-	nixos-rebuild boot --flake "${_nix_system_config}#${target}" --refresh ${@}
+	nixos-rebuild boot --refresh --option eval-cache false --flake "${_nix_system_config}#${target}"
 }
 
 # Rebuild and switch system.
@@ -17,7 +17,7 @@ function nixos_switch() {
 	local target="${1}"
 	[[ "${target}" = "" ]] && target="${HOSTNAME}"
 
-	nixos-rebuild switch --flake "${_nix_system_config}#${target}" --refresh ${@}
+	nixos-rebuild switch --refresh --option eval-cache false --flake "${_nix_system_config}#${target}"
 }
 
 # Spawn shell with specified nix environment.

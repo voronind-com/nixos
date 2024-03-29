@@ -45,8 +45,9 @@
 			FOOT_CONFIG = ./foot/Foot.ini;
 			SWAY_CONFIG = ./sway/module;
 		};
-		pathsToLink = [
-			builtins.toString(./sway/bin)
-		];
+		etc.swaybin.source = ./sway/bin;
+		extraInit = ''
+			export PATH="/etc/swaybin:$PATH"
+		'';
 	};
 }
