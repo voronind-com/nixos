@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nm-connection-editor

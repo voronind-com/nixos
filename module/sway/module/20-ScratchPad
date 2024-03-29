@@ -24,3 +24,9 @@ for_window [app_id=".blueman-manager-wrapped"] {
 	move scratchpad
 	scratchpad show
 }
+
+# Sound.
+for_window [app_id="pavucontrol"] {
+	move scratchpad
+	scratchpad show
+}

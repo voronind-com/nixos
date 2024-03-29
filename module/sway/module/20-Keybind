@@ -29,3 +29,15 @@ bindsym $mod+b exec 'blueman-manager'
 
 # NetworkManager.
 bindsym $mod+n exec 'nm-connection-editor'
+
+# Brightness
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp   exec light -A 10
+
+# Adjust volume.
+bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+bindsym XF86AudioMute        exec 'pactl set-sink-mute   @DEFAULT_SINK@ toggle'
+
+# Open sound control. # NOTE: Get id with `swaymsg -t get_tree`.
+bindsym $mod+p exec 'pavucontrol'

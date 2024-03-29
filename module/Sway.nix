@@ -40,8 +40,13 @@
 		];
 	};
 
-	environment.variables = {
-		FOOT_CONFIG = ./foot/Foot.ini;
-		SWAY_CONFIG = ./sway/module;
+	environment = {
+		variables = {
+			FOOT_CONFIG = ./foot/Foot.ini;
+			SWAY_CONFIG = ./sway/module;
+		};
+		pathsToLink = [
+			builtins.toString(./sway/bin)
+		];
 	};
 }
