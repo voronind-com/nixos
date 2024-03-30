@@ -16,12 +16,6 @@ Command|Description
 ---|---
 `emulator [NAME]`|Start an Android emulator. Default name is `main`.   
 
-## App.
-
-Command|Description
----|---
-`steam_link`|  Start steam in Steam Link mode. 
-
 ## Archive.
 
 Command|Description
@@ -34,7 +28,7 @@ Command|Description
 `archive_rm [FILES]`|Delete specified or all archive files.   
 `archive_xz [FILES]`|Recompress previously created archive_fast with better compression.   
 `archive_name [ARCHIVE] [NAME]`|Rename archives. If no name specified, it simplifies archive's name. If no archives specified, apply to all archives.   
-`unarchive [FILES]`|Extract previously created archive with checksum validation.   
+`unarchive [HOST:FILES]`|Extract previously created archive with checksum validation. Supports unarchiving exact paths from the remote machines (rsync syntax).   
 `archive_touch [FILES]`|Change archive's filesystem time to match creation date.   
 
 ## Ask.
@@ -42,6 +36,7 @@ Command|Description
 Command|Description
 ---|---
 `ask <QUERY>`|Ask general AI.   
+`ask_model`|  Specify ask model. 
 
 ## Battery.
 
@@ -57,6 +52,14 @@ Command|Description
 `bootstrap_editorconfig`|  Install Editorconfig file (with tabs) in current directory. 
 `bootstrap_editorconfig_space [AMOUNT]`|Install Editorconfig file (with specified spaces, 8 by default) in current directory.   
 `bootstrap_nixos <DRIVE> [HOST]`|Install nixos to specified drive. To be run from Live ISO.   
+
+## Brightness.
+
+Command|Description
+---|---
+`brmin`|  Set display brightness to a minimum. 
+`brmax`|  Set display brightness to a maximum. 
+`brset [LEVEL]`|Set display brightness in percent, 50% default.   
 
 ## Cd.
 
@@ -176,7 +179,7 @@ Command|Description
 
 Command|Description
 ---|---
-`o <FILE>`|Open file/dir in GUI.   
+`open <FILE>`|Open file/dir in GUI.   
 `play [FILE]`|Play media file from CLI. All files by default.   
 `play_shuffle [FILE]`|Play media files shuffled from CLI. All files by default.   
 
@@ -227,6 +230,7 @@ Command|Description
 `gg <REPO>`|Get my git repo.   
 `gdc [COMMITHASH]`|See diff for a specific commit. Last commit by default.   
 `gv`|  Get version number based on commit count. 
+`gw [REMOTE]`|Open the remote web url in default browser.   
 
 ## Group.
 
@@ -260,6 +264,13 @@ Command|Description
 ---|---
 `markdown_render <FILE.md>`|Render markdown in browser using Gitea API. Because I want consistency with Gitea web render. Works only inside LAN.   
 
+## Monitor.
+
+Command|Description
+---|---
+`monon`|  Enable monitors. 
+`monoff`|  Disable monitors. 
+
 ## Name.
 
 Command|Description
@@ -276,6 +287,16 @@ Command|Description
 `name_postfix <OLD> <NEW> [FILES]`|Change file name postfix. All matching files by default.   
 `name_replace <OLD> <NEW> [FILES]`|Replace part of the name. All matching files by default.   
 `name_fix_numbering [FILES]`|Fix numbering for numbered files. I.e if there are 10 items and some of them start without zero, then append zero to it. 1..10 -> 01..10.   
+
+## Network.
+
+Command|Description
+---|---
+`bluetooth`|  Open bluetooth control panel. 
+`network`|  Open network control panel. 
+`nms`|  Show active connections. 
+`nu <CONNECTION>`|Start the connection.   
+`nd <CONNECTION>`|Stop the connection.   
 
 ## Nix.
 
@@ -335,6 +356,13 @@ Command|Description
 `perm_share`|  Recursively change permissions to allow read sharing with group and others. 
 `perm`|  Recursively change permissions to restrict access for group and others. 
 
+## Power.
+
+Command|Description
+---|---
+`slp`|  Suspend system. 
+`bye`|  Poweroff. 
+
 ## Prune.
 
 Command|Description
@@ -368,17 +396,31 @@ Command|Description
 ---|---
 `save [TARGETS]`|Backup a game save.   
 
+## Sound.
+
+Command|Description
+---|---
+`sound`|  Open a sound control panel. 
+
 ## Ssh.
 
 Command|Description
 ---|---
-`sshmount <REMOTE> <LOCAL>`|Mount FS over ssh. Just extra config for sshfs.   
+`ssh_mount <REMOTE> <LOCAL>`|Mount FS over ssh. Just extra config for sshfs.   
+`ssh_keygen`|  Generate private an public keys on a local host and print a public key. 
+
+## Steam.
+
+Command|Description
+---|---
+`steam_link`|  Start Steam with Wayland screen share for Link to work. 
 
 ## Su.
 
 Command|Description
 ---|---
 `s [USER]`|Su shortcut for lazy me. Root by default.   
+`sudo <COMMAND>`|Run something as root. Runs command as a current user if su is not available.   
 
 ## Terminal.
 
@@ -437,11 +479,12 @@ Command|Description
 ---|---
 `v`|  Neovim shortcut. 
 
-## Wallpaper.
+## Vrr.
 
 Command|Description
 ---|---
-`wallpaper <FILE>`|Set specified file as a wallpaper.   
+`vrron`|  Enable VRR. 
+`vrroff`|  Disable VRR. 
 
 ## Watch.
 

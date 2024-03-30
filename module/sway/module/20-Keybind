@@ -25,8 +25,8 @@ bindsym $mod+n exec makoctl restore
 bindsym $mod+shift+n exec makoctl dismiss --all
 
 # Brightness
-bindsym XF86MonBrightnessDown exec light -U 1
-bindsym XF86MonBrightnessUp   exec light -A 1
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp   exec light -A 10
 
 # Adjust volume.
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
