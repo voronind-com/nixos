@@ -6,7 +6,7 @@ function emulator() {
 
 	[[ "${name}" = "" ]] && name="main"
 
-	steam-run ${ANDROID_SDK_ROOT}/emulator/emulator -avd "${name}" &> /dev/null & disown
+	steam-run ~/.android/sdk/emulator/emulator -avd "${name}" &> /dev/null & disown
 }
 
 function _android_emulators() {
