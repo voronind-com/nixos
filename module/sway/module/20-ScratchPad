@@ -31,3 +31,6 @@ for_window [app_id="pavucontrol"] {
 	move scratchpad
 	scratchpad show
 }
+
+# Android emulator controls.
+for_window [title="Emulator" window_type="utility"] move scratchpad
