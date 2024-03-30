@@ -8,6 +8,7 @@
 		./desktop/Portal.nix
 		./desktop/Realtime.nix
 		./desktop/Sound.nix
+		./desktop/Systemd.nix
 	];
 
 

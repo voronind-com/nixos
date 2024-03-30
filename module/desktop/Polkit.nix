@@ -1,6 +1,19 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 	security.polkit.enable = true;
-	environment.systemPackages = with pkgs; [
-		polkit_gnome
-	];
+	systemd = {
+		packages = with pkgs; [
+			polkit-kde-agent
+		];
+		user = {
+			services.plasma-polkit-agent = {
+				serviceConfig = {
+					Restart    = "always";
+					RestartSec = 2;
+					Slice      = "session.slice";
+				};
+				environment.PATH = lib.mkForce null;
+				wantedBy = [ "gui-session.target" ];
+			};
+		};
+	};
 }
