@@ -33,4 +33,6 @@ for_window [app_id="pavucontrol"] {
 }
 
 # Android emulator controls.
-for_window [title="Emulator" window_type="utility"] move scratchpad
+for_window [title="Emulator" window_type="utility"] {
+	move scratchpad
+}
