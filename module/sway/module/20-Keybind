@@ -32,3 +32,6 @@ bindsym XF86MonBrightnessUp   exec light -A 10
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute        exec 'pactl set-sink-mute   @DEFAULT_SINK@ toggle'
+
+# Lock screen
+bindsym $mod+z exec 'swaylock -k -c 000000'
