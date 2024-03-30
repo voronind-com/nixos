@@ -29,6 +29,7 @@
 		smartmontools
 		sqlite
 		tree
+		udisks
 		universal-android-debloater
 		ventoy
 		wget
