@@ -16,6 +16,7 @@
 		mako # Notification system.
 		networkmanagerapplet # Internet configuration.
 		pamixer pavucontrol pulseaudio # Audio.
+		sway-contrib.inactive-windows-transparency
 		wl-clipboard # Clipboard.
 	];
 
@@ -34,6 +35,7 @@
 		variables = {
 			FOOT_CONFIG = ./foot/Foot.ini;
 			SWAY_CONFIG = ./sway/module;
+			SWAY_SCRIPT_IWT = "${pkgs.sway-contrib.inactive-windows-transparency}/bin/inactive-windows-transparency.py";
 			# PATH        = [ "/etc/swaybin" ]; # NOTE: Kept as an example on PATH modification.
 		};
 	};

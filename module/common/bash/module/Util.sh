@@ -146,7 +146,10 @@ function _twice() {
 	local period=${1}
 	local command="${@:2}"
 
-	[[ "$(cat ${file} 2> /dev/null)" = "${command}" ]] && ${command}
+	if [[ "$(cat ${file} 2> /dev/null)" = "${command}" ]]; then
+		${command}
+		return 0
+	fi
 	echo "${command}" > "${file}"
 	sleep ${period}
 	rm "${file}" 2> /dev/null

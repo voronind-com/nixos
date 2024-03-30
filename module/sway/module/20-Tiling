@@ -16,3 +16,6 @@ bindsym $mod+c layout toggle split tabbed
 
 # Fullscreen.
 bindsym $mod+f fullscreen
+
+# Dim inactive windows.
+exec $SWAY_SCRIPT_IWT --opacity 0.85
