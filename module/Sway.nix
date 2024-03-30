@@ -4,11 +4,9 @@
 		./desktop/Bluetooth.nix
 		./desktop/Brightness.nix
 		./desktop/Dconf.nix
-		./desktop/Polkit.nix
 		./desktop/Portal.nix
 		./desktop/Realtime.nix
 		./desktop/Sound.nix
-		./desktop/Systemd.nix
 	];
 
 
