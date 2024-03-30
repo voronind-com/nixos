@@ -12,7 +12,7 @@ bindsym $mod+backslash splith
 bindsym $mod+minus     splitv
 
 # Switch the current container between different layout styles.
-bindsym $mod+Shift+Tab layout toggle split tabbed
+bindsym $mod+c layout toggle split tabbed
 
 # Fullscreen.
 bindsym $mod+f fullscreen
