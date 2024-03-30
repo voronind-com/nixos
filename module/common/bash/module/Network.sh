@@ -9,19 +9,19 @@ function network() {
 }
 
 # Show active connections.
-function ns() {
+function nms() {
 	nmcli connection show
 }
 
 # Start the connection.
 # Usage: nu <CONNECTION>
-function nu() {
+function nmu() {
 	nmcli connection up "${@}"
 }
 
 # Stop the connection.
 # Usage: nd <CONNECTION>
-function nd() {
+function nmd() {
 	nmcli connection down "${@}"
 }
 
@@ -29,4 +29,4 @@ function _complete_connections() {
 	_autocomplete $(nmcli connection show | sed "1d" | cut -d\  -f1)
 }
 
-complete -F _complete_connections nd nu
+complete -F _complete_connections nmd nmu
