@@ -132,7 +132,22 @@ function _bell() {
 	echo -e '\a'
 }
 
+# Get users.
 function _get_users() {
 	local users=("voronind" "dasha")
 	echo ${users[@]}
+}
+
+# Force the command to be called twice within the specified period in seconds. Used primarily in important keyboard shortcuts like poweroff.
+# Usage: _twice <PERIOD> <COMMAND>
+function _twice() {
+	local IFS=$'\n'
+	local file="/tmp/.twice"
+	local period=${1}
+	local command="${@:2}"
+
+	[[ "$(cat ${file} 2> /dev/null)" = "${command}" ]] && ${command}
+	echo "${command}" > "${file}"
+	sleep ${period}
+	rm "${file}" 2> /dev/null
 }

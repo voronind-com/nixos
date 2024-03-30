@@ -18,8 +18,8 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session).
-bindsym $mod+z exec 'swaylock -F -c 000000 -k --font "SF Pro Display Medium" --font-size 14'
-bindsym $mod+Shift+z exec 'swaymsg exit'
+bindsym $mod+z exec '_twice 1 swaylock -F -c 000000 -k --font "SF Pro Display Medium" --font-size 14'
+bindsym $mod+Shift+z exec '_twice 1 swaymsg exit'
 
 # Show last notification.
 bindsym $mod+n exec makoctl restore
@@ -33,6 +33,3 @@ bindsym XF86MonBrightnessUp   exec light -A 10
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute        exec 'pactl set-sink-mute   @DEFAULT_SINK@ toggle'
-
-# Lock screen
-bindsym $mod+z exec 'swaylock -k -c 000000'
