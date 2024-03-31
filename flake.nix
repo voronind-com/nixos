@@ -147,9 +147,11 @@
 				home-manager.nixosModules.home-manager
 			] ++ modules;
 
-			specialArgs.const  = self.nixosModules.const;
-			specialArgs.flake  = self;
-			specialArgs.inputs = inputs;
+			specialArgs = {
+				const  = self.nixosModules.const;
+				flake  = self;
+				inputs = inputs;
+			};
 		};
 
 		# List of all hosts bellow.
@@ -257,9 +259,11 @@
 				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
 				./module/NixOnDroid.nix
 			];
-			extraSpecialArgs.const  = self.nixosModules.const;
-			extraSpecialArgs.flake  = self;
-			extraSpecialArgs.inputs = inputs;
+			extraSpecialArgs = {
+				const  = self.nixosModules.const;
+				flake  = self;
+				inputs = inputs;
+			};
 		};
 	};
 }
