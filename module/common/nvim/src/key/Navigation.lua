@@ -17,7 +17,13 @@ rekey_normal("<Leader>=",  "<C-w>=") -- Equalize split sizes.
 rekey_normal("<Leader>c",  "<C-w>q") -- Close split.
 
 -- Resize splits.
-rekey_normal("<Leader>A", "4<C-w><")
-rekey_normal("<Leader>D", "4<C-w>>")
-rekey_normal("<Leader>S", "2<C-w>+")
-rekey_normal("<Leader>W", "2<C-w>-")
+rekey_normal("<Leader>h", "4<C-w><")
+rekey_normal("<Leader>l", "4<C-w>>")
+rekey_normal("<Leader>j", "2<C-w>+")
+rekey_normal("<Leader>k", "2<C-w>-")
+
+-- Move splits.
+rekey_normal("<Leader>A", "<C-w>A")
+rekey_normal("<Leader>D", "<C-w>D")
+rekey_normal("<Leader>S", "<C-w>S")
+rekey_normal("<Leader>W", "<C-w>W")

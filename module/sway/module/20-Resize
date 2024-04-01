@@ -1,21 +1,4 @@
-mode "resize" {
-	# Left will shrink the containers width.
-	# Right will grow the containers width.
-	# Up will shrink the containers height.
-	# Down will grow the containers height.
-	bindsym $down  resize grow   height 10px
-	bindsym $left  resize shrink width  10px
-	bindsym $right resize grow   width  10px
-	bindsym $up    resize shrink height 10px
-
-	bindsym Down  resize grow   height 10px
-	bindsym Left  resize shrink width  10px
-	bindsym Right resize grow   width  10px
-	bindsym Up    resize shrink height 10px
-
-	# Return to default mode
-	bindsym Escape mode "default"
-	bindsym Return mode "default"
-}
-bindsym $mod+r mode "resize"
-
+bindsym $mod+j resize grow   height 10px
+bindsym $mod+h resize shrink width  10px
+bindsym $mod+l resize grow   width  10px
+bindsym $mod+k resize shrink height 10px
