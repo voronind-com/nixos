@@ -1,5 +1,5 @@
 # Toggle tiling.
-bindsym $mod+return floating toggle
+bindsym $mod+shift+f floating toggle
 
 # Swap focus between the tiling area and the floating area
 # bindsym $mod+space focus mode_toggle
