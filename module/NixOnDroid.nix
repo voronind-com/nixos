@@ -55,6 +55,10 @@ in {
 			".termux/_font.ttf".source = pkgs.runCommandNoCC "font" {} ''
 				cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 			'';
+			".termux/_colors.properties".text = ''
+				background=#1d2021
+				foreground=#ebdbb2
+			'';
 		};
 		home.sessionVariables = {
 			BASH_PATH            = ./common/bash;
@@ -70,7 +74,8 @@ in {
 				source $BASH_PATH/Bashrc.sh
 				[[ -f ~/.termux/font.ttf ]] || {
 					cp ~/.termux/_font.ttf ~/.termux/font.ttf
-					_warn "Nerd font installed, please restart."
+					cp ~/.termux/_colors.properties ~/.termux/colors.properties
+					_warn "Termux config installed, please restart."
 				};
 			'';
 		};
