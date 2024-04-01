@@ -19,3 +19,13 @@ bindsym $mod+f fullscreen
 
 # Dim inactive windows.
 exec $SWAY_SCRIPT_IWT --opacity 0.85
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Kill focused window.
+bindsym $mod+x kill
