@@ -30,7 +30,7 @@
 			blender-hip
 			bottles dxvk gamescope mangohud vkd3d wine64
 			calibre
-			evince loupe gnome.nautilus
+			evince loupe
 			gimp
 			jellyfin-media-player
 			mpv
