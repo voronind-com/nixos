@@ -18,7 +18,7 @@ bindsym $mod+Tab layout toggle split tabbed
 bindsym $mod+f fullscreen
 
 # Dim inactive windows.
-exec $SWAY_SCRIPT_IWT --opacity 0.85
+exec $SWAY_IWT_PATH --opacity 0.85
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

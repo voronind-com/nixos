@@ -7,7 +7,6 @@
 		./desktop/Portal.nix
 		./desktop/Realtime.nix
 		./desktop/Sound.nix
-		./desktop/Waybar.nix
 	];
 
 
@@ -34,9 +33,9 @@
 
 	environment = {
 		variables = {
-			FOOT_CONFIG = ./foot/Foot.ini;
-			SWAY_CONFIG = ./sway/module;
-			SWAY_SCRIPT_IWT = "${pkgs.sway-contrib.inactive-windows-transparency}/bin/inactive-windows-transparency.py";
+			FOOT_CONFIG   = ./foot/Foot.ini;
+			SWAY_CONFIG   = ./sway/module;
+			SWAY_IWT_PATH = "${pkgs.sway-contrib.inactive-windows-transparency}/bin/inactive-windows-transparency.py";
 			# PATH        = [ "/etc/swaybin" ]; # NOTE: Kept as an example on PATH modification.
 		};
 	};

@@ -1,6 +1,6 @@
 # Application launcher.
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu _dmenu_path_wrapped | wmenu -b -p 'Run:' -i -f "SF Pro Display Medium 14" -M 1d2021 -S 1d2021 -N 1d2021 -m b8bb26 -s b8bb26 -n ebdbb2 | xargs swaymsg exec --
+set $menu _dmenu_path_wrapped | wmenu -b -p 'Run:' -i -f "SF Pro Display Medium 14" -M $bg -S $bg -N $bg -m $yellow -s $yellow -n $fg | xargs swaymsg exec --
 
 bindsym $mod+space exec $menu
