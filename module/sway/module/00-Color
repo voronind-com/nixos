@@ -1,19 +1,3 @@
-set $aqua        689d68
-set $bg          1d2021
-set $bg_1        504945
-set $blue        458588
-set $blue_faded  076678
-set $darkgray    282828
-set $fg          ebdbb2
-set $fg_1        fbf1c7
-set $fg_2        d5c4a1
-set $gray        a89984
-set $green       98971a
-set $purple      b16286
-set $red         cc241d
-set $transparent ffffff00
-set $yellow      b8bb26
-
 # Class                 Border  Bground Text    Indicator ChildBorder
 client.focused          #$yellow #$yellow #$fg    #$yellow #$yellow
 client.focused_inactive #$bg_1   #5f676a  #$fg    #484e50  #5f676a

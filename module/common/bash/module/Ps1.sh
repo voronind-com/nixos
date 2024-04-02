@@ -1,18 +1,14 @@
 export PROMPT_COMMAND=(__prompt_command "${PROMPT_COMMAND[@]}")
-export COLOR_BACKGROUND="235"
-export COLOR_USER_ROOT="203"
-export COLOR_USER_NORMAL="109"
-export COLOR_FOREGROUND="230"
-export COLOR_ACCENT="223"
-export COLOR_ERROR="203"
-export COLOR_PATH="108"
-export COLOR_GIT="142"
 
 function __prompt_color() {
 	local color="${1}"
-	[[ "${color}" = "" ]] && color="${COLOR_FOREGROUND}"
+	if [[ "${color}" = "" ]]; then
+		printf "\[\x1b[0m\]"
+	else
+		printf "\[\x1b[38;2;${color}m\]"
+	fi
 	# echo "\[\033[48;5;${COLOR_BACKGROUND};38;5;${color}m\]" # With backgroud.
-	echo "\[\033[38;5;${color}m\]" # Only foreground.
+	# echo "\[\033[38;5;${color}m\]" # Only foreground.
 }
 
 # Custom terminal prompt format.
@@ -33,7 +29,7 @@ function __prompt_command() {
 
 	# Set error red.
 	if ${is_error}; then
-		PS1+="$(__prompt_color ${COLOR_ERROR})"
+		PS1+="$(__prompt_color ${red_rgb})"
 		PS1+="["
 	else
 		PS1+="$(__prompt_color)"
@@ -41,31 +37,31 @@ function __prompt_command() {
 	fi
 
 	# Add time.
-	PS1+="$(__prompt_color ${COLOR_ACCENT})"
+	PS1+="$(__prompt_color ${fg_1_rgb})"
 	PS1+="$(date +%H:%M) "
 
 	# Set root red.
 	if ${is_root}; then
-		PS1+="$(__prompt_color ${COLOR_USER_ROOT})"
+		PS1+="$(__prompt_color ${red_rgb})"
 	else
-		PS1+="$(__prompt_color ${COLOR_USER_NORMAL})"
+		PS1+="$(__prompt_color ${blue_1_rgb})"
 	fi
 
 	# Add user, host and working dir.
 	PS1+="\u@\h "
-	PS1+="$(__prompt_color ${COLOR_PATH})"
+	PS1+="$(__prompt_color ${green_1_rgb})"
 	PS1+="\w"
 	# PS1+="\${PWD}"
 
 	# Add git branch if available.
 	local git_branch="$(_git_current_branch)"
 	if [[ "${git_branch}" != "" ]]; then
-		PS1+=" $(__prompt_color ${COLOR_GIT})@${git_branch}"
+		PS1+=" $(__prompt_color ${yellow_rgb})@${git_branch}"
 	fi
 
 	# Set error red.
 	if ${is_error}; then
-		PS1+="$(__prompt_color ${COLOR_ERROR})"
+		PS1+="$(__prompt_color ${red_rgb})"
 		PS1+="] "
 	else
 		PS1+="$(__prompt_color)"
@@ -74,7 +70,7 @@ function __prompt_command() {
 
 	# If error, show code.
 	if ${is_error}; then
-		PS1+="$(__prompt_color ${COLOR_ERROR})("
+		PS1+="$(__prompt_color ${red_rgb})("
 		PS1+="${last_status}"
 		local error_type="$(_ps1error ${last_status})"
 		[[ "${error_type}" != "" ]] && PS1+=" ${error_type}"
@@ -83,7 +79,7 @@ function __prompt_command() {
 
 	# Command on new line.
 	PS1+="\n"
-	PS1+="$(__prompt_color ${COLOR_ACCENT})"
+	PS1+="$(__prompt_color ${fg_1_rgb})"
 
 	# Show nix shell name.
 	if [ -n "${NIX_SHELL}" ]; then
