@@ -6,6 +6,7 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		stylix.url = "github:danth/stylix";
 
 		# Android.
 		nix-on-droid = {
@@ -97,7 +98,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, nix-on-droid, home-manager, ... } @inputs: {
+	outputs = { self, nixpkgs, nix-on-droid, home-manager, stylix, ... } @inputs: {
 		# Constant values.
 		nixosModules.const = {
 			url = "git+https://git.voronind.com/voronind/nixos.git";
@@ -107,29 +108,15 @@
 			timeZone = "Europe/Moscow";
 		};
 
-		# Colors.
-		nixosModules.color = {
-			accent      = "b8bb26";
-			bg          = "1d2021";
-			bg_1        = "504945";
-			bg_2        = "3c3836";
-			bg_3        = "282828";
-			fg          = "ebdbb2";
-			fg_1        = "fbf1c7";
-			fg_2        = "d5c4a1";
-			fg_3        = "a89984";
-			negative    = "cc241d";
-			neutral     = "458588";
-			neutral_1   = "076678";
-			positive    = "98971a";
-			positive_1  = "87af87";
-			transparent = "ffffff00";
-
-			accent_rgb   = "184;187;38";
-			fg_3_rgb     = "168;153;132";
-			negative_rgb = "204;36;29";
-			neutral_rgb  = "69;133;136";
-			positive_rgb = "135;175;135";
+		# Wallpaper.
+		wallpaper = { pkgs, ...}: let
+			url    = "https://4kwallpapers.com/images/wallpapers/nasa-space-3840x2160-15925.jpg";
+			sha256 = "sha256-r753IGaNwWWRaFdlf9bCiU2K7v4sSKfi6P2ANYwqgKg=";
+		in {
+			path = pkgs.fetchurl {
+				url    = url;
+				sha256 = sha256;
+			};
 		};
 
 		# Common modules used across all hosts.
@@ -139,7 +126,6 @@
 			./module/common/Bootloader.nix
 			./module/common/Distrobox.nix
 			./module/common/Dotfiles.nix
-			./module/common/Environment.nix
 			./module/common/Filesystem.nix
 			./module/common/Firefox.nix
 			./module/common/Firewall.nix
@@ -154,6 +140,7 @@
 			./module/common/Package.nix
 			./module/common/Ssh.nix
 			./module/common/Sshd.nix
+			./module/common/Stylix.nix
 			./module/common/Swap.nix
 			./module/common/Tmux.nix
 			./module/common/Users.nix
@@ -171,13 +158,14 @@
 				{ system.stateVersion = self.nixosModules.const.stateVersion; }
 				inputs.self.nixosModules.common
 				home-manager.nixosModules.home-manager
+				stylix.nixosModules.stylix
 			] ++ modules;
 
 			specialArgs = {
-				const  = self.nixosModules.const;
-				color  = self.nixosModules.color;
-				flake  = self;
-				inputs = inputs;
+				const     = self.nixosModules.const;
+				flake     = self;
+				inputs    = inputs;
+				wallpaper = self.wallpaper { pkgs = nixpkgs.legacyPackages.${system}.pkgs; };
 			};
 		};
 
@@ -284,13 +272,14 @@
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
 			modules = [
 				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
+				stylix.homeManagerModules.stylix
 				./module/NixOnDroid.nix
 			];
 			extraSpecialArgs = {
-				const  = self.nixosModules.const;
-				color  = self.nixosModules.color;
-				flake  = self;
-				inputs = inputs;
+				const     = self.nixosModules.const;
+				flake     = self;
+				inputs    = inputs;
+				wallpaper = self.nixosModules.wallpaper;
 			};
 		};
 	};

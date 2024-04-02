@@ -29,3 +29,6 @@ floating_modifier $mod normal
 
 # Kill focused window.
 bindsym $mod+x kill
+
+# Add gaps.
+gaps inner 10

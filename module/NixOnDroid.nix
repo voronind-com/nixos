@@ -1,4 +1,4 @@
-{ pkgs, inputs, const, color, ... }: let
+{ pkgs, inputs, const, ... }: let
 	homePath = "/data/data/com.termux.nix/files/home";
 	tmuxScript = pkgs.writeShellScriptBin "tmux_script" (builtins.readFile ./common/tmux/Script.sh);
 in {
@@ -56,10 +56,10 @@ in {
 			".termux/_font.ttf".source = pkgs.runCommandNoCC "font" {} ''
 				cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 			'';
-			".termux/_colors.properties".text = ''
-				background=#${bg}
-				foreground=#${fg}
-			'';
+			# ".termux/_colors.properties".text = ''
+			# 	background=#${bg}
+			# 	foreground=#${fg}
+			# '';
 		};
 		home.sessionVariables = {
 			BASH_PATH            = ./common/bash;
@@ -68,14 +68,14 @@ in {
 			NIXPKGS_ALLOW_UNFREE = "1";
 			NIX_CURRENT_SYSTEM   = "${pkgs.stdenv.system}";
 			TERM                 = "xterm-256color";
-		} // const // color;
+		};
 		programs.bash = {
 			enable = true;
 			bashrcExtra = ''
 				source $BASH_PATH/Bashrc.sh
 				[[ -f ~/.termux/font.ttf ]] || {
 					cp ~/.termux/_font.ttf ~/.termux/font.ttf
-					cp ~/.termux/_colors.properties ~/.termux/colors.properties
+					# cp ~/.termux/_colors.properties ~/.termux/colors.properties
 					_warn "Termux config installed, please restart."
 				};
 			'';

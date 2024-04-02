@@ -1,4 +1,4 @@
 # Terminal emulator.
-set $term foot --config=$FOOT_CONFIG
+set $term foot
 
 bindsym $mod+Escape exec $term -e bash -c "tmux new-session -A -s $USER; bash"
