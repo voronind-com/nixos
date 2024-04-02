@@ -107,6 +107,25 @@
 			timeZone = "Europe/Moscow";
 		};
 
+		# Colors.
+		nixosModules.color = {
+			aqua        = "689d68";
+			bg          = "1d2021";
+			bg_1        = "504945";
+			blue        = "458588";
+			blue_faded  = "076678";
+			darkgray    = "282828";
+			fg          = "ebdbb2";
+			fg_1        = "fbf1c7";
+			fg_2        = "d5c4a1";
+			gray        = "a89984";
+			green       = "98971a";
+			purple      = "b16286";
+			red         = "cc241d";
+			transparent = "ffffff00";
+			yellow      = "b8bb26";
+		};
+
 		# Common modules used across all hosts.
 		nixosModules.common.imports = [
 			./module/common/AutoUpdate.nix
@@ -149,6 +168,7 @@
 
 			specialArgs = {
 				const  = self.nixosModules.const;
+				color  = self.nixosModules.color;
 				flake  = self;
 				inputs = inputs;
 			};
@@ -261,6 +281,7 @@
 			];
 			extraSpecialArgs = {
 				const  = self.nixosModules.const;
+				color  = self.nixosModules.color;
 				flake  = self;
 				inputs = inputs;
 			};
