@@ -37,7 +37,7 @@ function __prompt_command() {
 	fi
 
 	# Add time.
-	PS1+="$(__prompt_color ${fg_2_rgb})"
+	PS1+="$(__prompt_color ${fg_3_rgb})"
 	PS1+="$(date +%H:%M) "
 
 	# Set root red.
@@ -79,7 +79,7 @@ function __prompt_command() {
 
 	# Command on new line.
 	PS1+="\n"
-	PS1+="$(__prompt_color ${fg_2_rgb})"
+	PS1+="$(__prompt_color ${fg_3_rgb})"
 
 	# Show nix shell name.
 	if [ -n "${NIX_SHELL}" ]; then

@@ -1,10 +1,7 @@
 anchor=top-center
-background-color=#1d2021
-border-color=#b8bb26
 default-timeout=5000
 font="SF Pro Display" Medium 14
 height=120
 icons=0
 margin=32
-text-color=#ebdbb2
 width=480
