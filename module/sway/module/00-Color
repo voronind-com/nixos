@@ -1,7 +1,0 @@
-# Class                   Border   Bground    Text   Indicator  ChildBorder
-
-# client.focused          #$accent #$accent   #$fg   #$accent   #$accent
-# client.focused_inactive #$bg_1   #$bg_3     #$fg   #$bg_3     #$bg_3
-# client.unfocused        #$bg_1   #$bg_3     #$fg_3 #$bg_3     #$bg_3
-# client.urgent           #$bg_3   #$negative #$fg_1 #$negative #$negative
-# client.placeholder      #$bg     #$bg       #$fg   #$bg       #$bg

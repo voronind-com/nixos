@@ -1,4 +1,9 @@
-{ const, username, homeDir, color, ... }: {
+{ const, username, homeDir, color, ... }: let
+	makoConfig = ''${builtins.readFile ./module/mako/config}
+background-color=#${color.bg}
+border-color=#${color.accent}
+text-color=#${color.fg}'';
+in {
 	home-manager.backupFileExtension = "old";
 
 	home-manager.users.${username} = {
@@ -13,10 +18,7 @@
 			".config/gtk-3.0".source   = ./module/gtk/3;
 			".config/gtk-4.0".source   = ./module/gtk/4;
 			".config/htop".source      = ./module/top/htop;
-			".config/mako/config".text = ''${builtins.readFile ./module/mako/config}
-background-color=#${color.bg}
-border-color=#${color.accent}
-text-color=#${color.fg}'';
+			".config/mako/config".text = "${makoConfig}";
 			".editorconfig".source     = ./module/Editorconfig;
 			".parallel/will-cite".text = "";
 			"media/template".source    = ./module/template;

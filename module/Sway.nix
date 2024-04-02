@@ -1,4 +1,13 @@
-{ pkgs, lib, color, ... }: {
+{ pkgs, lib, color, ... }: let
+	config = pkgs.writeText "sway_config" ''
+		client.focused          #${color.accent} #${color.accent}   #${color.fg}   #${color.accent}   #${color.accent}
+		client.focused_inactive #${color.bg_1}   #${color.bg_3}     #${color.fg}   #${color.bg_3}     #${color.bg_3}
+		client.unfocused        #${color.bg_1}   #${color.bg_3}     #${color.fg_3} #${color.bg_3}     #${color.bg_3}
+		client.urgent           #${color.bg_3}   #${color.negative} #${color.fg_1} #${color.negative} #${color.negative}
+		client.placeholder      #${color.bg}     #${color.bg}       #${color.fg}   #${color.bg}       #${color.bg}
+		${builtins.readFile ./sway/Config}
+	'';
+in {
 	imports = [
 		./desktop/App.nix
 		./desktop/Bluetooth.nix
@@ -27,7 +36,7 @@
 			gtk  = true;
 		};
 		extraOptions = [
-			"--config=${./sway/Config}"
+			"--config=${config}"
 		];
 	};
 
