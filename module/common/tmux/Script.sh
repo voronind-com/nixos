@@ -82,7 +82,7 @@ function _tmux_statusbar() {
 	echo -n " "
 
 	# Assemble.
-	if $(cat "/tmp/.tmux_uber" || echo false); then
+	if $(cat "/tmp/.tmux_uber"); then
 		local lang=($(_tmux_language))
 		[[ "${lang[0]}" != "" ]] && {
 			echo -n "${lang[0]} ${sep} "
@@ -108,9 +108,8 @@ function _tmux_statusbar() {
 function _tmux_language() {
 	local IFS=$'\n'
 	local lang=$(swaymsg -t get_inputs | jq 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')
-	local result=${lang:1:2}
 
-	echo -n ${result^^}
+	echo -n ${lang:1:2}
 }
 
 function _tmux_client_count() {
