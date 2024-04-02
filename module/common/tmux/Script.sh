@@ -51,7 +51,10 @@ function _tmux_volume() {
 		icon="󰝟"
 	fi
 
-	wpctl get-volume @DEFAULT_SINK@ | grep '[MUTED]' && icon="󰸈"
+	local muted=$(wpctl get-volume @DEFAULT_SINK@ | grep '[MUTED]')
+	if [[ "${muted}" != "" ]]; then
+		icon="󰸈"
+	fi
 
 	echo -n "${icon}"
 	[[ "${level}" -gt 100 ]] && echo -n "\n${level}%"
