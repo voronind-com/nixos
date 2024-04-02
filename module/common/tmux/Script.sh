@@ -62,6 +62,7 @@ function _tmux_volume() {
 
 function _tmux_statusbar() {
 	local IFS=$'\n'
+	local sep=""
 
 	# Get data.
 	battery=($(_tmux_battery))
@@ -82,12 +83,17 @@ function _tmux_statusbar() {
 
 	# Assemble.
 	if $(cat "/tmp/.tmux_uber" || echo false); then
+		local lang=($(_tmux_language))
+		[[ "${lang[0]}" != "" ]] && {
+			echo -n "${lang[0]} ${sep} "
+		};
+
 		[[ "${volume[0]}"  != "" ]] && echo -n "${volume[0]} ${volume[1]}%${sep_batvol}"
 		[[ "${battery[0]}" != "" ]] && echo -n "${battery[0]} ${battery[1]}%"
 	else
 		[[ "${volume[0]}"  != "" ]] && {
 			echo -n "${volume[0]}"
-			[[ "${volume}" -gt 100 ]] && echo -n " ${volume[1]}%"
+			[[ "${volume[1]}" -gt 100 ]] && echo -n " ${volume[1]}%"
 			echo -n "${sep_batvol}"
 		};
 		[[ "${battery[0]}" != "" ]] && {
@@ -97,6 +103,14 @@ function _tmux_statusbar() {
 	fi
 
 	echo -n " "
+}
+
+function _tmux_language() {
+	local IFS=$'\n'
+	local lang=$(swaymsg -t get_inputs | jq 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')
+	local result=${lang:1:2}
+
+	echo -n ${result^^}
 }
 
 function _tmux_client_count() {
