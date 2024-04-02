@@ -28,7 +28,7 @@ function _tmux_battery() {
 
 	echo -n "${icon}"
 	${is_charging} && echo -n "󱐋"
-	[[ "${level}" -lt 40 ]] && echo -n "\n${level}%"
+	echo -n "\n${level}"
 }
 
 function _tmux_volume() {
@@ -56,12 +56,12 @@ function _tmux_volume() {
 		icon="󰸈"
 	fi
 
-	echo -n "${icon}"
-	[[ "${level}" -gt 100 ]] && echo -n "\n${level}%"
+	echo "${icon}"
+	echo -n "${level}"
 }
 
 function _tmux_statusbar() {
-	IFS=$'\n'
+	local IFS=$'\n'
 
 	# Get data.
 	battery=($(_tmux_battery))
@@ -80,8 +80,21 @@ function _tmux_statusbar() {
 	# Print.
 	echo -n " "
 
-	[[ "${volume[0]}"  != "" ]] && echo -n "${volume[0]}${sep_batvol}"
-	[[ "${battery[0]}" != "" ]] && echo -n "${battery[0]}"
+	# Assemble.
+	if $(cat "/tmp/.tmux_uber" || echo false); then
+		[[ "${volume[0]}"  != "" ]] && echo -n "${volume[0]} ${volume[1]}%${sep_batvol}"
+		[[ "${battery[0]}" != "" ]] && echo -n "${battery[0]} ${battery[1]}%"
+	else
+		[[ "${volume[0]}"  != "" ]] && {
+			echo -n "${volume[0]}"
+			[[ "${volume}" -gt 100 ]] && echo -n " ${volume[1]}%"
+			echo -n "${sep_batvol}"
+		};
+		[[ "${battery[0]}" != "" ]] && {
+			echo -n "${battery[0]}"
+			[[ "${battery[1]}" -lt 40 ]] && echo -n " ${battery[1]}%"
+		};
+	fi
 
 	echo -n " "
 }
@@ -94,11 +107,23 @@ function _tmux_client_count() {
 	[ ${count} -gt 1 ] && echo -n "(${count}) "
 }
 
+function _tmux_toggle_statusbar() {
+	local file="/tmp/.tmux_uber"
+	if [[ ! -f ${file} ]]; then
+		echo "true" > ${file}
+	elif $(cat ${file}); then
+		echo "false" > ${file}
+	else
+		echo "true" > ${file}
+	fi
+}
+
 IFS=$'\n'
 action=${1}
 session=${2}
 
 case "${action}" in
-	"statusbar")    _tmux_statusbar ;;
-	"client_count") _tmux_client_count ${session} ;;
+	"statusbar")       _tmux_statusbar ;;
+	"client_count")    _tmux_client_count ${session} ;;
+	"togglestatusbar") _tmux_toggle_statusbar ;;
 esac
