@@ -1,6 +1,7 @@
-# Class                 Border  Bground Text    Indicator ChildBorder
-client.focused          #$yellow #$yellow #$fg    #$yellow #$yellow
-client.focused_inactive #$bg_1   #5f676a  #$fg    #484e50  #5f676a
-client.unfocused        #$bg_1   #282828  #888888 #292d2e  #222222
-client.urgent           #2f343a  #cc241d  #$fg_1  #cc241d  #cc241d
-client.placeholder      #1d2021  #0c0c0c  #$fg    #000000  #0c0c0c
+# Class                 Border     Bground    Text   Indicator  ChildBorder
+
+client.focused          #$yellow   #$yellow   #$fg   #$yellow   #$yellow
+client.focused_inactive #$bg_1     #$darkgray #$fg   #$darkgray #$darkgray
+client.unfocused        #$bg_1     #$darkgray #$gray #$darkgray #$darkgray
+client.urgent           #$darkgray #$red      #$fg_1 #$red      #$red
+client.placeholder      #$bg       #$bg       #$fg   #$bg       #$bg
