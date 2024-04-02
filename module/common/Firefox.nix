@@ -79,10 +79,10 @@
 					installation_mode = "force_installed";
 					install_url       = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
 				};
-				"{08d5243b-4236-4a27-984b-1ded22ce01c3}" = {
-					installation_mode = "force_installed";
-					install_url       = "https://addons.mozilla.org/firefox/downloads/latest/gruvboxgruvboxgruvboxgruvboxgr/latest.xpi";
-				};
+				# "{08d5243b-4236-4a27-984b-1ded22ce01c3}" = {
+				# 	installation_mode = "force_installed";
+				# 	install_url       = "https://addons.mozilla.org/firefox/downloads/latest/gruvboxgruvboxgruvboxgruvboxgr/latest.xpi";
+				# };
 			};
 			SearchEngines = {
 				Default = "Whoogle";
