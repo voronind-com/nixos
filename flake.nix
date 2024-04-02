@@ -126,7 +126,7 @@
 			transparent = "ffffff00";
 
 			accent_rgb     = "184;187;38";
-			fg_1_rgb       = "251;241;199";
+			fg_2_rgb       = "213;196;161";
 			negative_rgb   = "204;36;29";
 			neutral_1_rgb  = "69;133;136";
 			positive_1_rgb = "135;175;135";
