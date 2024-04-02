@@ -44,12 +44,12 @@ function __prompt_command() {
 	if ${is_root}; then
 		PS1+="$(__prompt_color ${negative_rgb})"
 	else
-		PS1+="$(__prompt_color ${neutral_1_rgb})"
+		PS1+="$(__prompt_color ${neutral_rgb})"
 	fi
 
 	# Add user, host and working dir.
 	PS1+="\u@\h "
-	PS1+="$(__prompt_color ${positive_1_rgb})"
+	PS1+="$(__prompt_color ${positive_rgb})"
 	PS1+="\w"
 	# PS1+="\${PWD}"
 

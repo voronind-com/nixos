@@ -51,14 +51,14 @@ in {
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
-			".dotfiles".source        = inputs.self;
-			".ssh/config".source      = ./common/ssh/config;
+			".dotfiles".source   = inputs.self;
+			".ssh/config".source = ./common/ssh/config;
 			".termux/_font.ttf".source = pkgs.runCommandNoCC "font" {} ''
 				cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 			'';
 			".termux/_colors.properties".text = ''
-				background=#1d2021
-				foreground=#ebdbb2
+				background=#${bg}
+				foreground=#${fg}
 			'';
 		};
 		home.sessionVariables = {

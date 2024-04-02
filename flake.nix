@@ -125,11 +125,11 @@
 			positive_1  = "87af87";
 			transparent = "ffffff00";
 
-			accent_rgb     = "184;187;38";
-			fg_3_rgb       = "168;153;132";
-			negative_rgb   = "204;36;29";
-			neutral_1_rgb  = "69;133;136";
-			positive_1_rgb = "135;175;135";
+			accent_rgb   = "184;187;38";
+			fg_3_rgb     = "168;153;132";
+			negative_rgb = "204;36;29";
+			neutral_rgb  = "69;133;136";
+			positive_rgb = "135;175;135";
 		};
 
 		# Common modules used across all hosts.
