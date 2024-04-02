@@ -1,10 +1,12 @@
-{ const, color, ... }: {
+{ const, color, config, pkgs, ... }: {
 	imports = [
 		(import ./Default.nix {
 			color    = color;
+			config   = config;
 			const    = const;
-			username = "dasha";
 			homeDir  = "/home/dasha";
+			pkgs     = pkgs;
+			username = "dasha";
 		})
 	];
 }

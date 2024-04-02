@@ -1,4 +1,7 @@
-{ const, username, homeDir, ... }: {
+{ const, username, homeDir, config, pkgs, ... }: let
+	footConfig = import ./module/foot/Foot.nix { config = config; };
+	makoConfig = import ./module/mako/Mako.nix { config = config; };
+in {
 	home-manager.backupFileExtension = "old";
 
 	home-manager.users.${username} = {
@@ -8,12 +11,13 @@
 		home.stateVersion  = const.stateVersion;
 
 		home.file = {
-			".config/btop".source      = ./module/top/btop;
-			".config/htop".source      = ./module/top/htop;
-			".config/mako".source      = ./module/mako;
-			".editorconfig".source     = ./module/Editorconfig;
-			".parallel/will-cite".text = "";
-			"media/template".source    = ./module/template;
+			".config/btop".source        = ./module/top/btop;
+			".config/htop".source        = ./module/top/htop;
+			".config/mako/config".text   = makoConfig.config;
+			".config/foot/foot.ini".text = footConfig.config;
+			".editorconfig".source       = ./module/Editorconfig;
+			".parallel/will-cite".text   = "";
+			"media/template".source      = ./module/template;
 		};
 
 		# Directories.

@@ -4,6 +4,12 @@
 		autoEnable = true;
 		polarity = "dark";
 		# base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+		opacity = {
+			applications = 0.85;
+			terminal     = 0.85;
+			popups       = 0.85;
+			desktop      = 0.85;
+		};
 		fonts = {
 			sizes = {
 				applications = 12;
@@ -11,24 +17,24 @@
 				popups       = 12;
 				desktop      = 12;
 			};
-			# serif = {
-			# 	package = (pkgs.callPackage ./applefont {});
-			# 	name    = "SF Pro Display Medium";
-			# };
-			# sansSerif = config.stylix.fonts.serif;
+			serif = {
+				package = (pkgs.callPackage ./applefont {});
+				name    = "SF Pro Display";
+			};
+			sansSerif = config.stylix.fonts.serif;
 			monospace = {
 				package = (pkgs.nerdfonts.override { fonts = [ "Terminus" ]; });
-				name    = "Terminess Mono";
+				name    = "Terminess Nerd Font Mono";
 			};
 			emoji = {
 				package = pkgs.noto-fonts-emoji;
 				name = "Noto Color Emoji";
 			};
 		};
-		targets = {
-			foot = {
-				enable = true;
-			};
-		};
+		# targets = {
+		# 	foot = {
+		# 		enable = true;
+		# 	};
+		# };
 	};
 }
