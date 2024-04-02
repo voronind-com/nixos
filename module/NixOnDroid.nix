@@ -1,5 +1,6 @@
-{ pkgs, inputs, const, ... }: let
+{ pkgs, inputs, const, color, ... }: let
 	homePath = "/data/data/com.termux.nix/files/home";
+	tmuxScript = pkgs.writeShellScriptBin "tmux_script" (builtins.readFile ./common/tmux/Script.sh);
 in {
 	# NOTE: Split into modules?
 	environment.packages = with pkgs; [
@@ -33,7 +34,7 @@ in {
 		ripgrep
 		rsync
 		sqlite
-		tmux
+		tmux tmuxScript
 		tree
 		utillinux
 		wget
@@ -67,9 +68,9 @@ in {
 			NIXPKGS_ALLOW_UNFREE = "1";
 			NIX_CURRENT_SYSTEM   = "${pkgs.stdenv.system}";
 			TERM                 = "xterm-256color";
-		};
+		} // const // color;
 		programs.bash = {
-			enable      = true;
+			enable = true;
 			bashrcExtra = ''
 				source $BASH_PATH/Bashrc.sh
 				[[ -f ~/.termux/font.ttf ]] || {
@@ -80,8 +81,16 @@ in {
 			'';
 		};
 		programs.tmux = {
-			enable      = true;
-			extraConfig = builtins.readFile ./common/tmux/tmux.conf;
+			enable = true;
+			extraConfig = ''
+				set -g @COLOR_BG "#${color.bg}"
+				set -g @COLOR_BG_1 "#${color.bg_1}"
+				set -g @COLOR_BG_2 "#${color.bg_2}"
+				set -g @COLOR_DARKGRAY "#${color.darkgray}"
+				set -g @COLOR_FG "#${color.fg}"
+				set -g @COLOR_GRAY "#${color.gray}"
+				set -g @COLOR_YELLOW "#${color.yellow}"
+			'' + (builtins.readFile ./common/tmux/tmux.conf);
 		};
 		programs.git = {
 			enable = true;

@@ -112,6 +112,7 @@
 			aqua        = "689d68";
 			bg          = "1d2021";
 			bg_1        = "504945";
+			bg_2        = "3c3836";
 			blue        = "458588";
 			blue_faded  = "076678";
 			darkgray    = "282828";
@@ -133,6 +134,7 @@
 			./module/common/Bootloader.nix
 			./module/common/Distrobox.nix
 			./module/common/Dotfiles.nix
+			./module/common/Environment.nix
 			./module/common/Filesystem.nix
 			./module/common/Firefox.nix
 			./module/common/Firewall.nix
