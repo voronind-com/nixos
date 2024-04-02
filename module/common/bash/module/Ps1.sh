@@ -29,7 +29,7 @@ function __prompt_command() {
 
 	# Set error red.
 	if ${is_error}; then
-		PS1+="$(__prompt_color ${red_rgb})"
+		PS1+="$(__prompt_color ${negative_rgb})"
 		PS1+="["
 	else
 		PS1+="$(__prompt_color)"
@@ -42,26 +42,26 @@ function __prompt_command() {
 
 	# Set root red.
 	if ${is_root}; then
-		PS1+="$(__prompt_color ${red_rgb})"
+		PS1+="$(__prompt_color ${negative_rgb})"
 	else
-		PS1+="$(__prompt_color ${blue_1_rgb})"
+		PS1+="$(__prompt_color ${neutral_1_rgb})"
 	fi
 
 	# Add user, host and working dir.
 	PS1+="\u@\h "
-	PS1+="$(__prompt_color ${green_1_rgb})"
+	PS1+="$(__prompt_color ${positive_1_rgb})"
 	PS1+="\w"
 	# PS1+="\${PWD}"
 
 	# Add git branch if available.
 	local git_branch="$(_git_current_branch)"
 	if [[ "${git_branch}" != "" ]]; then
-		PS1+=" $(__prompt_color ${yellow_rgb})@${git_branch}"
+		PS1+=" $(__prompt_color ${accent_rgb})@${git_branch}"
 	fi
 
 	# Set error red.
 	if ${is_error}; then
-		PS1+="$(__prompt_color ${red_rgb})"
+		PS1+="$(__prompt_color ${negative_rgb})"
 		PS1+="] "
 	else
 		PS1+="$(__prompt_color)"
@@ -70,7 +70,7 @@ function __prompt_command() {
 
 	# If error, show code.
 	if ${is_error}; then
-		PS1+="$(__prompt_color ${red_rgb})("
+		PS1+="$(__prompt_color ${negative_rgb})("
 		PS1+="${last_status}"
 		local error_type="$(_ps1error ${last_status})"
 		[[ "${error_type}" != "" ]] && PS1+=" ${error_type}"

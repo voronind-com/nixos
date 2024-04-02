@@ -109,28 +109,27 @@
 
 		# Colors.
 		nixosModules.color = {
+			accent      = "b8bb26";
 			bg          = "1d2021";
 			bg_1        = "504945";
 			bg_2        = "3c3836";
-			blue        = "458588";
-			blue_1      = "076678";
-			darkgray    = "282828";
+			bg_3        = "282828";
 			fg          = "ebdbb2";
 			fg_1        = "fbf1c7";
 			fg_2        = "d5c4a1";
-			gray        = "a89984";
-			green       = "98971a";
-			green_1     = "87af87";
-			purple      = "b16286";
-			red         = "cc241d";
+			fg_3        = "a89984";
+			negative    = "cc241d";
+			neutral     = "458588";
+			neutral_1   = "076678";
+			positive    = "98971a";
+			positive_1  = "87af87";
 			transparent = "ffffff00";
-			yellow      = "b8bb26";
 
-			blue_1_rgb  = "69;133;136";
-			fg_1_rgb    = "251;241;199";
-			green_1_rgb = "135;175;135";
-			red_rgb     = "204;36;29";
-			yellow_rgb  = "184;187;38";
+			accent_rgb     = "184;187;38";
+			fg_1_rgb       = "251;241;199";
+			negative_rgb   = "204;36;29";
+			neutral_1_rgb  = "69;133;136";
+			positive_1_rgb = "135;175;135";
 		};
 
 		# Common modules used across all hosts.

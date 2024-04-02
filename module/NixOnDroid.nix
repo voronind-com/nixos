@@ -82,15 +82,7 @@ in {
 		};
 		programs.tmux = {
 			enable = true;
-			extraConfig = ''
-				set -g @COLOR_BG "#${color.bg}"
-				set -g @COLOR_BG_1 "#${color.bg_1}"
-				set -g @COLOR_BG_2 "#${color.bg_2}"
-				set -g @COLOR_DARKGRAY "#${color.darkgray}"
-				set -g @COLOR_FG "#${color.fg}"
-				set -g @COLOR_GRAY "#${color.gray}"
-				set -g @COLOR_YELLOW "#${color.yellow}"
-			'' + (builtins.readFile ./common/tmux/tmux.conf);
+			extraConfig = builtins.readFile ./common/tmux/tmux.conf;
 		};
 		programs.git = {
 			enable = true;
