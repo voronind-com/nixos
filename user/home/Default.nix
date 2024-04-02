@@ -1,4 +1,4 @@
-{ const, username, homeDir, ... }: {
+{ const, username, homeDir,  ... }: {
 	home-manager.backupFileExtension = "old";
 
 	home-manager.users.${username} = {

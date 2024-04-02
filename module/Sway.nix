@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, color, ... }: {
 	imports = [
 		./desktop/App.nix
 		./desktop/Bluetooth.nix
@@ -33,7 +33,7 @@
 
 	environment = {
 		variables = {
-			FOOT_CONFIG   = ./foot/Foot.ini;
+			FOOT_CONFIG   = (import ./foot/Init.nix { pkgs = pkgs; fontSize = 14; color = color; }).config;
 			SWAY_CONFIG   = ./sway/module;
 			SWAY_IWT_PATH = "${pkgs.sway-contrib.inactive-windows-transparency}/bin/inactive-windows-transparency.py";
 			# PATH        = [ "/etc/swaybin" ]; # NOTE: Kept as an example on PATH modification.
