@@ -25,5 +25,10 @@
 				name = "Noto Color Emoji";
 			};
 		};
+		targets = {
+			foot = {
+				enable = true;
+			};
+		};
 	};
 }
