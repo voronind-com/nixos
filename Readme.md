@@ -4,8 +4,6 @@ This is my own custom config that I use on my GNU/Linux machines. Not meant to b
 
 # ✂️ Shortcuts.
 
-[📖 Documentation](.doc).  
-
 [Bash config](module/common/bash/).  
 [Neovim config](module/common/nvim/).  
 [Templates](user/home/module/template/).  
