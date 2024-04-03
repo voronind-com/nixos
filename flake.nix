@@ -110,8 +110,8 @@
 
 		# Wallpaper.
 		wallpaper = { pkgs, ...}: let
-			url    = "https://4kwallpapers.com/images/wallpapers/the-walking-dead-3840x2160-15616.jpg";
-			sha256 = "sha256-X+gH8bO936J2Pzh0Z3gMCnvlToX1FXQuTVvWwO6/jfI=";
+			url    = "https://r4.wallpaperflare.com/wallpaper/110/664/979/cyberpunk-video-games-pixel-art-the-last-night-wallpaper-f5c2ba815d61ae9dc51a1c73be62f6ed.jpg";
+			sha256 = "sha256-jktdp1GaY638u4/6VHxc4QLHho7jviToBsO0IISAOks=";
 		in {
 			path = pkgs.fetchurl {
 				url    = url;
