@@ -1,9 +1,9 @@
 # Suspend system.
 function slp() {
-	systemctl suspend
+	systemctl suspend -i
 }
 
 # Poweroff.
 function bye() {
-	poweroff
+	systemctl poweroff -i
 }
