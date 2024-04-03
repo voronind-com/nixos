@@ -66,7 +66,7 @@ function _tmux_statusbar() {
 	local sep=""
 	local thr_volume=100
 	local thr_battery=40
-	local is_uber=$(cat "/tmp/.tmux_uber")
+	local is_uber=$(cat "/tmp/.tmux_uber" || echo -n false)
 
 	# Get data.
 	battery=($(_tmux_battery))

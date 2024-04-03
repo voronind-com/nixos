@@ -10,7 +10,7 @@ reboot: boot
 	reboot
 
 .PHONY: switch
-switch: check
+switch:
 	nixos-rebuild switch $(options) --flake $(flake)
 
 .PHONY: trace
