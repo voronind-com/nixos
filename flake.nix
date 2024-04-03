@@ -17,83 +17,79 @@
 
 		# Nvim plugins.
 		nvimAlign = {
-			url   = "git+https://git.voronind.com/mirror/mini.align.git";
+			url   = "github:echasnovski/mini.align";
 			flake = false;
 		};
 		nvimAutoclose = {
-			url   = "git+https://git.voronind.com/mirror/autoclose.nvim.git";
+			url   = "github:m4xshen/autoclose.nvim";
 			flake = false;
 		};
 		nvimBufferline = {
-			url   = "git+https://git.voronind.com/mirror/bufferline.nvim.git";
+			url   = "github:akinsho/bufferline.nvim";
 			flake = false;
 		};
 		nvimCloseBuffers = {
-			url   = "git+https://git.voronind.com/mirror/close-buffers.nvim.git";
+			url   = "github:kazhala/close-buffers.nvim";
 			flake = false;
 		};
 		nvimDevicons = {
-			url   = "git+https://git.voronind.com/mirror/nvim-web-devicons.git";
+			url   = "github:nvim-tree/nvim-web-devicons";
 			flake = false;
 		};
 		nvimGitsigns = {
-			url   = "git+https://git.voronind.com/mirror/gitsigns.nvim.git";
+			url   = "github:lewis6991/gitsigns.nvim";
 			flake = false;
 		};
 		nvimGruvboxMaterial = {
-			url   = "git+https://git.voronind.com/mirror/gruvbox-material.git";
+			url   = "github:sainnhe/gruvbox-material";
 			flake = false;
 		};
 		nvimIndentoMatic = {
-			url   = "git+https://git.voronind.com/mirror/indent-o-matic.git";
+			url   = "github:Darazaki/indent-o-matic";
 			flake = false;
 		};
 		nvimLspconfig = {
-			url   = "git+https://git.voronind.com/mirror/nvim-lspconfig.git";
-			flake = false;
-		};
-		nvimLualine = {
-			url   = "git+https://git.voronind.com/mirror/lualine.nvim.git";
+			url   = "github:neovim/nvim-lspconfig";
 			flake = false;
 		};
 		nvimOllama = {
-			url   = "git+https://git.voronind.com/mirror/ollama.nvim.git";
+			url   = "github:nomnivore/ollama.nvim";
 			flake = false;
 		};
 		nvimPlenary = {
-			url   = "git+https://git.voronind.com/mirror/plenary.nvim.git";
+			url   = "github:nvim-lua/plenary.nvim";
 			flake = false;
 		};
 		nvimSingleComment = {
-			url   = "git+https://git.voronind.com/mirror/SingleComment.nvim.git";
+			url   = "github:LucasTavaresA/singlecomment.nvim";
 			flake = false;
 		};
 		nvimTelescope = {
-			url   = "git+https://git.voronind.com/mirror/telescope.nvim.git";
+			url   = "github:nvim-telescope/telescope.nvim";
 			flake = false;
 		};
 		nvimTodo = {
-			url   = "git+https://git.voronind.com/mirror/todo-comments.nvim.git";
+			url   = "github:folke/todo-comments.nvim";
 			flake = false;
 		};
 		nvimTokyonight = {
-			url   = "git+https://git.voronind.com/mirror/tokyonight.nvim.git";
+			url   = "github:folke/tokyonight.nvim";
 			flake = false;
 		};
 		nvimTree = {
-			url   = "git+https://git.voronind.com/mirror/nvim-tree.lua.git";
+			url   = "github:nvim-tree/nvim-tree.lua";
 			flake = false;
 		};
 		nvimTreesitter = {
-			url   = "git+https://git.voronind.com/mirror/nvim-treesitter.git";
+			url   = "github:nvim-treesitter/nvim-treesitter";
 			flake = false;
 		};
 		nvimTrouble = {
-			url   = "git+https://git.voronind.com/mirror/trouble.nvim.git";
+			url   = "github:folke/trouble.nvim";
 			flake = false;
 		};
 		nvimWhichKey = {
-			url   = "git+https://git.voronind.com/mirror/which-key.nvim.git";
+			url   = "github:folke/which-key.nvim";
 			flake = false;
 		};
 	};

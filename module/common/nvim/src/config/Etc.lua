@@ -1,7 +1,7 @@
 -- TODO: Add comments and separate files.
 vim.opt.clipboard     = "unnamedplus"
 -- vim.opt.completeopt   = "menuone,noselect"
-vim.opt.cursorline    = true
+vim.opt.cursorline    = false
 vim.opt.fixeol        = false
 vim.opt.number        = true
 vim.opt.splitbelow    = true

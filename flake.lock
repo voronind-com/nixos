@@ -388,15 +388,15 @@
       "locked": {
         "lastModified": 1707650661,
         "narHash": "sha256-vq8l6ff3xbdYAdoyZA7VszP7Hl5oVeQCM7n89sxs+Yo=",
-        "ref": "refs/heads/main",
+        "owner": "echasnovski",
+        "repo": "mini.align",
         "rev": "f845218c5fea89e49074e48270dc5e1b9511a0f9",
-        "revCount": 25,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/mini.align.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/mini.align.git"
+        "owner": "echasnovski",
+        "repo": "mini.align",
+        "type": "github"
       }
     },
     "nvimAutoclose": {
@@ -404,15 +404,15 @@
       "locked": {
         "lastModified": 1708731776,
         "narHash": "sha256-kcPV9NFv0RrilOWwK5qKzcevkD4dC750IKkz1stXhA4=",
-        "ref": "refs/heads/main",
+        "owner": "m4xshen",
+        "repo": "autoclose.nvim",
         "rev": "dc42806540dcf448ecb2bad6b67204410cfbe629",
-        "revCount": 91,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/autoclose.nvim.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/autoclose.nvim.git"
+        "owner": "m4xshen",
+        "repo": "autoclose.nvim",
+        "type": "github"
       }
     },
     "nvimBufferline": {
@@ -420,15 +420,15 @@
       "locked": {
         "lastModified": 1709805539,
         "narHash": "sha256-drvgwupiyRAoShL2enXEYUumkYJnG+QtIkBIVqVZK+U=",
-        "ref": "refs/heads/main",
+        "owner": "akinsho",
+        "repo": "bufferline.nvim",
         "rev": "64e2c5def50dfd6b6f14d96a45fa3d815a4a1eef",
-        "revCount": 810,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/bufferline.nvim.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/bufferline.nvim.git"
+        "owner": "akinsho",
+        "repo": "bufferline.nvim",
+        "type": "github"
       }
     },
     "nvimCloseBuffers": {
@@ -436,63 +436,63 @@
       "locked": {
         "lastModified": 1636931460,
         "narHash": "sha256-/jk38ebxKTlyH3AsrSQWMl/cErmu6threyy/MIrdzD4=",
-        "ref": "refs/heads/master",
+        "owner": "kazhala",
+        "repo": "close-buffers.nvim",
         "rev": "3acbcad1211572342632a6c0151f839e7dead27f",
-        "revCount": 45,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/close-buffers.nvim.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/close-buffers.nvim.git"
+        "owner": "kazhala",
+        "repo": "close-buffers.nvim",
+        "type": "github"
       }
     },
     "nvimDevicons": {
       "flake": false,
       "locked": {
-        "lastModified": 1710551591,
-        "narHash": "sha256-3AKsnCvNiQloFfgFKsAHTga0rEEfL8TGmN0BEeO0EQ0=",
-        "ref": "refs/heads/master",
-        "rev": "cb0c967c9723a76ccb1be0cc3a9a10e577d2f6ec",
-        "revCount": 249,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-web-devicons.git"
+        "lastModified": 1711417099,
+        "narHash": "sha256-G8URFQdABLf3ptj+9kwSFGXly9D+4lkt3SXfbhVDH6g=",
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "rev": "3ee60deaa539360518eaab93a6c701fe9f4d82ef",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-web-devicons.git"
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "type": "github"
       }
     },
     "nvimGitsigns": {
       "flake": false,
       "locked": {
-        "lastModified": 1710707879,
-        "narHash": "sha256-Hde3mGfqPYd8U5JExTei+TBHo2DHl+i07+1yEHQj6sw=",
-        "ref": "refs/heads/main",
-        "rev": "078041e9d060a386b0c9d3a8c7a7b019a35d3fb0",
-        "revCount": 821,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/gitsigns.nvim.git"
+        "lastModified": 1712046773,
+        "narHash": "sha256-YhEp0CL7/OzNWyMBfc7Z1hroea7bvH3KnRbqKM6vRWI=",
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "rev": "a4db718c78bff65198e3b63f1043f1e7bb5e05c8",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/gitsigns.nvim.git"
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "type": "github"
       }
     },
     "nvimGruvboxMaterial": {
       "flake": false,
       "locked": {
-        "lastModified": 1707563103,
-        "narHash": "sha256-1lVNw0WJyS6n306P7ElK15rLnwyv0YD9tCuHs/kTzQM=",
-        "ref": "refs/heads/master",
-        "rev": "b17fe51688b76e2ccf118e5f76f3978b9a8c503e",
-        "revCount": 769,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/gruvbox-material.git"
+        "lastModified": 1711551555,
+        "narHash": "sha256-a6rbmGB5WlGG2deEwo5e/anR1S35gfmAYc+sNxnHp5I=",
+        "owner": "sainnhe",
+        "repo": "gruvbox-material",
+        "rev": "80331fbbec9ba18590a17bc6b7d277d96c05c2b6",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/gruvbox-material.git"
+        "owner": "sainnhe",
+        "repo": "gruvbox-material",
+        "type": "github"
       }
     },
     "nvimIndentoMatic": {
@@ -500,47 +500,31 @@
       "locked": {
         "lastModified": 1685816927,
         "narHash": "sha256-scdMOPZZcAxaSf2KN/cOzKFrbv7tm1bwbtV0KgfuUOg=",
-        "ref": "refs/heads/master",
+        "owner": "Darazaki",
+        "repo": "indent-o-matic",
         "rev": "4d11e98f523d3c4500b1dc33f0d1a248a4f69719",
-        "revCount": 58,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/indent-o-matic.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/indent-o-matic.git"
+        "owner": "Darazaki",
+        "repo": "indent-o-matic",
+        "type": "github"
       }
     },
     "nvimLspconfig": {
       "flake": false,
       "locked": {
-        "lastModified": 1710924139,
-        "narHash": "sha256-wW6vmaCLBpiLtk87UXzppIP2WRzG/gdtsIcPPCnwucM=",
-        "ref": "refs/heads/master",
-        "rev": "d67715d3b746a19e951b6b0a99663fa909bb9e64",
-        "revCount": 2828,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-lspconfig.git"
+        "lastModified": 1711776253,
+        "narHash": "sha256-KD4PIpcbNxejWVInTE+OATAXKQ41rX0VVXYIFTOUwWA=",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "f4619ab31fc4676001ea05ae8200846e6e7700c7",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-lspconfig.git"
-      }
-    },
-    "nvimLualine": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1710998293,
-        "narHash": "sha256-+2fi58GolO3e0O7+kl+idNeFuTfJA1b5yCBdY2RnVjA=",
-        "ref": "refs/heads/master",
-        "rev": "b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67",
-        "revCount": 687,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/lualine.nvim.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/lualine.nvim.git"
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "type": "github"
       }
     },
     "nvimOllama": {
@@ -548,31 +532,31 @@
       "locked": {
         "lastModified": 1703226011,
         "narHash": "sha256-LOa56hd92RoGiN6gd4AUUlCLc97URmlFsUvv3HM3XeI=",
-        "ref": "refs/heads/main",
+        "owner": "nomnivore",
+        "repo": "ollama.nvim",
         "rev": "d99e2462be8875602d173c117d5301862669d985",
-        "revCount": 37,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/ollama.nvim.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/ollama.nvim.git"
+        "owner": "nomnivore",
+        "repo": "ollama.nvim",
+        "type": "github"
       }
     },
     "nvimPlenary": {
       "flake": false,
       "locked": {
-        "lastModified": 1709720625,
-        "narHash": "sha256-/ltkFqa5MTAI9z8oLv7+5SJ/Qq9l1kkuKGD955NbLi8=",
-        "ref": "refs/heads/master",
-        "rev": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be",
-        "revCount": 356,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/plenary.nvim.git"
+        "lastModified": 1711369325,
+        "narHash": "sha256-wM/FuK24NPEyaWntwT+mi2SuPExC/abXDK9c2WvgUBk=",
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "rev": "8aad4396840be7fc42896e3011751b7609ca4119",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/plenary.nvim.git"
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "type": "github"
       }
     },
     "nvimSingleComment": {
@@ -580,111 +564,111 @@
       "locked": {
         "lastModified": 1707312631,
         "narHash": "sha256-lMB930CBKbTYBCS08ROPC9gyRYxEHmp/HxCsP9M66/Y=",
-        "ref": "refs/heads/main",
+        "owner": "LucasTavaresA",
+        "repo": "singlecomment.nvim",
         "rev": "be1cd57abae436f28012f57b2ac8f746cfaa555c",
-        "revCount": 81,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/SingleComment.nvim.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/SingleComment.nvim.git"
+        "owner": "LucasTavaresA",
+        "repo": "singlecomment.nvim",
+        "type": "github"
       }
     },
     "nvimTelescope": {
       "flake": false,
       "locked": {
-        "lastModified": 1710983957,
-        "narHash": "sha256-7dNteBl4vCkJCSM9xVO3YwyyGI1A5x2ksFHQlP8wamE=",
-        "ref": "refs/heads/master",
-        "rev": "221778e93bfaa58bce4be4e055ed2edecc26f799",
-        "revCount": 1362,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/telescope.nvim.git"
+        "lastModified": 1712065014,
+        "narHash": "sha256-8Bp1E9JY1MByjRCcON1HJLYRswLx63lmz20rGrJW7Wc=",
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "rev": "4626aaa2bcfdacf55fd6d44b430e2df81b2403ff",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/telescope.nvim.git"
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "type": "github"
       }
     },
     "nvimTodo": {
       "flake": false,
       "locked": {
-        "lastModified": 1705847650,
-        "narHash": "sha256-DiyieXXx7iYGWkpeOvduJf0n7dnpaQ7rXmaWvZQaCyE=",
-        "ref": "refs/heads/main",
-        "rev": "833d8dd8b07eeda37a09e99460f72a02616935cb",
-        "revCount": 153,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/todo-comments.nvim.git"
+        "lastModified": 1711553769,
+        "narHash": "sha256-BJNU01iTRDNrPv48fgiJRS+ouaHkoqw2AYXKDRgDzfw=",
+        "owner": "folke",
+        "repo": "todo-comments.nvim",
+        "rev": "a7e39ae9e74f2c8c6dc4eea6d40c3971ae84752d",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/todo-comments.nvim.git"
+        "owner": "folke",
+        "repo": "todo-comments.nvim",
+        "type": "github"
       }
     },
     "nvimTokyonight": {
       "flake": false,
       "locked": {
-        "lastModified": 1710964283,
-        "narHash": "sha256-p99mx8XJpHbQmJwd8y8Savgf+bHQA9Yrbk92821Cq7w=",
-        "ref": "refs/heads/main",
-        "rev": "fbe3a27378fdd51a8ddd04f57012455436916a62",
-        "revCount": 577,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/tokyonight.nvim.git"
+        "lastModified": 1711665767,
+        "narHash": "sha256-ItCmSUMMTe8iQeneIJLuWedVXsNgm+FXNtdrrdJ/1oE=",
+        "owner": "folke",
+        "repo": "tokyonight.nvim",
+        "rev": "9bf9ec53d5e87b025e2404069b71e7ebdc3a13e5",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/tokyonight.nvim.git"
+        "owner": "folke",
+        "repo": "tokyonight.nvim",
+        "type": "github"
       }
     },
     "nvimTree": {
       "flake": false,
       "locked": {
-        "lastModified": 1710552913,
-        "narHash": "sha256-ss+MGbHAPf4Ho2v2AzLEECPiSQPBPsvLTZnDSuhitSU=",
-        "ref": "refs/heads/master",
-        "rev": "f7c09bd72e50e1795bd3afb9e2a2b157b4bfb3c3",
-        "revCount": 1454,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-tree.lua.git"
+        "lastModified": 1711866287,
+        "narHash": "sha256-AMbUthY+49wREBr7EQSZ/tH8hT4gixPfcPT+ZzssUKw=",
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "rev": "d8d3a1590a05b2d8b5eb26e2ed1c6052b1b47a77",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-tree.lua.git"
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "type": "github"
       }
     },
     "nvimTreesitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1711032686,
-        "narHash": "sha256-jkZ8NuCUjUqHmpr8v1g/dbPDBTO6WRWmEhEJHY9HZWM=",
-        "ref": "refs/heads/master",
-        "rev": "722617e6726c1508adadf83d531f54987c703be0",
-        "revCount": 4983,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-treesitter.git"
+        "lastModified": 1712041259,
+        "narHash": "sha256-W6PK7OiyzQqaUgpFCtPvcs8OE0F5FyFhIb+pZW/HQC8=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "54cf9180a36299265e217858e6e531245074c3f4",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/nvim-treesitter.git"
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "type": "github"
       }
     },
     "nvimTrouble": {
       "flake": false,
       "locked": {
-        "lastModified": 1697626811,
-        "narHash": "sha256-8nLghiueYOtWY7OGVxow9A2G/5lgt+Kt5D8q1xeJvVg=",
-        "ref": "refs/heads/main",
-        "rev": "f1168feada93c0154ede4d1fe9183bf69bac54ea",
-        "revCount": 250,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/trouble.nvim.git"
+        "lastModified": 1711693365,
+        "narHash": "sha256-kIQ72fqAsiMF9jq0MzC6peaHJddYn5PRNXfYFHTQB5Q=",
+        "owner": "folke",
+        "repo": "trouble.nvim",
+        "rev": "b9cf677f20bb2faa2dacfa870b084e568dca9572",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/trouble.nvim.git"
+        "owner": "folke",
+        "repo": "trouble.nvim",
+        "type": "github"
       }
     },
     "nvimWhichKey": {
@@ -692,15 +676,15 @@
       "locked": {
         "lastModified": 1697801635,
         "narHash": "sha256-uvghPj/teWrRMm09Gh8iQ/LV2nYJw0lmoiZK6L4+1cY=",
-        "ref": "refs/heads/main",
+        "owner": "folke",
+        "repo": "which-key.nvim",
         "rev": "4433e5ec9a507e5097571ed55c02ea9658fb268a",
-        "revCount": 335,
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/which-key.nvim.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.voronind.com/mirror/which-key.nvim.git"
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "type": "github"
       }
     },
     "root": {
@@ -717,7 +701,6 @@
         "nvimGruvboxMaterial": "nvimGruvboxMaterial",
         "nvimIndentoMatic": "nvimIndentoMatic",
         "nvimLspconfig": "nvimLspconfig",
-        "nvimLualine": "nvimLualine",
         "nvimOllama": "nvimOllama",
         "nvimPlenary": "nvimPlenary",
         "nvimSingleComment": "nvimSingleComment",
