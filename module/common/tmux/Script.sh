@@ -121,7 +121,7 @@ function _tmux_client_count() {
 	local session=${1}
 	local count=$(tmux list-clients -t ${session} | wc -l)
 
-	[ ${count} -gt 1 ] && echo -n "(${count}) "
+	[ ${count} -gt 1 ] && echo -n "+${count} "
 }
 
 function _tmux_toggle_statusbar() {
