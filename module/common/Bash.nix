@@ -1,5 +1,7 @@
-{ lib, ... }: {
-	programs.bash.interactiveShellInit = "source $BASH_PATH/Bashrc.sh";
+{ lib, config, ... }: let
+	bash = import ./bash/Bash.nix { config = config; };
+in {
+	programs.bash.interactiveShellInit = bash.config;
 	environment.shellAliases = lib.mkForce {};
 	environment.variables = {
 		BASH_PATH = ./bash;
