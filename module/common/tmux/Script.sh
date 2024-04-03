@@ -28,7 +28,8 @@ function _tmux_battery() {
 
 	echo -n "${icon}"
 	${is_charging} && echo -n "󱐋"
-	echo -n "\n${level}"
+	echo
+	echo -n "${level}"
 }
 
 function _tmux_volume() {
@@ -63,6 +64,9 @@ function _tmux_volume() {
 function _tmux_statusbar() {
 	local IFS=$'\n'
 	local sep=""
+	local thr_volume=100
+	local thr_battery=40
+	local is_uber=$(cat "/tmp/.tmux_uber")
 
 	# Get data.
 	battery=($(_tmux_battery))
@@ -71,8 +75,8 @@ function _tmux_statusbar() {
 	# Prepare separators.
 	sep_batvol=" "
 
-	if [[ "${battery[1]}" != "" ]] || [[ "${volume[1]}" != "" ]]; then
-		sep_batvol="  "
+	if ${is_uber} || [[ "${battery[1]}" -lt "${thr_battery}" ]] || [[ "${volume[1]}" -gt "${thr_volume}" ]]; then
+		sep_batvol=" ${sep} "
 	fi
 	if [[ "${battery[0]}" = "" ]]; then
 		sep_batvol=""
@@ -82,7 +86,7 @@ function _tmux_statusbar() {
 	echo -n " "
 
 	# Assemble.
-	if $(cat "/tmp/.tmux_uber"); then
+	if ${is_uber}; then
 		local lang=($(_tmux_language))
 		[[ "${lang[0]}" != "" ]] && {
 			echo -n "${lang[0]} ${sep} "
