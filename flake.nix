@@ -106,8 +106,8 @@
 
 		# Wallpaper.
 		wallpaper = { pkgs, ...}: let
-			url    = "https://4kwallpapers.com/images/wallpapers/love-couple-pixel-5120x2880-15209.jpg";
-			sha256 = "sha256-j89c4+zgPUYUgmHCDnF+Jq1Ka95yekod2syVkndADnc=";
+			url    = "https://4kwallpapers.com/images/wallpapers/tuscany-pixel-art-3840x2160-15225.jpg";
+			sha256 = "sha256-kc87Q3EIuWMM6U6+si/V58RcH7FJKaImzM8VLzorOkI=";
 		in {
 			path = pkgs.fetchurl {
 				url    = url;
