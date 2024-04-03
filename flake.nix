@@ -106,8 +106,8 @@
 
 		# Wallpaper.
 		wallpaper = { pkgs, ...}: let
-			url    = "https://r4.wallpaperflare.com/wallpaper/110/664/979/cyberpunk-video-games-pixel-art-the-last-night-wallpaper-f5c2ba815d61ae9dc51a1c73be62f6ed.jpg";
-			sha256 = "sha256-jktdp1GaY638u4/6VHxc4QLHho7jviToBsO0IISAOks=";
+			url    = "https://4kwallpapers.com/images/wallpapers/love-couple-pixel-5120x2880-15209.jpg";
+			sha256 = "sha256-j89c4+zgPUYUgmHCDnF+Jq1Ka95yekod2syVkndADnc=";
 		in {
 			path = pkgs.fetchurl {
 				url    = url;
