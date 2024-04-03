@@ -1,8 +1,5 @@
-{ pkgs, lib, wallpaper, ... }: let
-	config = pkgs.writeText "sway_config" ''
-		${builtins.readFile ./sway/Config}
-		output * bg ${wallpaper.path} fill
-	'';
+{ pkgs, lib, wallpaper, config, ... }: let
+	sway = import ./sway/Config.nix { config = config; pkgs = pkgs; wallpaper = wallpaper; };
 in {
 	imports = [
 		./desktop/App.nix
@@ -31,7 +28,7 @@ in {
 			gtk  = true;
 		};
 		extraOptions = [
-			"--config=${config}"
+			"--config=${sway.config}"
 		];
 	};
 

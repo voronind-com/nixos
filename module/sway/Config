@@ -1,4 +1,0 @@
-# Read `man 5 sway` for a complete reference.
-
-include /etc/sway/config.d/*
-include $SWAY_CONFIG/*

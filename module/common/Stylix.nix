@@ -10,6 +10,11 @@
 			popups       = 0.85;
 			desktop      = 0.85;
 		};
+		cursor = {
+			name    = "phinger-cursors";
+			package = pkgs.phinger-cursors;
+			size    = 24;
+		};
 		fonts = {
 			sizes = {
 				applications = 12;
