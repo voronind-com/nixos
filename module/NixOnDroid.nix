@@ -1,9 +1,9 @@
-{ pkgs, inputs, const, config, ... }: let
+{ pkgs, inputs, const, style, ... }: let
 	homePath   = "/data/data/com.termux.nix/files/home";
 	tmuxScript = pkgs.writeShellScriptBin "tmux_script" (builtins.readFile ./common/tmux/Script.sh);
-	bash       = import ./common/bash/Bash.nix { config = config; };
-	bg = config.lib.stylix.colors.base00;
-	fg = config.lib.stylix.colors.base04;
+	# bash       = import ./common/bash/Bash.nix { config = config; };
+	bg = style.color_bg;
+	fg = style.color_fg;
 in {
 	# NOTE: Split into modules?
 	environment.packages = with pkgs; [
@@ -74,10 +74,11 @@ in {
 		};
 		programs.bash = {
 			enable = true;
-			bashrcExtra = bash.config + ''
+			# bashrcExtra = bash.config + ''
+			bashrcExtra = ''
 				[[ -f ~/.termux/font.ttf ]] || {
 					cp ~/.termux/_font.ttf ~/.termux/font.ttf
-					# cp ~/.termux/_colors.properties ~/.termux/colors.properties
+					cp ~/.termux/_colors.properties ~/.termux/colors.properties
 					_warn "Termux config installed, please restart."
 				};
 			'';
@@ -101,50 +102,6 @@ in {
 			viAlias  = true;
 			vimAlias = true;
 			extraConfig = (import ./common/nvim/Init.nix { inputs = inputs; }).customRc;
-		};
-
-		stylix = {
-			image = wallpaper.path;
-			autoEnable = true;
-			polarity = "dark";
-			# base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-			opacity = {
-				applications = 0.85;
-				terminal     = 0.85;
-				popups       = 0.85;
-				desktop      = 0.85;
-			};
-			cursor = {
-				name    = "phinger-cursors";
-				package = pkgs.phinger-cursors;
-				size    = 24;
-			};
-			fonts = {
-				sizes = {
-					applications = 12;
-					terminal     = 12;
-					popups       = 12;
-					desktop      = 12;
-				};
-				serif = {
-					package = (pkgs.callPackage ./applefont {});
-					name    = "SF Pro Display";
-				};
-				sansSerif = config.stylix.fonts.serif;
-				monospace = {
-					package = (pkgs.nerdfonts.override { fonts = [ "Terminus" ]; });
-					name    = "Terminess Nerd Font Mono";
-				};
-				emoji = {
-					package = pkgs.noto-fonts-emoji;
-					name = "Noto Color Emoji";
-				};
-			};
-			# targets = {
-			# 	foot = {
-			# 		enable = true;
-			# 	};
-			# };
 		};
 	};
 }

@@ -108,8 +108,14 @@
 			timeZone = "Europe/Moscow";
 		};
 
+		# Styles.
+		style = { config, ... }: {
+			color_bg = config.lib.stylix.colors.base00 ? "ffffff";
+			color_fg = "000000";
+		};
+
 		# Wallpaper.
-		wallpaper = { pkgs, ...}: let
+		wallpaper = { pkgs, ... }: let
 			url    = "https://4kwallpapers.com/images/wallpapers/tuscany-pixel-art-3840x2160-15225.jpg";
 			sha256 = "sha256-kc87Q3EIuWMM6U6+si/V58RcH7FJKaImzM8VLzorOkI=";
 		in {
@@ -165,6 +171,7 @@
 				const     = self.nixosModules.const;
 				flake     = self;
 				inputs    = inputs;
+				style     = self.style;
 				wallpaper = self.wallpaper { pkgs = nixpkgs.legacyPackages.${system}.pkgs; };
 			};
 		};
@@ -272,14 +279,13 @@
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
 			modules = [
 				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
-				stylix.homeManagerModules.stylix
 				./module/NixOnDroid.nix
 			];
 			extraSpecialArgs = {
-				const     = self.nixosModules.const;
-				flake     = self;
-				inputs    = inputs;
-				wallpaper = self.nixosModules.wallpaper;
+				const  = self.nixosModules.const;
+				flake  = self;
+				inputs = inputs;
+				style  = self.style { config = config; };
 			};
 		};
 	};
