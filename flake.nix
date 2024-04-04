@@ -32,6 +32,10 @@
 			url   = "github:kazhala/close-buffers.nvim";
 			flake = false;
 		};
+		nvimColorizer = {
+			url   = "github:brenoprata10/nvim-highlight-colors";
+			flake = false;
+		};
 		nvimDevicons = {
 			url   = "github:nvim-tree/nvim-web-devicons";
 			flake = false;

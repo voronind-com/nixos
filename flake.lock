@@ -447,6 +447,22 @@
         "type": "github"
       }
     },
+    "nvimColorizer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711957602,
+        "narHash": "sha256-cDgq4grIdRtiPOOh0gzDXLVj/PEOl+ybuGP6mWAHHvw=",
+        "owner": "brenoprata10",
+        "repo": "nvim-highlight-colors",
+        "rev": "ca3731eab0cff414722a5c9c43a3ba06577cb250",
+        "type": "github"
+      },
+      "original": {
+        "owner": "brenoprata10",
+        "repo": "nvim-highlight-colors",
+        "type": "github"
+      }
+    },
     "nvimDevicons": {
       "flake": false,
       "locked": {
@@ -696,6 +712,7 @@
         "nvimAutoclose": "nvimAutoclose",
         "nvimBufferline": "nvimBufferline",
         "nvimCloseBuffers": "nvimCloseBuffers",
+        "nvimColorizer": "nvimColorizer",
         "nvimDevicons": "nvimDevicons",
         "nvimGitsigns": "nvimGitsigns",
         "nvimGruvboxMaterial": "nvimGruvboxMaterial",
