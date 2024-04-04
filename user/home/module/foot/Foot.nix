@@ -5,6 +5,7 @@
 		font-italic=${style.font.monospace.name}:size=${toString(style.font.size.terminal)}
 		font-bold-italic=${style.font.monospace.name}:size=${toString(style.font.size.terminal)}
 		dpi-aware=yes
+		font-size-adjustment=1
 
 		[colors]
 		alpha=${toString(style.opacity.terminal)}
