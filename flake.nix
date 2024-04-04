@@ -109,9 +109,14 @@
 		};
 
 		# Styles.
-		style = { config, ... }: {
-			color_bg = config.lib.stylix.colors.base00 ? "ffffff";
+		style = { config , ... }: {
+			color_bg = config.lib.stylix.colors.base00;
 			color_fg = "000000";
+		};
+		defaultStyle = {
+			lib.stylix.colors = {
+				base00 = "ffffff";
+			};
 		};
 
 		# Wallpaper.
@@ -285,7 +290,7 @@
 				const  = self.nixosModules.const;
 				flake  = self;
 				inputs = inputs;
-				# style  = self.style { config = config; };
+				style  = self.style { config = self.defaultStyle; };
 			};
 		};
 	};
