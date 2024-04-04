@@ -1,5 +1,5 @@
-{ lib, config, ... }: let
-	bash = import ./bash/Bash.nix { config = config; };
+{ lib, style, ... }: let
+	bash = import ./bash/Bash.nix { style = style; };
 in {
 	programs.bash.interactiveShellInit = bash.config;
 	environment.shellAliases = lib.mkForce {};

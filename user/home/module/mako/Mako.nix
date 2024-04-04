@@ -1,10 +1,10 @@
-{ config, ... }: {
+{ style, ... }: {
 	config = ''anchor=top-center
 default-timeout=5000
-font=${config.stylix.fonts.serif.name} ${toString(config.stylix.fonts.sizes.popups)}
-background-color=#${config.lib.stylix.colors.base01}
-border-color=#${config.lib.stylix.colors.base01}
-text-color=#${config.lib.stylix.colors.base05}
+font=${style.font.serif.name} ${toString(style.font.size.popup)}
+background-color=#${style.color.bg}
+border-color=#${style.color.bg}
+text-color=#${style.color.fg}
 height=120
 icons=0
 margin=32

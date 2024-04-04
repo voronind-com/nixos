@@ -1,23 +1,23 @@
-{ config, ... }: let
-	negative-r = config.lib.stylix.colors.base08-rgb-r;
-	negative-g = config.lib.stylix.colors.base08-rgb-g;
-	negative-b = config.lib.stylix.colors.base08-rgb-b;
-	neutral-r = config.lib.stylix.colors.base0C-rgb-r;
-	neutral-g = config.lib.stylix.colors.base0C-rgb-g;
-	neutral-b = config.lib.stylix.colors.base0C-rgb-b;
-	positive-r = config.lib.stylix.colors.base0B-rgb-r;
-	positive-g = config.lib.stylix.colors.base0B-rgb-g;
-	positive-b = config.lib.stylix.colors.base0B-rgb-b;
-	accent-r = config.lib.stylix.colors.base0A-rgb-r;
-	accent-g = config.lib.stylix.colors.base0A-rgb-g;
-	accent-b = config.lib.stylix.colors.base0A-rgb-b;
+{ style, ... }: let
+	accent-b   = style.color.accent-b;
+	accent-g   = style.color.accent-g;
+	accent-r   = style.color.accent-r;
+	negative-b = style.color.negative-b;
+	negative-g = style.color.negative-g;
+	negative-r = style.color.negative-r;
+	neutral-b  = style.color.neutral-b;
+	neutral-g  = style.color.neutral-g;
+	neutral-r  = style.color.neutral-r;
+	positive-b = style.color.positive-b;
+	positive-g = style.color.positive-g;
+	positive-r = style.color.positive-r;
 
-	bg     = config.lib.stylix.colors.base01;
-	fg     = config.lib.stylix.colors.base04;
-	accent = config.lib.stylix.colors.base06;
+	accent = style.color.accent;
+	bg     = style.color.bg_dark;
+	fg     = style.color.fg;
 
-	fontNamePopup = config.stylix.fonts.serif.name;
-	fontSizePopup = config.stylix.fonts.sizes.popups;
+	fontNamePopup = style.font.serif.name;
+	fontSizePopup = style.font.size.popup;
 in {
 	config = ''
 		# If not running interactively, don't do anything.

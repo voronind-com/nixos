@@ -1,10 +1,10 @@
-{ pkgs, wallpaper, config, ... }: let
-	accent   = config.lib.stylix.colors.base02;
-	bg       = config.lib.stylix.colors.base00;
-	bg_alt   = config.lib.stylix.colors.base01;
-	fg       = config.lib.stylix.colors.base04;
-	fg_alt   = config.lib.stylix.colors.base05;
-	negative = config.lib.stylix.colors.base03;
+{ pkgs, wallpaper, style, ... }: let
+	accent   = style.color.accent;
+	bg       = style.color.bg_dark;
+	bg_alt   = style.color.bg;
+	fg       = style.color.fg;
+	fg_alt   = style.color.fg_dark;
+	negative = style.color.negative;
 in {
 	config = pkgs.writeText "sway_config" ''
 		# Read `man 5 sway` for a complete reference.

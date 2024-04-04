@@ -1,14 +1,14 @@
-{ config, ... }: {
+{ style, ... }: {
 	config = ''
-		font=${config.stylix.fonts.monospace.name}:size=${toString(config.stylix.fonts.sizes.terminal)}
-		font-italic=${config.stylix.fonts.monospace.name}:size=${toString(config.stylix.fonts.sizes.terminal)}
-		# font-bold=${config.stylix.fonts.monospace.name}:size=${toString(config.stylix.fonts.sizes.terminal)}
-		font-bold-italic=${config.stylix.fonts.monospace.name}:size=${toString(config.stylix.fonts.sizes.terminal)}
+		font=${style.font.monospace.name}:size=${toString(style.font.size.terminal)}
+		# font-bold=${style.font.monospace.name}:size=${toString(style.font.size.terminal)}
+		font-italic=${style.font.monospace.name}:size=${toString(style.font.size.terminal)}
+		font-bold-italic=${style.font.monospace.name}:size=${toString(style.font.size.terminal)}
 		dpi-aware=yes
 
 		[colors]
-		alpha=${toString(config.stylix.opacity.terminal)}
-		background=${config.lib.stylix.colors.base00}
-		foreground=${config.lib.stylix.colors.base05}
+		alpha=${toString(style.opacity.terminal)}
+		background=${style.color.bg_dark}
+		foreground=${style.color.fg}
 	'';
 }

@@ -1,5 +1,5 @@
-{ pkgs, lib, wallpaper, config, ... }: let
-	sway = import ./sway/Config.nix { config = config; pkgs = pkgs; wallpaper = wallpaper; };
+{ pkgs, lib, wallpaper, style, ... }: let
+	sway = import ./sway/Config.nix { pkgs = pkgs; wallpaper = wallpaper; style = style; };
 in {
 	imports = [
 		./desktop/App.nix

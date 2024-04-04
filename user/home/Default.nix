@@ -1,6 +1,6 @@
-{ const, username, homeDir, config, pkgs, ... }: let
-	footConfig = import ./module/foot/Foot.nix { config = config; };
-	makoConfig = import ./module/mako/Mako.nix { config = config; };
+{ const, username, homeDir, style, pkgs, ... }: let
+	footConfig = import ./module/foot/Foot.nix { style = style; };
+	makoConfig = import ./module/mako/Mako.nix { style = style; };
 in {
 	home-manager.backupFileExtension = "old";
 
