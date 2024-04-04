@@ -32,7 +32,7 @@ input type:touchpad {
 
 input type:keyboard {
 	xkb_layout us,ru
-	xkb_options grp:caps_toggle,lv3:ralt_switch
+	xkb_options grp:lctrl_toggle,lv3:ralt_switch
 }
 
 # Hide mouse cursor after a period of inactivity.

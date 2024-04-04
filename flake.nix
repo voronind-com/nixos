@@ -120,6 +120,7 @@
 			./module/common/Firewall.nix
 			./module/common/Font.nix
 			./module/common/Git.nix
+			./module/common/KbdInterception.nix
 			./module/common/Kernel.nix
 			./module/common/Ld.nix
 			./module/common/Locale.nix
