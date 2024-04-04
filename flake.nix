@@ -108,125 +108,6 @@
 			timeZone = "Europe/Moscow";
 		};
 
-		# Styles.
-		style = { config, ... }: {
-			color = {
-				accent      = config.lib.stylix.colors.base0A;
-				bg          = config.lib.stylix.colors.base01;
-				bg_dark     = config.lib.stylix.colors.base00;
-				bg_light    = config.lib.stylix.colors.base07;
-				fg          = config.lib.stylix.colors.base05;
-				fg_dark     = config.lib.stylix.colors.base04;
-				fg_light    = config.lib.stylix.colors.base06;
-				heading     = config.lib.stylix.colors.base0D;
-				hl          = config.lib.stylix.colors.base03;
-				keyword     = config.lib.stylix.colors.base0E;
-				link        = config.lib.stylix.colors.base09;
-				misc        = config.lib.stylix.colors.base0F;
-				negative    = config.lib.stylix.colors.base08;
-				neutral     = config.lib.stylix.colors.base0C;
-				positive    = config.lib.stylix.colors.base0B;
-				selection   = config.lib.stylix.colors.base02;
-				transparent = "ffffff00";
-
-				accent-b   = config.lib.stylix.colors.base0A-rgb-b;
-				accent-g   = config.lib.stylix.colors.base0A-rgb-g;
-				accent-r   = config.lib.stylix.colors.base0A-rgb-r;
-				negative-b = config.lib.stylix.colors.base08-rgb-b;
-				negative-g = config.lib.stylix.colors.base08-rgb-g;
-				negative-r = config.lib.stylix.colors.base08-rgb-r;
-				neutral-b  = config.lib.stylix.colors.base0C-rgb-b;
-				neutral-g  = config.lib.stylix.colors.base0C-rgb-g;
-				neutral-r  = config.lib.stylix.colors.base0C-rgb-r;
-				positive-b = config.lib.stylix.colors.base0B-rgb-b;
-				positive-g = config.lib.stylix.colors.base0B-rgb-g;
-				positive-r = config.lib.stylix.colors.base0B-rgb-r;
-			};
-			font = {
-				emoji.name     = config.stylix.fonts.emoji.name;
-				monospace.name = config.stylix.fonts.monospace.name;
-				sansSerif.name = config.stylix.fonts.sansSerif.name;
-				serif.name     = config.stylix.fonts.serif.name;
-				size = {
-					terminal    = config.stylix.fonts.sizes.terminal;
-					popup       = config.stylix.fonts.sizes.popups;
-					application = config.stylix.fonts.sizes.applications;
-					desktop     = config.stylix.fonts.sizes.desktop;
-				};
-			};
-			opacity = {
-				application = config.stylix.opacity.applications;
-				desktop     = config.stylix.opacity.desktop;
-				popup       = config.stylix.opacity.popups;
-				terminal    = config.stylix.opacity.terminal;
-			};
-		};
-
-		defaultStyle = {
-			lib.stylix.colors = {
-				accent      = "b8bb26";
-				bg          = "3c3836";
-				bg_dark     = "1d2021";
-				bg_light    = "504945";
-				fg          = "ebdbb2";
-				fg_dark     = "a89984";
-				fg_light    = "fbf1c7";
-				heading     = "d5c4a1";
-				hl          = "98971a";
-				keyword     = "98971a";
-				link        = "076678";
-				misc        = "808080";
-				negative    = "cc241d";
-				neutral     = "458588";
-				positive    = "87af87";
-				selection   = "87af87";
-
-				accent-b   = "38";
-				accent-g   = "187";
-				accent-r   = "184";
-				negative-b = "29";
-				negative-g = "36";
-				negative-r = "204";
-				neutral-b  = "136";
-				neutral-g  = "133";
-				neutral-r  = "69";
-				positive-b = "135";
-				positive-g = "175";
-				positive-r = "135";
-			};
-			stylix = {
-				fonts = {
-					monospace.name = "Terminess Nerd Font Mono";
-					emoji.name     = "Noto Color Emoji";
-					sans.name      = "SF Pro Display";
-					sansSerif.name = "SF Pro Display";
-					sizes = {
-						applications = 12;
-						terminal     = 12;
-						popups       = 12;
-						desktop      = 12;
-					};
-				};
-				opacity = {
-					application = 1.0;
-					desktop     = 1.0;
-					popup       = 1.0;
-					terminal    = 1.0;
-				};
-			};
-		};
-
-		# Wallpaper.
-		wallpaper = { pkgs, ... }: let
-			url    = "https://4kwallpapers.com/images/wallpapers/tuscany-pixel-art-3840x2160-15225.jpg";
-			sha256 = "sha256-kc87Q3EIuWMM6U6+si/V58RcH7FJKaImzM8VLzorOkI=";
-		in {
-			path = pkgs.fetchurl {
-				url    = url;
-				sha256 = sha256;
-			};
-		};
-
 		# Common modules used across all hosts.
 		nixosModules.common.imports = [
 			./module/common/AutoUpdate.nix
@@ -273,8 +154,8 @@
 				const     = self.nixosModules.const;
 				flake     = self;
 				inputs    = inputs;
-				style     = self.style     { config = self.nixosConfigurations.${hostname}.config; };
-				wallpaper = self.wallpaper { pkgs   = nixpkgs.legacyPackages.${system}.pkgs;       };
+				style     = import ./part/Style.nix     { config = self.nixosConfigurations.${hostname}.config; };
+				wallpaper = import ./part/Wallpaper.nix { pkgs   = nixpkgs.legacyPackages.${system}.pkgs;       };
 			};
 		};
 
@@ -387,7 +268,7 @@
 				const  = self.nixosModules.const;
 				flake  = self;
 				inputs = inputs;
-				style  = self.style { config = self.defaultStyle; };
+				style  = import ./part/Style.nix { config = import ./part/style/Gruvbox.nix {}; };
 			};
 		};
 	};
