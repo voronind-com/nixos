@@ -1,9 +1,7 @@
 { pkgs, inputs, const, style, ... }: let
 	homePath   = "/data/data/com.termux.nix/files/home";
 	tmuxScript = pkgs.writeShellScriptBin "tmux_script" (builtins.readFile ./common/tmux/Script.sh);
-	# bash       = import ./common/bash/Bash.nix { config = config; };
-	bg = style.color_bg;
-	fg = style.color_fg;
+	bash       = import ./common/bash/Bash.nix { style = style; };
 in {
 	# NOTE: Split into modules?
 	environment.packages = with pkgs; [
@@ -60,8 +58,8 @@ in {
 				cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 			'';
 			".termux/_colors.properties".text = ''
-				background=#${bg}
-				foreground=#${fg}
+				background=#${style.color.bg_dark}
+				foreground=#${style.color.fg}
 			'';
 		};
 		home.sessionVariables = {
@@ -74,8 +72,7 @@ in {
 		};
 		programs.bash = {
 			enable = true;
-			# bashrcExtra = bash.config + ''
-			bashrcExtra = ''
+			bashrcExtra = bash.config + ''
 				[[ -f ~/.termux/font.ttf ]] || {
 					cp ~/.termux/_font.ttf ~/.termux/font.ttf
 					cp ~/.termux/_colors.properties ~/.termux/colors.properties
