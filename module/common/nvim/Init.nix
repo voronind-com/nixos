@@ -60,6 +60,7 @@ in {
 			"plugin/lsp/Haskell.lua"
 			"plugin/lsp/Rust.lua"
 			"plugin/lsp/Tex.lua"
+			"plugin/lsp/Nix.lua"
 			"key/Autocomplete.lua"
 			"key/Buffer.lua"
 			"key/Colorscheme.lua"

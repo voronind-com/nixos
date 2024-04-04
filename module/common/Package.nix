@@ -20,6 +20,7 @@
 		lsof
 		ltex-ls
 		neofetch
+		nixd
 		nmap
 		parallel
 		parted
@@ -37,5 +38,5 @@
 	];
 
 	# Special packages.
-	programs.adb.enable    = true;
+	programs.adb.enable = true;
 }

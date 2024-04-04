@@ -171,7 +171,7 @@
 				const     = self.nixosModules.const;
 				flake     = self;
 				inputs    = inputs;
-				style     = self.style;
+				# style     = self.style;
 				wallpaper = self.wallpaper { pkgs = nixpkgs.legacyPackages.${system}.pkgs; };
 			};
 		};
@@ -285,7 +285,7 @@
 				const  = self.nixosModules.const;
 				flake  = self;
 				inputs = inputs;
-				style  = self.style { config = config; };
+				# style  = self.style { config = config; };
 			};
 		};
 	};
