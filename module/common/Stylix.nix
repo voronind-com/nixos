@@ -1,4 +1,5 @@
 { pkgs, config, wallpaper, ... }: {
+	environment.etc.wallpaper.source = wallpaper.path;
 	stylix = {
 		image = wallpaper.path;
 		autoEnable = true;
