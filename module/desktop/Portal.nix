@@ -15,6 +15,6 @@
 		wlr = {
 			enable = true;
 		};
-		xdgOpenUsePortal = true;
+		xdgOpenUsePortal = false;
 	};
 }
