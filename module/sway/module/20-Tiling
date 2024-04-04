@@ -2,7 +2,7 @@
 bindsym $mod+shift+f floating toggle
 
 # Swap focus between the tiling area and the floating area
-# bindsym $mod+space focus mode_toggle
+bindsym $mod+r focus mode_toggle
 
 # Move focus to the parent container
 # bindsym $mod+a focus parent
@@ -32,3 +32,6 @@ bindsym $mod+x kill
 
 # Add gaps.
 gaps inner 10
+
+# Launch everything tiled.
+for_window [all] floating disable
