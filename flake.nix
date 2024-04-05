@@ -225,7 +225,6 @@
 				./module/PowersaveAmd.nix
 				./module/Print.nix
 				./module/RemoteBuild.nix
-				./module/Sway.nix
 				./user/Dasha.nix
 				./user/Voronind.nix
 			];
