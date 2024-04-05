@@ -18,4 +18,7 @@
 		"usbhid"
 		"xhci_pci"
 	];
+
+	# /tmp on tmpfs.
+	boot.tmp.useTmpfs = true;
 }
