@@ -10,6 +10,6 @@
 		[colors]
 		alpha=${toString(style.opacity.terminal)}
 		background=${style.color.bg_dark}
-		foreground=${style.color.fg}
+		foreground=${style.color.fg_light}
 	'';
 }

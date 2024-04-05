@@ -14,7 +14,7 @@
 
 	accent = style.color.accent;
 	bg     = style.color.bg_dark;
-	fg     = style.color.fg;
+	fg     = style.color.fg_light;
 
 	fontNamePopup = style.font.serif.name;
 	fontSizePopup = style.font.size.popup;

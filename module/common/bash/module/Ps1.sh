@@ -37,7 +37,7 @@ function __prompt_command() {
 	fi
 
 	# Add time.
-	PS1+="$(__prompt_color ${fg_3_rgb})"
+	PS1+="$(__prompt_color ${accent_rgb})"
 	PS1+="$(date +%H:%M) "
 
 	# Set root red.
