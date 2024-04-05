@@ -1,6 +1,6 @@
 { pkgs, ... }: let
-	url    = "https://4kwallpapers.com/images/wallpapers/nezuko-kamado-demon-3840x2160-9331.jpg";
-	sha256 = "sha256-EC8rVrb+ogD2iCCILKbkf8vWv2E8ZAFxjNHNHHeqo+4=";
+	url    = "https://i.imgur.com/ZcXlrK9.png";
+	sha256 = "sha256-uh0GnrzjushvPmx75RIOzNC++5H1CNR5ZDm2lUWijYc=";
 in {
 	path = pkgs.fetchurl {
 		url    = url;
