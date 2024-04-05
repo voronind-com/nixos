@@ -1,7 +1,7 @@
 # Mount FS over ssh. Just extra config for sshfs.
 # Usage: ssh_mount <REMOTE> <LOCAL>
 function ssh_mount() {
-	sshfs -o uid=${UID},auto_unmount "${@}"
+	sshfs -o uid=1000,auto_unmount,allow_other "${@}"
 }
 
 # Generate private an public keys on a local host and print a public key.
