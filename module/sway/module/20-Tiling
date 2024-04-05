@@ -34,4 +34,4 @@ bindsym $mod+x kill
 gaps inner 10
 
 # Launch everything tiled.
-for_window [all] floating disable
+# for_window [all] floating disable
