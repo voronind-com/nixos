@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, util, ... } @args: let
+	firefox = import ./firefox/Init.nix args;
+in {
 	# Disable profile switching on rebuild.
 	environment.variables = {
 		MOZ_LEGACY_PROFILES = "1";
@@ -8,7 +10,7 @@
 		enable  = true;
 		package = pkgs.firefox-esr;
 		languagePacks = [ "en-US" "ru" ];
-		autoConfig = builtins.readFile ./firefox/Config.js;
+		autoConfig = firefox.config;
 		policies = {
 			ManagedBookmarks = [
 				{

@@ -34,7 +34,7 @@
 		fonts = {
 			monospace.name = "Terminess Nerd Font Mono";
 			emoji.name     = "Noto Color Emoji";
-			serif.name      = "SF Pro Display";
+			serif.name     = "SF Pro Display";
 			sansSerif.name = "SF Pro Display";
 			sizes = {
 				applications = 12;

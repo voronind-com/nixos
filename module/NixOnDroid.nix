@@ -1,7 +1,17 @@
-{ pkgs, inputs, const, style, ... }: let
+{ pkgs, inputs, const, style, util, key, setting, ... } @args: let
 	homePath   = "/data/data/com.termux.nix/files/home";
-	tmuxScript = pkgs.writeShellScriptBin "tmux_script" (builtins.readFile ./common/tmux/Script.sh);
-	bash       = import ./common/bash/Bash.nix { style = style; };
+	tmux       = import ./common/tmux/Init.nix args;
+	tmuxScript = pkgs.writeShellScriptBin "tmux_script" tmux.script;
+	bash       = import ./common/bash/Init.nix args;
+	nvim       = import ./common/nvim/Init.nix args;
+	ssh        = import ./common/ssh/Init.nix  args;
+	font = pkgs.runCommandNoCC "font" {} ''
+		cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
+	'';
+	colors = ''
+		background=#${style.color.bg.dark}
+		foreground=#${style.color.fg.light}
+	'';
 in {
 	# NOTE: Split into modules?
 	environment.packages = with pkgs; [
@@ -52,18 +62,12 @@ in {
 	home-manager.config = {
 		home.stateVersion = const.droidStateVersion;
 		home.file = {
-			".dotfiles".source   = inputs.self;
-			".ssh/config".source = ./common/ssh/config;
-			".termux/_font.ttf".source = pkgs.runCommandNoCC "font" {} ''
-				cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
-			'';
-			".termux/_colors.properties".text = ''
-				background=#${style.color.bg_dark}
-				foreground=#${style.color.fg}
-			'';
+			".dotfiles".source = inputs.self;
+			".ssh/config".text = ssh.config;
+			".termux/_font.ttf".source = font;
+			".termux/_colors.properties".text = colors;
 		};
 		home.sessionVariables = {
-			BASH_PATH            = ./common/bash;
 			EDITOR               = "nvim";
 			MANPAGER             = "nvim +Man!";
 			NIXPKGS_ALLOW_UNFREE = "1";
@@ -82,7 +86,7 @@ in {
 		};
 		programs.tmux = {
 			enable = true;
-			extraConfig = builtins.readFile ./common/tmux/tmux.conf;
+			extraConfig = tmux.config;
 		};
 		programs.git = {
 			enable = true;
@@ -98,7 +102,7 @@ in {
 			enable   = true;
 			viAlias  = true;
 			vimAlias = true;
-			extraConfig = (import ./common/nvim/Init.nix { inputs = inputs; }).customRc;
+			extraConfig = nvim.config;
 		};
 	};
 }

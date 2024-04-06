@@ -1,5 +1,5 @@
-{ inputs, pkgs, ... }: let
-	nvimCfg = import ./nvim/Init.nix { inputs = inputs; };
+{ inputs, pkgs, util, key, setting, ... } @args: let
+	nvim = import ./nvim/Init.nix args;
 in {
 	environment = {
 		variables = {
@@ -15,7 +15,7 @@ in {
 		viAlias  = true;
 		vimAlias = true;
 		configure = {
-			customRC = nvimCfg.customRc;
+			customRC = nvim.config;
 		};
 	};
 }

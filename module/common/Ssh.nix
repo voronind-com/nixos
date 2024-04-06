@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, util, ... } @args: let
+	ssh = import ./ssh/Init.nix args;
+in {
 	environment.systemPackages = with pkgs; [ sshfs ];
-	programs.ssh.extraConfig = builtins.readFile ./ssh/config;
+	programs.ssh.extraConfig   = ssh.config;
 }

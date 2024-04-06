@@ -1,5 +1,6 @@
-{ pkgs, lib, wallpaper, style, ... }: let
-	sway = import ./sway/Config.nix { pkgs = pkgs; wallpaper = wallpaper; style = style; };
+{ pkgs, lib, wallpaper, style, ... } @args: let
+	sway   = import ./sway/Init.nix args;
+	config = pkgs.writeText "swayConfig" sway.config;
 in {
 	imports = [
 		./desktop/App.nix
@@ -28,13 +29,12 @@ in {
 			gtk  = true;
 		};
 		extraOptions = [
-			"--config=${sway.config}"
+			"--config=${config}"
 		];
 	};
 
 	environment = {
 		variables = {
-			SWAY_CONFIG   = ./sway/module;
 			SWAY_IWT_PATH = "${pkgs.sway-contrib.inactive-windows-transparency}/bin/inactive-windows-transparency.py";
 			# PATH        = [ "/etc/swaybin" ]; # NOTE: Kept as an example on PATH modification.
 		};

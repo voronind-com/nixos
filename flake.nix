@@ -139,7 +139,7 @@
 		];
 
 		# Function to create a host.
-		mkHost = { system, hostname, modules }: nixpkgs.lib.nixosSystem {
+		mkHost = { system, hostname, modules } @args: nixpkgs.lib.nixosSystem {
 			inherit system;
 
 			modules = [
@@ -151,12 +151,18 @@
 				stylix.nixosModules.stylix
 			] ++ modules;
 
-			specialArgs = {
+			specialArgs = let
+				pkgs   = nixpkgs.legacyPackages.${system}.pkgs;
+				config = self.nixosConfigurations.${hostname}.config;
+			in {
 				const     = self.nixosModules.const;
 				flake     = self;
 				inputs    = inputs;
-				style     = import ./part/Style.nix     { config = self.nixosConfigurations.${hostname}.config; };
-				wallpaper = import ./part/Wallpaper.nix { pkgs   = nixpkgs.legacyPackages.${system}.pkgs;       };
+				key       = import ./part/Key.nix       {};
+				setting   = import ./part/Setting.nix   {};
+				style     = import ./part/Style.nix     { config = config; };
+				util      = import ./part/Util.nix      { pkgs   = pkgs;   };
+				wallpaper = import ./part/Wallpaper.nix { pkgs   = pkgs;   };
 			};
 		};
 
@@ -265,11 +271,17 @@
 				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
 				./module/NixOnDroid.nix
 			];
-			extraSpecialArgs = {
-				const  = self.nixosModules.const;
-				flake  = self;
-				inputs = inputs;
-				style  = import ./part/Style.nix { config = import ./part/style/Gruvbox.nix {}; };
+
+			extraSpecialArgs = let
+				pkgs = nixpkgs.legacyPackages."aarch64-linux".pkgs;
+			in {
+				const   = self.nixosModules.const;
+				flake   = self;
+				inputs  = inputs;
+				key     = import ./part/Key.nix     {};
+				setting = import ./part/Setting.nix {};
+				style   = import ./part/Style.nix   { config = import ./part/style/Gruvbox.nix {}; };
+				util    = import ./part/Util.nix    { pkgs   = pkgs;  };
 			};
 		};
 	};

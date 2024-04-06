@@ -1,5 +1,0 @@
-# Show last notification.
-bindsym $mod+n exec makoctl restore
-
-# Hide all notifications.
-bindsym $mod+shift+n exec makoctl dismiss --all

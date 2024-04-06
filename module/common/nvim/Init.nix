@@ -1,15 +1,17 @@
-{ inputs, ... }: let
-	nvimRc = { cfgPath, runtimes, cfgs }: let
+{ inputs, pkgs, util, key, ... } @args: let
+	nvimRc = { runtimes, cfgs }: let
 		runtimeRc = builtins.foldl' (acc: r:
 			acc + "set runtimepath+=${r}\n"
 		) "" runtimes;
-		cfgRc = builtins.foldl' (acc: c:
-			acc + "lua dofile(\"${cfgPath}/${c}\")\n"
-		) "" cfgs;
+
+		config = pkgs.writeText "nvimRc" (builtins.foldl' (acc: cfg:
+			acc + (import cfg args).text
+		) "" cfgs);
+
+		cfgRc = "lua dofile(\"${config}\")";
 	in runtimeRc + cfgRc;
 in {
-	customRc = nvimRc {
-		cfgPath = ./src;
+	config = util.trimTabs (nvimRc {
 		runtimes = [
 			"~/.cache/nvim"
 			"~/.cache/nvim/treesitter"
@@ -35,49 +37,47 @@ in {
 			"${inputs.nvimWhichKey}"
 		];
 		cfgs = [
-			"key/Rekey.lua"
-			"key/Leader.lua"
-			"config/Autoread.lua"
-			"config/Etc.lua"
-			"config/Search.lua"
-			"config/Tab.lua"
-			"plugin/Filetree.lua"
-			"plugin/Gruvbox.lua"
-			"plugin/Bufferline.lua"
-			"plugin/Autoclose.lua"
-			"plugin/Gitsigns.lua"
-			"plugin/Trouble.lua"
-			"plugin/Tokyonight.lua"
-			"plugin/Closebuffers.lua"
-			"plugin/Telescope.lua"
-			"plugin/Todo.lua"
-			"plugin/Indent.lua"
-			"plugin/Align.lua"
-			"plugin/Treesitter.lua"
-			"plugin/Fold.lua"
-			"plugin/Ollama.lua"
-			"plugin/Colorizer.lua"
-			"plugin/lsp/Haskell.lua"
-			"plugin/lsp/Rust.lua"
-			"plugin/lsp/Tex.lua"
-			"plugin/lsp/Nix.lua"
-			"key/Autocomplete.lua"
-			"key/Buffer.lua"
-			"key/Colorscheme.lua"
-			"key/Comment.lua"
-			"key/Common.lua"
-			"key/Filetree.lua"
-			"key/Gitsigns.lua"
-			"key/Lsp.lua"
-			"key/Navigation.lua"
-			"key/Ollama.lua"
-			"key/Sort.lua"
-			"key/Telescope.lua"
-			"key/Terminal.lua"
-			"key/Todo.lua"
-			"key/Trouble.lua"
-			"key/Update.lua"
-			"key/Whichkey.lua"
+			./module/key/Rekey.nix
+			./module/key/Leader.nix
+			./module/config/Autoread.nix
+			./module/config/Etc.nix
+			./module/config/Search.nix
+			./module/config/Tab.nix
+			./module/plugin/Filetree.nix
+			./module/plugin/Gruvbox.nix
+			./module/plugin/Bufferline.nix
+			./module/plugin/Autoclose.nix
+			./module/plugin/Gitsigns.nix
+			./module/plugin/Trouble.nix
+			./module/plugin/Tokyonight.nix
+			./module/plugin/Closebuffers.nix
+			./module/plugin/Telescope.nix
+			./module/plugin/Todo.nix
+			./module/plugin/Indent.nix
+			./module/plugin/Align.nix
+			./module/plugin/Treesitter.nix
+			./module/plugin/Fold.nix
+			./module/plugin/Ollama.nix
+			./module/plugin/Colorizer.nix
+			./module/plugin/lsp/Haskell.nix
+			./module/plugin/lsp/Rust.nix
+			./module/plugin/lsp/Tex.nix
+			./module/plugin/lsp/Nix.nix
+			./module/key/Autocomplete.nix
+			./module/key/Buffer.nix
+			./module/key/Colorscheme.nix
+			./module/key/Comment.nix
+			./module/key/Common.nix
+			./module/key/Filetree.nix
+			./module/key/Gitsigns.nix
+			./module/key/Navigation.nix
+			./module/key/Ollama.nix
+			./module/key/Sort.nix
+			./module/key/Telescope.nix
+			./module/key/Terminal.nix
+			./module/key/Todo.nix
+			./module/key/Trouble.nix
+			./module/key/Whichkey.nix
 		];
-	};
+	});
 }

@@ -1,4 +1,0 @@
-bindsym $mod+j resize grow   height 10px
-bindsym $mod+h resize shrink width  10px
-bindsym $mod+l resize grow   width  10px
-bindsym $mod+k resize shrink height 10px

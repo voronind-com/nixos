@@ -1,12 +1,16 @@
 { config, ... }: {
 	color = {
+		bg = {
+			regular = config.lib.stylix.colors.base01;
+			dark    = config.lib.stylix.colors.base00;
+			light   = config.lib.stylix.colors.base07;
+		};
+		fg = {
+			regular = config.lib.stylix.colors.base05;
+			dark    = config.lib.stylix.colors.base04;
+			light   = config.lib.stylix.colors.base06;
+		};
 		accent      = config.lib.stylix.colors.base0A;
-		bg          = config.lib.stylix.colors.base01;
-		bg_dark     = config.lib.stylix.colors.base00;
-		bg_light    = config.lib.stylix.colors.base07;
-		fg          = config.lib.stylix.colors.base05;
-		fg_dark     = config.lib.stylix.colors.base04;
-		fg_light    = config.lib.stylix.colors.base06;
 		heading     = config.lib.stylix.colors.base0D;
 		hl          = config.lib.stylix.colors.base03;
 		keyword     = config.lib.stylix.colors.base0E;

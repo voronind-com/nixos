@@ -1,3 +1,0 @@
-# Exit sway (logs you out of your Wayland session).
-bindsym $mod+z exec '_twice 1 swaylock -F -c 000000 -k --font "SF Pro Display Medium" --font-size 14'
-bindsym $mod+Shift+z exec '_twice 1 systemctl poweroff -i'

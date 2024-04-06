@@ -1,0 +1,5 @@
+{ ... }: {
+	text = ''
+		require("trouble").setup()
+	'';
+}

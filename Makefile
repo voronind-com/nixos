@@ -13,10 +13,6 @@ reboot: boot
 switch:
 	nixos-rebuild switch $(options) --flake $(flake)
 
-.PHONY: trace
-trace: check
-	nixos-rebuild boot $(options) --show-trace --flake $(flake)
-
 .PHONY: update
 update:
 	nix flake update
@@ -32,6 +28,10 @@ android:
 .PHONY: check
 check:
 	nix flake check
+
+.PHONY: trace
+trace:
+	nix flake check --show-trace
 
 .PHONY: show
 show:

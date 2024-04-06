@@ -1,6 +1,9 @@
-{ const, username, homeDir, style, pkgs, ... }: let
-	footConfig = import ./module/foot/Foot.nix { style = style; };
-	makoConfig = import ./module/mako/Mako.nix { style = style; };
+{ const, username, homeDir, util, style, pkgs, setting, key, ... } @args: let
+	foot         = import ./module/foot/Init.nix         args;
+	mako         = import ./module/mako/Init.nix         args;
+	editorconfig = import ./module/editorconfig/Init.nix args;
+	btop         = import ./module/top/btop/Init.nix     args;
+	htop         = import ./module/top/htop/Init.nix     args;
 in {
 	home-manager.backupFileExtension = "old";
 
@@ -11,13 +14,13 @@ in {
 		home.stateVersion  = const.stateVersion;
 
 		home.file = {
-			".config/btop".source        = ./module/top/btop;
-			".config/htop".source        = ./module/top/htop;
-			".config/mako/config".text   = makoConfig.config;
-			".config/foot/foot.ini".text = footConfig.config;
-			".editorconfig".source       = ./module/Editorconfig;
-			".parallel/will-cite".text   = "";
-			"media/template".source      = ./module/template;
+			".config/btop/btop.conf".text = btop.config;
+			".config/htop/htoprc".text    = htop.config;
+			".config/mako/config".text    = mako.config;
+			".config/foot/foot.ini".text  = foot.config;
+			".editorconfig".text          = editorconfig.config;
+			".parallel/will-cite".text    = "";
+			"media/template".source       = ./module/template;
 		};
 
 		# Directories.
