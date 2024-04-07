@@ -45,7 +45,7 @@ in {
 		ripgrep
 		rsync
 		sqlite
-		tmux tmuxScript
+		pkgs.tmux tmuxScript
 		tree
 		utillinux
 		wget
