@@ -7,7 +7,7 @@ in {
 		# If not running interactively, don't do anything.
 		[[ "$-" != *i* ]] && return
 
-		'' + builtins.readFile bashRc + ''
+		'') + builtins.readFile bashRc + util.trimTabs (''
 
 		# Find all functions.
 		function find_function() {
