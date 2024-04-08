@@ -20,6 +20,8 @@ in {
 		pamixer pavucontrol pulseaudio # Audio.
 		sway-contrib.inactive-windows-transparency
 		wl-clipboard # Clipboard.
+
+		gnome.adwaita-icon-theme
 	];
 
 	programs.sway = {
