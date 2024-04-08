@@ -8,8 +8,8 @@
 				((c++))
 			done
 
-			dmenu_path
 			find_function | grep -v ^_
+			dmenu_path
 		}
 	'';
 }
