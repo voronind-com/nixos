@@ -1,16 +1,19 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: let
+	script = ''
+		music="/storage/hot/media/music/"
+		docker run --rm -v "''${music}":/music voronind.com/yamusic:latest
+	'';
+in {
 	systemd.services.yandex_music = {
 		enable = true;
 		description = "Sync music from Yandex.Music.";
 		serviceConfig = {
-			Type      = "oneshot";
-			ExecStart = ./bin/YandexMusic;
+			Type = "oneshot";
 		};
 		path = with pkgs; [
-			bashInteractive
 			docker
 		];
-		# wantedBy = [ "multi-user.target" ];
+		script = script;
 	};
 
 	systemd.timers.yandex_music = {

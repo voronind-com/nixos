@@ -1,19 +1,22 @@
-{ pkgs, ... }: {
+{ pkgs, style, util, ... } @args: let
+	bash = import ../../module/common/bash/Init.nix args;
+	script = ''
+		docker exec -u 33 cloud php -f /var/www/html/cron.php || notify 'Nextcloud : Failed to run cron.'
+	'';
+in {
 	systemd.services.nextcloud = {
 		enable = true;
 		description = "Nextcloud worker.";
 		serviceConfig = {
-			Type      = "oneshot";
-			ExecStart = ./bin/Nextcloud;
+			Type = "oneshot";
 		};
 		path = with pkgs; [
 			bashInteractive
 			docker
 		];
-		environment = {
-			BASH_PATH = ../../module/common/bash;
-		};
-		# wantedBy = [ "multi-user.target" ];
+		script = ''
+			${pkgs.bashInteractive}/bin/bash ${script}
+		'';
 	};
 
 	systemd.timers.nextcloud = {

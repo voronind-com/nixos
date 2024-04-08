@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# Source modules.
-for file in ${BASH_PATH}/module/*.sh; do
-	source "${file}"
-done
-
-docker exec -u 33 cloud php -f /var/www/html/cron.php || notify 'Nextcloud : Failed to run cron.'
