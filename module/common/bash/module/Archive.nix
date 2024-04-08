@@ -248,7 +248,7 @@
 				if [[ "''${target//\\:/}" == *:* ]]; then
 					local host="''${target%%:*}"
 					file="''${target#*:}"
-					remote=(sudo ssh ''${host})
+					remote=(trysudo ssh ''${host})
 				fi
 
 				# Extract.
