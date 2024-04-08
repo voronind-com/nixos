@@ -15,7 +15,12 @@
 			else
 				''${*}
 			fi
+		}
 
+		# Run something as current user. If fails, try to run with sudo.
+		# Usage: trysudo <COMMAND>
+		function trysudo() {
+			''${*} || sudo ''${*}
 		}
 
 		function _complete_s() {
@@ -23,6 +28,6 @@
 		}
 
 		complete -F _complete_s s
-		complete -F _autocomplete_nested sudo
+		complete -F _autocomplete_nested sudo trysudo
 	'';
 }
