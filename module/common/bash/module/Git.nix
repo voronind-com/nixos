@@ -49,6 +49,11 @@
 			git commit -m "''${@}"
 		}
 
+		# Git signed commit.
+		function gcs() {
+			git commit -S -m "''${@}"
+		}
+
 		# Git checkout.
 		function gch() {
 			git checkout "''${@}"
