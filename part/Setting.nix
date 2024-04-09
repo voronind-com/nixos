@@ -48,6 +48,7 @@
 		font = {
 			step = "1";
 			dpi  = "yes";
+			forceWhite = false;
 		};
 	};
 
