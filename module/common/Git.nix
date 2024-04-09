@@ -1,4 +1,4 @@
-{ ... }: {
+{ secret, ... }: {
 	programs.git = {
 		enable = true;
 		config = {
@@ -7,6 +7,8 @@
 			pull.rebase          = true;
 			push.autoSetupRemote = true;
 			rebase.autoStash     = true;
+			user.signingkey      = secret.crypto.sign.key;
+			gpg.format           = secret.crypto.sign.format;
 		};
 	};
 }
