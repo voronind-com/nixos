@@ -13,7 +13,7 @@
 		settings = {
 			AllowUsers      = [ "root" ];
 			LoginGraceTime  = "1m";
-			MaxAuthTries    = 1;
+			# MaxAuthTries    = 1;
 			MaxSessions     = 10;
 			PermitRootLogin = "prohibit-password";
 			StrictModes     = false;
