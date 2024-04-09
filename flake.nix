@@ -113,6 +113,7 @@
 			./module/common/AutoUpdate.nix
 			./module/common/Bash.nix
 			./module/common/Bootloader.nix
+			./module/common/Crypto.nix
 			./module/common/Distrobox.nix
 			./module/common/Dotfiles.nix
 			./module/common/Filesystem.nix
