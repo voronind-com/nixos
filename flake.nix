@@ -159,6 +159,7 @@
 				flake     = self;
 				inputs    = inputs;
 				key       = import ./part/Key.nix       {};
+				secret    = import ./part/Secret.nix    {};
 				setting   = import ./part/Setting.nix   {};
 				style     = import ./part/Style.nix     { config = config; };
 				util      = import ./part/Util.nix      { pkgs   = pkgs;   };
@@ -279,6 +280,7 @@
 				flake   = self;
 				inputs  = inputs;
 				key     = import ./part/Key.nix     {};
+				secret  = import ./part/Secret.nix  {};
 				setting = import ./part/Setting.nix {};
 				style   = import ./part/Style.nix   { config = import ./part/style/Gruvbox.nix {}; };
 				util    = import ./part/Util.nix    { pkgs   = pkgs;  };
