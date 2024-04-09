@@ -6,15 +6,16 @@
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgiYKFkMfiGOZCZIk+O7LtaoF6A3cHEFCqaPwXOM4rR root@work"
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBL5NAm8S97EtfB/7DPf5Xl3Cqi3PlSO1V0m7fknNzz root@laptop"
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIL2LI1iFDZC223aWqBVz9yusfB/XrRwsBKiL5warIF/ nix-on-droid@phone"
+		(builtins.readFile ./secret/public/Ssh.key)
 	];
 
 	crypto = {
 		sign = {
 			format = "ssh";
-			key    = "";
+			key    = ./secret/public/Ssh.key;
 		};
 		publicKeys = [
-
+			./secret/public/Gpg.key
 		];
 	};
 }

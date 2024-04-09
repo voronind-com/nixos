@@ -7,7 +7,7 @@
 			pull.rebase          = true;
 			push.autoSetupRemote = true;
 			rebase.autoStash     = true;
-			user.signingkey      = secret.crypto.sign.key;
+			user.signingkey      = builtins.readFile secret.crypto.sign.key;
 			gpg.format           = secret.crypto.sign.format;
 		};
 	};
