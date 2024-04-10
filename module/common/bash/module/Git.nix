@@ -131,12 +131,12 @@
 		function gr() {
 			local base="''${1}"
 
-			# rebase last 2 commits by default.
+			# Rebase last 2 commits by default.
 			if [[ "''${base}" = "" ]]; then
 				base="2"
 			fi
 
-			# if 0, rebase from root. else from specified base.
+			# If 0, rebase from root. else from specified base.
 			if [[ "''${base}" = "0" ]]; then
 				git rebase -i --root
 			else
@@ -195,9 +195,22 @@
 			open "''${url}"
 		}
 
-		# Resign all the old commits.
+		# Resign the old commits. 0 to resign from root.
+		# Usage: git_resign [COMMIT_COUNT]
 		function git_resign() {
-			git rebase --exec 'git commit --amend --no-edit -n -S' -i --root
+			local base="''${1}"
+
+			# Resign last commit by default.
+			if [[ "''${base}" = "" ]]; then
+				base="1"
+			fi
+
+			# If 0, rebase from root. else from specified base.
+			if [[ "''${base}" = "0" ]]; then
+				git rebase --exec 'git commit --amend --no-edit -n -S' -i --root
+			else
+				git rebase --exec 'git commit --amend --no-edit -n -S' -i HEAD~''${base}
+			fi
 		}
 
 		# Show current branch.
