@@ -169,6 +169,14 @@
 		};
 
 		# List of all hosts bellow.
+		nixosConfigurations.basic = self.mkHost {
+			hostname = "basic";
+			system   = "x86_64-linux";
+			modules = [
+				({ pkgs, ... }: { boot.kernelPackages = nixpkgs.lib.mkForce pkgs.linuxPackages; })
+			];
+		};
+
 		nixosConfigurations.dasha = self.mkHost {
 			hostname = "dasha";
 			system   = "x86_64-linux";
