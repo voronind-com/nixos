@@ -195,6 +195,11 @@
 			open "''${url}"
 		}
 
+		# Resign all the old commits.
+		function git_resign() {
+			git rebase --exec 'git commit --amend --no-edit -n -S' -i --root
+		}
+
 		# Show current branch.
 		function _git_current_branch() {
 			git branch --show-current 2> /dev/null
