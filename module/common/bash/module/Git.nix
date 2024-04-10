@@ -26,7 +26,7 @@
 
 		# Git log.
 		function gl() {
-			git log "''${@}"
+			git log --show-signature "''${@}"
 		}
 
 		# Git status.

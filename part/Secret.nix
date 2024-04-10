@@ -11,8 +11,9 @@
 
 	crypto = {
 		sign = {
-			format = "ssh";
-			key    = ./secret/public/Ssh.key;
+			format  = "ssh";
+			key     = ./secret/public/Ssh.key;
+			allowed = ./secret/public/Signers.key;
 		};
 		publicKeys = [
 			./secret/public/Gpg.key
