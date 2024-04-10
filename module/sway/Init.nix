@@ -22,6 +22,7 @@
 			./module/Sound.nix
 			./module/Tiling.nix
 			./module/Workspace.nix
+			./module/Session.nix
 		];
 	};
 in {

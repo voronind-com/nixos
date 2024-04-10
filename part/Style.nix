@@ -35,6 +35,7 @@
 		positive-g = config.lib.stylix.colors.base0B-rgb-g;
 		positive-r = config.lib.stylix.colors.base0B-rgb-r;
 	};
+
 	font = {
 		emoji.name     = config.stylix.fonts.emoji.name;
 		monospace.name = config.stylix.fonts.monospace.name;
@@ -47,6 +48,7 @@
 			desktop     = config.stylix.fonts.sizes.desktop;
 		};
 	};
+
 	opacity = {
 		application = config.stylix.opacity.applications;
 		desktop     = config.stylix.opacity.desktop;
