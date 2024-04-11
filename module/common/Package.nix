@@ -30,13 +30,14 @@
 		smartmontools
 		sqlite
 		tree
-		udisks
 		universal-android-debloater
+		usbutils
 		ventoy
 		wget
 		zip unzip
 	];
 
 	# Special packages.
-	programs.adb.enable = true;
+	programs.adb.enable     = true;
+	services.udisks2.enable = true;
 }
