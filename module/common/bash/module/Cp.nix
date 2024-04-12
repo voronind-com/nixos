@@ -12,6 +12,12 @@
 			rsync -ahP --chmod=u+w --delete "''${@}"
 		}
 
+		# Copy and also merge all changes FAST (delete dst files that do not exist in src, only compare size).
+		# Usage: rcp_merge_fast <FROM> <TO>
+		function rcp_merge_fast() {
+			rsync -ahP --chmod=u+w --delete --size-only "''${@}"
+		}
+
 		# Copy by creating hardlinks.
 		# Works for directories, too.
 		# Usage: cp_link <FROM> <TO>
