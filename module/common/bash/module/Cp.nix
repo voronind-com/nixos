@@ -18,6 +18,12 @@
 			rsync -ahP --chmod=u+w --delete --size-only "''${@}"
 		}
 
+		# Copy and also merge all changes BY CHECKSUM (delete dst files that do not exist in src, compare hashes).
+		# Usage: rcp_merge_hash <FROM> <TO>
+		function rcp_merge_hash() {
+			rsync -ahP --chmod=u+w --delete --checksum "''${@}"
+		}
+
 		# Copy by creating hardlinks.
 		# Works for directories, too.
 		# Usage: cp_link <FROM> <TO>
