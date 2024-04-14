@@ -100,7 +100,7 @@
 
 	outputs = { self, nixpkgs, nix-on-droid, home-manager, stylix, ... } @inputs: {
 		# Constant values.
-		nixosModules.const = {
+		const = {
 			droidStateVersion = "22.11";
 			stateVersion      = "23.11";
 			timeZone = "Europe/Moscow";
@@ -123,7 +123,7 @@
 			modules = [
 				./host/${hostname}/Configuration.nix
 				{ networking.hostName = hostname; }
-				{ system.stateVersion = self.nixosModules.const.stateVersion; }
+				{ system.stateVersion = self.const.stateVersion; }
 				inputs.self.nixosModules.common
 				home-manager.nixosModules.home-manager
 				stylix.nixosModules.stylix
@@ -133,7 +133,7 @@
 				pkgs   = nixpkgs.legacyPackages.${system}.pkgs;
 				config = self.nixosConfigurations.${hostname}.config;
 			in {
-				const     = self.nixosModules.const;
+				const     = self.const;
 				flake     = self;
 				inputs    = inputs;
 				key       = import ./part/Key.nix       {};
@@ -255,14 +255,14 @@
 		# Android.
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
 			modules = [
-				{ system.stateVersion = inputs.self.nixosModules.const.droidStateVersion; }
+				{ system.stateVersion = inputs.self.const.droidStateVersion; }
 				./module/NixOnDroid.nix
 			];
 
 			extraSpecialArgs = let
 				pkgs = nixpkgs.legacyPackages."aarch64-linux".pkgs;
 			in {
-				const   = self.nixosModules.const;
+				const   = self.const;
 				flake   = self;
 				inputs  = inputs;
 				key     = import ./part/Key.nix     {};
