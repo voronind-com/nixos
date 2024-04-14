@@ -1,10 +1,10 @@
-{ pkgs, inputs, const, style, util, key, setting, ... } @args: let
+{ pkgs, inputs, const, style, util, key, setting, secret, ... } @args: let
 	homePath   = "/data/data/com.termux.nix/files/home";
-	tmux       = import ./common/tmux/Init.nix args;
+	tmux       = import ./common/tmux args;
 	tmuxScript = pkgs.writeShellScriptBin "tmux_script" tmux.script;
-	bash       = import ./common/bash/Init.nix args;
-	nvim       = import ./common/nvim/Init.nix args;
-	ssh        = import ./common/ssh/Init.nix  args;
+	bash       = import ./common/bash args;
+	nvim       = import ./common/nvim args;
+	ssh        = import ./common/ssh  args;
 	font = pkgs.runCommandNoCC "font" {} ''
 		cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 	'';
@@ -60,49 +60,62 @@ in {
 	'';
 
 	home-manager.config = {
-		home.stateVersion = const.droidStateVersion;
-		home.file = {
-			".dotfiles".source = inputs.self;
-			".ssh/config".text = ssh.config;
-			".termux/_font.ttf".source = font;
-			".termux/_colors.properties".text = colors;
-		};
-		home.sessionVariables = {
-			EDITOR               = "nvim";
-			MANPAGER             = "nvim +Man!";
-			NIXPKGS_ALLOW_UNFREE = "1";
-			NIX_CURRENT_SYSTEM   = "${pkgs.stdenv.system}";
-			TERM                 = "xterm-256color";
-		};
-		programs.bash = {
-			enable = true;
-			bashrcExtra = bash.config + ''
-				[[ -f ~/.termux/font.ttf ]] || {
-					cp ~/.termux/_font.ttf ~/.termux/font.ttf
-					cp ~/.termux/_colors.properties ~/.termux/colors.properties
-					_warn "Termux config installed, please restart."
-				};
-			'';
-		};
-		programs.tmux = {
-			enable = true;
-			extraConfig = tmux.config;
-		};
-		programs.git = {
-			enable = true;
-			extraConfig = {
-				credential.helper    = "store";
-				init.defaultBranch   = "main";
-				pull.rebase          = true;
-				push.autoSetupRemote = true;
-				rebase.autoStash     = true;
+		home = {
+			stateVersion = const.droidStateVersion;
+			file = {
+				".dotfiles".source = inputs.self;
+				".ssh/config".text = ssh.config;
+				".termux/_font.ttf".source = font;
+				".termux/_colors.properties".text = colors;
+			};
+			sessionVariables = {
+				EDITOR               = "nvim";
+				MANPAGER             = "nvim +Man!";
+				NIXPKGS_ALLOW_UNFREE = "1";
+				NIX_CURRENT_SYSTEM   = "${pkgs.stdenv.system}";
+				TERM                 = "xterm-256color";
 			};
 		};
-		programs.neovim = {
-			enable   = true;
-			viAlias  = true;
-			vimAlias = true;
-			extraConfig = nvim.config;
+
+		programs = {
+			bash = {
+				enable = true;
+				bashrcExtra = bash.config + ''
+					[[ -f ~/.termux/font.ttf ]] || {
+						cp ~/.termux/_font.ttf ~/.termux/font.ttf
+						cp ~/.termux/_colors.properties ~/.termux/colors.properties
+						_warn "Termux config installed, please restart."
+					};
+				'';
+			};
+
+			tmux = {
+				enable = true;
+				extraConfig = tmux.config;
+			};
+
+			git = {
+				enable = true;
+				extraConfig = {
+					credential.helper    = "store";
+					init.defaultBranch   = "main";
+					pull.rebase          = true;
+					push.autoSetupRemote = true;
+					rebase.autoStash     = true;
+				};
+			};
+
+			neovim = {
+				enable   = true;
+				viAlias  = true;
+				vimAlias = true;
+				extraConfig = nvim.config;
+			};
+
+			gpg = {
+				enable     = true;
+				publicKeys = secret.crypto.publicKeys;
+			};
 		};
 	};
 }
