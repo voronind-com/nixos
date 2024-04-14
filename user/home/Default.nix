@@ -1,4 +1,4 @@
-{ const, username, homeDir, util, style, pkgs, setting, key, ... } @args: let
+{ const, username, homeDir, util, style, pkgs, setting, key, secret, ... } @args: let
 	foot         = import ./module/foot/Init.nix         args;
 	mako         = import ./module/mako/Init.nix         args;
 	editorconfig = import ./module/editorconfig/Init.nix args;
@@ -38,6 +38,12 @@ in {
 			extraConfig = {
 				XDG_TMP_DIR = "${homeDir}/tmp/";
 			};
+		};
+
+		# GPG.
+		programs.gpg = {
+			enable     = true;
+			publicKeys = secret.crypto.publicKeys;
 		};
 	};
 }

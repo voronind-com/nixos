@@ -22,7 +22,10 @@
 			allowed = ./secret/public/Signers.key;
 		};
 		publicKeys = [
-			./secret/public/Gpg.key
+			{
+				source = ./secret/public/Gpg.key;
+				trust  = 5;
+			}
 		];
 	};
 }
