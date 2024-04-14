@@ -1,5 +1,5 @@
 { lib, key, ... }: let
-	mod = key.meta.window.gnome;
+	mod = key.gnome.mod;
 in {
 	programs.dconf.enable = true;
 	programs.dconf.profiles.user = {

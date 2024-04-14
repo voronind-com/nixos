@@ -8,7 +8,7 @@
 			./module/Style.nix
 			./module/Display.nix
 			./module/Input.nix
-			./module/Leader.nix
+			./module/Mod.nix
 			./module/Font.nix
 			./module/Launcher.nix
 			./module/Terminal.nix

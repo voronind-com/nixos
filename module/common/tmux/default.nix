@@ -1,5 +1,5 @@
 { style, key, util, setting, ... }: let
-	mod = key.meta.shell.tmux;
+	mod = key.tmux.mod;
 
 	accent = style.color.accent;
 	bg     = style.color.bg.dark;

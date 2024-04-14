@@ -1,13 +1,4 @@
 { ... }: {
-	meta = {
-		app.nvim   = " ";
-		shell.tmux = "M";
-		window = {
-			sway  = "Mod4";
-			gnome = "<Super>";
-		};
-	};
-
 	navigation = {
 		go = {
 			down  = "s";
@@ -52,6 +43,7 @@
 
 	nvim = {
 		buffer.new = "n";
+		leader     = " ";
 		colorscheme.toggle = {
 			contrast = "[";
 			light    = "]";
@@ -84,6 +76,7 @@
 	};
 
 	tmux = {
+		mod    = "M";
 		prefix = "t";
 		reload = "r";
 		scroll = {
@@ -111,6 +104,8 @@
 	};
 
 	sway = {
+		launch.terminal = "Escape";
+		mod = "Mod4";
 		notification = {
 			dismiss = "shift+N";
 			restore = "n";
@@ -119,8 +114,9 @@
 			selection = "v";
 			screen    = "shift+V";
 		};
-		launch.terminal = "Escape";
 		window = {
+			layout.toggle = "Tab";
+			fullscreen    = "f";
 			floating = {
 				toggle = "shift+f";
 				cycle  = "r";
@@ -129,17 +125,16 @@
 				horizontal = "backslash";
 				vertical   = "minus";
 			};
-			layout.toggle = "Tab";
-			fullscreen = "f";
 		};
 	};
 
 	gnome = {
+		launch.terminal = "Escape";
+		mod        = "<Super>";
+		screenshot = "v";
 		window = {
 			switch     = "Tab";
 			fullscreen = "f";
 		};
-		launch.terminal = "Escape";
-		screenshot = "v";
 	};
 }

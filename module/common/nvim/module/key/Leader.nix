@@ -1,6 +1,6 @@
 { key, ... }: {
 	text = ''
-		leader = "${key.meta.app.nvim}"
+		leader = "${key.nvim.leader}"
 
 		vim.g.mapleader      = leader
 		vim.g.maplocalleader = leader
