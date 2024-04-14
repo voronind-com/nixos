@@ -3,7 +3,7 @@
 		enable      = true;
 		allowReboot = false;
 		dates       = "hourly";
-		flake       = const.url;
+		flake       = "git+${const.url}";
 		operation   = "switch";
 		persistent  = true;
 	};

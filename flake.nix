@@ -104,12 +104,12 @@
 			droidStateVersion = "22.11";
 			stateVersion      = "23.11";
 			timeZone = "Europe/Moscow";
-			url = "git+https://git.voronind.com/voronind/nixos.git";
+			url = "https://git.voronind.com/voronind/nixos.git";
 		};
 
 		# Common modules used across all hosts.
 		nixosModules.common.imports = [
-			./module/common/AutoUpdate.nix
+			./module/common/AutoUpdateSigned.nix
 			./module/common/Bash.nix
 			./module/common/Bootloader.nix
 			./module/common/Crypto.nix

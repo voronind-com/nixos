@@ -1,6 +1,6 @@
-{ ... }: {
+{ const, ... }: {
 	text = ''
-		export _nix_system_config="git+https://git.voronind.com/voronind/nixos.git"
+		export _nix_system_config="git+${const.url}"
 
 		# Rebuild system.
 		# Optionally force the hostname.
