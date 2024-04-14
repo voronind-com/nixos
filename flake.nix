@@ -108,35 +108,13 @@
 		};
 
 		# Common modules used across all hosts.
-		nixosModules.common.imports = [
-			./module/common/AutoUpdateSigned.nix
-			./module/common/Bash.nix
-			./module/common/Bootloader.nix
-			./module/common/Crypto.nix
-			./module/common/Distrobox.nix
-			./module/common/Dotfiles.nix
-			./module/common/Filesystem.nix
-			./module/common/Firefox.nix
-			./module/common/Firewall.nix
-			./module/common/Font.nix
-			./module/common/Git.nix
-			./module/common/KbdInterception.nix
-			./module/common/Kernel.nix
-			./module/common/Ld.nix
-			./module/common/Locale.nix
-			./module/common/Network.nix
-			./module/common/Nix.nix
-			./module/common/Nvim.nix
-			./module/common/Package.nix
-			./module/common/Ssh.nix
-			./module/common/Sshd.nix
-			./module/common/Stylix.nix
-			./module/common/Swap.nix
-			./module/common/Tmux.nix
-			./module/common/Users.nix
-			./module/common/YtDlp.nix
-			./user/Root.nix
-		];
+		nixosModules.common = let
+			ls = path: map (f: "${path}/${f}") (builtins.filter (i: builtins.readFileType "${path}/${i}" == "regular") (builtins.attrNames (builtins.readDir path)));
+		in {
+			imports = (ls ./module/common) ++ [
+				./user/Root.nix
+			];
+		};
 
 		# Function to create a host.
 		mkHost = { system, hostname, modules } @args: nixpkgs.lib.nixosSystem {
