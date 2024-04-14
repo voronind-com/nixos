@@ -13,47 +13,6 @@
 		foreground=#${style.color.fg.light}
 	'';
 in {
-	# NOTE: Split into modules?
-	environment.packages = with pkgs; [
-		android-tools
-		binwalk
-		coreutils
-		curl
-		diffutils
-		ffmpeg
-		file
-		findutils
-		gawk
-		gcc
-		gdu
-		git
-		gnugrep
-		gnumake
-		gnused
-		gnutar
-		gzip
-		hostname
-		imagemagick
-		jq
-		lsof
-		man
-		neofetch
-		nmap
-		openssh
-		parallel
-		pv
-		ripgrep
-		rsync
-		sqlite
-		pkgs.tmux tmuxScript
-		tree
-		utillinux
-		wget
-		xz
-		yt-dlp
-		zip unzip
-	];
-
 	time.timeZone = const.timeZone;
 	nix.extraOptions = ''
 		experimental-features = nix-command flakes
@@ -97,11 +56,14 @@ in {
 			git = {
 				enable = true;
 				extraConfig = {
-					credential.helper    = "store";
-					init.defaultBranch   = "main";
-					pull.rebase          = true;
-					push.autoSetupRemote = true;
-					rebase.autoStash     = true;
+					credential.helper          = "store";
+					init.defaultBranch         = "main";
+					pull.rebase                = true;
+					push.autoSetupRemote       = true;
+					rebase.autoStash           = true;
+					user.signingkey            = builtins.readFile secret.crypto.sign.key;
+					gpg.ssh.allowedSignersFile = toString(secret.crypto.sign.allowed);
+					gpg.format                 = secret.crypto.sign.format;
 				};
 			};
 
@@ -118,4 +80,42 @@ in {
 			};
 		};
 	};
+
+	environment.packages = with pkgs; [
+		android-tools
+		binwalk
+		coreutils
+		curl
+		diffutils
+		ffmpeg
+		file
+		findutils
+		gawk
+		gcc
+		gdu
+		git
+		gnugrep
+		gnumake
+		gnused
+		gnutar
+		gzip xz
+		hostname
+		imagemagick
+		jq
+		lsof
+		man
+		nmap
+		openssh
+		parallel
+		pv
+		ripgrep
+		rsync
+		sqlite
+		pkgs.tmux tmuxScript
+		tree
+		utillinux
+		wget
+		yt-dlp
+		zip unzip
+	];
 }
