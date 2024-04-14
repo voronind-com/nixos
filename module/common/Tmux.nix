@@ -1,5 +1,5 @@
 { pkgs, style, key, util, ... } @args: let
-	tmux   = import ./tmux/Init.nix args;
+	tmux   = import ./tmux args;
 	script = pkgs.writeShellScriptBin "tmux_script" tmux.script;
 in {
 	programs.tmux = {

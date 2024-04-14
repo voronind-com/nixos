@@ -1,5 +1,5 @@
 { pkgs, util, ... } @args: let
-	firefox = import ./firefox/Init.nix args;
+	firefox = import ./firefox args;
 in {
 	# Disable profile switching on rebuild.
 	environment.variables = {

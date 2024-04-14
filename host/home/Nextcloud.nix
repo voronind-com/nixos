@@ -1,5 +1,5 @@
 { pkgs, style, util, ... } @args: let
-	bash = import ../../module/common/bash/Init.nix args;
+	bash = import ../../module/common/bash args;
 	script = ''
 		docker exec -u 33 cloud php -f /var/www/html/cron.php || notify 'Nextcloud : Failed to run cron.'
 	'';

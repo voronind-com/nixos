@@ -1,6 +1,6 @@
 { const, util, style, pkgs, setting, key, secret, ... } @args: {
 	imports = [
-		(import ./Default.nix (args // {
+		(import ./common (args // {
 			username = "dasha";
 			homeDir  = "/home/dasha";
 		}))

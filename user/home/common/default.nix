@@ -1,9 +1,9 @@
 { const, username, homeDir, util, style, pkgs, setting, key, secret, ... } @args: let
-	foot         = import ./module/foot/Init.nix         args;
-	mako         = import ./module/mako/Init.nix         args;
-	editorconfig = import ./module/editorconfig/Init.nix args;
-	btop         = import ./module/top/btop/Init.nix     args;
-	htop         = import ./module/top/htop/Init.nix     args;
+	foot         = import ./foot         args;
+	mako         = import ./mako         args;
+	editorconfig = import ./editorconfig args;
+	btop         = import ./top/btop     args;
+	htop         = import ./top/htop     args;
 in {
 	home-manager.backupFileExtension = "old";
 
@@ -20,7 +20,7 @@ in {
 			".config/foot/foot.ini".text  = foot.config;
 			".editorconfig".text          = editorconfig.config;
 			".parallel/will-cite".text    = "";
-			"media/template".source       = ./module/template;
+			"media/template".source       = ./template;
 		};
 
 		# Directories.

@@ -1,5 +1,5 @@
 { inputs, pkgs, util, key, setting, ... } @args: let
-	nvim = import ./nvim/Init.nix args;
+	nvim = import ./nvim args;
 in {
 	environment = {
 		variables = {

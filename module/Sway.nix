@@ -1,5 +1,5 @@
 { pkgs, lib, wallpaper, style, ... } @args: let
-	sway   = import ./sway/Init.nix args;
+	sway   = import ./sway args;
 	config = pkgs.writeText "swayConfig" sway.config;
 in {
 	imports = [

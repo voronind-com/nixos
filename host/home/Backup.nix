@@ -1,5 +1,5 @@
 { pkgs, style, util, ... } @args: let
-	bash = import ../../module/common/bash/Init.nix args;
+	bash = import ../../module/common/bash args;
 	script = pkgs.writeText "backupScript" ''
 		source ${bash.modules}
 
