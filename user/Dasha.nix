@@ -1,6 +1,9 @@
-{ pkgs, lib, ... }: {
+{ const, util, style, pkgs, lib, setting, key, secret, ... } @args: {
 	imports = [
-		./home/Dasha.nix
+		(import ./common (args // {
+			username = "dasha";
+			homeDir  = "/home/dasha";
+		}))
 	];
 	users.users.dasha = {
 		createHome     = true;

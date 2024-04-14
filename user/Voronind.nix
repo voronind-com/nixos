@@ -1,6 +1,9 @@
-{ pkgs, lib, secret, ... }: {
+{ const, util, style, pkgs, lib, setting, key, secret, ... } @args: {
 	imports = [
-		./home/Voronind.nix
+		(import ./common (args // {
+			username = "voronind";
+			homeDir  = "/home/voronind";
+		}))
 	];
 
 	users.users.voronind = {
