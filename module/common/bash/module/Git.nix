@@ -195,9 +195,9 @@
 			open "''${url}"
 		}
 
-		# Resign the old commits. 0 to resign from root.
-		# Usage: git_resign [COMMIT_COUNT]
-		function git_resign() {
+		# Sign the old commits. 0 to resign from root.
+		# Usage: git_sign [COMMIT_COUNT]
+		function git_sign() {
 			local base="''${1}"
 
 			# Resign last commit by default.

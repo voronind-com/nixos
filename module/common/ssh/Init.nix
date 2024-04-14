@@ -25,6 +25,12 @@
 			User root
 			Port 22143
 
+		Host nixbuilder
+			HostName 192.168.1.2
+			User nixbuilder
+			StrictHostKeyChecking=accept-new
+			Port 22143
+
 		Host laptop
 			Hostname 192.168.1.9
 			User root

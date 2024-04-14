@@ -11,7 +11,7 @@
 			}
 		];
 		settings = {
-			AllowUsers      = [ "root" ];
+			AllowUsers      = [ "root" "nixbuilder" ];
 			LoginGraceTime  = "1m";
 			# MaxAuthTries    = 1;
 			MaxSessions     = 10;
