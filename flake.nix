@@ -109,7 +109,11 @@
 
 		# Common modules used across all hosts.
 		nixosModules.common = let
-			ls = path: map (f: "${path}/${f}") (builtins.filter (i: builtins.readFileType "${path}/${i}" == "regular") (builtins.attrNames (builtins.readDir path)));
+			ls = path: map (f: "${path}/${f}") (
+				builtins.filter (i: builtins.readFileType "${path}/${i}" == "regular") (
+					builtins.attrNames (builtins.readDir path)
+				)
+			);
 		in {
 			imports = (ls ./module/common) ++ [
 				./user/Root.nix
