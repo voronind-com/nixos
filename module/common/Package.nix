@@ -12,6 +12,7 @@
 		gdu
 		gnumake
 		gnused
+		gparted
 		imagemagick
 		jdk jdk11 jdk19 jdk20
 		jq
