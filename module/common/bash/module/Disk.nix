@@ -24,6 +24,7 @@
 			local unlock=$(udisksctl unlock -b "''${loop}" | _filter)
 			local mount=$(udisksctl mount -b "''${unlock}" | _filter)
 
+			[ -L "./''${name}" ] || ln -s "''${mount}" "./''${name}"
 			cd "''${mount}"
 		}
 	'';
