@@ -3,7 +3,7 @@
 		# Mount FS over ssh. Just extra config for sshfs.
 		# Usage: ssh_mount <REMOTE> <LOCAL>
 		function ssh_mount() {
-			sshfs -o uid=1000,auto_unmount,allow_other "''${@}"
+			sshfs -o uid=''${UID},auto_unmount "''${@}"
 		}
 
 		# Mount FS over ssh. Just extra config for sshfs.
