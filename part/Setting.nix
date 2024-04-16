@@ -54,6 +54,6 @@
 
 	top.refresh = "2000";
 
-	brightness.step = "10";
+	brightness.step = "5";
 	volume.step     = "5";
 }
