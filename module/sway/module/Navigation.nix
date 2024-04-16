@@ -19,6 +19,6 @@
 		bindsym $mod+Shift+$up    move up
 
 		# Focus mouse following.
-		focus_follows_mouse no
+		focus_follows_mouse yes
 	'';
 }
