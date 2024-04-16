@@ -14,5 +14,5 @@
 	services.gnome.sushi.enable = true;
 
 	# Nautilus network.
-	services.gnome3.gvfs.enable = true;
+	services.gvfs.enable = true;
 }

@@ -44,6 +44,11 @@
 			git diff "''${@}"
 		}
 
+		# Git diff added.
+		function gda() {
+			git diff --cached "''${@}"
+		}
+
 		# Git commit.
 		function gc() {
 			git commit -m "''${@}"
