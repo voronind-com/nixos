@@ -38,5 +38,11 @@
 		for_window [title="Emulator" window_type="utility"] {
 			move scratchpad
 		}
+
+		# Calculator.
+		for_window [app_id="org.gnome.Calculator"] {
+			move scratchpad
+			scratchpad show
+		}
 	'';
 }
