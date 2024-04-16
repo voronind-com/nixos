@@ -14,7 +14,7 @@
 			done
 
 			_info "Uploading..."
-			try sudo rcp "''${files[@]}" home:/storage/cold_1/backup/save/
+			try trysudo rcp "''${files[@]}" home:/storage/cold_1/backup/save/
 
 			_info "Cleaning..."
 			archive_prune 2> /dev/null
