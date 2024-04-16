@@ -24,5 +24,10 @@
 
 			mpv --no-video --shuffle ''${targets}
 		}
+
+		# Open files app.
+		function files() {
+			nautilus
+		}
 	'';
 }
