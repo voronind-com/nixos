@@ -9,7 +9,7 @@
 
 			systemd-boot = {
 				enable = true;
-				configurationLimit = 7;
+				configurationLimit = 10;
 			};
 		};
 		tmp.useTmpfs = true;
