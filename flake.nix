@@ -115,9 +115,7 @@
 				)
 			);
 		in {
-			imports = (ls ./module/common) ++ [
-				./user/Root.nix
-			];
+			imports = (ls ./module/common) ++ (ls ./overlay) ++ [ ./user/Root.nix ];
 		};
 
 		# Function to create a host.
