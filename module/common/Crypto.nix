@@ -12,7 +12,7 @@
 	services.pcscd.enable = true;
 
 	# Yubikey touch notification.
-	programs.yubikey-touch-detector.enable = true;
+	# programs.yubikey-touch-detector.enable = true;
 
 	# Extra packages.
 	environment.systemPackages = with pkgs; [
