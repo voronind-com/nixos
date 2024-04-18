@@ -26,6 +26,7 @@
 		parallel
 		parted
 		pv
+		qmk via
 		ripgrep
 		scanmem
 		smartmontools
@@ -41,4 +42,5 @@
 	# Special packages.
 	programs.adb.enable     = true;
 	services.udisks2.enable = true;
+	services.udev.packages  = with pkgs; [ via ];
 }
