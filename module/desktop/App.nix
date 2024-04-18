@@ -30,6 +30,7 @@
 			bottles dxvk gamescope mangohud vkd3d wine64
 			calibre
 			gimp
+			godot_4
 			jellyfin-media-player
 			mpv
 			obs-studio
