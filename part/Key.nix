@@ -37,7 +37,7 @@
 		seek   = "C";
 		wait   = "z";
 		exit   = "Z";
-		launch = "Space";
+		launch = "r";
 		repeat = ".";
 	};
 
@@ -119,7 +119,7 @@
 			fullscreen    = "f";
 			floating = {
 				toggle = "shift+f";
-				cycle  = "r";
+				cycle  = "shift+r";
 			};
 			split = {
 				horizontal = "backslash";
