@@ -37,7 +37,7 @@
 		seek   = "C";
 		wait   = "z";
 		exit   = "Z";
-		launch = "r";
+		launch = "Space";
 		repeat = ".";
 	};
 
