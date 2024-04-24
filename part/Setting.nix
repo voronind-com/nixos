@@ -52,7 +52,8 @@
 		};
 	};
 
-	top.refresh = "2000";
+	top.refresh.ms   = "2000";
+	popup.timeout.ms = "5000";
 
 	brightness.step = "5";
 	volume.step     = "5";

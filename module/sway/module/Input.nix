@@ -1,4 +1,4 @@
-{ ... }: {
+{ setting, ... }: {
 	text = ''
 		### Input configuration
 		#
@@ -38,6 +38,6 @@
 		}
 
 		# Hide mouse cursor after a period of inactivity.
-		seat seat0 hide_cursor 5000
+		seat seat0 hide_cursor ${setting.popup.timeout.ms}
 	'';
 }

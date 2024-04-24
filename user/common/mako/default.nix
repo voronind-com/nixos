@@ -1,10 +1,10 @@
-{ style, util, ... }: {
+{ style, util, setting, ... }: {
 	config = util.trimTabs ''
 		anchor=top-center
-		default-timeout=5000
+		default-timeout=${setting.popup.timeout.ms}
 		font=${style.font.serif.name} ${toString(style.font.size.popup)}
-		background-color=#${style.color.bg.regular}
-		border-color=#${style.color.bg.regular}
+		background-color=#${style.color.bg.dark}
+		border-color=#${style.color.bg.dark}
 		text-color=#${style.color.fg.light}
 		height=120
 		icons=0
