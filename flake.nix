@@ -177,7 +177,7 @@
 				./module/AmdCompute.nix
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
-				./module/Ollama.nix
+				# ./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/Print.nix
 				./module/RemoteBuild.nix
@@ -216,7 +216,6 @@
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
 				./module/Gnome.nix
-				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/Print.nix
 				./module/RemoteBuild.nix
@@ -244,7 +243,7 @@
 			system   = "x86_64-linux";
 			modules = [
 				./module/IntelCpu.nix
-				./module/Ollama.nix
+				# ./module/Ollama.nix
 				./module/Powerlimit.nix
 				./module/PowersaveIntel.nix
 				./module/Print.nix
