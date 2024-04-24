@@ -23,6 +23,7 @@
 			./module/Tiling.nix
 			./module/Workspace.nix
 			./module/Session.nix
+			./module/Keyd.nix
 		];
 	};
 in {

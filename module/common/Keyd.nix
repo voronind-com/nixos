@@ -60,4 +60,8 @@
 			};
 		};
 	};
+
+	# HACK: Workaround for https://github.com/NixOS/nixpkgs/issues/290161
+	users.groups.keyd = {};
+	systemd.services.keyd.serviceConfig.CapabilityBoundingSet = [ "CAP_SETGID" ];
 }

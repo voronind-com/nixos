@@ -13,6 +13,7 @@
 		isNormalUser   = true;
 		uid            = 1000;
 		extraGroups = [
+			"keyd"
 			"networkmanager"
 			"video"
 		];

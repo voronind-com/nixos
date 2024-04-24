@@ -5,6 +5,7 @@
 		./Vpn.nix
 	];
 
-	# Disable Kbd Interception.
-	services.interception-tools.enable = lib.mkForce false;
+	# Disable keyd.
+	services.keyd.enable = lib.mkForce false;
+	systemd.services.keyd-application-mapper.enable = lib.mkForce false;
 }

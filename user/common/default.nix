@@ -1,10 +1,20 @@
-{ const, username, homeDir, util, style, pkgs, setting, key, secret, ... } @args: let
-	foot         = import ./foot         args;
-	mako         = import ./mako         args;
-	editorconfig = import ./editorconfig args;
+{ const
+, homeDir
+, key
+, pkgs
+, secret
+, setting
+, style
+, username
+, util
+, ... } @args: let
 	btop         = import ./top/btop     args;
-	htop         = import ./top/htop     args;
+	editorconfig = import ./editorconfig args;
+	foot         = import ./foot         args;
 	gtk3         = import ./gtk/3        args;
+	htop         = import ./top/htop     args;
+	keyd         = import ./keyd         args;
+	mako         = import ./mako         args;
 in {
 	home-manager = {
 		backupFileExtension = "old";
@@ -19,6 +29,7 @@ in {
 					".config/foot/foot.ini".text     = foot.config;
 					".config/gtk-3.0/bookmarks".text = gtk3.bookmarks;
 					".config/htop/htoprc".text       = htop.config;
+					".config/keyd/app.conf".text     = keyd.config;
 					".config/mako/config".text       = mako.config;
 					".editorconfig".text             = editorconfig.config;
 					".parallel/will-cite".text       = "";
