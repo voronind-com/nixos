@@ -85,7 +85,7 @@
 		};
 		copy = {
 			copy   = "y";
-			paste  = "P";
+			paste  = "V";
 			select = "v";
 		};
 		session = {
