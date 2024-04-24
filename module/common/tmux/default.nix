@@ -68,7 +68,7 @@ in {
 
 		# Pane style.
 		set -g pane-border-style "fg=#${bg}"
-		set -g pane-active-border-style "fg=#${bg}"
+		set -g pane-active-border-style "fg=#${accent}"
 
 		# Statusbar.
 		bind-key -n ${mod}-${key.tmux.status.toggle} set-option -g status;
