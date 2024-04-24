@@ -32,7 +32,7 @@
 			gimp
 			godot_4
 			jellyfin-media-player
-			mpv
+			mpv mpvScripts.mpris
 			obs-studio
 			onlyoffice-bin
 			scanmem

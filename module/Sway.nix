@@ -16,13 +16,14 @@ in {
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.systemPackages = with pkgs; [
+		gnome.adwaita-icon-theme # GTK icons.
 		grim slurp # Screenshot.
 		mako # Notification system.
 		networkmanagerapplet # Internet configuration.
 		pamixer pavucontrol pulseaudio # Audio.
-		sway-contrib.inactive-windows-transparency
+		playerctl # Multimedia controls.
+		sway-contrib.inactive-windows-transparency # Transparent unfocused windows.
 		wl-clipboard # Clipboard.
-		gnome.adwaita-icon-theme # GTK icons.
 	];
 
 	programs.sway = {
