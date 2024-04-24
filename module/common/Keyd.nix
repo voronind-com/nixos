@@ -7,16 +7,15 @@
 			settings = {
 				main = {
 					capslock     = "overload(control, esc)";
-					compose      = "layer(compose)";
+					compose      = "layer(layer_macro)";
 					esc          = "capslock";
-					rightalt     = "layer(rightalt)";
-					rightcontrol = "layer(rightcontrol)";
-					rightshift   = "layer(rightshift)";
-					leftcontrol  = "layer(leftcontrol)";
+					rightalt     = "layer(layer_rightalt)";
+					rightcontrol = "layer(layer_control)";
+					rightshift   = "layer(layer_rightshift)";
+					leftcontrol  = "overload(layer_alternative, leftcontrol)";
 				};
 
-				# Alternative keys.
-				leftcontrol = {
+				layer_alternative = {
 					w = "pageup";
 					a = "home";
 					s = "pagedown";
@@ -30,17 +29,15 @@
 					l = "right";
 				};
 
-				# ???
-				rightalt = {};
+				layer_control = {
+					space = "playpause";
+					w = "volumeup";
+					s = "volumedown";
+					d = "nextsong";
+					a = "previoussong";
+				};
 
-				# Media/hw controls ?
-				rightcontrol = {};
-
-				# ???
-				rightshift = {};
-
-				# Macros.
-				compose = {
+				layer_macro = {
 					w = "macro(enter 10ms r enter)";
 					a = "macro(enter 10ms N o enter)";
 					s = "macro(enter 10ms W a i t enter)";
@@ -57,6 +54,10 @@
 					v = "macro(enter 10ms I space n e e d space h e l p ! enter)";
 					b = "macro(enter 10ms I ' m space b a c k enter)";
 				};
+
+				# Vacant layers.
+				layer_rightalt = {};
+				layer_rightshift = {};
 			};
 		};
 	};
