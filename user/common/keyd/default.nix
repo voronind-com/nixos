@@ -5,7 +5,8 @@
 		alt.e = C-tab
 		alt.x = C-w
 		alt.t = C-t
-		alt.r = C-S-t
+		alt.r = C-f5
+		alt.u = C-S-t
 		alt.f = C-f
 		alt.n = f3
 		alt.p = S-f3
