@@ -33,5 +33,6 @@
 		alt.f = macro(enter 10ms I space n e e d space h e l p ! enter)
 		alt.b = macro(enter 10ms I ' m space b a c k enter)
 		alt.l = macro(enter 10ms L e a f space l o v e r enter)
+		alt.j = macro(enter 10ms G o o d space j o b enter)
 	'';
 }
