@@ -57,4 +57,5 @@
 
 	brightness.step = "5";
 	volume.step     = "5";
+	music.step      = "10";
 }

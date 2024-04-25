@@ -33,8 +33,10 @@
 					space = "playpause";
 					w = "volumeup";
 					s = "volumedown";
-					d = "nextsong";
-					a = "previoussong";
+					d = "forward";
+					a = "back";
+					e = "nextsong";
+					q = "previoussong";
 				};
 
 				layer_macro = {};
