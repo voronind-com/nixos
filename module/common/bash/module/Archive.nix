@@ -1,7 +1,8 @@
 { ... }: {
 	text = ''
-		export _archive_pattern="_[0-9]{12}-[[:alnum:]]{40}.t[xg]z$"
-		export _archive_pattern_fast="_[0-9]{12}-[[:alnum:]]{40}.tgz$"
+		export _archive_pattern="_[0-9]{12}-[[:alnum:]]{40}\."
+		export _archive_pattern_compressed="_[0-9]{12}-[[:alnum:]]{40}\.t(ar|gz|xz)$"
+		export _archive_pattern_fast="_[0-9]{12}-[[:alnum:]]{40}\.tgz$"
 
 		# Archive directories.
 		# All directories by default.
@@ -96,6 +97,47 @@
 				# Append hash to target name.
 				local new_name="''${name}_''${date}-''${hash}.tgz"
 				mv -- "''${name}".tgz ''${new_name} && echo ''${new_name}
+			}
+
+			_iterate_targets process ''${targets[@]}
+		}
+
+		# Creates a simple archive. If it is a file, it just reformats file name to match archive name. For dirs, it first creates a tar archive. All dirs by default.
+		# Usage: archive_simple [DIRS]
+		function archive_simple() {
+			local IFS=$'\n'
+			local targets=("''${@}")
+			[[ "''${targets}" = "" ]] && targets=($(_ls_dir))
+
+			process() {
+				# Start timestamp.
+				local date=$(_archive_date)
+
+				# Exclude support.
+				local exclude
+				[[ -f ".archiveignore" ]] && exclude="--exclude-from=.archiveignore"
+				[[ -f "''${target}/.archiveignore" ]] && exclude="--exclude-from=''${target}/.archiveignore"
+
+				local name
+				local extension
+
+				if [[ -d "''${target}" ]]; then
+					name=$(parse_pascal "''${target}")
+
+					# Create archive.
+					local hash=$(tar ''${exclude} -c "''${target}" | pv -s $(/usr/bin/env du -sb "''${target}" | awk '{print $1}') | tee "''${name}".tar | sha1sum | cut -d\  -f1)
+
+					# Append hash to target name.
+					local new_name="''${name}_''${date}-''${hash}.tar"
+					mv -- "''${name}".tar ''${new_name} && echo ''${new_name}
+				else
+					name=$(parse_pascal "''${target%.*}")
+					extension=''${target##*.}
+
+					local hash=$(pv "''${target}" | sha1sum | cut -d\  -f1)
+					local new_name="''${name}_''${date}-''${hash}.''${extension}"
+					mv -- "''${target}" "''${new_name}" && echo ''${new_name}
+				fi
 			}
 
 			_iterate_targets process ''${targets[@]}
