@@ -19,7 +19,7 @@ update:
 
 .PHONY: live
 live: check
-	nix build $(options) $(flake)#nixosConfigurations.live.config.system.build.isoImage
+	nix build -o live $(options) $(flake)#nixosConfigurations.live.config.system.build.isoImage
 
 .PHONY: android
 android:
