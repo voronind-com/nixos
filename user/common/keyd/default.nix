@@ -39,5 +39,6 @@
 		alt.2 = macro(enter 10ms H e c k space y e s ! enter)
 		alt.3 = macro(enter 10ms < 3 enter)
 		alt.4 = macro(enter 10ms J u s t space a space s i d e - j o b space w h i l e space w a i t i n g space f o r space a space s e x space u p d a t e . enter)
+		alt.m = macro(enter 10ms I space r e p l y space u s i n g space m a c r o s . space U s e space s o f t w a r e space l i k e space k e y d , space o r space b u y space a space Q M K space k e y b o a r d . enter)
 	'';
 }

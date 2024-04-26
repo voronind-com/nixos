@@ -27,6 +27,7 @@
 					j = "down";
 					k = "up";
 					l = "right";
+					# space = "macro2(1, 100, macro(space))"; # NOTE: Possible bhop example.
 				};
 
 				layer_control = {
