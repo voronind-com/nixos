@@ -35,7 +35,7 @@
 		alt.l = macro(enter 10ms L e a f space l o v e r enter)
 		alt.j = macro(enter 10ms G o o d space j o b enter)
 		alt.k = macro(enter 10ms O k a y enter)
-		alt.1 = macro(enter 10ms L e t ' s space d o space t h i s space t e x a s space s t y l e ! enter)
+		alt.1 = macro(enter 10ms L e t ' s space d o space t h i s space T e x a s space s t y l e ! enter)
 		alt.2 = macro(enter 10ms H e c k space y e s ! enter)
 		alt.3 = macro(enter 10ms < 3 enter)
 	'';
