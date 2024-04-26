@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 	nix.buildMachines = [{
-		hostName = "home";
+		hostName = "nixbuilder";
 		protocol = "ssh-ng";
 		systems  = [
 			"x86_64-linux"
