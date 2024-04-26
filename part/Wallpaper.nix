@@ -1,6 +1,6 @@
 { pkgs, ... }: let
-	url    = "https://r4.wallpaperflare.com/wallpaper/519/595/676/cyberpunk-video-games-pixel-art-the-last-night-wallpaper-9261d2d9e319dfea44788a19b8657ecf.jpg";
-	sha256 = "sha256-ZKdV2eY+rDJZzG0JN8yMvnP2FiqGzvA8HKRqtA9Xnjs=";
+	url    = "https://r4.wallpaperflare.com/wallpaper/611/415/768/forest-pixel-art-wallpaper-2960a87db18add1bb637d87f20a1e6ed.jpg";
+	sha256 = "sha256-sfi4hbpfi27SoOjDuEW5FXpuat51poQXawVFrni0z7w=";
 in {
 	path = pkgs.fetchurl {
 		url    = url;
