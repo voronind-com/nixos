@@ -273,12 +273,12 @@
 		function unarchive() {
 			local IFS=$'\n'
 			local targets=(''${@})
-			[[ "''${targets}" = "" ]] && targets=$(_ls_archive)
+			[[ "''${targets}" = "" ]] && targets=$(_ls_archive_compressed)
 
 			process() {
 				# Validate.
 				# _archive_check "''${target}" || return 1
-				if ! _is_archive "''${target}"; then
+				if ! _is_compressed_archive "''${target}"; then
 					_iterate_skip "Not an archive."
 					return 0
 				fi
@@ -404,6 +404,13 @@
 			[[ "''${out}" != "" ]]
 		}
 
+		# Check if file is a compressed archive.
+		function _is_compressed_archive() {
+			local out=$(echo "''${*}" | grep -E ''${_archive_pattern_compressed})
+
+			[[ "''${out}" != "" ]]
+		}
+
 		# List all archives.
 		function _ls_archive() {
 			ls | grep -E ''${_archive_pattern}
@@ -412,6 +419,11 @@
 		# List fast archives.
 		function _ls_archive_fast() {
 			ls | grep -E ''${_archive_pattern_fast}
+		}
+
+		# List fast archives.
+		function _ls_archive_compressed() {
+			ls | grep -E ''${_archive_pattern_compressed}
 		}
 
 		# Filter input for archives only.
