@@ -47,7 +47,7 @@
 	foot = {
 		font = {
 			step = 1;
-			dpi  = true;
+			dpi = true;
 			forceWhite = false;
 		};
 	};
@@ -58,5 +58,5 @@
 	brightness.step = 5;
 	volume.step     = 5;
 	music.step      = 10;
-	keyd.timeout    = 200;
+	keyd.timeout    = 150;
 }
