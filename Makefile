@@ -2,7 +2,7 @@ options = --option eval-cache false
 flake   = .
 
 .PHONY: boot
-boot: check verify
+boot: check
 	nixos-rebuild boot $(options) --flake $(flake)
 
 .PHONY: reboot

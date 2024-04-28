@@ -29,7 +29,6 @@
 			HostName 192.168.1.2
 			User nixbuilder
 			StrictHostKeyChecking=accept-new
-			IdentityFile /root/.ssh/id_ed25519
 			Port 22143
 
 		Host laptop

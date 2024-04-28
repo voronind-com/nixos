@@ -1,6 +1,5 @@
 { config, pkgs, ... }: {
 	# NOTE: Requires key to be present in secret.ssh.builderKeys.
-	# Also the secret key should be located at the path: /root/.ssh/id_ed25519 (as defined in ssh config).
 	nix.buildMachines = [{
 		hostName = "nixbuilder";
 		protocol = "ssh-ng";

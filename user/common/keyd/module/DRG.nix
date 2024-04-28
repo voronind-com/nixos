@@ -1,7 +1,6 @@
 { ... }: {
 	text = ''
 		[steam-app-548430]
-		space = macro(space leftcontrol)
 		alt.w = macro(enter 10ms r enter)
 		alt.a = macro(enter 10ms N o enter)
 		alt.s = macro(enter 10ms W a i t enter)
