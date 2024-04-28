@@ -1,7 +1,6 @@
 { style, util, pkgs, ... } @args: let
-	modules = pkgs.writeText "bashModules" (util.trimTabs (builtins.foldl' (acc: mod:
-		acc + (import mod args).text
-	) "" (util.ls ./module)));
+	modules     = util.catAllText ./module args;
+	modulesFile = pkgs.writeText "bashModules" modules;
 in {
 	inherit modules;
 
@@ -9,11 +8,11 @@ in {
 		# If not running interactively, don't do anything.
 		# [[ "$-" != *i* ]] && return
 
-		'') + builtins.readFile modules + util.trimTabs (''
+		'') + modules + util.trimTabs (''
 
 		# Find all functions.
 		function find_function() {
-			/usr/bin/env cat ${modules} | /usr/bin/env grep "^function.*()" | /usr/bin/env sed -e "s/^function //" -e "s/().*//"
+			/usr/bin/env cat ${modulesFile} | /usr/bin/env grep "^function.*()" | /usr/bin/env sed -e "s/^function //" -e "s/().*//"
 		}
 
 		# Export all functions.

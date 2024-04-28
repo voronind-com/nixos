@@ -109,13 +109,13 @@
 
 		# Common modules used across all hosts.
 		nixosModules.common = let
-			ls = path: map (f: "${path}/${f}") (
+			lsFiles = path: map (f: "${path}/${f}") (
 				builtins.filter (i: builtins.readFileType "${path}/${i}" == "regular") (
 					builtins.attrNames (builtins.readDir path)
 				)
 			);
 		in {
-			imports = (ls ./module/common) ++ (ls ./overlay) ++ [ ./user/Root.nix ];
+			imports = (lsFiles ./module/common) ++ (lsFiles ./overlay) ++ [ ./user/Root.nix ];
 		};
 
 		# Function to create a host.

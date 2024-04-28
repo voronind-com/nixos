@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: rec {
 	# Remove tabs indentation,
 	trimTabs = text: let
 		shouldStripTab = lines: builtins.all (line: (line == "") || (pkgs.lib.strings.hasPrefix "	" line)) lines;
@@ -9,4 +9,11 @@
 
 	# List all files in a dir.
 	ls = path: map (f: "${path}/${f}") (builtins.attrNames (builtins.readDir path));
+
+	# Concat all files by `text` key.
+	catAllText = path: args: trimTabs (
+		(builtins.foldl' (acc: mod:
+			acc + (import mod args).text
+		) "" (ls path))
+	);
 }
