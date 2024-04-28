@@ -26,6 +26,6 @@
 		vim.cmd("set list listchars=tab:>\\ ,trail:-,lead:.")
 
 		-- Relative line numbers.
-		vim.wo.relativenumber = ${setting.nvim.editor.relativenumber}
+		vim.wo.relativenumber = ${toString(setting.nvim.editor.relativenumber)}
 	'';
 }

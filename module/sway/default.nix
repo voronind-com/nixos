@@ -1,4 +1,4 @@
-{ pkgs, wallpaper, style, util, ... } @args: let
+{ pkgs, wallpaper, style, util, setting, ... } @args: let
 	mkConfig = { modules }: builtins.foldl' (acc: mod:
 		acc + (import mod args).text
 	) "" modules;

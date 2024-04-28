@@ -1,6 +1,6 @@
 { setting, ... }: let
-	step_volume = setting.volume.step;
-	step_music  = setting.music.step;
+	step_volume = toString(setting.volume.step);
+	step_music  = toString(setting.music.step);
 in {
 	text = ''
 		bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +${step_volume}%'

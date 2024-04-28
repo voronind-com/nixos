@@ -32,10 +32,10 @@ in {
 		bind -n ${mod}-${key.action.split.vertical} split-window -h -c "#{pane_current_path}"
 		bind -n ${mod}-${key.action.split.horizontal}  split-window -v -c "#{pane_current_path}"
 		bind -n ${mod}-${key.action.resize.equalize} select-layout tiled
-		bind -n ${mod}-${key.action.resize.up} resize-pane -U ${setting.tmux.resize.step.vertical}
-		bind -n ${mod}-${key.action.resize.down} resize-pane -D ${setting.tmux.resize.step.vertical}
-		bind -n ${mod}-${key.action.resize.left} resize-pane -L ${setting.tmux.resize.step.horizontal}
-		bind -n ${mod}-${key.action.resize.right} resize-pane -R ${setting.tmux.resize.step.horizontal}
+		bind -n ${mod}-${key.action.resize.up} resize-pane -U ${toString(setting.tmux.resize.step.vertical)}
+		bind -n ${mod}-${key.action.resize.down} resize-pane -D ${toString(setting.tmux.resize.step.vertical)}
+		bind -n ${mod}-${key.action.resize.left} resize-pane -L ${toString(setting.tmux.resize.step.horizontal)}
+		bind -n ${mod}-${key.action.resize.right} resize-pane -R ${toString(setting.tmux.resize.step.horizontal)}
 		bind -n ${mod}-${key.navigation.move.left} swap-pane -U
 		bind -n ${mod}-${key.navigation.move.right} swap-pane -D
 		unbind '"'
@@ -73,14 +73,14 @@ in {
 		# Statusbar.
 		bind-key -n ${mod}-${key.tmux.status.toggle} set-option -g status;
 		bind-key -n ${mod}-${key.tmux.status.uber} run-shell 'tmux_script togglestatusbar'
-		set -g status-interval ${setting.tmux.status.interval}
+		set -g status-interval ${toString(setting.tmux.status.interval)}
 		set -g status-position bottom
 		set -g status-justify  left
 		set -g status-style "fg=#${fg}"
 
 		set -g status-left "#[bold] #H-#S #(tmux_script client_count #S)"
-		set -g status-left-length  ${setting.tmux.status.length}
-		set -g status-right-length ${setting.tmux.status.length}
+		set -g status-left-length  ${toString(setting.tmux.status.length)}
+		set -g status-right-length ${toString(setting.tmux.status.length)}
 		set -g status-right "#(tmux_script statusbar) %d %a #[bold] %H:%M "
 
 		set-window-option -g window-status-separator ""
@@ -133,13 +133,13 @@ in {
 			[[ "''${status}" = "Charging" ]] && is_charging=true
 
 			local icon
-			if ((level>=${setting.tmux.status.battery.threshold.high}))
+			if ((level>=${toString(setting.tmux.status.battery.threshold.high)}))
 			then
 				icon="󱊣"
-			elif ((level>=${setting.tmux.status.battery.threshold.medium}))
+			elif ((level>=${toString(setting.tmux.status.battery.threshold.medium)}))
 			then
 				icon="󱊢"
-			elif ((level>=${setting.tmux.status.battery.threshold.low}))
+			elif ((level>=${toString(setting.tmux.status.battery.threshold.low)}))
 			then
 				icon="󱊡"
 			else
@@ -159,13 +159,13 @@ in {
 			[[ "''${level}" = "00" ]] && level="0"
 
 			local icon
-			if ((level>=${setting.tmux.status.volume.threshold.high}))
+			if ((level>=${toString(setting.tmux.status.volume.threshold.high)}))
 			then
 				icon="󰕾"
-			elif ((level>=${setting.tmux.status.volume.threshold.medium}))
+			elif ((level>=${toString(setting.tmux.status.volume.threshold.medium)}))
 			then
 				icon="󰖀"
-			elif ((level>=${setting.tmux.status.volume.threshold.low}))
+			elif ((level>=${toString(setting.tmux.status.volume.threshold.low)}))
 			then
 				icon=""
 			else
@@ -184,8 +184,8 @@ in {
 		function _tmux_statusbar() {
 			local IFS=$'\n'
 			local sep=""
-			local thr_volume=${setting.tmux.status.volume.threshold.show}
-			local thr_battery=${setting.tmux.status.battery.threshold.show}
+			local thr_volume=${toString(setting.tmux.status.volume.threshold.show)}
+			local thr_battery=${toString(setting.tmux.status.battery.threshold.show)}
 			local is_uber=$(cat "/tmp/.tmux_uber" || echo -n false)
 
 			# Get data.

@@ -1,5 +1,5 @@
 { setting, ... }: let
-	step = setting.brightness.step;
+	step = toString(setting.brightness.step);
 in {
 	text = ''
 		bindsym XF86MonBrightnessDown exec light -U ${step}

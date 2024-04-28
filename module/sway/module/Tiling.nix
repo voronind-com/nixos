@@ -20,7 +20,7 @@
 		bindsym $mod+${key.sway.window.fullscreen} fullscreen
 
 		# Dim inactive windows.
-		exec $SWAY_IWT_PATH --opacity ${setting.sway.window.opacity.inactive}
+		exec $SWAY_IWT_PATH --opacity ${toString(setting.sway.window.opacity.inactive)}
 
 		# Drag floating windows by holding down $mod and left mouse button.
 		# Resize them with right mouse button + $mod.
@@ -33,7 +33,7 @@
 		bindsym $mod+${key.action.close} kill
 
 		# Add gaps.
-		gaps inner ${setting.sway.window.gap}
+		gaps inner ${toString(setting.sway.window.gap)}
 
 		# Launch everything tiled.
 		# for_window [all] floating disable
