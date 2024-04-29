@@ -1,7 +1,7 @@
 { setting, ... }: {
 	text = ''
 		[steam-app-548430]
-		leftshift = timeout(leftcontrol, ${toString(setting.keyd.timeout)}, leftshift)
+		leftshift = timeout(leftcontrol, ${toString(setting.keyd.timeout.ms)}, leftshift)
 		alt.w = macro(enter 10ms r enter)
 		alt.a = macro(enter 10ms N o enter)
 		alt.s = macro(enter 10ms W a i t enter)

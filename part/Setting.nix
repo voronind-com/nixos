@@ -54,9 +54,9 @@
 
 	top.refresh.ms   = 2000;
 	popup.timeout.ms = 5000;
+	keyd.timeout.ms  = 150;
 
 	brightness.step = 5;
 	volume.step     = 5;
 	music.step      = 10;
-	keyd.timeout    = 150;
 }
