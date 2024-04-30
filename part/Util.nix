@@ -11,9 +11,7 @@
 	ls = path: map (f: "${path}/${f}") (builtins.attrNames (builtins.readDir path));
 
 	# Concat all files by `text` key.
-	catAllText = path: args: trimTabs (
-		(builtins.foldl' (acc: mod:
-			acc + (import mod args).text
-		) "" (ls path))
-	);
+	catAllText = path: args: builtins.foldl' (acc: mod:
+		acc + trimTabs ((import mod args).text)
+	) "" (ls path);
 }

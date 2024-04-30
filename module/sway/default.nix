@@ -1,6 +1,6 @@
 { pkgs, wallpaper, style, util, setting, ... } @args: let
 	mkConfig = { modules }: builtins.foldl' (acc: mod:
-		acc + (import mod args).text
+		acc + util.trimTabs((import mod args).text)
 	) "" modules;
 
 	swayRc = mkConfig {
@@ -27,9 +27,9 @@
 		];
 	};
 in {
-	config = util.trimTabs (''
+	config = (util.trimTabs ''
 		# Read `man 5 sway` for a complete reference.
 		include /etc/sway/config.d/*
-	'' + swayRc);
+	'') + swayRc;
 }
 
