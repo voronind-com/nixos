@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... } @args: let
+	mangohud = import ./mangohud args;
+in {
 	xdg.mime.defaultApplications = {
 		# Use `file -i file.txt` to find file mime type.
 		# Use `xdg-mime query default "text/plain"` to find default app.
@@ -14,7 +16,7 @@
 		packages = with pkgs; [
 			dxvk
 			gamescope
-			mangohud
+			pkgs.mangohud
 			vkd3d
 		];
 	in {
@@ -27,7 +29,7 @@
 			android-studio jetbrains.idea-community
 			appimage-run
 			blender-hip
-			bottles dxvk gamescope mangohud vkd3d wine64
+			bottles dxvk gamescope pkgs.mangohud vkd3d wine64
 			calibre
 			gimp
 			godot_4
@@ -43,8 +45,8 @@
 		variables = {
 			# MangoHud.
 			MANGOHUD = "1";
-			MANGOHUD_CONFIGFILE  = ./mangohud/MangoHud.conf;
-			MANGOHUD_PRESETSFILE = ./mangohud/MangoPresets.conf;
+			MANGOHUD_CONFIGFILE  = pkgs.writeText "mangoConfig" mangohud.config;
+			MANGOHUD_PRESETSFILE = pkgs.writeText "mangoPreset" mangohud.presets;
 
 			# Proton.
 			WINEFSYNC = "1";
