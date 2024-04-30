@@ -1,8 +1,8 @@
 { ... }: {
 	text = ''
 		[firefox]
-		alt.a = alt+left
-		alt.d = alt+right
+		alt.a = A-left
+		alt.d = A-right
 		alt.s = down
 		alt.w = up
 		alt.e = C-tab
