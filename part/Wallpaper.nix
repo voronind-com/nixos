@@ -1,6 +1,6 @@
 { pkgs, ... }: let
-	url    = "https://r4.wallpaperflare.com/wallpaper/393/521/87/artistic-pixel-art-aircraft-airport-hd-wallpaper-c8661d782010dca8102cf14eb832349a.jpg";
-	sha256 = "sha256-yyiLWLJJq1N0sTO3lDP1ze0XS8p9EW+c7CSQdP1m/vQ=";
+	url    = "https://r4.wallpaperflare.com/wallpaper/154/699/724/super-time-force-pixels-pixel-art-wallpaper-0f85e20caec63c8b759cb842a10114b4.jpg";
+	sha256 = "sha256-w7n93e+Tz9t32raDWFtyPOuKfvy8d6X8Tq8bBZrQvqc=";
 in {
 	path = pkgs.fetchurl {
 		url    = url;
