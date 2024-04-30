@@ -38,6 +38,7 @@
 					a = "back";
 					e = "nextsong";
 					q = "previoussong";
+					x = "mute";
 				};
 
 				layer_macro = {};
