@@ -77,7 +77,6 @@
 
 	tmux = {
 		mod    = "M";
-		prefix = "t";
 		reload = "r";
 		scroll = {
 			down = "n";
