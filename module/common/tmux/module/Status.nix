@@ -7,16 +7,15 @@
 in {
 	text = ''
 		bind-key -n ${mod}-${key.tmux.status.toggle} set-option -g status;
-		bind-key -n ${mod}-${key.tmux.status.uber} run-shell 'tmux_script togglestatusbar'
 		set -g status-interval ${toString(setting.tmux.status.interval)}
 		set -g status-position bottom
 		set -g status-justify  left
 		set -g status-style "fg=#${fg}"
 
-		set -g status-left "#[bold] #H-#S #(tmux_script client_count #S)"
+		set -g status-left "#[bold] #H-#S "
 		set -g status-left-length  ${toString(setting.tmux.status.length)}
 		set -g status-right-length ${toString(setting.tmux.status.length)}
-		set -g status-right "#(tmux_script statusbar) %d %a #[bold] %H:%M "
+		set -g status-right " %d %a #[bold] %H:%M "
 
 		set-window-option -g window-status-separator ""
 

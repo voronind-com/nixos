@@ -1,10 +1,9 @@
 { pkgs, inputs, const, style, util, key, setting, secret, ... } @args: let
-	homePath   = "/data/data/com.termux.nix/files/home";
-	tmux       = import ./common/tmux args;
-	tmuxScript = pkgs.writeShellScriptBin "tmux_script" tmux.script;
-	bash       = import ./common/bash args;
-	nvim       = import ./common/nvim args;
-	ssh        = import ./common/ssh  args;
+	homePath = "/data/data/com.termux.nix/files/home";
+	tmux     = import ./common/tmux args;
+	bash     = import ./common/bash args;
+	nvim     = import ./common/nvim args;
+	ssh      = import ./common/ssh  args;
 	font = pkgs.runCommandNoCC "font" {} ''
 		cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 	'';
@@ -111,7 +110,7 @@ in {
 		ripgrep
 		rsync
 		sqlite
-		pkgs.tmux tmuxScript
+		pkgs.tmux
 		tree
 		utillinux
 		wget

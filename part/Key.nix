@@ -93,8 +93,7 @@
 			prev   = "9";
 		};
 		status = {
-			toggle = "F";
-			uber   = "f";
+			toggle = "f";
 		};
 		window = {
 			new        = "Escape";

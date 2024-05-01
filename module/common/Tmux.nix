@@ -1,10 +1,8 @@
 { pkgs, style, key, util, ... } @args: let
-	tmux   = import ./tmux args;
-	script = pkgs.writeShellScriptBin "tmux_script" tmux.script;
+	tmux = import ./tmux args;
 in {
 	programs.tmux = {
 		enable = true;
 		extraConfig = tmux.config;
 	};
-	environment.systemPackages = [ script ];
 }
