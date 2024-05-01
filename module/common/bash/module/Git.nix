@@ -54,6 +54,11 @@
 			git commit -m "''${@}"
 		}
 
+		# Git clone (lazy!).
+		function gcl() {
+			git clone --filter tree:0 "''${@}"
+		}
+
 		# Git signed commit.
 		function gcs() {
 			git commit -S -m "''${@}"
