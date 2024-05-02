@@ -34,6 +34,12 @@
 		positive-b = config.lib.stylix.colors.base0B-rgb-b;
 		positive-g = config.lib.stylix.colors.base0B-rgb-g;
 		positive-r = config.lib.stylix.colors.base0B-rgb-r;
+		bg-b = config.lib.stylix.colors.base00-rgb-b;
+		bg-g = config.lib.stylix.colors.base00-rgb-g;
+		bg-r = config.lib.stylix.colors.base00-rgb-r;
+		fg-b = config.lib.stylix.colors.base06-rgb-b;
+		fg-g = config.lib.stylix.colors.base06-rgb-g;
+		fg-r = config.lib.stylix.colors.base06-rgb-r;
 	};
 
 	font = {

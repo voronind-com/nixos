@@ -29,6 +29,12 @@
 		base0B-rgb-b = "135";
 		base0B-rgb-g = "175";
 		base0B-rgb-r = "135";
+		base00-rgb-b = "33";
+		base00-rgb-g = "32";
+		base00-rgb-r = "29";
+		base06-rgb-b = "199";
+		base06-rgb-g = "241";
+		base06-rgb-r = "251";
 	};
 	stylix = {
 		fonts = {

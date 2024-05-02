@@ -21,7 +21,7 @@
 				applications = 12;
 				terminal     = 12;
 				popups       = 12;
-				desktop      = 12;
+				desktop      = 14;
 			};
 			serif = {
 				package = (pkgs.callPackage ./applefont {});

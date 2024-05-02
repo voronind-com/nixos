@@ -12,6 +12,7 @@ in {
 		./desktop/Portal.nix
 		./desktop/Realtime.nix
 		./desktop/Sound.nix
+		./desktop/Waybar.nix
 	];
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;

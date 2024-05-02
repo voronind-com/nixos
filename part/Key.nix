@@ -104,6 +104,7 @@
 	sway = {
 		launch.terminal = "Escape";
 		mod = "Mod4";
+		bar = "r";
 		notification = {
 			dismiss = "shift+N";
 			restore = "n";

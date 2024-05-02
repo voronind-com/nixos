@@ -16,6 +16,7 @@
 			"keyd"
 			"networkmanager"
 			"video"
+			"input"
 		];
 	};
 }

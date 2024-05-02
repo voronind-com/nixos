@@ -24,6 +24,7 @@
 			./module/Workspace.nix
 			./module/Session.nix
 			./module/Keyd.nix
+			./module/Waybar.nix
 		];
 	};
 in {
