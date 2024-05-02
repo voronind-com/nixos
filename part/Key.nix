@@ -37,7 +37,7 @@
 		seek   = "C";
 		wait   = "z";
 		exit   = "Z";
-		launch = "Space";
+		launch = "r";
 		repeat = ".";
 	};
 
@@ -104,7 +104,7 @@
 	sway = {
 		launch.terminal = "Escape";
 		mod = "Mod4";
-		bar = "r";
+		bar = "space";
 		notification = {
 			dismiss = "shift+N";
 			restore = "n";
