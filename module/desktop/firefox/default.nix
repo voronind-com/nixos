@@ -1,5 +1,5 @@
 { pkgs, util, ... } @args: let
-	firefox = import ./firefox args;
+	config = import ./Config.nix args;
 
 	mkExtension = url: {
 		installation_mode = "force_installed";
@@ -18,7 +18,7 @@ in {
 		enable  = true;
 		package = pkgs.firefox-esr;
 		languagePacks = [ "en-US" "ru" ];
-		autoConfig = firefox.config;
+		autoConfig = config.text;
 		policies = {
 			ManagedBookmarks = [
 				{ toplevel_name = "Pin"; }

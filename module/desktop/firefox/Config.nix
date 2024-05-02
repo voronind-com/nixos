@@ -1,5 +1,5 @@
 { util, ... }: {
-	config = util.trimTabs ''
+	text = util.trimTabs ''
 		// Bookmarks.
 		lockPref("browser.microsummary.enabled",          true);
 		lockPref("browser.places.importBookmarksHTML",    true);

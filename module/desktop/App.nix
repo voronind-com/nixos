@@ -1,6 +1,10 @@
 { pkgs, ... } @args: let
 	mangohud = import ./mangohud args;
 in {
+	imports = [
+		./firefox
+	];
+
 	xdg.mime.defaultApplications = {
 		# Use `file -i file.txt` to find file mime type.
 		# Use `xdg-mime query default "text/plain"` to find default app.
