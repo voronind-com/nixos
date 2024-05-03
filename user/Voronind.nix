@@ -13,10 +13,11 @@
 		isNormalUser   = true;
 		uid            = 1000;
 		extraGroups = [
+			"input"
 			"keyd"
+			"libvirtd"
 			"networkmanager"
 			"video"
-			"input"
 		];
 	};
 }

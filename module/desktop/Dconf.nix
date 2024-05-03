@@ -324,6 +324,11 @@ in {
 				"system/proxy" = {
 					mode = "none";
 				};
+
+				"org/virt-manager/virt-manager/connections" = {
+					autoconnect = ["qemu:///system"];
+					uris = ["qemu:///system"];
+				};
 			};
 		}];
 	};

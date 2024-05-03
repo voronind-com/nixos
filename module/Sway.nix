@@ -8,7 +8,6 @@ in {
 		./desktop/Brightness.nix
 		./desktop/Dconf.nix
 		./desktop/GnomeApps.nix
-		./desktop/Polkit.nix
 		./desktop/Portal.nix
 		./desktop/Realtime.nix
 		./desktop/Sound.nix
