@@ -12,9 +12,9 @@
 			desktop      = 0.85;
 		};
 		cursor = {
-			name    = "phinger-cursors";
-			package = pkgs.phinger-cursors;
-			size    = 24;
+			name    = "Adwaita";
+			package = pkgs.gnome3.adwaita-icon-theme;
+			size    = 14;
 		};
 		fonts = {
 			sizes = {
