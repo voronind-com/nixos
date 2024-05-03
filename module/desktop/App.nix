@@ -32,6 +32,7 @@ in {
 		systemPackages = with pkgs; [
 			android-studio jetbrains.idea-community
 			appimage-run
+			aseprite
 			blender-hip
 			bottles dxvk gamescope pkgs.mangohud vkd3d wine64
 			calibre
