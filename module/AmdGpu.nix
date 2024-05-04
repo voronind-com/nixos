@@ -1,3 +1,5 @@
+# AMD GPU specific configuration.
+# No, I do not own any Nvidia/Intel GPUs, so I have no configuration for them.
 { nixpkgs, pkgs, ... }: {
 	boot.initrd.kernelModules     = [ "amdgpu" ];
 	services.xserver.videoDrivers = [ "amdgpu" ];

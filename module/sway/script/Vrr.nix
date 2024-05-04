@@ -1,10 +1,16 @@
 { ... }: {
 	text = ''
+		export _swayvrrlist=(
+			"Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622"
+		)
+
 		# Enable VRR.
 		function vrron() {
 			on() {
+				for vrr in ''${_swayvrrlist[@]}; do
+					swaymsg "output \"''${vrr}\" adaptive_sync on"
+				done
 				_vrrstate on
-				swaymsg 'output "Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622" adaptive_sync on'
 			}
 			_sway_iterate_sockets on
 		}
@@ -12,8 +18,10 @@
 		# Disable VRR.
 		function vrroff() {
 			off() {
+				for vrr in ''${_swayvrrlist[@]}; do
+					swaymsg "output \"''${vrr}\" adaptive_sync off"
+				done
 				_vrrstate off
-				swaymsg 'output "Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622" adaptive_sync off'
 			}
 			_sway_iterate_sockets off
 		}

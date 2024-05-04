@@ -1,5 +1,8 @@
 { pkgs, lib, ... }: {
+	# Add Ollama CLI app.
 	environment.systemPackages = with pkgs; [ ollama ];
+
+	# Enable Ollama server.
 	systemd.services.ollama = {
 		description = "Ollama LLM server.";
 		wantedBy    = [ "multi-user.target" ];
@@ -10,6 +13,8 @@
 			HOME=/root ${lib.getExe pkgs.ollama} serve
 		'';
 	};
+
+	# Download Ollama models.
 	systemd.services.ollamamodel = {
 		description = "Ollama LLM model.";
 		wantedBy    = [ "multi-user.target" ];

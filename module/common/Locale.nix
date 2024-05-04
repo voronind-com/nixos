@@ -1,6 +1,8 @@
 { const, ... }: {
 	time.timeZone      = const.timeZone;
 	i18n.defaultLocale = "en_US.UTF-8";
+
+	# You can customize your Locale in detail like that.
 	# i18n.extraLocaleSettings = {
 	# 	LC_ADDRESS        = "ru_RU.UTF-8";
 	# 	LC_IDENTIFICATION = "ru_RU.UTF-8";

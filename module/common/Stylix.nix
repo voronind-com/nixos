@@ -1,7 +1,11 @@
 { pkgs, config, wallpaper, ... }: let
+	# Sometimes stylix does not generate enough contrast for text.
+	# This setting forces white text to ensure contrast on dark backgrounds.
 	forceWhiteText = false;
 in {
+	# Add a permanent link for the wallpaper to /etc/wallpaper.
 	environment.etc.wallpaper.source = wallpaper.path;
+
 	stylix = {
 		image = wallpaper.path;
 		autoEnable = true;

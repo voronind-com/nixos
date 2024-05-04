@@ -8,5 +8,4 @@
 		# glib
 		gnome3.adwaita-icon-theme # default gnome cursors,
 	];
-	###
 }

@@ -1,3 +1,4 @@
+# This is a common user configuration.
 { const
 , homeDir
 , key
@@ -8,6 +9,7 @@
 , username
 , util
 , ... } @args: let
+	# Configuration modules.
 	btop         = import ./top/btop     args;
 	editorconfig = import ./editorconfig args;
 	foot         = import ./foot         args;
@@ -17,6 +19,7 @@
 	mako         = import ./mako         args;
 in {
 	home-manager = {
+		# If file exists, rename it with a new extension.
 		backupFileExtension = "old";
 
 		users.${username} = {

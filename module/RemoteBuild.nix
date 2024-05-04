@@ -1,5 +1,6 @@
+# Module that enables remote builds. This is a client configuration.
 { config, pkgs, ... }: {
-	# NOTE: Requires key to be present in secret.ssh.builderKeys.
+	# NOTE: Requires host private key to be present in secret.ssh.builderKeys.
 	nix.buildMachines = [{
 		hostName = "nixbuilder";
 		protocol = "ssh-ng";

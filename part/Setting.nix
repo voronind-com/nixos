@@ -1,3 +1,5 @@
+# Global settings.
+# Just like I can configure each package, here I configure my config! :O)
 { ... }: {
 	tmux = {
 		resize.step = {

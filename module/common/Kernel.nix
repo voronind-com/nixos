@@ -2,7 +2,6 @@
 	# Use latest kernel.
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 
-	# Sysctl.
 	boot.kernel.sysctl = {
 		# Spoof protection.
 		"net.ipv4.conf.default.rp_filter" = 1;

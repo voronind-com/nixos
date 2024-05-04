@@ -12,16 +12,16 @@
 	services.pcscd.enable = true;
 
 	# Yubikey touch notification.
+	# ISSUE: Not working on Sway with Mako for some reason.
 	# programs.yubikey-touch-detector.enable = true;
 
-	# Extra packages.
 	environment.systemPackages = with pkgs; [
-		yubikey-manager  # Yubikey Manager.
+		yubikey-manager
 		# yubioath-desktop # OTP.
 	];
 
 	# Store GPG data on tmpfs.
-	environment.variables = {
-		# GNUPGHOME = "$(mktemp -d -t gnupg-$(date +%Y-%m-%d)-XXXXXXXXXX)";
-	};
+	# environment.variables = {
+	# 	GNUPGHOME = "$(mktemp -d -t gnupg-$(date +%Y-%m-%d)-XXXXXXXXXX)";
+	# };
 }

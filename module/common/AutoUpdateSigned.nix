@@ -1,3 +1,7 @@
+# System automatic updates.
+# This is a systemd service that pulls updates every hour.
+# Unlike system.autoUpgrade, this script also verifies my git signature
+# to prevent unathorized changes to hosts.
 { const, pkgs, lib, secret, util, ... }: {
 	systemd.services.autoupdate = util.mkStaticSystemdService {
 		enable      = true;

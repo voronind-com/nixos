@@ -1,3 +1,7 @@
+# Example overlay file.
+# Overlays can change parameters in package builds, like source version.
+# This way you can change something in package without recreating the whole build process.
+# More info: https://nixos.wiki/wiki/Overlays
 { ... }: {
 	# nixpkgs.overlays = [ (final: prev: {
 	# 	yt-dlp = prev.yt-dlp.overrideAttrs (old: {

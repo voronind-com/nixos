@@ -35,6 +35,7 @@ in {
 			];
 			ExtensionUpdate = true;
 			ExtensionSettings = {
+				# Block extension installation outside of this config.
 				"*" = {
 					install_sources   = [ "*" ];
 					installation_mode = "blocked";
@@ -45,9 +46,11 @@ in {
 				"{446900e4-71c2-419f-a6a7-df9c091e268b}" = mkExtension "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
 				"{d7742d87-e61d-4b78-b8a1-b469842139fa}" = mkExtension "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
 				"{e7625f06-e252-479d-ac7a-db68aeaff2cb}" = mkExtension "https://addons.mozilla.org/firefox/downloads/latest/togglefonts/latest.xpi";
+				# NOTE: This extension is helpful to find the required parameters for this config.
+				# Or find them yourself inside the `about:support`.
 				# "queryamoid@kaply.com"                   = mkExtension "https://github.com/mkaply/queryamoid/releases/download/v0.1/query_amo_addon_id-0.1-fx.xpi";
-				# "{08d5243b-4236-4a27-984b-1ded22ce01c3}" = mkExtension "https://addons.mozilla.org/firefox/downloads/latest/gruvboxgruvboxgruvboxgruvboxgr/latest.xpi";
 			};
+			# NOTE: `firefox-esr` edition is required to change default search engine.
 			SearchEngines = {
 				Default = "Whoogle";
 				Add = [

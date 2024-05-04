@@ -1,3 +1,4 @@
+# Collection of common functions.
 { pkgs, ... }: rec {
 	# Remove tabs indentation,
 	trimTabs = text: let

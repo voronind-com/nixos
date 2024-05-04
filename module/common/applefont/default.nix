@@ -1,3 +1,6 @@
+# Apple San Francisco and New York fonts.
+# They are not available in Nixpkgs repo, so this script
+# downloads the fonts from Apple website and adds them to Nix store.
 { lib, stdenv, fetchurl, p7zip }: let
 	pro = fetchurl {
 		url    = "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg";

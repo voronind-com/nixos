@@ -1,17 +1,19 @@
 { inputs, pkgs, util, key, ... } @args: let
-	nvimRc = { runtimes, cfgs }: let
-		runtimeRc = builtins.foldl' (acc: r:
+	# Create Neovim configuration.
+	nvimRc = { runtimes, configs }: let
+		# Plugin paths to install.
+		runtimeRc = util.trimTabs (builtins.foldl' (acc: r:
 			acc + "set runtimepath+=${r}\n"
-		) "" runtimes;
+		) "" runtimes);
 
-		config = pkgs.writeText "nvimRc" (builtins.foldl' (acc: cfg:
-			acc + (import cfg args).text
-		) "" cfgs);
+		# My configuration files combined into one big file.
+		config = pkgs.writeText "nvimRc" (util.catText configs args);
 
-		cfgRc = "lua dofile(\"${config}\")";
-	in runtimeRc + cfgRc;
+		# Tell Neovim to load this file.
+		configRc = "lua dofile(\"${config}\")";
+	in runtimeRc + configRc;
 in {
-	config = util.trimTabs (nvimRc {
+	config = nvimRc {
 		runtimes = [
 			"~/.cache/nvim"
 			"~/.cache/nvim/treesitter"
@@ -36,7 +38,8 @@ in {
 			"${inputs.nvimTrouble}"
 			"${inputs.nvimWhichKey}"
 		];
-		cfgs = [
+
+		configs = [
 			./module/key/Rekey.nix
 			./module/key/Leader.nix
 			./module/config/Autoread.nix
@@ -79,5 +82,5 @@ in {
 			./module/key/Trouble.nix
 			./module/key/Whichkey.nix
 		];
-	});
+	};
 }

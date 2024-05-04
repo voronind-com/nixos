@@ -1,3 +1,4 @@
+# AMD Rocm support (for Blender).
 { nixpkgs, pkgs, ... }: {
 	nixpkgs.config.rocmSupport = true;
 	systemd.tmpfiles.rules = [

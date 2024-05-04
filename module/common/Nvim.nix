@@ -3,19 +3,16 @@
 in {
 	environment = {
 		variables = {
-			EDITOR   = "nvim";
-			MANPAGER = "nvim +Man!";
+			EDITOR   = "nvim";       # Use Nvim as a default editor.
+			MANPAGER = "nvim +Man!"; # Use Nvim to read man pages.
 		};
 		systemPackages = with pkgs; [
-			gcc
+			gcc # Required for Treesitter parsers.
 		];
 	};
+
 	programs.neovim = {
-		enable   = true;
-		viAlias  = true;
-		vimAlias = true;
-		configure = {
-			customRC = nvim.config;
-		};
+		enable = true;
+		configure.customRC = nvim.config;
 	};
 }

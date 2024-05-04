@@ -1,3 +1,4 @@
+# Disable CPU boost after boot. Control with `powersave` script.
 { lib, pkgs, controlFile, enable, disable, ... }: {
 	systemd = {
 		services.powersave = {

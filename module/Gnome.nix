@@ -4,17 +4,15 @@
 		./desktop/Dconf.nix
 		./desktop/DisplayManager.nix
 		./desktop/Sound.nix
+		./desktop/Wayland.nix
 	];
 
 	environment.systemPackages = with pkgs; [
-		adwsteamgtk
-		gnome.gnome-remote-desktop
-		gnome.gnome-tweaks
-		gradience
-		openssl
-		wl-clipboard
+		gnome.gnome-tweaks # Gnome "hidden" settings.
+		openssl # It was needed for something, can't remember.
 	];
 
+	# Disable some Gnome apps.
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.gnome.excludePackages = with pkgs.gnome; [
 		# baobab      # Disk usage analyzer.

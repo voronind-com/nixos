@@ -34,7 +34,7 @@
 
 		input type:keyboard {
 			xkb_layout us,ru
-			xkb_options grp:caps_toggle
+			xkb_options grp:toggle
 		}
 
 		# Hide mouse cursor after a period of inactivity.

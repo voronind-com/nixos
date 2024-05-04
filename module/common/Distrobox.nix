@@ -1,13 +1,8 @@
 { pkgs, ... }: {
+	# Distrobox works best with Podman, so enable it here.
+	imports = [ ./Podman.nix ];
+
 	environment.systemPackages = with pkgs; [
 		distrobox
 	];
-
-	virtualisation = {
-		podman = {
-			enable = true;
-			defaultNetwork.settings.dns_enabled = false;
-			dockerCompat = false;
-		};
-	};
 }

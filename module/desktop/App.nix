@@ -30,21 +30,28 @@ in {
 
 	environment = {
 		systemPackages = with pkgs; [
-			android-studio jetbrains.idea-community
-			appimage-run
-			aseprite
-			blender-hip
-			bottles dxvk gamescope pkgs.mangohud vkd3d wine64
-			calibre
-			gimp
-			godot_4
-			jellyfin-media-player
-			(mpv.override {scripts = [mpvScripts.mpris];})
-			obs-studio
-			onlyoffice-bin
-			scanmem
-			steam-run
-			tor-browser
+			adwsteamgtk              # Steam GTK theme. Need to run the app to apply.
+			appimage-run             # Tool to run .AppImage files in NixOS.
+			aseprite                 # Pixel Art draw app. WARNING: Always builds from source.
+			blender-hip              # Blender with HiP support.
+			calibre                  # Book library manager.
+			evince                   # Document viewer.
+			gimp                     # Image manipulation program.
+			gnome.adwaita-icon-theme # GTK icons.
+			gnome.gnome-calculator   # Calculator.
+			gnome.gnome-font-viewer  # Font viewer.
+			gnome.nautilus           # File manager.
+			godot_4                  # Game development engine.
+			jellyfin-media-player    # Jellyfin client (self-hosted Netflix).
+			loupe                    # Image viewer.
+			obs-studio               # Streaming/recording app.
+			onlyoffice-bin           # Office documents app suite.
+			steam-run                # Run native apps in Steam environment, like Minecraft. For Windows games use Bottles.
+			tor-browser              # Privacy browser.
+
+			android-studio jetbrains.idea-community           # JetBrans IDEs.
+			bottles dxvk gamescope pkgs.mangohud vkd3d wine64 # Gaming!
+			(mpv.override {scripts = [mpvScripts.mpris];})    # Media player.
 		];
 
 		variables = {
@@ -57,6 +64,12 @@ in {
 			WINEFSYNC = "1";
 		};
 	};
+
+	# File manager file previews.
+	services.gnome.sushi.enable = true;
+
+	# File manager network features.
+	services.gvfs.enable = true;
 
 	# Special packages.
 	programs.steam.enable = true;

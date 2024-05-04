@@ -8,23 +8,20 @@ in {
 		./desktop/Bluetooth.nix
 		./desktop/Brightness.nix
 		./desktop/Dconf.nix
-		./desktop/GnomeApps.nix
 		./desktop/Portal.nix
 		./desktop/Realtime.nix
 		./desktop/Sound.nix
 		./desktop/Waybar.nix
+		./desktop/Wayland.nix
 	];
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
-	systemd.services.keyd.path = [ script pkgs.sway ];
 	environment.systemPackages = with pkgs; [
-		gnome.adwaita-icon-theme       # GTK icons.
 		grim slurp                     # Screenshot.
 		mako                           # Notification system.
 		networkmanagerapplet           # Internet configuration.
 		pamixer pavucontrol pulseaudio # Audio.
 		playerctl                      # Multimedia controls.
-		wl-clipboard                   # Clipboard.
 		script
 	];
 

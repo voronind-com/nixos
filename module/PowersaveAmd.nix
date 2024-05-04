@@ -1,3 +1,4 @@
+# AMD CPU boost control.
 { pkgs, ... } @args: let
 	controlFile = "/sys/devices/system/cpu/cpufreq/boost";
 	enable      = "0";

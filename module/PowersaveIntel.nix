@@ -1,3 +1,4 @@
+# Intel CPU boost control.
 { pkgs, ... } @args: let
 	controlFile = "/sys/devices/system/cpu/intel_pstate/no_turbo";
 	enable      = "1";

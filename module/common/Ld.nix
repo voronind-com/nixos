@@ -1,4 +1,7 @@
 { pkgs, ... }: {
+	# This thing allow you to run ELF (binary) files just like in other distros.
+	# The only difference is that we need to specify their linking dependencies
+	# bellow in `libraries` section.
 	programs.nix-ld = {
 		enable  = true;
 		package = pkgs.nix-ld;

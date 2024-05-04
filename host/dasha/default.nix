@@ -1,7 +1,6 @@
 { lib, ... }: {
 	imports = [
 		./Filesystem.nix
-		../dasha/Tablet.nix
 	];
 
 	# Disable keyd.

@@ -1,8 +1,6 @@
 { lib, ... }: {
 	imports = [
 		./Filesystem.nix
-		./Tablet.nix
-		./Vpn.nix
 	];
 
 	# Disable keyd.

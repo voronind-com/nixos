@@ -1,3 +1,4 @@
+# Script to control CPU boost.
 { controlFile, enable, disable, ... }: {
 	script = ''
 		function toggle() {

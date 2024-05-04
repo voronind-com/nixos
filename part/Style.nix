@@ -1,3 +1,4 @@
+# Abstraction over Stylix.
 { config, ... }: {
 	color = {
 		bg = {

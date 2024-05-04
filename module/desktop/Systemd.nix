@@ -1,4 +1,5 @@
 { ... }: {
+	# Systemd custom target for Sway.
 	systemd.user.targets.gui-session = {
 		after         = [ "graphical-session-pre.target" ];
 		bindsTo       = [ "graphical-session.target" ];

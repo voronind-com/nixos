@@ -1,3 +1,4 @@
+# SSH client configuration.
 { util, ... }: {
 	config = util.trimTabs ''
 		Host dasha

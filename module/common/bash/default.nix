@@ -4,12 +4,7 @@
 in {
 	inherit modules;
 
-	config = util.trimTabs (''
-		# If not running interactively, don't do anything.
-		# [[ "$-" != *i* ]] && return
-
-		'') + modules + util.trimTabs (''
-
+	config = modules + util.trimTabs (''
 		# Find all functions.
 		function find_function() {
 			/usr/bin/env cat ${modulesFile} | /usr/bin/env grep "^function.*()" | /usr/bin/env sed -e "s/^function //" -e "s/().*//"

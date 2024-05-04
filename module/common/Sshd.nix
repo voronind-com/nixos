@@ -1,5 +1,6 @@
 { secret, ... }: {
 	users.users.root.openssh.authorizedKeys.keys = secret.ssh.trustedKeys;
+
 	services.openssh = {
 		enable    = true;
 		allowSFTP = true;

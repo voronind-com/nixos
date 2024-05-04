@@ -1,3 +1,4 @@
+# Polkit agent is used by apps to ask for Root password with a popup.
 { pkgs, lib, ... }: {
 	security.polkit.enable = true;
 	systemd = {

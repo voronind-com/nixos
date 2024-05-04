@@ -1,4 +1,12 @@
-{ const, util, style, pkgs, lib, setting, key, secret, ... } @args: {
+{ const
+, util
+, style
+, pkgs
+, lib
+, setting
+, key
+, secret
+, ... } @args: {
 	imports = [
 		(import ./common (args // {
 			username = "voronind";

@@ -1,3 +1,4 @@
+# Keyboard keys configuration.
 { ... }: {
 	navigation = {
 		go = {

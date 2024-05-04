@@ -1,3 +1,4 @@
+# Portals are needed for Wayland apps to select files, screen shares etc.
 { pkgs, ... }: {
 	xdg.portal = {
 		enable = true;
