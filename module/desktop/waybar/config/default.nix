@@ -77,7 +77,7 @@
 				// "ignored-players": ["firefox"]
 			},
 			"cpu": {
-				"format": "{usage}% {load}",
+				"format": "{usage}% ({load})",
 				"tooltip": false
 			},
 			"memory": {
