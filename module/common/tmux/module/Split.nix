@@ -2,7 +2,7 @@
 	mod = key.tmux.mod;
 
 	accent = style.color.accent;
-	bg     = style.color.bg.dark;
+	bg     = style.color.bg.regular;
 	fg     = style.color.fg.light;
 in {
 	text = ''

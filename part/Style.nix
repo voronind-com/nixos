@@ -1,14 +1,14 @@
 { config, ... }: {
 	color = {
 		bg = {
-			regular = config.lib.stylix.colors.base01;
 			dark    = config.lib.stylix.colors.base00;
 			light   = config.lib.stylix.colors.base07;
+			regular = config.lib.stylix.colors.base01;
 		};
 		fg = {
-			regular = config.lib.stylix.colors.base05;
 			dark    = config.lib.stylix.colors.base04;
 			light   = config.lib.stylix.colors.base06;
+			regular = config.lib.stylix.colors.base05;
 		};
 		accent      = config.lib.stylix.colors.base0A;
 		heading     = config.lib.stylix.colors.base0D;
