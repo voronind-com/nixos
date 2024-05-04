@@ -80,17 +80,14 @@
 			},
 			"cpu": {
 				"format": "{usage}% ({load})",
-				"tooltip": false,
-				"on-click": "btop"
+				"tooltip": false
 			},
 			"memory": {
-				"format": "{percentage}%",
-				"on-click": "btop"
+				"format": "{percentage}%"
 			},
 			"temperature": {
 				"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-				"format": "{temperatureC}°C",
-				"on-click": "btop"
+				"format": "{temperatureC}°C"
 			}
 		}
 	'';
