@@ -5,12 +5,12 @@
 		function help() {
 			local fun="''${1}"
 
-			if [[ "''${fun}" = "" ]] || [[ "$(find_function | /usr/bin/env grep ''${fun})" = "" ]]; then
+			if [[ "''${fun}" = "" ]] || [[ "$(find_function | grep ''${fun})" = "" ]]; then
 				help help
 				return 2
 			fi
 
-			/usr/bin/env sed -e '$s/$/\n/' -s "''${BASH_PATH}/module"/* | /usr/bin/env sed -n -e "/function ''${fun}()/q;p" | /usr/bin/env tac | /usr/bin/env sed -n -e "/^$/q;p" | /usr/bin/env tac | /usr/bin/env sed -e "s/^# \+//" -e "\$i \ "
+			cat /etc/bashrc | sed -n -e "/^function ''${fun}()/q;p" | tac | sed -n -e "/^[^#]/q;p" | tac | sed -e "s/^# \+//" -e "\$i \ " | sed "1{/^$/d}" | sed "1{/^ *$/d}"
 		}
 
 		# Short for help.
