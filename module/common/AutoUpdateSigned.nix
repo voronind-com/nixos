@@ -24,6 +24,8 @@
 			};
 			${lib.getExe pkgs.gnumake} switch
 		'';
+		after = [ "network-online.target" ];
+		wants = [ "network-online.target" ];
 	};
 
 	systemd.timers.autoupdate = {
@@ -31,6 +33,7 @@
 			OnCalendar = "hourly";
 			Persistent = true;
 			Unit       = "autoupdate.service";
+			# RandomizedDelaySec = 60;
 		};
 		wantedBy = [ "timers.target" ];
 	};
