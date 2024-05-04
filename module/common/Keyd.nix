@@ -39,6 +39,7 @@
 					e = "nextsong";
 					q = "previoussong";
 					x = "mute";
+					z = "stopcd";
 				};
 
 				layer_macro = {};
