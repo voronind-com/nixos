@@ -1,4 +1,4 @@
-{ ... }: {
+{ setting, ... }: {
 	text = ''
 		// -*- mode: jsonc -*-
 		{
@@ -13,15 +13,21 @@
 				"sway/workspaces",
 				"sway/scratchpad",
 			],
+			"modules-center": [
+				"clock",
+				"mpris"
+			],
 			"modules-right": [
 				"sway/language",
 				"pulseaudio",
 				"battery",
-				"clock",
+				"cpu",
+				"temperature",
+				"memory",
 				"tray"
 			],
 			"sway/scratchpad": {
-				"format": "{icon}   {count}",
+				"format": "{icon}  {count}",
 				"show-empty": false,
 				"format-icons": ["", ""],
 				"tooltip": true,
@@ -49,13 +55,37 @@
 				"format-icons": ["󰂎", "󱊡", "󱊢", "󱊣", "󱊣"]
 			},
 			"pulseaudio": {
-				"scroll-step": 0,
+				"scroll-step": ${toString(setting.volume.step)},
 				"format": "{volume}% {icon}",
 				"format-muted": "󰸈",
 				"format-icons": {
 					"default": ["", "", ""]
 				},
 				"on-click": "pavucontrol"
+			},
+			"mpris": {
+				"format": "{player_icon}  {artist} - {title}",
+				"format-paused": "{status_icon}  {artist} - {title}",
+				"player-icons": {
+					"default": "",
+					"firefox": "󰈹",
+					"mpv": ""
+				},
+				"status-icons": {
+					"paused": ""
+				},
+				// "ignored-players": ["firefox"]
+			},
+			"cpu": {
+				"format": "{usage}% {load}",
+				"tooltip": false
+			},
+			"memory": {
+				"format": "{percentage}%"
+			},
+			"temperature": {
+				"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+				"format": "{temperatureC}°C",
 			}
 		}
 	'';
