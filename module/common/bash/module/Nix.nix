@@ -74,6 +74,12 @@
 			nix-on-droid switch --flake "''${_nix_system_config}" ''${@}
 		}
 
+		# Nix auto-run wrapper.
+		# Usage: , <COMMAND>
+		function ,() {
+			NIX_AUTO_RUN=1 ''${@}
+		}
+
 		# Autocomplete with available hosts.
 		function _comp_hosts() {
 			local IFS=$'\n'
