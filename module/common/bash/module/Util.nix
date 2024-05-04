@@ -119,6 +119,21 @@
 			return 1
 		}
 
+		# Find an index of an element in array.
+		# Usage: _index_of <ELEMENT> <ARRAY>
+		function _index_of() {
+			local element="''${1}"
+			local array="''${@:2}"
+			local index=0
+
+			for item in ''${array[@]}; do
+				[[ "''${item}" = "''${element}" ]] && break
+				((index++))
+			done
+
+			echo "''${index}"
+		}
+
 		# Check if inside Tmux.
 		function _is_tmux() {
 			[[ "''${TERM_PROGRAM}" = "tmux" ]]

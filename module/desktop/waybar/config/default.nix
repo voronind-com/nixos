@@ -61,7 +61,8 @@
 				"format-icons": {
 					"default": ["", "", ""]
 				},
-				"on-click": "pavucontrol"
+				"on-click": "sound_output_cycle",
+				"on-click-right": "pavucontrol"
 			},
 			"mpris": {
 				"format": "{player_icon}  {artist} - {title}",
@@ -74,18 +75,22 @@
 				"status-icons": {
 					"paused": ""
 				},
+				"on-click-middle": "playerctl stop"
 				// "ignored-players": ["firefox"]
 			},
 			"cpu": {
 				"format": "{usage}% ({load})",
-				"tooltip": false
+				"tooltip": false,
+				"on-click": "btop"
 			},
 			"memory": {
-				"format": "{percentage}%"
+				"format": "{percentage}%",
+				"on-click": "btop"
 			},
 			"temperature": {
 				"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
 				"format": "{temperatureC}°C",
+				"on-click": "btop"
 			}
 		}
 	'';
