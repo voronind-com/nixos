@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 	environment.systemPackages = with pkgs; [ keyd ];
 	services.keyd = {
 		enable = true;
@@ -57,4 +57,7 @@
 	# HACK: Workaround for https://github.com/NixOS/nixpkgs/issues/290161
 	users.groups.keyd = {};
 	systemd.services.keyd.serviceConfig.CapabilityBoundingSet = [ "CAP_SETGID" ];
+
+	# HACK: Workaround for powersave/powerlimit scripts.
+	systemd.services.keyd.serviceConfig.ProtectKernelTunables = lib.mkForce false;
 }
