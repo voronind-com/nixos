@@ -12,7 +12,7 @@
 			};
 		};
 
-		# NOTE: Allow user access.
+		# HACK: Allow user access.
 		tmpfiles.rules = [ "z ${controlFile} 0777 - - - -" ];
 	};
 }

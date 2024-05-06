@@ -47,7 +47,7 @@ in {
 			};
 		};
 
-		# NOTE: Allow user access.
+		# HACK: Allow user access.
 		tmpfiles.rules = [
 			"z ${controlFileMax} 0777 - - - -"
 			"z ${controlFileMin} 0777 - - - -"
