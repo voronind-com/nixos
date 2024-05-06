@@ -1,9 +1,4 @@
 { style, setting, util, ... }: let
-	foreground = if setting.foot.font.forceWhite then ''
-		foreground=ffffff
-	'' else ''
-		foreground=${style.color.fg.light}
-	'';
 	dpiaware = if setting.foot.font.dpi then "yes" else "no";
 in {
 	config = util.trimTabs ''
@@ -17,5 +12,6 @@ in {
 		[colors]
 		alpha=${toString(style.opacity.terminal)}
 		background=${style.color.bg.dark}
-	'' + foreground;
+		foreground=${style.color.fg.light}
+	'';
 }
