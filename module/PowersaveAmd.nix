@@ -1,12 +1,12 @@
 { pkgs, ... } @args: let
 	controlFile = "/sys/devices/system/cpu/cpufreq/boost";
-	enable      = "1";
-	disable     = "0";
+	enable      = "0";
+	disable     = "1";
 
 	script = pkgs.writeShellScriptBin "powersave" (import ./powersave/Script.nix {
-		controlFile = controlFile;
-		disable     = "1";
-		enable      = "0";
+		inherit controlFile;
+		inherit enable;
+		inherit disable;
 	}).script;
 in {
 	# Requirements:

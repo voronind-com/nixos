@@ -4,9 +4,9 @@
 	disable     = "0";
 
 	script = pkgs.writeShellScriptBin "powersave" (import ./powersave/Script.nix {
-		controlFile = controlFile;
-		disable     = "0";
-		enable      = "1";
+		inherit controlFile;
+		inherit enable;
+		inherit disable;
 	}).script;
 in {
 	imports = [
