@@ -21,9 +21,11 @@
 				"sway/language",
 				"pulseaudio",
 				"battery",
+				"custom/powerlimit",
 				"cpu",
 				"temperature",
 				"memory",
+				"custom/powersave",
 				"tray"
 			],
 			"sway/scratchpad": {
@@ -54,7 +56,13 @@
 				"format-charging": "{capacity}% ",
 				"format-plugged": "{capacity}% ",
 				"format-alt": "{time} {icon}",
-				"format-icons": ["󰂎", "󱊡", "󱊢", "󱊣", "󱊣"]
+				"format-icons": ["󰂎", "󱊡", "󱊢", "󱊣", "󱊣"],
+				"on-click-right": "powerlimit toggle"
+			},
+			"custom/powerlimit": {
+				"exec": "powerlimit waybar",
+				"interval": 1,
+				"on-click-right": "powerlimit toggle"
 			},
 			"pulseaudio": {
 				"scroll-step": ${toString(setting.volume.step)},
@@ -83,16 +91,25 @@
 			"cpu": {
 				"format": "{usage}% ({load})",
 				"tooltip": false,
-				"on-click": "foot -e bash -c btop"
+				"on-click": "foot -e bash -c btop",
+				"on-click-right": "powersave toggle"
 			},
 			"memory": {
 				"format": "{percentage}%",
-				"on-click": "foot -e bash -c btop"
+				"on-click": "foot -e bash -c btop",
+				"on-click-right": "powersave toggle"
 			},
 			"temperature": {
 				"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
 				"format": "{temperatureC}°C",
-				"on-click": "foot -e bash -c btop"
+				"on-click": "foot -e bash -c btop",
+				"on-click-right": "powersave toggle"
+			},
+			"custom/powersave": {
+				"exec": "powersave waybar",
+				"interval": 1,
+				"on-click": "foot -e bash -c btop",
+				"on-click-right": "powersave toggle"
 			}
 		}
 	'';

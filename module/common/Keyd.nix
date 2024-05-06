@@ -6,13 +6,15 @@
 			ids = [ "*" ];
 			settings = {
 				main = {
-					capslock     = "overload(control, esc)";
-					compose      = "layer(layer_macro)";
-					esc          = "capslock";
-					rightalt     = "layer(layer_rightalt)";
-					rightcontrol = "layer(layer_control)";
-					rightshift   = "layer(layer_rightshift)";
-					leftcontrol  = "overload(layer_alternative, leftcontrol)";
+					backspace    = "delete";                                   # Delete key on backspace.
+					capslock     = "overload(control, esc)";                   # Ctrl/esc combo.
+					compose      = "layer(layer_macro)";                       # Input macros.
+					esc          = "layer(layer_system)";                      # System controls.
+					leftcontrol  = "overload(layer_alternative, leftcontrol)"; # Alternative layer for home, end etc.
+					print        = "layer(layer_macro)";                       # ThinkPad remap to compose.
+					rightalt     = "capslock";                                 # Language toggle.
+					rightcontrol = "layer(layer_control)";                     # Media and other controls.
+					rightshift   = "backspace";                                # Backspace.
 				};
 
 				layer_alternative = {
@@ -42,11 +44,12 @@
 					z = "stopcd";
 				};
 
-				layer_macro = {};
+				layer_system = {
+					p = "command(powersave toggle)";
+					l = "command(powerlimit toggle)";
+				};
 
-				# Vacant layers.
-				layer_rightalt = {};
-				layer_rightshift = {};
+				layer_macro = {};
 			};
 		};
 	};

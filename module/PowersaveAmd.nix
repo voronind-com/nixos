@@ -1,16 +1,24 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... } @args: let
+	controlFile = "/sys/devices/system/cpu/cpufreq/boost";
+	enable      = "1";
+	disable     = "0";
+
+	script = pkgs.writeShellScriptBin "powersave" (import ./powersave/Script.nix {
+		controlFile = controlFile;
+		disable     = "1";
+		enable      = "0";
+	}).script;
+in {
 	# Requirements:
 	# CPPC (Collaborative Power Control) - Disabled.
 	# PSS  (Cool and Quiet)              - Enabled.
-	systemd.services.powersave = {
-		description = "AMD disable Boost";
-		enable      = true;
-		wantedBy    = [ "multi-user.target" ];
-		serviceConfig = {
-			Type = "simple";
-			RemainAfterExit = "yes";
-			ExecStart = "${lib.getExe pkgs.bash} -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'";
-			ExecStop  = "${lib.getExe pkgs.bash} -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'";
-		};
-	};
+	imports = [
+		(import ./powersave ({
+			inherit controlFile;
+			inherit enable;
+			inherit disable;
+		} // args))
+	];
+
+	environment.systemPackages = [ script ];
 }
