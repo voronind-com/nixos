@@ -47,7 +47,9 @@
 				layer_system = {
 					p = "command(powersave toggle)";
 					l = "command(powerlimit toggle)";
-					z = "command(systemctl poweroff -i)";
+					z = "command(systemctl suspend -i)";
+					x = "command(systemctl poweroff -i)";
+					c = "command(loginctl kill-user voronind)";
 				};
 
 				layer_macro = {};
