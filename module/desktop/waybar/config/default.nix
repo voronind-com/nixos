@@ -31,6 +31,10 @@
 				"custom/powersave",
 				"tray"
 			],
+			"sway/language": {
+				"tooltip": false,
+				"on-click": "swaymsg 'input * xkb_switch_layout next'"
+			},
 			"sway/scratchpad": {
 				"format": "{icon}  {count}",
 				"show-empty": false,
@@ -103,11 +107,9 @@
 				"on-click-right": "powersave toggle"
 			},
 			"temperature": {
-				"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
 				"format": "{temperatureC}°C",
 				"on-click": "foot -e bash -c btop",
-				"on-click-right": "powersave toggle",
-				"interval": 1
+				"on-click-right": "powersave toggle"
 			},
 			"custom/powersave": {
 				"exec": "powersave waybar",
