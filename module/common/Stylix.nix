@@ -1,10 +1,11 @@
-{ pkgs, config, wallpaper, ... }: {
+{ pkgs, config, wallpaper, ... }: let
+	forceWhiteText = false;
+in {
 	environment.etc.wallpaper.source = wallpaper.path;
 	stylix = {
 		image = wallpaper.path;
 		autoEnable = true;
 		polarity = "dark";
-		# base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 		opacity = {
 			applications = 0.85;
 			terminal     = 0.85;
@@ -37,5 +38,10 @@
 				name = "Noto Color Emoji";
 			};
 		};
+		override = if forceWhiteText then {
+			base04 = "ffffff";
+			base05 = "ffffff";
+			base06 = "ffffff";
+		} else {};
 	};
 }

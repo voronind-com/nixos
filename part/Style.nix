@@ -1,17 +1,11 @@
-{ config, ... }: let
-	forceWhiteText = false;
-in {
+{ config, ... }: {
 	color = {
 		bg = {
 			dark    = config.lib.stylix.colors.base00;
 			light   = config.lib.stylix.colors.base07;
 			regular = config.lib.stylix.colors.base01;
 		};
-		fg = if forceWhiteText then {
-			dark    = "ffffff";
-			light   = "ffffff";
-			regular = "ffffff";
-		} else {
+		fg = {
 			dark    = config.lib.stylix.colors.base04;
 			light   = config.lib.stylix.colors.base06;
 			regular = config.lib.stylix.colors.base05;
@@ -53,9 +47,9 @@ in {
 		border-g = config.lib.stylix.colors.base01-rgb-g;
 		border-r = config.lib.stylix.colors.base01-rgb-r;
 
-		fg-b = if forceWhiteText then 255 else config.lib.stylix.colors.base06-rgb-b;
-		fg-g = if forceWhiteText then 255 else config.lib.stylix.colors.base06-rgb-g;
-		fg-r = if forceWhiteText then 255 else config.lib.stylix.colors.base06-rgb-r;
+		fg-b = config.lib.stylix.colors.base06-rgb-b;
+		fg-g = config.lib.stylix.colors.base06-rgb-g;
+		fg-r = config.lib.stylix.colors.base06-rgb-r;
 	};
 
 	font = {
