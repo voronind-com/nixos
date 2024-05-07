@@ -49,10 +49,11 @@
 				];
 				buildInputs = with pkgs; [];
 
-				GRADLE_OPTS      = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/${buildTools}/aapt2";
-				JAVA_HOME        = "${jdk}";
-				LD_LIBRARY_PATH  = "${lib.makeLibraryPath buildInputs}";
-				ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk/";
+				GRADLE_OPTS       = "-Dorg.gradle.project.android.aapt2FromMavenOverride = ${androidSdk}/libexec/android-sdk/build-tools/${buildTools}/aapt2";
+				JAVA_HOME         = "${jdk}";
+				LD_LIBRARY_PATH   = "${lib.makeLibraryPath buildInputs}";
+				ANDROID_SDK_ROOT  = "${androidSdk}/libexec/android-sdk/";
+				SOURCE_DATE_EPOCH = "${toString(self.lastModified)}";
 			};
 		};
 	};

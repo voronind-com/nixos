@@ -14,6 +14,8 @@
 			default = pkgs.mkShell rec {
 				nativeBuildInputs = with pkgs; [ ];
 				buildInputs = with pkgs; [ ];
+
+				SOURCE_DATE_EPOCH = "${toString(self.lastModified)}";
 			};
 		};
 	};

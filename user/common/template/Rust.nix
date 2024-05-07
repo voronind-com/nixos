@@ -32,6 +32,7 @@
 				xorg.libXi
 			];
 			LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}";
+			SOURCE_DATE_EPOCH = "${toString(self.lastModified)}";
 		};
 	};
 }
