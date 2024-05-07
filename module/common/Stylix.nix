@@ -6,9 +6,9 @@
 		polarity = "dark";
 		# base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 		opacity = {
-			applications = 1.0;
+			applications = 0.85;
 			terminal     = 0.85;
-			popups       = 1.0;
+			popups       = 0.85;
 			desktop      = 0.85;
 		};
 		cursor = {

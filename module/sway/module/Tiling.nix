@@ -11,7 +11,7 @@
 
 		# Split directions.
 		bindsym $mod+${key.sway.window.split.horizontal} splith
-		bindsym $mod+${key.sway.window.split.vertical}     splitv
+		bindsym $mod+${key.sway.window.split.vertical}   splitv
 
 		# Switch the current container between different layout styles.
 		bindsym $mod+${key.sway.window.layout.toggle} layout toggle split tabbed
