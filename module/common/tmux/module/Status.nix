@@ -14,6 +14,7 @@ in {
 
 		set -g status-left "#[bold] #H-#S "
 		set -g status-left-length  ${toString(setting.tmux.status.length)}
+		set -g status-right ""
 
 		set-window-option -g window-status-separator ""
 
