@@ -1,17 +1,16 @@
 { wallpaper, style, ... }: let
-	accent   = style.color.accent;
-	bg       = style.color.bg.dark;
-	bg_alt   = style.color.bg.regular;
-	fg       = style.color.fg.light;
-	fg_alt   = style.color.fg.regular;
-	negative = style.color.negative;
+	alpha  = style.opacity.inactive.hex;
+	accent = style.color.accent  + alpha;
+	bg     = style.color.bg.dark + alpha;
+	border = style.color.border  + alpha;
+	fg     = style.color.fg.light;
 in {
 	text = ''
 		output * bg ${wallpaper.path} fill
-		client.focused          #${accent} #${accent}   #${fg}     #${accent}   #${accent}
-		client.focused_inactive #${bg_alt} #${bg_alt}   #${fg}     #${bg_alt}   #${bg_alt}
-		client.unfocused        #${bg_alt} #${bg_alt}   #${fg_alt} #${bg_alt}   #${bg_alt}
-		client.urgent           #${bg_alt} #${negative} #${fg_alt} #${negative} #${negative}
-		client.placeholder      #${bg}     #${bg}       #${fg}     #${bg}       #${bg}
+		client.focused          "#${accent}" "#${bg}" "#${fg}" "#${accent}" "#${accent}"
+		client.focused_inactive "#${border}" "#${bg}" "#${fg}" "#${border}" "#${border}"
+		client.unfocused        "#${border}" "#${bg}" "#${fg}" "#${border}" "#${border}"
+		client.urgent           "#${border}" "#${bg}" "#${fg}" "#${border}" "#${border}"
+		client.placeholder      "#${bg}"     "#${bg}" "#${fg}" "#${bg}"     "#${bg}"
 	'';
 }

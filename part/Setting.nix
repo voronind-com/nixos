@@ -38,10 +38,6 @@
 			vertical   = 10;
 			horizontal = 10;
 		};
-		window = {
-			gap = 10;
-			opacity.inactive = 0.85;
-		};
 	};
 
 	foot = {

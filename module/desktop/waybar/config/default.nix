@@ -1,11 +1,14 @@
-{ setting, ... }: {
+{ setting, style, ... }: {
 	text = ''
 		// -*- mode: jsonc -*-
 		{
-			"layer": "top", // Waybar at top layer
-			"position": "top", // Waybar position (top|bottom|left|right)
-			"height": 30, // Waybar height (to be removed for auto height)
-			"spacing": 4, // Gaps between modules (4px)
+			"layer": "top",
+			"position": "top",
+			"height": 30,
+			"spacing": 4,
+			"margin-top": ${toString(style.window.gap)},
+			"margin-left": ${toString(style.window.gap)},
+			"margin-right": ${toString(style.window.gap)},
 			"mode": "dock",
 			// "exclusive": false,
 			"start_hidden": true,
@@ -103,7 +106,8 @@
 				"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
 				"format": "{temperatureC}°C",
 				"on-click": "foot -e bash -c btop",
-				"on-click-right": "powersave toggle"
+				"on-click-right": "powersave toggle",
+				"interval": 1
 			},
 			"custom/powersave": {
 				"exec": "powersave waybar",

@@ -31,18 +31,27 @@ in {
 		accent-b   = config.lib.stylix.colors.base0A-rgb-b;
 		accent-g   = config.lib.stylix.colors.base0A-rgb-g;
 		accent-r   = config.lib.stylix.colors.base0A-rgb-r;
+
 		negative-b = config.lib.stylix.colors.base08-rgb-b;
 		negative-g = config.lib.stylix.colors.base08-rgb-g;
 		negative-r = config.lib.stylix.colors.base08-rgb-r;
+
 		neutral-b  = config.lib.stylix.colors.base0C-rgb-b;
 		neutral-g  = config.lib.stylix.colors.base0C-rgb-g;
 		neutral-r  = config.lib.stylix.colors.base0C-rgb-r;
+
 		positive-b = config.lib.stylix.colors.base0B-rgb-b;
 		positive-g = config.lib.stylix.colors.base0B-rgb-g;
 		positive-r = config.lib.stylix.colors.base0B-rgb-r;
+
 		bg-b = config.lib.stylix.colors.base00-rgb-b;
 		bg-g = config.lib.stylix.colors.base00-rgb-g;
 		bg-r = config.lib.stylix.colors.base00-rgb-r;
+
+		border   = config.lib.stylix.colors.base01;
+		border-b = config.lib.stylix.colors.base01-rgb-b;
+		border-g = config.lib.stylix.colors.base01-rgb-g;
+		border-r = config.lib.stylix.colors.base01-rgb-r;
 
 		fg-b = if forceWhiteText then 255 else config.lib.stylix.colors.base06-rgb-b;
 		fg-g = if forceWhiteText then 255 else config.lib.stylix.colors.base06-rgb-g;
@@ -67,5 +76,14 @@ in {
 		desktop     = config.stylix.opacity.desktop;
 		popup       = config.stylix.opacity.popups;
 		terminal    = config.stylix.opacity.terminal;
+		inactive = {
+			int = 0.85;
+			hex = "D9";
+		};
+	};
+
+	window = {
+		gap    = 8;
+		border = 4;
 	};
 }

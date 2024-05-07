@@ -20,18 +20,27 @@
 		base0A-rgb-b = "38";
 		base0A-rgb-g = "187";
 		base0A-rgb-r = "184";
+
 		base08-rgb-b = "29";
 		base08-rgb-g = "36";
 		base08-rgb-r = "204";
+
 		base0C-rgb-b = "136";
 		base0C-rgb-g = "133";
 		base0C-rgb-r = "69";
+
 		base0B-rgb-b = "135";
 		base0B-rgb-g = "175";
 		base0B-rgb-r = "135";
+
 		base00-rgb-b = "33";
 		base00-rgb-g = "32";
 		base00-rgb-r = "29";
+
+		base01-rgb-b = "54";
+		base01-rgb-g = "56";
+		base01-rgb-r = "60";
+
 		base06-rgb-b = "199";
 		base06-rgb-g = "241";
 		base06-rgb-r = "251";
