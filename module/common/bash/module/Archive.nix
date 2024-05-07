@@ -1,10 +1,10 @@
 { ... }: {
 	text = ''
-		export _archive_pattern="_[0-9]{12}-[[:alnum:]]{40}\."
+		export _archive_pattern="_[0-9]{12}-[[:alnum:]]{40}"
 		export _archive_pattern_compressed="_[0-9]{12}-[[:alnum:]]{40}\.t(ar|gz|xz)$"
-		export _archive_pattern_fast="_[0-9]{12}-[[:alnum:]]{40}\.tgz$"
+		export _archive_pattern_fast="_[0-9]{12}-[[:alnum:]]{40}\.tar$"
 
-		# Archive directories.
+		# Archive using multiple threads. Uses 75% of free RAM.
 		# All directories by default.
 		# Supports .archiveignore exclude file.
 		# Usage: archive [DIRS]
@@ -14,6 +14,12 @@
 			[[ "''${targets}" = "" ]] && targets=($(_ls_dir))
 
 			process() {
+				# Skip if already an archive.
+				_is_archive "''${target}" && {
+					_iterate_skip "Already an archive."
+					return 0
+				};
+
 				local date=$(_archive_date)
 
 				# Parse name.
@@ -25,7 +31,7 @@
 				[[ -f "''${target}/.archiveignore" ]] && exclude="--exclude-from=''${target}/.archiveignore"
 
 				# Create archive.
-				local hash=$(tar ''${exclude} -c ''${target} | pv -s $(/usr/bin/env du -sb ''${target} | awk '{print $1}') | xz -9e --threads=1 | tee ''${name}.txz | sha1sum | cut -d\  -f1)
+				local hash=$(tar ''${exclude} -c ''${target} | pv -s $(/usr/bin/env du -sb ''${target} | awk '{print $1}') | xz -9e --threads=0 --memlimit=$(_archive_memlimit) | tee ''${name}.txz | sha1sum | cut -d\  -f1)
 
 				# Append hash to target name.
 				local new_name="''${name}_''${date}-''${hash}.txz"
@@ -35,81 +41,23 @@
 			_iterate_targets process ''${targets[@]}
 		}
 
-		# Archive using multiple threads. Uses 75% of free RAM.
-		# All directories by default.
-		# Supports .archiveignore exclude file.
-		# Usage: archive_mt [DIRS]
-		function archive_mt() {
-			local IFS=$'\n'
-			local targets=(''${@})
-			[[ "''${targets}" = "" ]] && targets=($(_ls_dir))
-
-			process() {
-				local date=$(_archive_date)
-
-				# Parse name.
-				local name=$(parse_pascal ''${target})
-
-				# Exclude support.
-				local exclude=""
-				[[ -f ".archiveignore" ]] && exclude="--exclude-from=.archiveignore"
-				[[ -f "''${target}/.archiveignore" ]] && exclude="--exclude-from=''${target}/.archiveignore"
-
-				# Determine memory limit.
-				local mem_free=$(_mem_free)
-				local mem_limit=$((mem_free*3/4))
-
-				# Create archive.
-				local hash=$(tar ''${exclude} -c ''${target} | pv -s $(/usr/bin/env du -sb ''${target} | awk '{print $1}') | xz -9e --threads=0 --memlimit=''${mem_limit}MiB | tee ''${name}.txz | sha1sum | cut -d\  -f1)
-
-				# Append hash to target name.
-				local new_name="''${name}_''${date}-''${hash}.txz"
-				mv -- ''${name}.txz ''${new_name} && echo ''${new_name}
-			}
-
-			_iterate_targets process ''${targets[@]}
-		}
-
-		# Archive directories with fast compression.
-		# All directories by default.
-		# Supports .archiveignore exclude file.
+		# Creates a simple archive.
+		# If it is a file, it just reformats file name to match archive name.
+		# For dirs, it first creates a tar archive.
+		# All files by default.
 		# Usage: archive_fast [DIRS]
 		function archive_fast() {
 			local IFS=$'\n'
 			local targets=("''${@}")
-			[[ "''${targets}" = "" ]] && targets=($(_ls_dir))
+			[[ "''${targets}" = "" ]] && targets=($(_ls_file))
 
 			process() {
-				# Start timestamp.
-				local date=$(_archive_date)
+				# Skip if already an archive.
+				_is_archive "''${target}" && {
+					_iterate_skip "Already an archive."
+					return 0
+				};
 
-				# Parse name.
-				local name=$(parse_pascal "''${target}")
-
-				# Exclude support.
-				local exclude=""
-				[[ -f ".archiveignore" ]] && exclude="--exclude-from=.archiveignore"
-				[[ -f "''${target}/.archiveignore" ]] && exclude="--exclude-from=''${target}/.archiveignore"
-
-				# Create archive.
-				local hash=$(tar ''${exclude} -c "''${target}" | pv -s $(/usr/bin/env du -sb "''${target}" | awk '{print $1}') | gzip -1 | tee "''${name}".tgz | sha1sum | cut -d\  -f1)
-
-				# Append hash to target name.
-				local new_name="''${name}_''${date}-''${hash}.tgz"
-				mv -- "''${name}".tgz ''${new_name} && echo ''${new_name}
-			}
-
-			_iterate_targets process ''${targets[@]}
-		}
-
-		# Creates a simple archive. If it is a file, it just reformats file name to match archive name. For dirs, it first creates a tar archive. All dirs by default.
-		# Usage: archive_simple [DIRS]
-		function archive_simple() {
-			local IFS=$'\n'
-			local targets=("''${@}")
-			[[ "''${targets}" = "" ]] && targets=($(_ls_dir))
-
-			process() {
 				# Start timestamp.
 				local date=$(_archive_date)
 
@@ -132,10 +80,13 @@
 					mv -- "''${name}".tar ''${new_name} && echo ''${new_name}
 				else
 					name=$(parse_pascal "''${target%.*}")
-					extension=''${target##*.}
+					extension=".''${target##*.}"
+
+					# Check if extension matches name, then drop it.
+					[[ "''${extension}" = ".''${target%.*}" ]] && extension=""
 
 					local hash=$(pv "''${target}" | sha1sum | cut -d\  -f1)
-					local new_name="''${name}_''${date}-''${hash}.''${extension}"
+					local new_name="''${name}_''${date}-''${hash}''${extension}"
 					mv -- "''${target}" "''${new_name}" && echo ''${new_name}
 				fi
 			}
@@ -200,8 +151,8 @@
 		}
 
 		# Recompress previously created archive_fast with better compression.
-		# Usage: archive_xz [FILES]
-		function archive_xz() {
+		# Usage: archive_compress [FILES]
+		function archive_compress() {
 			local IFS=$'\n'
 			local targets=(''${@})
 			[[ "''${targets}" = "" ]] && targets=$(_ls_archive_fast)
@@ -211,16 +162,16 @@
 				local tmp="''${data[0]}.txz"
 
 				# Check that old format.
-				if [[ "''${data[3]}" != "tgz" ]]; then
-					_error "Not in .tgz format!"
-					return 1
+				if [[ "''${data[3]}" != "tar" ]]; then
+					_iterate_skip "Not in .tar format!"
+					return 0
 				fi
 
 				# Check integrity.
 				_archive_check "''${target}" || return 1
 
 				# Recompress.
-				local hash=$(pv "''${target}" | gzip -d | xz -9e --threads=1 | tee "''${tmp}" | sha1sum | cut -d\  -f1)
+				local hash=$(pv "''${target}" | xz -9e --threads=0 --memlimit=$(_archive_memlimit) | tee "''${tmp}" | sha1sum | cut -d\  -f1)
 
 				# Rename.
 				local new_name="''${data[0]}_''${data[1]}-''${hash}.txz"
@@ -279,7 +230,7 @@
 				# Validate.
 				# _archive_check "''${target}" || return 1
 				if ! _is_compressed_archive "''${target}"; then
-					_iterate_skip "Not an archive."
+					_iterate_skip "Not a compressed archive."
 					return 0
 				fi
 
@@ -332,6 +283,9 @@
 			local data="''${input##*_}"; data="''${data%.*}"
 			local date="''${data%%-*}"
 			local hash="''${data##*-}"
+
+			# No extension if no dots.
+			[[ "''${input}" = *\.* ]] || format=""
 
 			echo "''${name}"
 			echo "''${date}"
@@ -431,6 +385,13 @@
 			grep -E ''${_archive_pattern}
 		}
 
+		function _archive_memlimit() {
+			local mem_free=$(_mem_free)
+			local mem_limit=$((mem_free*3/4))
+
+			echo "''${mem_limit}MiB"
+		}
+
 		function _archive_check() {
 			# Extract hash from name.
 			local data=($(_archive_parse ''${target}))
@@ -440,7 +401,7 @@
 			local actual=$(pv ''${target} | sha1sum | cut -d\  -f1)
 
 			# Compare hashes.
-			[[ "''${actual}" = "''${saved}" ]]
+			[[ "''${actual}" = "''${saved}" ]] || _error "Archive check failed."
 		}
 
 		# complete -o filenames -F _comp_archive_grep        archive_check unarchive archive_rm archive_touch
