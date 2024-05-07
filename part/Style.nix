@@ -70,10 +70,7 @@
 		desktop     = config.stylix.opacity.desktop;
 		popup       = config.stylix.opacity.popups;
 		terminal    = config.stylix.opacity.terminal;
-		inactive = {
-			int = 0.85;
-			hex = "D9";
-		};
+		hex = "D9";
 	};
 
 	window = {

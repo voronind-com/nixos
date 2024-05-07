@@ -19,9 +19,6 @@
 		# Fullscreen.
 		bindsym $mod+${key.sway.window.fullscreen} fullscreen
 
-		# Dim inactive windows.
-		exec $SWAY_IWT_PATH --opacity ${toString(style.opacity.inactive.int)}
-
 		# Drag floating windows by holding down $mod and left mouse button.
 		# Resize them with right mouse button + $mod.
 		# Despite the name, also works for non-floating windows.

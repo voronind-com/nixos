@@ -1,5 +1,5 @@
 { wallpaper, style, ... }: let
-	alpha  = style.opacity.inactive.hex;
+	alpha  = style.opacity.hex;
 	accent = style.color.accent  + alpha;
 	bg     = style.color.bg.dark + alpha;
 	border = style.color.border  + alpha;

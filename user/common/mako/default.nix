@@ -1,5 +1,5 @@
 { style, util, setting, ... }: let
-	alpha = style.opacity.inactive.hex;
+	alpha = style.opacity.hex;
 in {
 	config = util.trimTabs ''
 		anchor=top-center

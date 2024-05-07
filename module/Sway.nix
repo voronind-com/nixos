@@ -16,14 +16,13 @@ in {
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment.systemPackages = with pkgs; [
-		gnome.adwaita-icon-theme # GTK icons.
-		grim slurp # Screenshot.
-		mako # Notification system.
-		networkmanagerapplet # Internet configuration.
+		gnome.adwaita-icon-theme       # GTK icons.
+		grim slurp                     # Screenshot.
+		mako                           # Notification system.
+		networkmanagerapplet           # Internet configuration.
 		pamixer pavucontrol pulseaudio # Audio.
-		playerctl # Multimedia controls.
-		sway-contrib.inactive-windows-transparency # Transparent unfocused windows.
-		wl-clipboard # Clipboard.
+		playerctl                      # Multimedia controls.
+		wl-clipboard                   # Clipboard.
 	];
 
 	programs.sway = {
@@ -35,12 +34,5 @@ in {
 		extraOptions = [
 			"--config=${config}"
 		];
-	};
-
-	environment = {
-		variables = {
-			SWAY_IWT_PATH = "${pkgs.sway-contrib.inactive-windows-transparency}/bin/inactive-windows-transparency.py";
-			# PATH        = [ "/etc/swaybin" ]; # NOTE: Kept as an example on PATH modification.
-		};
 	};
 }
