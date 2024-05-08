@@ -28,7 +28,7 @@ in {
 				"battery",
 				"custom/powerlimit",
 				"cpu",
-				"temperature",
+				// "temperature",
 				"memory",
 				"custom/powersave",
 				"custom/display",
