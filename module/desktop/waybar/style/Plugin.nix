@@ -5,6 +5,7 @@
 		#mpris,
 		#cpu,
 		#battery,
+		#custom-display,
 		#language {
 			padding: 8px 0 8px 24px;
 		}

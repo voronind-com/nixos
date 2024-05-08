@@ -29,6 +29,7 @@
 				"temperature",
 				"memory",
 				"custom/powersave",
+				"custom/display",
 				"tray"
 			],
 			"sway/language": {
@@ -116,6 +117,11 @@
 				"interval": 1,
 				"on-click": "foot -e bash -c btop",
 				"on-click-right": "powersave toggle"
+			},
+			"custom/display": {
+				"exec": "echo 󰍹",
+				"on-click": "swayscript montoggle",
+				"on-click-right": "swayscript vrrtoggle"
 			}
 		}
 	'';
