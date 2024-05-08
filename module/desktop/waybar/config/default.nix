@@ -1,4 +1,6 @@
-{ setting, style, ... }: {
+{ setting, style, ... }: let
+	refreshInterval = 1;
+in {
 	text = ''
 		// -*- mode: jsonc -*-
 		{
@@ -69,7 +71,7 @@
 			},
 			"custom/powerlimit": {
 				"exec": "powerlimit waybar",
-				"interval": 1,
+				"interval": ${toString(refreshInterval)},
 				"on-click-right": "powerlimit toggle"
 			},
 			"pulseaudio": {
@@ -114,12 +116,14 @@
 			},
 			"custom/powersave": {
 				"exec": "powersave waybar",
-				"interval": 1,
+				"interval": ${toString(refreshInterval)},
 				"on-click": "foot -e bash -c btop",
 				"on-click-right": "powersave toggle"
 			},
 			"custom/display": {
-				"exec": "echo 󰍹",
+				"exec": "swayscript monbar",
+				"interval": ${toString(refreshInterval)},
+				"return-type": "json",
 				"on-click": "swayscript montoggle",
 				"on-click-right": "swayscript vrrtoggle"
 			}

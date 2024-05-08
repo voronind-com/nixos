@@ -20,11 +20,15 @@
 
 		# Toggle monitors.
 		function montoggle() {
-			if [[ "$(_monstate)" = "off" ]]; then
-				monon
-			else
+			if [[ "$(_monstate)" = "on" ]]; then
 				monoff
+			else
+				monon
 			fi
+		}
+
+		function monbar() {
+			printf "{\"text\": \"󰍹\", \"tooltip\": \"Mon: $(_monstate) / Vrr: $(_vrrstate)\"}\n"
 		}
 
 		function _monstate() {
