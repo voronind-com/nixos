@@ -20,10 +20,10 @@
 
 		# Toggle VRR.
 		function vrrtoggle() {
-			if [[ "$(_vrrstate)" = "off" ]]; then
-				vrron
-			else
+			if [[ "$(_vrrstate)" = "on" ]]; then
 				vrroff
+			else
+				vrron
 			fi
 		}
 
