@@ -45,11 +45,13 @@
 				};
 
 				layer_system = {
-					p = "command(powersave toggle)";
-					l = "command(powerlimit toggle)";
-					z = "command(systemctl suspend -i)";
-					x = "command(systemctl poweroff -i)";
 					c = "command(loginctl kill-user voronind)";
+					l = "command(powerlimit toggle)";
+					# m = "command(swayscript montoggle)";
+					p = "command(powersave toggle)";
+					# v = "command(swayscript vrrtoggle)";
+					x = "command(systemctl poweroff -i)";
+					z = "command(systemctl suspend -i)";
 				};
 
 				layer_macro = {};
@@ -61,6 +63,8 @@
 	users.groups.keyd = {};
 	systemd.services.keyd.serviceConfig.CapabilityBoundingSet = [ "CAP_SETGID" ];
 
-	# HACK: Workaround for powersave/powerlimit scripts.
+	# HACK: Workaround for powersave/powerlimit/swayscript scripts.
 	systemd.services.keyd.serviceConfig.ProtectKernelTunables = lib.mkForce false;
+	systemd.services.keyd.serviceConfig.ProtectHome           = lib.mkForce false;
+	# systemd.services.keyd.environment.KEYD_DEBUG = "1";
 }

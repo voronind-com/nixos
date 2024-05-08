@@ -8,8 +8,8 @@
 	offMax = "95";
 
 	script = pkgs.writeShellScriptBin "powerlimit" ''
-		function _toggle() {
-			if _status; then
+		function toggle() {
+			if status; then
 				echo ${offMax} > ${controlFileMax}
 				echo ${offMin} > ${controlFileMin}
 			else
@@ -20,18 +20,18 @@
 			true
 		}
 
-		function _waybar() {
-			_status || echo -n ""
+		function waybar() {
+			status || echo -n ""
 		}
 
-		function _status() {
+		function status() {
 			local current=$(cat ${controlFileMax})
 			local enabled="${onMax}"
 
 			[[ "''${current}" = "''${enabled}" ]]
 		}
 
-		_''${1}
+		''${@}
 	'';
 in {
 	systemd = {

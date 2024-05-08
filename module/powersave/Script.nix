@@ -1,7 +1,7 @@
 { controlFile, enable, disable, ... }: {
 	script = ''
-		function _toggle() {
-			if _status; then
+		function toggle() {
+			if status; then
 				echo ${disable} > ${controlFile}
 			else
 				echo ${enable} > ${controlFile}
@@ -10,17 +10,17 @@
 			true
 		}
 
-		function _waybar() {
-			_status || echo -n "󰓅"
+		function waybar() {
+			status || echo -n "󰓅"
 		}
 
-		function _status() {
+		function status() {
 			local current=$(cat ${controlFile})
 			local enabled="${enable}"
 
 			[[ "''${current}" = "''${enabled}" ]]
 		}
 
-		_''${1}
+		''${@}
 	'';
 }

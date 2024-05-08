@@ -1,4 +1,4 @@
 { util, ... } @args: {
 	config = (import ./config args).text;
-	style  = util.catAllText ./style args;
+	style  = util.catText (util.ls ./style) args;
 }

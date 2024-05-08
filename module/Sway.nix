@@ -1,6 +1,7 @@
 { pkgs, lib, wallpaper, style, ... } @args: let
 	sway   = import ./sway args;
 	config = pkgs.writeText "swayConfig" sway.config;
+	script = pkgs.writeShellScriptBin "swayscript" sway.script;
 in {
 	imports = [
 		./desktop/App.nix
@@ -15,6 +16,7 @@ in {
 	];
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
+	systemd.services.keyd.path = [ script ];
 	environment.systemPackages = with pkgs; [
 		gnome.adwaita-icon-theme       # GTK icons.
 		grim slurp                     # Screenshot.
@@ -23,6 +25,7 @@ in {
 		pamixer pavucontrol pulseaudio # Audio.
 		playerctl                      # Multimedia controls.
 		wl-clipboard                   # Clipboard.
+		script
 	];
 
 	programs.sway = {

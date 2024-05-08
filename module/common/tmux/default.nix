@@ -1,3 +1,3 @@
 { style, key, util, setting, ... } @args: {
-	config = util.catAllText ./module args;
+	config = util.catText (util.ls ./module) args;
 }

@@ -1,5 +1,5 @@
 { style, util, pkgs, ... } @args: let
-	modules     = util.catAllText ./module args;
+	modules     = util.catText (util.ls ./module) args;
 	modulesFile = pkgs.writeText "bashModules" modules;
 in {
 	inherit modules;
