@@ -83,10 +83,11 @@ in {
 		path = with pkgs; [
 			bashInteractive
 			curl
-			gnutar
-			gzip
 			gawk
+			gnutar
+			procps
 			pv
+			xz
 		];
 		script = ''
 			${pkgs.bashInteractive}/bin/bash ${script}
