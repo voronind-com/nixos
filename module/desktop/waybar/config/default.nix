@@ -124,9 +124,8 @@ in {
 				"exec": "swayscript monbar",
 				"interval": ${toString(refreshInterval)},
 				"return-type": "json",
-				"tooltip": false, // FIXME: remove when resolved: https://github.com/Alexays/Waybar/issues/2166
-				"on-click": "swayscript montoggle",
-				"on-click-right": "swayscript vrrtoggle"
+				"on-click": "sleep 0.1 && swayscript montoggle", // FIXME: remove sleep when resolved: https://github.com/Alexays/Waybar/issues/2166
+				"on-click-right": "sleep 0.1 && swayscript vrrtoggle"
 			}
 		}
 	'';
