@@ -54,6 +54,5 @@ in {
 		];
 	};
 
-	systemd.services.keyd.path = [ script ];
 	environment.systemPackages = [ script ];
 }

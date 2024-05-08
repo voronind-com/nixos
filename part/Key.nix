@@ -136,4 +136,6 @@
 			fullscreen = "f";
 		};
 	};
+
+	sysctrl = "print";
 }
