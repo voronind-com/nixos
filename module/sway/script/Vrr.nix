@@ -29,7 +29,7 @@
 
 		function _vrrstate() {
 			if [[ "''${1}" = "" ]]; then
-				cat /tmp/.vrrstate 2> /dev/null
+				cat /tmp/.vrrstate 2> /dev/null || off
 			else
 				echo "''${*}" > /tmp/.vrrstate
 			fi

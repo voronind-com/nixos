@@ -29,7 +29,7 @@
 
 		function _monstate() {
 			if [[ "''${1}" = "" ]]; then
-				cat /tmp/.monstate 2> /dev/null
+				cat /tmp/.monstate 2> /dev/null || echo on
 			else
 				echo "''${*}" > /tmp/.monstate
 			fi
