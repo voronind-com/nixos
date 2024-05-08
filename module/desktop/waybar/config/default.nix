@@ -81,7 +81,8 @@ in {
 				"format-icons": {
 					"default": ["", "", ""]
 				},
-				"on-click": "sound_output_cycle",
+				"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+				"on-click-middle": "swayscript sound_output_cycle",
 				"on-click-right": "pavucontrol"
 			},
 			"mpris": {

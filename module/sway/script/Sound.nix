@@ -1,11 +1,5 @@
 { ... }: {
 	text = ''
-		# Open a sound control panel.
-		function sound() {
-			pavucontrol
-		}
-
-		# Cycle output devices.
 		function sound_output_cycle() {
 			local IFS=$'\n'
 			local current=$(pactl get-default-sink)
