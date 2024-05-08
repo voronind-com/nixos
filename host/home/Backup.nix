@@ -33,17 +33,17 @@
 		# Save media list.
 		find ''${path_media} -type d > ''${path_backup}/cold/ColdMedia.txt || report "Backup : Failed to save media list!"
 		cd ''${path_backup}/cold/
-		archive_fast ColdMedia.txt && rm ColdMedia.txt || report "Backup : Failed to archive media list!"
+		archive ColdMedia.txt && rm ColdMedia.txt || report "Backup : Failed to archive media list!"
 		cd -
 
 		# Backup docker.
-		docker=$(archive_fast docker/)
+		docker=$(archive docker/)
 		bupsize=$(tdu ''${docker} | awk '{print $1}')
 		mv ''${docker} ''${path_docker}/ || report "Backup : Failed to save docker!"
 
 		# Backup some media.
 		cd ''${path_src}/media/
-		paper=$(archive_fast paper/)
+		paper=$(archive paper/)
 		mv ''${paper} ''${path_backup}/paper/ || report "Backup : Failed to save paper!"
 		cd -
 
