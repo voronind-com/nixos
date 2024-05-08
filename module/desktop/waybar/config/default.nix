@@ -124,6 +124,7 @@ in {
 				"exec": "swayscript monbar",
 				"interval": ${toString(refreshInterval)},
 				"return-type": "json",
+				"tooltip": false, // FIXME: remove when resolved: https://github.com/Alexays/Waybar/issues/2166
 				"on-click": "swayscript montoggle",
 				"on-click-right": "swayscript vrrtoggle"
 			}
