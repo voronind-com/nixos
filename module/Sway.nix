@@ -16,7 +16,7 @@ in {
 	];
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
-	systemd.services.keyd.path = [ script ];
+	systemd.services.keyd.path = [ script pkgs.sway ];
 	environment.systemPackages = with pkgs; [
 		gnome.adwaita-icon-theme       # GTK icons.
 		grim slurp                     # Screenshot.

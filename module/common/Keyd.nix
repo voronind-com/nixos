@@ -1,5 +1,6 @@
 { pkgs, lib, ... }: {
 	environment.systemPackages = with pkgs; [ keyd ];
+
 	services.keyd = {
 		enable = true;
 		keyboards.default = {
@@ -45,11 +46,12 @@
 				};
 
 				layer_system = {
+					f = "command(swayscript montoggle)";
 					c = "command(loginctl kill-user voronind)";
 					l = "command(powerlimit toggle)";
-					# m = "command(swayscript montoggle)";
+					m = "command(swayscript montoggle)";
 					p = "command(powersave toggle)";
-					# v = "command(swayscript vrrtoggle)";
+					v = "command(swayscript vrrtoggle)";
 					x = "command(systemctl poweroff -i)";
 					z = "command(systemctl suspend -i)";
 				};
@@ -65,6 +67,6 @@
 
 	# HACK: Workaround for powersave/powerlimit/swayscript scripts.
 	systemd.services.keyd.serviceConfig.ProtectKernelTunables = lib.mkForce false;
-	systemd.services.keyd.serviceConfig.ProtectHome           = lib.mkForce false;
+	# systemd.services.keyd.serviceConfig.ProtectHome           = lib.mkForce false;
 	# systemd.services.keyd.environment.KEYD_DEBUG = "1";
 }
