@@ -1,11 +1,8 @@
-{ const, pkgs, lib, secret, ... }: {
-	systemd.services.autoupdate = {
-		enable = true;
-		description        = "Signed system auto-update.";
-		restartIfChanged   = false;
+{ const, pkgs, lib, secret, util, ... }: {
+	systemd.services.autoupdate = util.mkStaticSystemdService {
+		enable      = true;
+		description = "Signed system auto-update.";
 		serviceConfig.Type = "oneshot";
-		stopIfChanged      = false;
-		unitConfig.X-StopOnRemoval = false;
 		path = with pkgs; [
 			bash
 			git

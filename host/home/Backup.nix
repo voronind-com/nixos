@@ -74,7 +74,7 @@
 		echo "Backup : Complete ''${bupsize}."
 	'';
 in {
-	systemd.services.backup = {
+	systemd.services.backup = util.mkStaticSystemdService {
 		enable = true;
 		description = "Home system backup.";
 		serviceConfig = {

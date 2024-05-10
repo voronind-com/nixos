@@ -14,4 +14,11 @@
 	catText = files: args: builtins.foldl' (acc: mod:
 		acc + trimTabs ((import mod args).text)
 	) "" files;
+
+	# Systemd service that does not restart with system switch.
+	mkStaticSystemdService = params: params // {
+		restartIfChanged = false;
+		stopIfChanged    = false;
+		unitConfig.X-StopOnRemoval = false;
+	};
 }

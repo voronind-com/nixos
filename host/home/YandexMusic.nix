@@ -1,10 +1,10 @@
-{ pkgs, ... }: let
+{ pkgs, util, ... }: let
 	script = ''
 		music="/storage/hot/media/music/"
 		docker run --rm -v "''${music}":/music voronind.com/yamusic:latest
 	'';
 in {
-	systemd.services.yandex_music = {
+	systemd.services.yandex_music = util.mkStaticSystemdService {
 		enable = true;
 		description = "Sync music from Yandex.Music.";
 		serviceConfig = {

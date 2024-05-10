@@ -4,7 +4,7 @@
 		docker exec -u 33 cloud php -f /var/www/html/cron.php || notify 'Nextcloud : Failed to run cron.'
 	'';
 in {
-	systemd.services.nextcloud = {
+	systemd.services.nextcloud = util.mkStaticSystemdService {
 		enable = true;
 		description = "Nextcloud worker.";
 		serviceConfig = {
