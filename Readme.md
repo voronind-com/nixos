@@ -4,7 +4,9 @@
 
 ![Screenshot](https://i.imgur.com/aGmmVJa.png)
 
-[Wallpaper link](https://git.voronind.com/voronind/nixos/src/commit/97559710c57f81e42a32b11139d6d4c3dff20ab3/part/Wallpaper.nix#L2)
+[Wallpaper from the Screenshot](https://git.voronind.com/voronind/nixos/src/commit/97559710c57f81e42a32b11139d6d4c3dff20ab3/part/Wallpaper.nix#L2)
+
+[My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/part/Wallpaper.nix#L2)
 
 ## What is NixOS?
 
