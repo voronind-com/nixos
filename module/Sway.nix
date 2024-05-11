@@ -1,5 +1,5 @@
 { pkgs, lib, wallpaper, style, ... } @args: let
-	sway   = import ./sway args;
+	sway   = import ./desktop/sway args;
 	config = pkgs.writeText "swayConfig" sway.config;
 	script = pkgs.writeShellScriptBin "swayscript" sway.script;
 in {
