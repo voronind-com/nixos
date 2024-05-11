@@ -5,16 +5,12 @@
 	disable     = "0";
 
 	script = pkgs.writeShellScriptBin "powersave" (import ./powersave/Script.nix {
-		inherit controlFile;
-		inherit enable;
-		inherit disable;
+		inherit controlFile enable disable;
 	}).script;
 in {
 	imports = [
 		(import ./powersave ({
-			inherit controlFile;
-			inherit enable;
-			inherit disable;
+			inherit controlFile enable disable;
 		} // args))
 	];
 

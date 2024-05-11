@@ -33,8 +33,8 @@
 		}
 
 		input type:keyboard {
-			xkb_layout us,ru
-			xkb_options grp:toggle
+			xkb_layout ${setting.keyboard.layouts}
+			xkb_options ${setting.keyboard.options}
 		}
 
 		# Hide mouse cursor after a period of inactivity.

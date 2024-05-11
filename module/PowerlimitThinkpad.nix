@@ -9,22 +9,12 @@
 	offMax = "95";
 
 	script = pkgs.writeShellScriptBin "powerlimit" (import ./powerlimit/Script.nix {
-		inherit controlFileMax;
-		inherit controlFileMin;
-		inherit onMin;
-		inherit onMax;
-		inherit offMin;
-		inherit offMax;
+		inherit controlFileMax controlFileMin onMin onMax offMin offMax;
 	}).script;
 in {
 	imports = [
 		(import ./powerlimit ({
-			inherit controlFileMax;
-			inherit controlFileMin;
-			inherit onMin;
-			inherit onMax;
-			inherit offMin;
-			inherit offMax;
+			inherit controlFileMax controlFileMin onMin onMax offMin offMax;
 		} // args))
 	];
 

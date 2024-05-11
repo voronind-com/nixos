@@ -5,9 +5,7 @@
 	disable     = "1";
 
 	script = pkgs.writeShellScriptBin "powersave" (import ./powersave/Script.nix {
-		inherit controlFile;
-		inherit enable;
-		inherit disable;
+		inherit controlFile enable disable;
 	}).script;
 in {
 	# Requirements:
@@ -15,9 +13,7 @@ in {
 	# PSS  (Cool and Quiet)              - Enabled.
 	imports = [
 		(import ./powersave ({
-			inherit controlFile;
-			inherit enable;
-			inherit disable;
+			inherit controlFile enable disable;
 		} // args))
 	];
 

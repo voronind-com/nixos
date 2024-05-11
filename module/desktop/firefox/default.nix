@@ -6,7 +6,7 @@
 		install_url       = url;
 	};
 
-	mkBookmark = name: url: { inherit name; inherit url; };
+	mkBookmark = name: url: { inherit name url; };
 in {
 	# Disable profile switching on rebuild.
 	environment.variables = {

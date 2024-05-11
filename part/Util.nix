@@ -1,5 +1,5 @@
 # Collection of common functions.
-{ pkgs, ... }: rec {
+{ pkgs, lib, ... }: rec {
 	# Remove tabs indentation,
 	trimTabs = text: let
 		shouldStripTab = lines: builtins.all (line: (line == "") || (pkgs.lib.strings.hasPrefix "	" line)) lines;
@@ -15,6 +15,9 @@
 	catText = files: args: builtins.foldl' (acc: mod:
 		acc + trimTabs ((import mod args).text)
 	) "" files;
+
+	# Concat all files as a set.
+	catSet = files: args: lib.mkMerge (map (file: import file args) files);
 
 	# Systemd service that does not restart with system switch.
 	mkStaticSystemdService = params: params // {

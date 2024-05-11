@@ -176,6 +176,7 @@
 			# SpecialArgs allows you to pass objects down to other NixOS modules.
 			specialArgs = let
 				pkgs   = nixpkgs.legacyPackages.${system}.pkgs;
+				lib    = nixpkgs.lib;
 				config = self.nixosConfigurations.${hostname}.config;
 			in {
 				const     = self.const; # Constant values.
@@ -184,9 +185,9 @@
 				key       = import ./part/Key.nix       {}; # Keyboard keys config.
 				secret    = import ./part/Secret.nix    {}; # Secrets (public keys).
 				setting   = import ./part/Setting.nix   {}; # My own global settings.
-				style     = import ./part/Style.nix     { config = config; }; # Style abstraction.
-				util      = import ./part/Util.nix      { pkgs   = pkgs;   }; # Util functions.
-				wallpaper = import ./part/Wallpaper.nix { pkgs   = pkgs;   }; # Wallpaper.
+				style     = import ./part/Style.nix     { inherit config;   }; # Style abstraction.
+				util      = import ./part/Util.nix      { inherit pkgs lib; }; # Util functions.
+				wallpaper = import ./part/Wallpaper.nix { inherit pkgs;     }; # Wallpaper.
 			};
 		};
 
@@ -335,6 +336,7 @@
 			extraSpecialArgs = let
 				# We want arm64 packages for Android.
 				pkgs = nixpkgs.legacyPackages."aarch64-linux".pkgs;
+				lib  = nixpkgs.lib;
 			in {
 				const   = self.const; # Constant values.
 				flake   = self;       # This Flake itself.
@@ -343,7 +345,7 @@
 				secret  = import ./part/Secret.nix  {}; # Secrets (public keys).
 				setting = import ./part/Setting.nix {}; # My own global settings.
 				style   = import ./part/Style.nix   { config = import ./part/style/Gruvbox.nix {}; }; # Style abstraction. Stylix is not available for Android so I provide static Gruvbox style.
-				util    = import ./part/Util.nix    { pkgs = pkgs; }; # Util functions.
+				util    = import ./part/Util.nix    { inherit pkgs lib; }; # Util functions.
 			};
 		};
 	};

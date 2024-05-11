@@ -56,4 +56,9 @@
 	brightness.step = 5;
 	volume.step     = 5;
 	music.step      = 10;
+
+	keyboard = {
+		layouts = "us,ru";
+		options = "grp:toggle";
+	};
 }
