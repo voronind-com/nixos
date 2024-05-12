@@ -1,12 +1,12 @@
 { secret, ... }: {
 	config = {
 		credential.helper          = "store";
-		gpg.format                 = secret.crypto.sign.format;
-		gpg.ssh.allowedSignersFile = toString(secret.crypto.sign.allowed);
+		gpg.format                 = secret.crypto.sign.gih.format;
+		gpg.ssh.allowedSignersFile = toString(secret.crypto.sign.git.allowed);
 		init.defaultBranch         = "main";
 		pull.rebase                = true;
 		push.autoSetupRemote       = true;
 		rebase.autoStash           = true;
-		user.signingkey            = builtins.readFile secret.crypto.sign.key;
+		user.signingkey            = builtins.readFile secret.crypto.sign.git.key;
 	};
 }
