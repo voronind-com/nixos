@@ -1,7 +1,7 @@
 { secret, ... }: {
 	config = {
 		credential.helper          = "store";
-		gpg.format                 = secret.crypto.sign.gih.format;
+		gpg.format                 = secret.crypto.sign.git.format;
 		gpg.ssh.allowedSignersFile = toString(secret.crypto.sign.git.allowed);
 		init.defaultBranch         = "main";
 		pull.rebase                = true;
