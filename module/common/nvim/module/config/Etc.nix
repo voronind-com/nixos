@@ -27,5 +27,8 @@
 
 		-- Relative line numbers.
 		vim.wo.relativenumber = ${toString(setting.nvim.editor.relativenumber)}
+
+		-- Disable swap files.
+		vim.opt.swapfile = false
 	'';
 }
