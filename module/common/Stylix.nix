@@ -1,7 +1,4 @@
 { pkgs, config, wallpaper, ... }: let
-	# Sometimes stylix does not generate enough contrast for text.
-	# This setting forces white text to ensure contrast on dark backgrounds.
-	forceWhiteText = false;
 in {
 	# Add a permanent link for the wallpaper to /etc/wallpaper.
 	environment.etc.wallpaper.source = wallpaper.path;
@@ -42,7 +39,7 @@ in {
 				name = "Noto Color Emoji";
 			};
 		};
-		override = if forceWhiteText then {
+		override = if wallpaper.forceWhiteText then {
 			base04 = "ffffff";
 			base05 = "ffffff";
 			base06 = "ffffff";
