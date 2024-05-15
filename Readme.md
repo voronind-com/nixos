@@ -2,11 +2,17 @@
 
 ## Screenshots.
 
-![Screenshot1](https://i.imgur.com/aGmmVJa.png)
+<details>
+<summary>Screenshot 1</summary>
+<img src="https://i.imgur.com/aGmmVJa.png" />
+<a href="https://r4.wallpaperflare.com/wallpaper/500/198/463/pixel-art-digital-art-pixelated-pixels-wallpaper-b980f83df17add4b2677d8cf6091268d.jpg">Wallpaper link</a>
+</details>
 
-![Screenshot2](https://i.imgur.com/7XMd58c.jpeg)
-
-[Wallpaper from the Screenshot 1](https://git.voronind.com/voronind/nixos/src/commit/97559710c57f81e42a32b11139d6d4c3dff20ab3/part/Wallpaper.nix#L2), [Wallpaper from the Screenshot 2](https://git.voronind.com/voronind/nixos/src/commit/8857f1169df4b7e12fd84b10c60ae3fcd7bf0551/part/Wallpaper.nix#L2).
+<details>
+<summary>Screenshot 2</summary>
+<img src="https://i.imgur.com/7XMd58c.jpeg" />
+<a href="https://pixeldrain.com/api/file/ppeeEr4d">Wallpaper link</a>
+</details>
 
 [My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/part/Wallpaper.nix#L2)
 
