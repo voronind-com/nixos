@@ -24,7 +24,7 @@ in {
 				{ toplevel_name = "Pin"; }
 				(mkBookmark "Dashboard" "https://home.voronind.com")
 				(mkBookmark "Music"     "https://music.yandex.ru")
-				(mkBookmark "Telegram"  "https://web.telegram.org")
+				(mkBookmark "Telegram"  "https://web.telegram.org/a")
 				(mkBookmark "Discord"   "https://discord.com")
 				(mkBookmark "WorkMail"  "https://mail.fsight.ru")
 				(mkBookmark "Git"       "https://git.voronind.com")
