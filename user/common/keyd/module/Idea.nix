@@ -14,5 +14,6 @@
 		alt.v = C-q
 		alt.x = C-f4
 		alt.z = C-f2
+		alt./ = macro(C-/ up)
 	'';
 }
