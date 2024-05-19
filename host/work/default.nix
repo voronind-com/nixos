@@ -8,9 +8,7 @@
 
 	# Reduce font size.
 	stylix.fonts.sizes = {
-		applications = lib.mkForce 8;
+		applications = lib.mkForce 10;
 		terminal     = lib.mkForce 8;
-		popups       = lib.mkForce 12;
-		desktop      = lib.mkForce 14;
 	};
 }

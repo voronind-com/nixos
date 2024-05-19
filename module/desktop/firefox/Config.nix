@@ -1,4 +1,4 @@
-{ util, ... }: {
+{ util, style, ... }: {
 	text = util.trimTabs ''
 		// Bookmarks.
 		lockPref("browser.microsummary.enabled",          true);
@@ -7,18 +7,18 @@
 
 		// Fonts.
 		pref("browser.display.use_document_fonts", 0);
-		lockPref("font.minimum-size.x-cyrillic", 12);
-		lockPref("font.minimum-size.x-unicode",  12);
-		lockPref("font.minimum-size.x-western",  12);
-		lockPref("font.name.monospace.x-cyrillic", "Terminess Nerd Font Mono");
-		lockPref("font.name.monospace.x-unicode",  "Terminess Nerd Font Mono");
-		lockPref("font.name.monospace.x-western",  "Terminess Nerd Font Mono");
-		lockPref("font.name.sans-serif.x-cyrillic", "SF Pro Text");
-		lockPref("font.name.sans-serif.x-unicode",  "SF Pro Text");
-		lockPref("font.name.sans-serif.x-western",  "SF Pro Text");
-		lockPref("font.name.serif.x-cyrillic", "SF Pro Text");
-		lockPref("font.name.serif.x-unicode",  "SF Pro Text");
-		lockPref("font.name.serif.x-western",  "SF Pro Text");
+		lockPref("font.minimum-size.x-cyrillic", ${toString(style.font.size.application)});
+		lockPref("font.minimum-size.x-unicode",  ${toString(style.font.size.application)});
+		lockPref("font.minimum-size.x-western",  ${toString(style.font.size.application)});
+		lockPref("font.name.monospace.x-cyrillic", "${style.font.monospace.name}");
+		lockPref("font.name.monospace.x-unicode",  "${style.font.monospace.name}");
+		lockPref("font.name.monospace.x-western",  "${style.font.monospace.name}");
+		lockPref("font.name.sans-serif.x-cyrillic", "${style.font.sansSerif.name}");
+		lockPref("font.name.sans-serif.x-unicode",  "${style.font.sansSerif.name}");
+		lockPref("font.name.sans-serif.x-western",  "${style.font.sansSerif.name}");
+		lockPref("font.name.serif.x-cyrillic", "${style.font.serif.name}");
+		lockPref("font.name.serif.x-unicode",  "${style.font.serif.name}");
+		lockPref("font.name.serif.x-western",  "${style.font.serif.name}");
 
 		// Animations.
 		lockPref("browser.fullscreen.animateUp", 0);
