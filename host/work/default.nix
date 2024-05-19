@@ -1,8 +1,16 @@
-{ ... }: {
+{ lib, ... }: {
 	imports = [
 		./Fprint.nix
 	];
 
 	# Keyd Print to Macro remap.
 	services.keyd.keyboards.default.settings.main.print = "layer(layer_macro)";
+
+	# Reduce font size.
+	stylix.fonts.sizes = {
+		applications = lib.mkForce 8;
+		terminal     = lib.mkForce 8;
+		popups       = lib.mkForce 12;
+		desktop      = lib.mkForce 14;
+	};
 }
