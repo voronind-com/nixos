@@ -16,14 +16,18 @@ in {
 	];
 
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
-	environment.systemPackages = with pkgs; [
-		grim slurp                     # Screenshot.
-		mako                           # Notification system.
-		networkmanagerapplet           # Internet configuration.
-		pamixer pavucontrol pulseaudio # Audio.
-		playerctl                      # Multimedia controls.
-		script
-	];
+	environment = {
+		systemPackages = with pkgs; [
+			grim slurp                     # Screenshot.
+			mako                           # Notification system.
+			networkmanagerapplet           # Internet configuration.
+			pamixer pavucontrol pulseaudio # Audio.
+			playerctl                      # Multimedia controls.
+			script                         # My custom Sway shell scripts.
+		];
+
+		variables.XDG_CURRENT_DESKTOP = "sway";
+	};
 
 	programs.sway = {
 		enable = true;

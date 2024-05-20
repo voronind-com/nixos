@@ -9,10 +9,7 @@
 	mkBookmark = name: url: { inherit name url; };
 in {
 	# Disable profile switching on rebuild.
-	environment.variables = {
-		MOZ_LEGACY_PROFILES = "1";
-		MOZ_ENABLE_WAYLAND  = "1";
-	};
+	environment.variables.MOZ_LEGACY_PROFILES = "1";
 
 	programs.firefox = {
 		enable  = true;

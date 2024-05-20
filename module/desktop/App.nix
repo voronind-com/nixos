@@ -62,6 +62,9 @@ in {
 
 			# Proton.
 			WINEFSYNC = "1";
+
+			# GTK apps compat.
+			GTK_CSD = 0;
 		};
 	};
 
