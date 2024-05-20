@@ -15,7 +15,6 @@
 		gnumake gnused     # GNU utils.
 		gparted parted     # GUI/CLI disk partition tool.
 		imagemagick        # Image converter and transformation tool.
-		jdk                # Java.
 		jq                 # Json parser.
 		lm_sensors         # Hardware sensors, like temperature and fan speeds.
 		lshw               # Detailed hardware info tool.
@@ -40,4 +39,5 @@
 	# Special packages.
 	programs.adb.enable     = true;
 	services.udisks2.enable = true;
+	programs.java.enable    = true;
 }
