@@ -2,7 +2,7 @@
 	mod = key.sysctrl;
 in {
 	text = ''
-		bindsym ${mod}+c exec 'swaymsg exit'
+		bindsym ${mod}+c exec 'systemctl reboot -i'
 		bindsym ${mod}+f exec 'swayscript montoggle'
 		bindsym ${mod}+l exec 'powerlimit toggle'
 		bindsym ${mod}+m exec 'swayscript montoggle'
