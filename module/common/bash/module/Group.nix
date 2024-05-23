@@ -63,7 +63,7 @@
 				if [[ "''${year}" = "''${selected_year}" ]]; then
 					rcp -- ''${target} ./''${selected_year}/
 				else
-					_iterate_skip
+					_iterate_skip "Skip: ''${year}"
 				fi
 			}
 
