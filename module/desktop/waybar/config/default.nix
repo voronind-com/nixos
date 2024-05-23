@@ -67,7 +67,8 @@ in {
 				"format-plugged": "{capacity}% ",
 				"format-alt": "{time} {icon}",
 				"format-icons": ["󰂎", "󱊡", "󱊢", "󱊣", "󱊣"],
-				"on-click-right": "powerlimit toggle"
+				"on-click-right": "powerlimit toggle",
+				"interval": ${toString(refreshInterval)},
 			},
 			"custom/powerlimit": {
 				"exec": "powerlimit waybar",
