@@ -249,6 +249,9 @@
 					"txz")
 						''${remote[@]} pv -f ''${file} | xz -d | tar -xf -
 						;;
+					"tar")
+						''${remote[@]} pv -f ''${file} | tar -xf -
+						;;
 					"tgz")
 						''${remote[@]} pv -f ''${file} | gzip -d | tar -xf -
 						;;
