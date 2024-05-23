@@ -21,6 +21,7 @@
 		./module/Session.nix
 		./module/Keyd.nix
 		./module/Waybar.nix
+		./module/System.nix
 	] args;
 in {
 	config = (util.trimTabs ''
