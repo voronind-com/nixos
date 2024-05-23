@@ -13,7 +13,7 @@ in {
 			"margin-right": ${toString(style.window.gap)},
 			"mode": "dock",
 			// "exclusive": false,
-			"start_hidden": true,
+			"start_hidden": false,
 			"modules-left": [
 				"sway/workspaces",
 				"sway/scratchpad",
