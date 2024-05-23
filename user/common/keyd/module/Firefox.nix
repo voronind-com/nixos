@@ -7,7 +7,7 @@
 		alt.a = A-left
 		alt.d = A-right
 		alt.e = C-pagedown
-		alt.esc = C-t
+		alt.capslock = C-t
 		alt.f = C-f
 		alt.l = A-S-a
 		alt.n = f3
