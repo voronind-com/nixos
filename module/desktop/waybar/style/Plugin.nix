@@ -1,27 +1,47 @@
-{ style, ... }: {
+{ style, ... }: let
+	paddingV = "0";
+	paddingH = "12px";
+in {
 	text = ''
 		#pulseaudio,
 		#mpris,
-		#cpu,
 		#battery,
 		#custom-display,
-		#language {
-			padding: 8px 0 8px 24px;
-		}
-
+		#custom-powersave,
+		#custom-powerlimit,
+		#tray,
 		#temperature,
 		#memory,
+		#cpu,
+		#clock,
+		#scratchpad,
+		#language {
+			padding: ${paddingV} ${paddingH};
+			border-top: ${toString(style.window.border)}px solid transparent;
+			border-bottom: ${toString(style.window.border)}px solid transparent;
+		}
+
+		#cpu {
+			padding-right: 0;
+		}
+
+		#temperature {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		#memory {
+			padding-left: 0;
+		}
+
 		#custom-powersave,
 		#custom-powerlimit {
-			padding: 8px 0 8px 0;
+			margin-left: -${paddingH};
+			padding-left: 0;
 		}
 
 		#clock {
 			font-weight: bold;
-		}
-
-		#tray {
-			padding: 8px 12px 8px 24px;
 		}
 
 		#battery:hover,
@@ -36,25 +56,26 @@
 		#pulseaudio:hover,
 		#temperature:hover,
 		#tray:hover,
+		#scratchpad:hover,
 		#workspaces button:hover {
-			background-color: #ff0000;
+			background-color: rgba(${style.color.border-r},${style.color.border-g},${style.color.border-b},${toString(style.opacity.desktop)});
 		}
 
 		#pulseaudio.muted,
 		#battery.critical,
+		#tray.needs-attention,
 		#custom-display.modified {
 			border-top: ${toString(style.window.border)}px solid #${style.color.accent};
 		}
 
 		#workspaces button {
-			padding: 0 4px;
+			padding: ${paddingV} 4px;
 			border-top: ${toString(style.window.border)}px solid transparent;
+			border-radius: 0;
 		}
 
 		#workspaces button.focused {
 			border-top: ${toString(style.window.border)}px solid #${style.color.accent};
 		}
 	'';
-
-			# background-color: rgba(${style.color.border-r},${style.color.border-g},${style.color.border-b},${toString(style.opacity.desktop)});
 }
