@@ -18,7 +18,7 @@ update:
 	nix flake update
 
 .PHONY: live
-live: check
+live:
 	nix build -o live $(options) $(flake)#nixosConfigurations.live.config.system.build.isoImage
 
 .PHONY: android
