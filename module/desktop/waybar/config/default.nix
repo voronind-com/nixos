@@ -54,7 +54,7 @@ in {
 			"clock": {
 				// "timezone": "America/New_York",
 				"tooltip-format": "<big><tt>{calendar}</tt></big>",
-				"format-alt": "{:%d %a %H:%M}"
+				"format-alt": "{:%d %a %H:%M}",
 			},
 			"battery": {
 				"states": {

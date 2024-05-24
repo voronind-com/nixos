@@ -37,7 +37,15 @@
 		}
 
 		function monbar() {
-			printf "{\"text\": \"󰍹\", \"tooltip\": \"Mon: $(_monstate) / Vrr: $(_vrrstate)\"}\n"
+			local __monstate=$(_monstate)
+			local __vrrstate=$(_vrrstate)
+			local class=""
+
+			if [[ "''${__monstate}" = "off" ]] || [[ "''${__vrrstate}" = "on" ]]; then
+				class="modified"
+			fi
+
+			printf "{\"text\": \"󰍹\", \"tooltip\": \"Mon: ''${__monstate^} / Vrr: ''${__vrrstate^}\", \"class\": \"''${class}\"}\n"
 		}
 
 		function _monstate() {
