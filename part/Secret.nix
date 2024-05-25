@@ -5,7 +5,7 @@
 	ssh = {
 		# Keys that are allowed to connect via SSH.
 		trustedKeys = [
-			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIL2LI1iFDZC223aWqBVz9yusfB/XrRwsBKiL5warIF/ nix-on-droid@phone"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJTI4IUkHH0JSzWDKOAMbzEDbyBXOrmTHRy+tpqJ8twx nix-on-droid@nothing2"
 			(builtins.readFile ./secret/public/Ssh.key)
 		];
 
