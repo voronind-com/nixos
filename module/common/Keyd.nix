@@ -1,4 +1,4 @@
-{ pkgs, lib, key, ... }: {
+{ pkgs, key, ... }: {
 	environment.systemPackages = with pkgs; [ keyd ];
 
 	services.keyd = {
