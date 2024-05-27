@@ -41,8 +41,8 @@
 					a = "back";
 					e = "nextsong";
 					q = "previoussong";
-					x = "mute";
-					z = "stopcd";
+					x = "stopcd";
+					z = "mute";
 				};
 
 				layer_macro = {};
