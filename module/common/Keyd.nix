@@ -31,6 +31,7 @@
 					l = "right";
 					esc = "esc";
 					rightcontrol = "leftcontrol";
+					capslock = "capslock";
 					# space = "macro2(1, 100, macro(space))"; # NOTE: Possible bhop example. Use in per-application, not here.
 				};
 
