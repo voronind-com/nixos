@@ -7,6 +7,7 @@
 		alt.e = A-right
 		alt.f = C-S-f
 		alt.g = macro(gd)
+		alt.i = C-i
 		alt.o = C-o
 		alt.q = A-left
 		alt.r = S-f10
@@ -15,7 +16,7 @@
 		alt.w = C-S-A-t
 		alt.x = C-f4
 		alt.z = C-f2
-		alt./ = macro(C-/ up)
+		alt./ = C-/
 		alt.tab = timeout(f8, ${toString(setting.keyd.timeout.ms)}, macro2(0, 0, f7))
 	'';
 }
