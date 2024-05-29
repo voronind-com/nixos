@@ -10,6 +10,7 @@
 		alt.i = C-i
 		alt.o = C-o
 		alt.q = A-left
+		alt.n = C-A-n
 		alt.r = S-f10
 		alt.s = C-A-s
 		alt.v = C-q
