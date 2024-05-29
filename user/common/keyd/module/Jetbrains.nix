@@ -18,6 +18,7 @@
 		alt.x = C-f4
 		alt.z = C-f2
 		alt./ = C-/
+		alt.= = C-A-l
 		alt.tab = timeout(f8, ${toString(setting.keyd.timeout.ms)}, macro2(0, 0, f7))
 	'';
 }
