@@ -1,6 +1,6 @@
 { setting, ... }: {
 	text = ''
-		[jetbrains-idea-ce]
+		[jetbrains-*]
 		alt.a = C-A-5
 		alt.c = S-escape
 		alt.d = S-f9
