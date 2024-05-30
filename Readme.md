@@ -14,6 +14,12 @@
 <a href="https://pixeldrain.com/api/file/ppeeEr4d">Wallpaper link</a>
 </details>
 
+<details>
+<summary>Screenshot 3</summary>
+<img src="https://i.imgur.com/67nW8XT.jpeg" />
+<a href="https://i.imgur.com/H943DFl.jpeg">Wallpaper link</a>
+</details>
+
 [My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/part/Wallpaper.nix#L2)
 
 Color theming based on wallpaper thanks to [Stylix](https://github.com/danth/stylix).
