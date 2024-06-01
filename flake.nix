@@ -125,7 +125,7 @@
 		# Constant values.
 		const = {
 			droidStateVersion = "22.11";
-			stateVersion      = "23.11";
+			stateVersion      = "24.05";
 			timeZone = "Europe/Moscow";
 			url = "https://git.voronind.com/voronind/nixos.git";
 		};
