@@ -16,7 +16,6 @@
 		alt.r = C-f5
 		alt.s = down
 		alt.space = f6
-		alt.t = C-t
 		alt.u = C-S-t
 		alt.w = up
 		alt.x = C-w
