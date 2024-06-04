@@ -69,19 +69,19 @@ Yellow are modifier keys, they enable layers when held. Green ones are just modi
 
 <details>
 <summary>WM keys</summary>
-Sway:
-<img src="https://i.imgur.com/rr9OZ64.png" />
-Gnome:
+Sway:<br>
+<img src="https://i.imgur.com/rr9OZ64.png" /><br>
+Gnome:<br>
 <img src="https://i.imgur.com/TrqC5jt.png" />
 </details>
 
 <details>
 <summary>Per-application controls</summary>
-Firefox:
-<img src="https://i.imgur.com/GI0apoV.png" />
-Jetbrains:
-<img src="https://i.imgur.com/scijaJI.png" />
-Tmux:
+Firefox:<br>
+<img src="https://i.imgur.com/GI0apoV.png" /><br>
+Jetbrains:<br>
+<img src="https://i.imgur.com/scijaJI.png" /><br>
+Tmux:<br>
 <img src="https://i.imgur.com/Soo85vk.png" />
 </details>
 
