@@ -9,7 +9,7 @@
 				main = {
 					backspace    = "delete";                                   # Delete key on backspace.
 					capslock     = "overload(control, esc)";                   # Ctrl/esc combo.
-					compose      = "layer(layer_macro)";                       # Input macros.
+					compose      = "layer(layer_number)";                      # Number input layer.
 					esc          = "${key.sysctrl}";                           # System controls.
 					leftcontrol  = "overload(layer_alternative, leftcontrol)"; # Alternative layer for home, end etc.
 					rightcontrol = "layer(layer_control)";                     # Media and other controls.
@@ -48,7 +48,32 @@
 					z = "mute";
 				};
 
-				layer_macro = {};
+				# Number inputs.
+				layer_number = {
+					q = "1";
+					w = "2";
+					e = "3";
+					a = "4";
+					s = "5";
+					d = "6";
+					z = "7";
+					x = "8";
+					c = "9";
+					space = "0";
+					"1" = "f13";
+					"2" = "f14";
+					"3" = "f15";
+					"4" = "f16";
+					"5" = "f17";
+					"6" = "f18";
+					"7" = "f19";
+					"8" = "f20";
+					"9" = "f21";
+					"0" = "f22";
+					"-" = "f23";
+					"=" = "f24";
+					enter = "kpenter";
+				};
 			};
 		};
 	};
