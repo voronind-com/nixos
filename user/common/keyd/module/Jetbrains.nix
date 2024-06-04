@@ -20,5 +20,6 @@
 		alt./ = C-/
 		alt.= = C-A-l
 		alt.tab = timeout(f8, ${toString(setting.keyd.timeout.ms)}, macro2(0, 0, f7))
+		alt.capslock = C-A-S-insert
 	'';
 }
