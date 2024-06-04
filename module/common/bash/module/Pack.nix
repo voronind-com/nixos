@@ -66,13 +66,21 @@
 			[[ "''${targets}" = "" ]] && targets=($(_ls_files | grep -E ''${_unpack_supported}))
 
 			process() {
-				# unpack file type.
+				# Use full path to file.
+				target=''$(realpath "''${target}")
+
+				# Unpack file type.
 				local type="''${target##*.}"
 
 				[[ "''${target}" =~ .tar.gz$ ]] && type="tar.gz"
 				[[ "''${target}" =~ .tar.xz$ ]] && type="tar.xz"
 
-				# unpack content.
+				# Make a dir for files.
+				local dir="''${target%.$type}"; dir="''${dir##*/}"
+				mkdir "''${dir}" > /dev/null
+				pushd "''${dir}" > /dev/null
+
+				# Unpack content.
 				case "''${type,,}" in
 					"zip")
 						_unpack_zip "''${target}"
@@ -106,6 +114,9 @@
 						return 2
 						;;
 				esac
+
+				# Cd back.
+				popd > /dev/null
 			}
 
 			_iterate_targets process ''${targets[@]}
