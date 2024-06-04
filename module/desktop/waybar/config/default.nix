@@ -1,5 +1,5 @@
 { setting, style, ... }: let
-	refreshInterval = 1;
+	refreshInterval = 2;
 in {
 	text = ''
 		// -*- mode: jsonc -*-
@@ -104,17 +104,20 @@ in {
 				"format": "{usage}% ({load})",
 				"tooltip": false,
 				"on-click": "foot -e bash -c btop",
-				"on-click-right": "powersave toggle"
+				"on-click-right": "powersave toggle",
+				"interval": ${toString(refreshInterval)},
 			},
 			"memory": {
 				"format": "{percentage}%",
 				"on-click": "foot -e bash -c btop",
-				"on-click-right": "powersave toggle"
+				"on-click-right": "powersave toggle",
+				"interval": ${toString(refreshInterval)},
 			},
 			"temperature": {
 				"format": "{temperatureC}°C",
 				"on-click": "foot -e bash -c btop",
-				"on-click-right": "powersave toggle"
+				"on-click-right": "powersave toggle",
+				"interval": ${toString(refreshInterval)},
 			},
 			"custom/powersave": {
 				"exec": "powersave waybar",
