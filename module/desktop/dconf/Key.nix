@@ -62,8 +62,6 @@ in {
 	"org/gnome/settings-daemon/plugins/media-keys" = {
 		custom-keybindings = [
 			"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-			"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-			"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
 		];
 		magnifier          = [ "" ];
 		magnifier-zoom-in  = [ "" ];
@@ -76,18 +74,6 @@ in {
 		binding = "${mod}${key.gnome.launch.terminal}";
 		command = "kgx -e bash -c 'tmux new-session -A -s main; bash'";
 		name    = "gnome-terminal";
-	};
-
-	"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-		binding = "<Shift>${mod}${key.action.exit}";
-		command = "gnome-session-quit --power-off";
-		name    = "gnome-poweroff";
-	};
-
-	"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-		binding = "<Primary>${key.gnome.launch.terminal}";
-		command = "kgx -- btop";
-		name    = "System Monitor";
 	};
 
 	"org/gnome/shell/keybindings" = {

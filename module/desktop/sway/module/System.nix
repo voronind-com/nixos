@@ -3,7 +3,6 @@
 in {
 	text = ''
 		bindsym ${mod}+c exec 'systemctl reboot -i'
-		bindsym ${mod}+f exec 'swayscript montoggle'
 		bindsym ${mod}+l exec 'powerlimit toggle'
 		bindsym ${mod}+m exec 'swayscript montoggle'
 		bindsym ${mod}+p exec 'powersave toggle'
