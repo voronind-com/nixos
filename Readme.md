@@ -55,7 +55,7 @@ Start from the [Flake](flake.nix) file and follow the comments. If you have any 
 
 ## Keyboard layouts.
 
-Yellow are modifier keys, they toggle layers when pressed. Green ones are just modified keys.
+Yellow are modifier keys, they enable layers when held. Green ones are just modified keys.
 
 <details>
 <summary>Default</summary>
