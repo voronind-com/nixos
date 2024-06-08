@@ -13,16 +13,17 @@
 		gnutar gzip xz
 		hostname
 		imagemagick
+		inetutils
 		jq
 		lsof
 		man
 		nmap
 		openssh
 		parallel
+		tmux
 		pv
 		rsync
 		sqlite
-		pkgs.tmux
 		tree
 		wget
 		yt-dlp

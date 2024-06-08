@@ -15,6 +15,7 @@
 		gnumake gnused     # GNU utils.
 		gparted parted     # GUI/CLI disk partition tool.
 		imagemagick        # Image converter and transformation tool.
+		inetutils          # Things like FTP.
 		jq                 # Json parser.
 		lm_sensors         # Hardware sensors, like temperature and fan speeds.
 		lshw               # Detailed hardware info tool.
