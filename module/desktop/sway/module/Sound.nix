@@ -14,5 +14,6 @@ in {
 		bindsym XF86AudioPrev  exec 'playerctl previous'
 		bindsym XF86Forward    exec 'playerctl position ${step_music}+'
 		bindsym XF86Back       exec 'playerctl position ${step_music}-'
+		bindsym XF86Eject      exec 'swayscript sound_output_cycle'
 	'';
 }

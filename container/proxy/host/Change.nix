@@ -1,16 +1,17 @@
 { domain, util, container, ... }: let
-	cfg = container.config.change;
+	cfg  = container.config.change;
+	name = "change";
 in {
 	${cfg.domain} = container.mkServer {
 		extraConfig = util.trimTabs ''
 			listen 443 ssl;
-			set $change ${cfg.address}:5000;
+			set ''$${name} ${cfg.address}:${toString cfg.port};
 
 			location / {
-				allow 192.168.1.0/24;
-				allow 10.1.0.1;
+				allow ${container.localAccess};
+				allow ${container.config.vpn.address};
 				deny all;
-				proxy_pass http://$change$request_uri;
+				proxy_pass http://''$${name}$request_uri;
 			}
 
 			ssl_certificate /etc/letsencrypt/live/${domain}/fullchain.pem;

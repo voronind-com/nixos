@@ -1,16 +1,18 @@
 { domain, util, container, ... }: let
-	cfg = container.config.paste;
+	cfg  = container.config.paste;
+	name = "paste";
 in {
 	${cfg.domain} = container.mkServer {
 		extraConfig = util.trimTabs ''
 			listen 443 ssl;
-			set $paste ${cfg.address}:80;
+			set ''$${name} ${cfg.address}:${toString cfg.port};
 
 			location = / {
 				return 403;
 			}
+
 			location / {
-				proxy_pass http://$paste$request_uri;
+				proxy_pass http://''$${name}$request_uri;
 			}
 
 			ssl_certificate /etc/letsencrypt/live/${domain}/fullchain.pem;

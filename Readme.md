@@ -92,7 +92,7 @@ Tmux:<br>
 
 <details>
 <summary>Media Controls</summary>
-<img src="https://i.imgur.com/p9trGMi.png" />
+<img src="https://i.imgur.com/FRZ7G2N.png" />
 </details>
 
 <details>

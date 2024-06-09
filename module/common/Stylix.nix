@@ -4,6 +4,8 @@ in {
 	environment.etc.wallpaper.source = wallpaper.path;
 
 	stylix = {
+		# NOTE: Enable this later...
+		# enable = true;
 		image = wallpaper.path;
 		autoEnable = true;
 		polarity = "dark";

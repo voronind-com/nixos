@@ -38,12 +38,13 @@
 				# Media controls.
 				layer_control = {
 					space = "playpause";
-					w = "volumeup";
-					s = "volumedown";
-					d = "forward";
 					a = "back";
+					c = "ejectcd";
+					d = "forward";
 					e = "nextsong";
 					q = "previoussong";
+					s = "volumedown";
+					w = "volumeup";
 					x = "stopcd";
 					z = "mute";
 				};

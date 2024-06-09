@@ -2,7 +2,7 @@
 	list = with pkgs; [
 		android-tools
 		binwalk
-		coreutils diffutils findutils utillinux
+		coreutils dnsutils diffutils findutils utillinux
 		curl
 		ffmpeg
 		file

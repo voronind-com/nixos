@@ -1,19 +1,21 @@
 { domain, util, container, ... }: let
-	cfg = container.config.cloud;
+	cfg  = container.config.cloud;
+	name = "cloud";
 in {
 	${cfg.domain} = container.mkServer {
 		extraConfig = util.trimTabs ''
 			listen 443 ssl;
-			set $cloud ${cfg.address}:80;
+			set ''$${name} ${cfg.address}:${toString cfg.port};
 
 			location ~ ^/(settings/admin|settings/users|settings/apps|login|api) {
-				allow 192.168.1.0/24;
-				allow 10.1.0.1;
+				allow ${container.localAccess};
+				allow ${container.config.vpn.address};
 				deny all;
-				proxy_pass http://$cloud$request_uri;
+				proxy_pass http://''$${name}$request_uri;
 			}
+
 			location / {
-				proxy_pass http://$cloud$request_uri;
+				proxy_pass http://''$${name}$request_uri;
 			}
 
 			ssl_certificate /etc/letsencrypt/live/${domain}/fullchain.pem;

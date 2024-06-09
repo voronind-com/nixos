@@ -1,4 +1,4 @@
-{ util, ... }: {
+{ util, container, ... }: {
 	text = util.trimTabs ''
 		;<?php http_response_code(403); /*
 		; config file for PrivateBin
@@ -220,7 +220,7 @@
 		; example of DB configuration for PostgreSQL
 		class = Database
 		[model_options]
-		dsn = "pgsql:host=10.1.0.3;dbname=privatebin"
+		dsn = "pgsql:host=${container.config.postgres.address};dbname=privatebin"
 		tbl = "privatebin_"     ; table prefix
 		usr = "privatebin"
 		pwd = "privatebin"

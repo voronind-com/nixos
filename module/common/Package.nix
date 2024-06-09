@@ -3,10 +3,11 @@
 	environment.systemPackages = with pkgs; [
 		binwalk            # Can analyze files for other files inside them.
 		btop htop          # System monitors.
-		coreutils usbutils # Common utilities.
+		coreutils          # Common utilities.
 		cryptsetup         # Filesystem encryption (LUKS).
 		curl               # CLI http client.
 		ddrescue testdisk  # Apps to recover data from drives.
+		dnsutils           # Dns utilities like host.
 		fastfetch          # Systeminfo summary.
 		ffmpeg             # Video/audio converter.
 		file               # Get general info about a file.
@@ -30,8 +31,10 @@
 		smartmontools      # S.M.A.R.T. tools.
 		sqlite             # Serverless file-based database engine.
 		tree               # Show directory stricture as a tree.
+		usbutils           # Usb utilities like udiskctl.
 		ventoy             # Boot multiple ISO/images from a single USB stick.
 		wget               # CLI http download tool.
+		wireguard-tools    # Tools to work with Wireguard.
 		zip unzip          # Zip archive/unarchive tools.
 
 		universal-android-debloater # Debloat Android devices.

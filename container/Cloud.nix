@@ -17,20 +17,23 @@ in {
 			environment.systemPackages = [ pkgs.postgresql ];
 			services.nextcloud = {
 				enable = true;
-				package = pkgs.nextcloud29;
+				# package = pkgs.nextcloud29;
 				hostName = cfg.domain;
+				# phpOptions = {
+				# 	memory_limit = lib.mkForce "20G";
+				# };
 				config = {
 					adminuser     = "root";
 					adminpassFile = "${pkgs.writeText "NextcloudPassword" "root"}";
 
 					dbhost     = container.config.postgres.address;
 					dbname     = "nextcloud";
-					# dbpassFile = "${pkgs.writeText "NextcloudDbPassword" "nextcloud"}";
+					dbpassFile = "${pkgs.writeText "NextcloudDbPassword" "nextcloud"}";
 					dbtype     = "pgsql";
 					dbuser     = "nextcloud";
 				};
 				extraApps = {
-					inherit (config.services.nextcloud.package.packages.apps) contacts calendar;
+					inherit (config.services.nextcloud.package.packages.apps) contacts calendar onlyoffice;
 				};
 				extraAppsEnable = true;
 				settings = {

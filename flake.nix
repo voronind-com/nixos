@@ -25,6 +25,11 @@
 		# Manual:   https://danth.github.io/stylix
 		stylix.url  = "github:danth/stylix";
 
+		# I use this for a single container called jobber.
+		# You likely won't need this one, so just skip it for now.
+		poetry2nixJobber.url = "github:nix-community/poetry2nix/304f8235fb0729fd48567af34fcd1b58d18f9b95";
+		nixpkgsJobber.url    = "github:nixos/nixpkgs/051f920625ab5aabe37c920346e3e69d7d34400e";
+
 		# Nix on Android (inside Termux). It has no NixOS modules, but still allows the use of Nixpkgs arm packages with Home-Manager configurations.
 		# Homepage: https://github.com/nix-community/nix-on-droid
 		# Manual:   https://github.com/nix-community/nix-on-droid/blob/master/README.md
@@ -121,7 +126,7 @@
 	# Here you see a set of inputs we defined above, like nixpkgs, home-manager and so on.
 	# `...` at the end of a set means "ignore other arguments provided to this function".
 	# @inputs means aliasing all the inputs to the `inputs` name, so we can pass them all at once later.
-	outputs = { self, nixpkgs, nix-on-droid, home-manager, stylix, ... } @inputs: {
+	outputs = { self, nixpkgs, nix-on-droid, home-manager, stylix, poetry2nixJobber, nixpkgsJobber, ... } @inputs: {
 		# Constant values.
 		const = {
 			droidStateVersion = "22.11";
@@ -178,6 +183,8 @@
 				pkgs   = nixpkgs.legacyPackages.${system}.pkgs;
 				lib    = nixpkgs.lib;
 				config = self.nixosConfigurations.${hostname}.config;
+
+				pkgsJobber = nixpkgsJobber.legacyPackages.${system}.pkgs;
 			in {
 				const     = self.const; # Constant values.
 				flake     = self;       # This Flake itself.
@@ -188,6 +195,9 @@
 				style     = import ./part/Style.nix     { inherit config;   }; # Style abstraction.
 				util      = import ./part/Util.nix      { inherit pkgs lib; }; # Util functions.
 				wallpaper = import ./part/Wallpaper.nix { inherit pkgs;     }; # Wallpaper.
+
+				# Stuff for Jobber container, skip this part.
+				inherit poetry2nixJobber pkgsJobber;
 			};
 		};
 

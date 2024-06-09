@@ -8,6 +8,18 @@ in {
 	];
 
 	containers.proxy = container.mkContainer cfg {
+		forwardPorts = [
+			{
+				containerPort = 80;
+				hostPort      = 80;
+				protocol      = "tcp";
+			} {
+				containerPort = 443;
+				hostPort      = 443;
+				protocol      = "tcp";
+			}
+		];
+
 		bindMounts = {
 			"/etc/letsencrypt" = {
 				hostPath   = "${cfg.storage}/letsencrypt";
@@ -34,6 +46,7 @@ in {
 				eventsConfig = util.trimTabs ''
 					worker_connections 4096;
 				'';
+				# TODO: Fix 80 redirect and 403 default.
 				appendHttpConfig = util.trimTabs ''
 					server {
 						server_name default_server;
