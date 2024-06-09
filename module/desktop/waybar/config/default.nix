@@ -87,8 +87,8 @@ in {
 				"on-click": "pavucontrol"
 			},
 			"mpris": {
-				"format": "{player_icon}  {artist} - {title}",
-				"format-paused": "{status_icon}  {artist} - {title}",
+				"format": "{player_icon}  {title} - {artist}",
+				"format-paused": "{status_icon}  {title} - {artist}",
 				"player-icons": {
 					"default": "",
 					"firefox": "󰈹",
