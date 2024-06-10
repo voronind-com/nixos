@@ -33,6 +33,7 @@ in {
 			adwsteamgtk              # Steam GTK theme. Need to run the app to apply.
 			appimage-run             # Tool to run .AppImage files in NixOS.
 			aseprite                 # Pixel Art draw app. WARNING: Always builds from source.
+			blanket                  # Sounds generator.
 			blender-hip              # Blender with HiP support.
 			calibre                  # Book library manager.
 			evince                   # Document viewer.
