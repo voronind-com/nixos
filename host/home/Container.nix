@@ -20,6 +20,7 @@
 			movie    = [ "/storage/cold_1/media/movie" "/storage/cold_2/media/movie" ];
 			music    = [ "/storage/hot/media/music" "/storage/cold_2/media/music" ];
 			paper    = [ "/storage/hot/media/paper" ];
+			porn     = [ "/storage/cold_2/media/porn" ];
 			photo    = [ "${storage}/cloud/data/data/cakee/files/media/photo" "/storage/cold_1/backup/tmp/photo" ];
 			show     = [ "/storage/cold_1/media/show" "/storage/cold_2/media/show" ];
 			study    = [ "/storage/cold_1/media/study" "/storage/cold_2/media/study" ];
@@ -36,7 +37,7 @@ in {
 	imports = [
 		(import ../../container/Change.nix args)
 		(import ../../container/Cloud.nix args)
-		(import ../../container/Ddns.nix args)
+		# (import ../../container/Ddns.nix args)
 		(import ../../container/Dns.nix args)
 		(import ../../container/Download.nix args)
 		(import ../../container/Git.nix args)
@@ -45,7 +46,7 @@ in {
 		(import ../../container/Iot.nix args)
 		(import ../../container/Jobber.nix args)
 		(import ../../container/Mail.nix args)
-		(import ../../container/Office.nix args)
+		# (import ../../container/Office.nix args)
 		(import ../../container/Paper.nix args)
 		(import ../../container/Pass.nix args)
 		(import ../../container/Paste.nix args)

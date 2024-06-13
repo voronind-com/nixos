@@ -203,7 +203,7 @@
 			storage = "${storage}/vpn";
 		};
 		watch = {
-			inherit (media) anime download movie music photo show study work youtube;
+			inherit (media) anime download movie music photo porn show study work youtube;
 			address = "10.1.0.11";
 			domain  = "watch.${domain}";
 			port    = 8096;

@@ -45,10 +45,10 @@
 	# 	"net.ipv6.conf.default.accept_redirects"    = 0;
 
 		# Increase file watchers.
-		"fs.inotify.max_user_instances" = 999999;
-		"fs.inotify.max_user_watches"   = 999999;
-		"fs.inotify.max_user_event"     = 999999;
-		"fs.file-max"                   = 999999;
+		"fs.inotify.max_user_instances" = 9999999;
+		"fs.inotify.max_user_watches"   = 9999999;
+		"fs.inotify.max_user_event"     = 9999999;
+		# "fs.file-max"                   = 999999;
 
 	# 	# Disable ipv6.
 	# 	"net.ipv6.conf.all.disable_ipv6"     = 1;

@@ -16,10 +16,6 @@ in {
 				hostPath   = "${cfg.storage}/cache";
 				isReadOnly = false;
 			};
-			"/cache" = {
-				hostPath   = "${cfg.storage}/cache";
-				isReadOnly = false;
-			};
 			"/dev/dri" = {
 				hostPath   = "/dev/dri";
 				isReadOnly = false;
@@ -30,10 +26,12 @@ in {
 		// container.attachMedia "movie"    cfg.movie    true
 		// container.attachMedia "music"    cfg.music    true
 		// container.attachMedia "photo"    cfg.photo    true
+		// container.attachMedia "porn"     cfg.porn     true
 		// container.attachMedia "show"     cfg.show     true
 		// container.attachMedia "study"    cfg.study    true
 		// container.attachMedia "work"     cfg.work     true
-		// container.attachMedia "youtube"  cfg.youtube  true;
+		// container.attachMedia "youtube"  cfg.youtube  true
+		;
 
 		allowedDevices = [
 			{
