@@ -1,10 +1,8 @@
 { ... }: {
 	imports = [
 		./Backup.nix
+		./Container.nix
 		./Filesystem.nix
 		./Network.nix
-		./Nextcloud.nix
-		./PhotosProcess.nix
-		./YandexMusic.nix
 	];
 }

@@ -7,7 +7,7 @@ in {
 
 	containers.cloud = container.mkContainer cfg {
 		bindMounts = {
-			"/var/www/html" = {
+			"/var/lib/nextcloud" = {
 				hostPath   = "${cfg.storage}/data";
 				isReadOnly = false;
 			};

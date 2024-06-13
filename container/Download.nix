@@ -7,19 +7,11 @@ in {
 
 	containers.download = container.mkContainer cfg {
 		bindMounts = {
-			"/var/lib/deluge" = {
+			"/var/lib/deluge/.config/deluge" = {
 				hostPath   = "${cfg.storage}/data";
 				isReadOnly = false;
 			};
-		} // builtins.listToAttrs (lib.imap0 (i: path:
-			{
-				name = "/download/${toString i}";
-				value = {
-					hostPath   = path;
-					isReadOnly = false;
-				};
-			}
-		) cfg.download);
+		} // container.attachMedia "download" cfg.download false;
 
 		config = { ... }: container.mkContainerConfig cfg {
 			services.deluge = {

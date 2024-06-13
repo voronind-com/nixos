@@ -265,7 +265,6 @@
 			modules = [
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
-				./module/Docker.nix
 				./module/Ftpd.nix
 				./module/RemoteBuilder.nix
 				./module/Sway.nix

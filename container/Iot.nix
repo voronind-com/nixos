@@ -11,21 +11,27 @@ in {
 				hostPath   = "${cfg.storage}/data";
 				isReadOnly = false;
 			};
-			# "/photo" = {
-			# 	hostPath   = "${cfg.photos}";
-			# 	isReadOnly = true;
-			# };
-			# "/dev/ttyACM0" = {
-			# 	hostPath   = "/dev/ttyACM0";
-			# 	isReadOnly = false;
-			# };
-			# "/dev/serial/by-id" = {
-			# 	hostPath   = "/dev/serial/by-id";
-			# 	isReadOnly = false;
-			# };
-		};
+			"/dev/ttyACM0" = {
+				hostPath   = "/dev/ttyACM0";
+				isReadOnly = false;
+			};
+			"/dev/serial/by-id" = {
+				hostPath   = "/dev/serial/by-id";
+				isReadOnly = false;
+			};
+		} // container.attachMedia "photo" cfg.photo true;
 
-		config = { pkgs, ... }: container.mkContainerConfig cfg {
+		allowedDevices = [
+			{
+				modifier = "rwm";
+				node = "/dev/ttyACM0";
+			}
+		];
+
+		config = { ... }: container.mkContainerConfig cfg {
+			# Allow Hass to talk to Zigbee dongle.
+			users.users.hass.extraGroups = [ "dialout" "tty" ];
+
 			services.home-assistant = {
 				# NOTE: Missing: hacs. Inside hacs: `card-mod`, `Clock Weather Card`, `WallPanel` and `Yandex.Station`.
 				enable = true;
@@ -39,6 +45,7 @@ in {
 				extraPackages = python3Packages: with python3Packages; [
 					aiodhcpwatcher
 					aiodiscover
+					aiogithubapi
 					async-upnp-client
 					ha-av
 					ha-ffmpeg
@@ -48,6 +55,7 @@ in {
 					numpy
 					pynacl
 					pyturbojpeg
+					python-telegram-bot
 					zeroconf
 				];
 				configDir = "/var/lib/hass";

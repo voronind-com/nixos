@@ -22,7 +22,6 @@ in {
 					privatebin  = paste;
 					onlyoffice  = office;
 					paperless   = paper;
-					vaultwarden = pass;
 					invidious   = yt;
 				};
 

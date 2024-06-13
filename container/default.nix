@@ -37,6 +37,16 @@
 		forceSSL = false;
 	};
 
+	attachMedia = type: paths: ro: builtins.listToAttrs (lib.imap0 (i: path:
+		{
+			name = "/${type}/${toString i}";
+			value = {
+				hostPath   = path;
+				isReadOnly = ro;
+			};
+		}
+	) paths);
+
 	localAccess = "192.168.1.0/24";
 
 	config = {
@@ -106,6 +116,7 @@
 			port    = 8000;
 		};
 		paper = {
+			inherit (media) paper;
 			address = "10.1.0.40";
 			domain  = "paper.${domain}";
 			port    = 28981;
@@ -154,7 +165,7 @@
 			storage = "${storage}/rabbitmq";
 		};
 		read = {
-			inherit (media) book;
+			inherit (media) book manga;
 			address = "10.1.0.39";
 			domain  = "read.${domain}";
 			port    = 5000;
@@ -192,6 +203,7 @@
 			storage = "${storage}/vpn";
 		};
 		watch = {
+			inherit (media) anime download movie music photo show study work youtube;
 			address = "10.1.0.11";
 			domain  = "watch.${domain}";
 			port    = 8096;

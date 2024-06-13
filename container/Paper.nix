@@ -1,4 +1,4 @@
-{ container, pkgs, util, ... } @args: let
+{ container, pkgs, util, lib, ... } @args: let
 	cfg = container.config.paper;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
@@ -11,9 +11,15 @@ in {
 				hostPath   = "${cfg.storage}/data";
 				isReadOnly = false;
 			};
+			"/var/lib/paperless/media" = {
+				hostPath   = "${lib.elemAt cfg.paper 0}";
+				isReadOnly = false;
+			};
 		};
 
-		config = { lib, ... }: container.mkContainerConfig cfg {
+		config = { lib, pkgs, ... }: container.mkContainerConfig cfg {
+			environment.systemPackages = with pkgs; [ postgresql inetutils ];
+
 			services.paperless = {
 				enable = true;
 				dataDir = "/var/lib/paperless";
@@ -22,6 +28,7 @@ in {
 				port    = cfg.port;
 				passwordFile = pkgs.writeText "PaperlessPassword" "root";
 				settings = {
+					PAPERLESS_URL          = "https://${cfg.domain}";
 					PAPERLESS_ADMIN_USER   = "root";
 					PAPERLESS_DBHOST       = container.config.postgres.address;
 					PAPERLESS_DBENGINE     = "postgresql";

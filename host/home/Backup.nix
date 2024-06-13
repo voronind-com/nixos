@@ -1,4 +1,4 @@
-{ pkgs, style, util, ... } @args: let
+{ pkgs, util, ... } @args: let
 	bash = import ../../module/common/bash args;
 	script = pkgs.writeText "backupScript" ''
 		source ${bash.modules}
@@ -12,7 +12,7 @@
 		path_src="/storage/hot"
 		path_mount="/storage/cold_1"
 		path_backup="''${path_mount}/backup"
-		path_docker="''${path_backup}/home"
+		path_container="''${path_backup}/home"
 		path_media="/storage/cold_1/media /storage/cold_2/media"
 
 		# Check if backup drive is mounted.
@@ -36,10 +36,10 @@
 		archive ColdMedia.txt && rm ColdMedia.txt || report "Backup : Failed to archive media list!"
 		cd -
 
-		# Backup docker.
-		docker=$(archive docker/)
-		bupsize=$(tdu ''${docker} | awk '{print $1}')
-		mv ''${docker} ''${path_docker}/ || report "Backup : Failed to save docker!"
+		# Backup containers.
+		container=$(archive container/)
+		bupsize=$(tdu ''${container} | awk '{print $1}')
+		mv ''${container} ''${path_container}/ || report "Backup : Failed to save containers!"
 
 		# Backup some media.
 		cd ''${path_src}/media/
@@ -56,9 +56,9 @@
 		archive_prune ColdMediaTxt 30
 		cd -
 
-		# Prune old Docker copies.
-		cd ''${path_docker}
-		archive_prune Docker 7
+		# Prune old container copies.
+		cd ''${path_container}
+		archive_prune Container 7
 		cd -
 
 		# Prune game saves.

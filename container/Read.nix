@@ -11,15 +11,10 @@ in {
 				hostPath   = "${cfg.storage}/data";
 				isReadOnly = false;
 			};
-		} // builtins.listToAttrs (lib.imap0 (i: path:
-			{
-				name = "/book/${toString i}";
-				value = {
-					hostPath   = path;
-					isReadOnly = true;
-				};
-			}
-		) cfg.book);
+		}
+		// container.attachMedia "book"  cfg.book  true
+		// container.attachMedia "manga" cfg.manga true
+		;
 
 		config = { pkgs, ... }: container.mkContainerConfig cfg {
 			services.kavita = {

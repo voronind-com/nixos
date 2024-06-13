@@ -6,6 +6,7 @@ in {
 		"data"
 		"tmp"
 		"nginxtmp"
+		"config"
 	];
 
 	containers.paste = container.mkContainer cfg {

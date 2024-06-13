@@ -53,14 +53,14 @@ in {
 				Default = "Whoogle";
 				Add = [
 					{
-						Alias              = "w";
-						Description        = "Google search proxy.";
-						IconURL            = "https://google.voronind.com/favicon.ico";
+						Alias              = "s";
+						Description        = "Searx Search";
+						IconURL            = "https://search.voronind.com/favicon.ico";
 						Method             = "POST";
-						Name               = "Whoogle";
+						Name               = "Searx";
 						PostData           = "q={searchTerms}";
-						SuggestURLTemplate = "https://google.voronind.com/autocomplete?q={searchTerms}";
-						URLTemplate        = "https://google.voronind.com/search?q=%{searchTerms}";
+						SuggestURLTemplate = "https://search.voronind.com/autocomplete?q={searchTerms}";
+						URLTemplate        = "https://search.voronind.com/search?q=%{searchTerms}";
 					}
 				];
 			};

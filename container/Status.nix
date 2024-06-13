@@ -14,6 +14,11 @@ in {
 		};
 
 		config = { lib, ... }: container.mkContainerConfig cfg {
+			networking = {
+				nameservers = lib.mkForce [
+					container.config.dns.address
+				];
+			};
 			services.uptime-kuma = {
 				enable = true;
 				settings = {

@@ -16,10 +16,10 @@ in {
 		config = { ... }: container.mkContainerConfig cfg {
 			services.vaultwarden = {
 				enable          = true;
-				dbBackend       = "postgresql";
+				dbBackend       = "sqlite";
 				environmentFile = "/var/lib/bitwarden_rs/Env";
 				config = {
-					DATABASE_URL      = "postgresql://vaultwarden:vaultwarden@${container.config.postgres.address}:${toString container.config.postgres.port}/vaultwarden";
+					# DATABASE_URL      = "postgresql://vaultwarden:vaultwarden@${container.config.postgres.address}:${toString container.config.postgres.port}/vaultwarden";
 					DATA_FOLDER       = "/var/lib/bitwarden_rs";
 					DOMAIN            = "http://${cfg.domain}";
 					SIGNUPS_ALLOWED   = false;

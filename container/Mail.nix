@@ -1,13 +1,12 @@
 # Guide: https://nixos-mailserver.readthedocs.io/en/latest/setup-guide.html
-{ container, domain, pkgs, util, const, ... } @args: let
-	cfg = container.config.mail;
+{ container, domain, pkgs, util, const, ... } @args: let cfg = container.config.mail;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
 		"data"
-		"data/indices"
-		"data/vmail"
-		"data/sieve"
-		"data/dkim"
+		# "data/indices"
+		# "data/vmail"
+		# "data/sieve"
+		# "data/dkim"
 	];
 
 	containers.mail = container.mkContainer cfg {
@@ -158,9 +157,14 @@ in {
 				extraConfig = ''
 					# starttls needed for authentication, so the fqdn required to match
 					# the certificate
-					$config['smtp_server'] = "tls://${config.mailserver.fqdn}";
-					$config['smtp_user'] = "%u";
-					$config['smtp_pass'] = "%p";
+					# $config['smtp_server'] = "tls://${config.mailserver.fqdn}";
+					# $config['smtp_server'] = "tls://localhost";
+					$config['smtp_server'] = "localhost:25";
+					$config['smtp_auth_type'] = null;
+					$config['smtp_user'] = "";
+					$config['smtp_pass'] = "";
+					# $config['smtp_user'] = "%u";
+					# $config['smtp_pass'] = "%p";
 			 '';
 			};
 

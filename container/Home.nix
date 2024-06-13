@@ -1,20 +1,20 @@
 { container, pkgs, util, ... } @args: let
 	cfg = container.config.home;
-	package = (pkgs.callpackage ./homer args);
+	package = (pkgs.callPackage ./homer args);
 in {
 	containers.home = container.mkContainer cfg {
 		config = { ... }: container.mkContainerConfig cfg {
-			environment.systempackages = [ package ];
+			environment.systemPackages = [ package ];
 			systemd.packages = [ package ];
 
 			services.nginx = {
 				enable = true;
-				virtualhosts.${cfg.domain} = container.mkserver {
+				virtualHosts.${cfg.domain} = container.mkServer {
 					default = true;
 					root = "${package}";
 
 					locations = {
-						"/".extraconfig = ''
+						"/".extraConfig = ''
 							try_files $uri $uri/index.html;
 						'';
 					};
