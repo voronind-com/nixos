@@ -1,8 +1,8 @@
-{ container, ... } @args: let
+{ container, pkgs, ... } @args: let
 	cfg = container.config.yt;
 in {
 	containers.yt = container.mkContainer cfg {
-		config = { pkgs, ... }: container.mkContainerConfig cfg {
+		config = { ... }: container.mkContainerConfig cfg {
 			services.invidious = {
 				enable = true;
 				domain = cfg.domain;

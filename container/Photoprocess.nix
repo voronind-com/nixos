@@ -1,5 +1,5 @@
 # Takes pictures from first photo dir, processes and stores to the second one.
-{ container, util, ... } @args: let
+{ container, util, pkgs, ... } @args: let
 	cfg = container.config.photoprocess;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
@@ -23,7 +23,7 @@ in {
 			};
 		};
 
-		config = { pkgs, lib, ... }: container.mkContainerConfig cfg {
+		config = { lib, ... }: container.mkContainerConfig cfg {
 			systemd.services.photosprocess = let
 				script = pkgs.writeText "PhotoprocessScript" (util.trimTabs ''
 					source /data/Notify.sh

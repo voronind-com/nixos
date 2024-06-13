@@ -1,4 +1,4 @@
-{ domain, util, container, ... } @args: let
+{ domain, util, container, pkgs, ... } @args: let
 	cfg = container.config.proxy;
 	virtualHosts = util.catSet (util.ls ./proxy/host) args;
 in {
@@ -31,7 +31,7 @@ in {
 			};
 		};
 
-		config = { pkgs, ... }: container.mkContainerConfig cfg {
+		config = { ... }: container.mkContainerConfig cfg {
 			environment.systemPackages = with pkgs; [ certbot ];
 
 			services.nginx = {

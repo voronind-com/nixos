@@ -4,6 +4,7 @@
 , storage
 , domain
 , media
+, pkgs
 , ... }: {
 	inherit host;
 
@@ -15,9 +16,8 @@
 	};
 
 	mkContainerConfig = config: cfg: lib.recursiveUpdate cfg {
+		nixpkgs.pkgs = lib.mkForce pkgs;
 		system.stateVersion = const.stateVersion;
-
-		nixpkgs.config.allowUnfree = true;
 
 		users.users.root.password = "";
 		users.mutableUsers = false;

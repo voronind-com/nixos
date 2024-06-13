@@ -17,7 +17,7 @@ in {
 			};
 		};
 
-		config = { lib, pkgs, ... }: container.mkContainerConfig cfg {
+		config = { lib, ... }: container.mkContainerConfig cfg {
 			environment.systemPackages = with pkgs; [ postgresql inetutils ];
 
 			services.paperless = {

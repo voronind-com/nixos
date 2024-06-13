@@ -1,4 +1,4 @@
-{ container, lib, ... } @args: let
+{ container, lib, pkgs, ... } @args: let
 	cfg = container.config.read;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
@@ -16,7 +16,7 @@ in {
 		// container.attachMedia "manga" cfg.manga true
 		;
 
-		config = { pkgs, ... }: container.mkContainerConfig cfg {
+		config = { ... }: container.mkContainerConfig cfg {
 			services.kavita = {
 				enable  = true;
 				dataDir = "/var/lib/kavita";

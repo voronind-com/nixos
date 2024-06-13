@@ -1,4 +1,4 @@
-{ container, ... } @args: let
+{ container, pkgs, ... } @args: let
 	cfg = container.config.dns;
 in {
 	containers.dns = container.mkContainer cfg {
@@ -14,7 +14,7 @@ in {
 			}
 		];
 
-		config = { pkgs, lib, ... }: container.mkContainerConfig cfg {
+		config = { lib, ... }: container.mkContainerConfig cfg {
 			environment.systemPackages = [
 				pkgs.cloudflared
 			];

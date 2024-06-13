@@ -1,4 +1,4 @@
-{ container, lib, ... } @args: let
+{ container, lib, pkgs, ... } @args: let
 	cfg = container.config.postgres;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
@@ -13,7 +13,7 @@ in {
 			};
 		};
 
-		config = { pkgs, ... }: container.mkContainerConfig cfg {
+		config = { ... }: container.mkContainerConfig cfg {
 			services.postgresql = let
 				# Populate with services here.
 				configurations = with container.config; {

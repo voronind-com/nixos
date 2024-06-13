@@ -1,4 +1,4 @@
-{ container, ... } @args: let
+{ container, pkgs, ... } @args: let
 	cfg = container.config.vpn;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
@@ -18,7 +18,7 @@ in {
 			};
 		};
 
-		config = { pkgs, ... }: container.mkContainerConfig cfg {
+		config = { ... }: container.mkContainerConfig cfg {
 			environment.systemPackages = with pkgs; [ wireguard-tools ];
 			networking.useNetworkd = true;
 			systemd.network = {

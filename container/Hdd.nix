@@ -1,5 +1,5 @@
 # ISSUE: Broken, can't read/write sda device.
-{ container, ... } @args: let
+{ container, pkgs, ... } @args: let
 	cfg = container.config.hdd;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
@@ -29,7 +29,7 @@ in {
 
 		# additionalCapabilities = [ "CAP_SYS_ADMIN" ];
 
-		config = { pkgs, ... }: container.mkContainerConfig cfg {
+		config = { ... }: container.mkContainerConfig cfg {
 			environment.systemPackages = with pkgs; [ smartmontools ];
 
 			services.scrutiny = {

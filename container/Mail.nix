@@ -49,7 +49,7 @@ in {
 			};
 		};
 
-		config = { pkgs, config, ... }: container.mkContainerConfig cfg {
+		config = { config, ... }: container.mkContainerConfig cfg {
 			imports = [
 				(builtins.fetchTarball {
 					url    = "https://gitlab.com/simple-nixos-mailserver/nixos-mailserver/-/archive/nixos-${const.stateVersion}/nixos-mailserver-nixos-${const.stateVersion}.tar.gz";

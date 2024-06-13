@@ -1,4 +1,4 @@
-{ container, ... } @args: let
+{ container, pkgs, ... } @args: let
 	cfg = container.config.cloud;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
@@ -13,7 +13,7 @@ in {
 			};
 		};
 
-		config = { pkgs, config, ... }: container.mkContainerConfig cfg {
+		config = { config, ... }: container.mkContainerConfig cfg {
 			environment.systemPackages = [ pkgs.postgresql ];
 			services.nextcloud = {
 				enable = true;
