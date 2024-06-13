@@ -2,7 +2,7 @@
 	# Use latest kernel.
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 
-	# boot.kernel.sysctl = {
+	boot.kernel.sysctl = {
 	# 	# Spoof protection.
 	# 	"net.ipv4.conf.default.rp_filter" = 1;
 	# 	"net.ipv4.conf.all.rp_filter"     = 1;
@@ -44,15 +44,16 @@
 	# 	"net.ipv4.tcp_timestamps"                   = 0;
 	# 	"net.ipv6.conf.default.accept_redirects"    = 0;
 
-	# 	# Increase file watchers.
-	# 	"fs.inotify.max_user_instances" = 999999;
-	# 	"fs.inotify.max_user_watches"   = 999999;
-	# 	"fs.inotify.max_user_event"     = 999999;
+		# Increase file watchers.
+		"fs.inotify.max_user_instances" = 999999;
+		"fs.inotify.max_user_watches"   = 999999;
+		"fs.inotify.max_user_event"     = 999999;
+		"fs.file-max"                   = 999999;
 
 	# 	# Disable ipv6.
 	# 	"net.ipv6.conf.all.disable_ipv6"     = 1;
 	# 	"net.ipv6.conf.default.disable_ipv6" = 1;
 	# 	"net.ipv6.conf.lo.disable_ipv6"      = 1;
 	# 	"net.ipv6.conf.eth0.disable_ipv6"    = 1;
-	# };
+	};
 }
