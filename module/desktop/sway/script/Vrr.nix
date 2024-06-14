@@ -1,3 +1,4 @@
+# TODO: Add different modes for different screens.
 { ... }: {
 	text = ''
 		export _swayvrrlist=(
@@ -9,6 +10,7 @@
 			on() {
 				for vrr in ''${_swayvrrlist[@]}; do
 					swaymsg "output \"''${vrr}\" adaptive_sync on"
+					swaymsg "output \"''${vrr}\" mode 3440x1440@164.999Hz"
 				done
 				_vrrstate on
 			}
@@ -20,6 +22,7 @@
 			off() {
 				for vrr in ''${_swayvrrlist[@]}; do
 					swaymsg "output \"''${vrr}\" adaptive_sync off"
+					swaymsg "output \"''${vrr}\" mode 3440x1440@59.973Hz"
 				done
 				_vrrstate off
 			}
