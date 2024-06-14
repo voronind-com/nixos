@@ -16,7 +16,7 @@
 
 	presets = util.trimTabs ''
 		[preset 0]
-		no_display=1
+		no_display
 
 		[preset 1]
 		alpha=1.0
