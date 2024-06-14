@@ -9,11 +9,12 @@ in {
 
 	containers.proxy = container.mkContainer cfg {
 		forwardPorts = [
+			# {
+			# 	containerPort = 80;
+			# 	hostPort      = 80;
+			# 	protocol      = "tcp";
+			# } {
 			{
-				containerPort = 80;
-				hostPort      = 80;
-				protocol      = "tcp";
-			} {
 				containerPort = 443;
 				hostPort      = 443;
 				protocol      = "tcp";
