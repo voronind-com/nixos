@@ -30,6 +30,7 @@
 	};
 
 	systemd.timers.autoupdate = {
+		enable = true;
 		timerConfig = {
 			OnCalendar = "hourly";
 			Persistent = true;
