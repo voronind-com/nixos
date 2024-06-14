@@ -6,6 +6,8 @@ in {
 	];
 
 	containers.download = container.mkContainer cfg {
+		enableTun = true;
+
 		bindMounts = {
 			"/var/lib/deluge/.config/deluge" = {
 				hostPath   = "${cfg.storage}/data";
