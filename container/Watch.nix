@@ -1,5 +1,6 @@
 { container, lib, ... } @args: let
 	cfg = container.config.watch;
+	memLimit = "8G";
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
 		"data"
@@ -45,6 +46,12 @@ in {
 				enable   = true;
 				cacheDir = "/var/cache/jellyfin";
 				dataDir  = "/var/lib/jellyfin";
+			};
+
+			systemd.services.jellyfin = {
+				serviceConfig = {
+					MemoryLimit = memLimit;
+				};
 			};
 		};
 	};
