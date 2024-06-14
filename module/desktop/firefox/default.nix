@@ -50,7 +50,7 @@ in {
 			};
 			# NOTE: `firefox-esr` edition is required to change default search engine.
 			SearchEngines = {
-				Default = "Whoogle";
+				Default = "Searx";
 				Add = [
 					{
 						Alias              = "s";
