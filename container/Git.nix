@@ -34,7 +34,7 @@ in {
 					gcArgs    = "--aggressive --no-cruft --prune=now";
 					gcTimeout = 600;
 				in {
-					"service".DISABLE_REGISTRATION = false;
+					"service".DISABLE_REGISTRATION = true;
 					"log".LEVEL = "Error";
 					"server" = {
 						DISABLE_SSH = true;
