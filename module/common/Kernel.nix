@@ -22,8 +22,8 @@
 	# 	"net.ipv4.conf.all.accept_source_route" = 0;
 	# 	"net.ipv6.conf.all.accept_source_route" = 0;
 
-	# 	# Allow sysrq.
-	# 	"kernel.sysrq" = 1;
+		# Allow sysrq.
+		"kernel.sysrq" = 1;
 
 	# 	# Protect filesystem links.
 	# 	"fs.protected_hardlinks" = 0;
