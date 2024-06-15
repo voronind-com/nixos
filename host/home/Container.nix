@@ -46,7 +46,7 @@ in {
 		(import ../../container/Iot.nix args)
 		(import ../../container/Jobber.nix args)
 		(import ../../container/Mail.nix args)
-		# (import ../../container/Office.nix args)
+		(import ../../container/Office.nix args)
 		(import ../../container/Paper.nix args)
 		(import ../../container/Pass.nix args)
 		(import ../../container/Paste.nix args)

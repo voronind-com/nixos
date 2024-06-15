@@ -114,6 +114,7 @@
 			address = "10.1.0.21";
 			domain  = "office.${domain}";
 			port    = 8000;
+			storage = "${storage}/office";
 		};
 		paper = {
 			inherit (media) paper;
