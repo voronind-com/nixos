@@ -8,9 +8,9 @@ in {
 			set ''$${name} ${cfg.address}:${toString cfg.port};
 
 			location / {
-				allow ${container.localAccess};
-				allow ${container.config.vpn.address};
-				deny all;
+				# allow ${container.localAccess};
+				# allow ${container.config.vpn.address};
+				# deny all;
 				proxy_pass http://''$${name}$request_uri;
 			}
 
