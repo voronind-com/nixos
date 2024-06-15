@@ -18,7 +18,8 @@
 	};
 
 	swapDevices = [{
-		device = "/storage/hot/.swapfile";
-		size   = 128 * 1024;
+		device  = "/storage/hot/.swapfile";
+		size    = 128 * 1024;
+		options = [ "nofail" ];
 	}];
 }
