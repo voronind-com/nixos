@@ -16,4 +16,9 @@
 		fsType  = "ext4";
 		options = [ "nofail" "noatime" ];
 	};
+
+	swapDevices = [{
+		device = "/var/lib/swapfile";
+		size   = 100 * 1024;
+	}];
 }
