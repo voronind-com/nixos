@@ -48,11 +48,7 @@ in {
 				dataDir  = "/var/lib/jellyfin";
 			};
 
-			systemd.services.jellyfin = {
-				serviceConfig = {
-					MemoryLimit = memLimit;
-				};
-			};
+			systemd.services.jellyfin.serviceConfig.MemoryLimit = memLimit;
 		};
 	};
 }

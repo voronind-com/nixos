@@ -1,5 +1,6 @@
 { container, lib, ... } @args: let
 	cfg = container.config.download;
+	memLimit = "4G";
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [
 		"data"
@@ -21,6 +22,8 @@ in {
 				dataDir    = "/var/lib/deluge";
 				web.enable = true;
 			};
+
+			systemd.services.deluged.serviceConfig.MemoryLimit = memLimit;
 		};
 	};
 }
