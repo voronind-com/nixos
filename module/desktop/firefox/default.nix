@@ -59,7 +59,7 @@ in {
 						Method             = "POST";
 						Name               = "Searx";
 						PostData           = "q={searchTerms}";
-						SuggestURLTemplate = "https://search.voronind.com/autocomplete?q={searchTerms}";
+						# SuggestURLTemplate = "https://search.voronind.com/autocomplete?q={searchTerms}";
 						URLTemplate        = "https://search.voronind.com/search?q=%{searchTerms}";
 					}
 				];
