@@ -45,7 +45,7 @@ in {
 			};
 			"/acme" = {
 				hostPath   = "${container.config.proxy.storage}/letsencrypt";
-				isReadOnly = false;
+				isReadOnly = true;
 			};
 		};
 
