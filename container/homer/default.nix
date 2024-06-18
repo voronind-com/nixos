@@ -1,7 +1,7 @@
 { stdenv, pkgs, ... } @args: let
 	cfg = pkgs.writeText "HomerConfig" (import ./Config.nix args).text;
 in stdenv.mkDerivation (finalAttrs:  {
-	pname   = "Homerr";
+	pname   = "Homer";
 	version = "24.05.1";
 
 	src = pkgs.fetchurl {
