@@ -40,7 +40,7 @@ in {
 						DISABLE_SSH = true;
 						DOMAIN      = cfg.domain;
 						HTTP_ADDR   = cfg.address;
-						# ROOT_URL    = cfg.domain;
+						ROOT_URL    = "https://${cfg.domain}";
 					};
 					"ui" = {
 						AMBIGUOUS_UNICODE_DETECTION = false;
