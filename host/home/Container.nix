@@ -6,12 +6,11 @@
 , poetry2nixJobber
 , pkgsJobber
 , ... }: let
-	externalInterface  = "enp7s0";
-
 	args = let
 		storage = "/storage/hot/container";
 		domain  = "voronind.com";
 		host    = "192.168.1.2";
+		externalInterface  = "enp7s0";
 		media = {
 			anime    = [ "/storage/cold_1/media/anime" "/storage/cold_2/media/anime" ];
 			book     = [ "/storage/hot/media/book" ];
@@ -28,7 +27,7 @@
 			youtube  = [ "/storage/cold_1/media/youtube" "/storage/cold_2/media/youtube" ];
 		};
 	in {
-		inherit storage domain host pkgs const lib config util media;
+		inherit storage domain host pkgs const lib config util media externalInterface;
 		inherit poetry2nixJobber pkgsJobber;
 
 		container = import ../../container args;
@@ -68,7 +67,7 @@ in {
 	networking.nat = {
 		enable = true;
 		internalInterfaces = [ "ve-+" ];
-		inherit externalInterface;
+		inherit (args) externalInterface;
 
 		forwardPorts = with args.container.config; [
 			# Dns Server.
