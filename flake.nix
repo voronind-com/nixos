@@ -311,6 +311,7 @@
 
 				# Disable auto-updates as they are not possible for Live ISO.
 				{ systemd.services.autoupdate.enable = nixpkgs.lib.mkForce false; }
+				{ systemd.timers.autoupdate.enable   = nixpkgs.lib.mkForce false; }
 
 				# Base Live images also require the LTS kernel.
 				({ pkgs, ... }: { boot.kernelPackages = nixpkgs.lib.mkForce pkgs.linuxPackages; })
