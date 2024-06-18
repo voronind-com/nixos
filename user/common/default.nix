@@ -28,13 +28,13 @@ in {
 				homeDirectory = homeDir;
 				stateVersion  = const.stateVersion;
 				file = {
-					".config/btop/btop.conf".text    = btop.config;
-					".config/foot/foot.ini".text     = foot.config;
+					".config/btop/btop.conf".text    = btop.text;
+					".config/foot/foot.ini".text     = foot.text;
 					".config/gtk-3.0/bookmarks".text = gtk3.bookmarks;
-					".config/htop/htoprc".text       = htop.config;
-					".config/keyd/app.conf".text     = keyd.config;
-					".config/mako/config".text       = mako.config;
-					".editorconfig".text             = editorconfig.config;
+					".config/htop/htoprc".text       = htop.text;
+					".config/keyd/app.conf".text     = keyd.text;
+					".config/mako/config".text       = mako.text;
+					".editorconfig".text             = editorconfig.text;
 					".parallel/will-cite".text       = "";
 					"media/template".source          = ./template;
 				};

@@ -1,5 +1,5 @@
 { setting, util, ... }: {
-	config = util.trimTabs ''
+	text = util.trimTabs ''
 		#? Config file for btop v. 1.3.0
 
 		#* Name of a btop++/bpytop/bashtop formatted ".theme" file, "Default" and "TTY" for builtin themes.

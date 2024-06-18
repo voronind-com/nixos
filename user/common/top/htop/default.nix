@@ -1,5 +1,5 @@
 { util, ... }: {
-	config = util.trimTabs ''
+	text = util.trimTabs ''
 		# Beware! This file is rewritten by htop when settings are changed in the interface.
 		# The parser is also very primitive, and not human-friendly.
 		htop_version=3.2.2
