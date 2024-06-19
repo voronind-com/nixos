@@ -101,43 +101,38 @@ def toggle_button(cred, at_work):
 	toggle_vpn(False)
 
 def main():
+	# load users
+	users = open(USERS, 'r').readlines()
+	for user in users:
+		if user.startswith('#'):
+			users.remove(user)
+	print('loaded {} users'.format(len(users)))
+
+	# loop forever
 	while True:
-		try:
-			# load users
-			users = open(USERS, 'r').readlines()
+		print('time is {}h'.format(datetime.datetime.now().hour))
+
+		# check for day start
+		if datetime.datetime.now().hour == SHIFT_START and datetime.datetime.now().isoweekday() < 6:
+			print('starting work day..')
 			for user in users:
-				if user.startswith('#'):
-					users.remove(user)
-			print('loaded {} users'.format(len(users)))
+				toggle_button(user, True)
+				time.sleep(random.random() * DELAY_CAP)
 
-			# loop forever
-			while True:
-				print('time is {}h'.format(datetime.datetime.now().hour))
+			time.sleep(DELAY_SUCCESS)
+			continue
 
-				# check for day start
-				if datetime.datetime.now().hour == SHIFT_START and datetime.datetime.now().isoweekday() < 6:
-					print('starting work day..')
-					for user in users:
-						toggle_button(user, True)
-						time.sleep(random.random() * DELAY_CAP)
+		# check for day end
+		if datetime.datetime.now().hour == SHIFT_END and datetime.datetime.now().isoweekday() < 6:
+			print('ending work day..')
+			for user in users:
+				toggle_button(user, False)
+				time.sleep(random.random() * DELAY_CAP)
 
-					time.sleep(DELAY_SUCCESS)
-					continue
+			time.sleep(DELAY_SUCCESS)
+			continue
 
-				# check for day end
-				if datetime.datetime.now().hour == SHIFT_END and datetime.datetime.now().isoweekday() < 6:
-					print('ending work day..')
-					for user in users:
-						toggle_button(user, False)
-						time.sleep(random.random() * DELAY_CAP)
-
-					time.sleep(DELAY_SUCCESS)
-					continue
-
-				# loop delay
-				print('not the right time, waiting {}s'.format(DELAY_CYCLE))
-				time.sleep(DELAY_CYCLE)
-		except:
-			time.sleep(DELAY_ERROR)
-			pass
+		# loop delay
+		print('not the right time, waiting {}s'.format(DELAY_CYCLE))
+		time.sleep(DELAY_CYCLE)
 
