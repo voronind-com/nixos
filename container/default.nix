@@ -50,6 +50,11 @@
 	localAccess = "192.168.1.0/24";
 
 	config = {
+		camera = {
+			address = "192.168.2.249";
+			domain  = "camera.${domain}";
+			port    = "554";
+		};
 		change = {
 			address = "10.1.0.41";
 			port    = 5000;

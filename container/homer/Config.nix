@@ -65,6 +65,7 @@
 				(mkLink "YouTube"  "fab fa-youtube"   "https://${container.config.yt.domain}")
 			])
 			(mkGroup "System" "fa-shield" [
+				(mkLink "Camera"       "fa-camera"      "https://${container.config.camera.domain}")
 				# (mkLink "Hdd"          "fa-hard-drive" "https://${container.config.hdd.domain}")
 				(mkLink "NixOS Search" "fa-snowflake"  "https://search.nixos.org")
 				(mkLink "Printer"      "fa-print"      "https://${container.config.printer.domain}")
