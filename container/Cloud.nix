@@ -37,8 +37,9 @@ in {
 				};
 				extraAppsEnable = true;
 				settings = {
-					trusted_domains = [ cfg.address ];
+					trusted_domains = [ cfg.address cfg.domain ];
 					trusted_proxies = [ container.config.proxy.address ];
+					allow_local_remote_servers = true;
 				};
 			};
 		};
