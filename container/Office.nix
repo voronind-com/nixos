@@ -2,7 +2,7 @@
 # 1. You need to change PSQL tables owner from root to onlyoffice, too. They don't do that automatically for some reason.
 # 2. TODO: Generate JWT secret at /var/lib/onlyoffice/jwt, i.e. 9wLfMGha1YrfvWpb5hyYjZf8pvJQ3swS
 # See https://git.voronind.com/voronind/nixos/issues/74
-{ container, pkgs, util, ... } @args: let
+{ container, pkgs, util, lib, ... } @args: let
 	cfg = container.config.office;
 in {
 	systemd.tmpfiles.rules = container.mkContainerDir cfg [

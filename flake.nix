@@ -7,7 +7,9 @@
 		# Homepage: https://github.com/NixOS/nixpkgs
 		# Manual:   https://nixos.org/manual/nixos/stable
 		# Search:   https://search.nixos.org/packages and https://search.nixos.org/options
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgs.url       = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgsStable.url = "github:nixos/nixpkgs/051f920625ab5aabe37c920346e3e69d7d34400e";
+		nixpkgsMaster.url = "github:nixos/nixpkgs/master";
 
 		# This thing manages user's /home directroies. Because NixOS only manages system itself.
 		# Homepage: https://github.com/nix-community/home-manager
@@ -126,7 +128,7 @@
 	# Here you see a set of inputs we defined above, like nixpkgs, home-manager and so on.
 	# `...` at the end of a set means "ignore other arguments provided to this function".
 	# @inputs means aliasing all the inputs to the `inputs` name, so we can pass them all at once later.
-	outputs = { self, nixpkgs, nix-on-droid, home-manager, stylix, poetry2nixJobber, nixpkgsJobber, ... } @inputs: {
+	outputs = { self, nixpkgs, nixpkgsStable, nixpkgsMaster, nix-on-droid, home-manager, stylix, poetry2nixJobber, nixpkgsJobber, ... } @inputs: {
 		# Constant values.
 		const = {
 			droidStateVersion = "22.11";
@@ -185,6 +187,8 @@
 				config = self.nixosConfigurations.${hostname}.config;
 
 				pkgsJobber = nixpkgsJobber.legacyPackages.${system}.pkgs;
+				pkgsStable = nixpkgsJobber.legacyPackages.${system}.pkgs;
+				pkgsMaster = nixpkgsJobber.legacyPackages.${system}.pkgs;
 			in {
 				const     = self.const; # Constant values.
 				flake     = self;       # This Flake itself.
@@ -195,6 +199,9 @@
 				style     = import ./part/Style.nix     { inherit config;   }; # Style abstraction.
 				util      = import ./part/Util.nix      { inherit pkgs lib; }; # Util functions.
 				wallpaper = import ./part/Wallpaper.nix { inherit pkgs;     }; # Wallpaper.
+
+				# Stable and Master pkgs.
+				inherit pkgsStable pkgsMaster;
 
 				# Stuff for Jobber container, skip this part.
 				inherit poetry2nixJobber pkgsJobber;

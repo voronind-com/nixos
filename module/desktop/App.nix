@@ -1,4 +1,4 @@
-{ pkgs, ... } @args: let
+{ pkgs, pkgsStable, pkgsMaster, ... } @args: let
 	mangohud = import ./mangohud args;
 in {
 	imports = [

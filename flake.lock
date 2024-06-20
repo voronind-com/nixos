@@ -341,6 +341,38 @@
         "type": "github"
       }
     },
+    "nixpkgsMaster": {
+      "locked": {
+        "lastModified": 1718911369,
+        "narHash": "sha256-6hQfF7h56BB7FEM1amkFklmldw52C8Zt2YJ7TsYQVBQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a8e819d72379c40c713d4583f7bd83267ba69065",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgsStable": {
+      "locked": {
+        "lastModified": 1717786204,
+        "narHash": "sha256-4q0s6m0GUcN7q+Y2DqD27iLvbcd1G50T2lv08kKxkSI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "051f920625ab5aabe37c920346e3e69d7d34400e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "051f920625ab5aabe37c920346e3e69d7d34400e",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1717298511,
@@ -770,6 +802,8 @@
         "nix-on-droid": "nix-on-droid",
         "nixpkgs": "nixpkgs",
         "nixpkgsJobber": "nixpkgsJobber",
+        "nixpkgsMaster": "nixpkgsMaster",
+        "nixpkgsStable": "nixpkgsStable",
         "nvimAlign": "nvimAlign",
         "nvimAutoclose": "nvimAutoclose",
         "nvimBufferline": "nvimBufferline",

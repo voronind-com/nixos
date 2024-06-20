@@ -5,6 +5,8 @@
 , util
 , poetry2nixJobber
 , pkgsJobber
+, pkgsMaster
+, pkgsStable
 , ... }: let
 	args = let
 		storage = "/storage/hot/container";
@@ -29,6 +31,7 @@
 	in {
 		inherit storage domain host pkgs const lib config util media externalInterface;
 		inherit poetry2nixJobber pkgsJobber;
+		inherit pkgsMaster pkgsStable;
 
 		container = import ../../container args;
 	};
