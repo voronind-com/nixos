@@ -31,6 +31,8 @@ in {
 
 				jwtSecretFile = "/var/lib/onlyoffice/jwt";
 
+				rabbitmqUrl = "amqp://guest:guest@${container.config.rabbitmq.address}:${toString container.config.rabbitmq.port}";
+
 				examplePort = cfg.port;
 				enableExampleServer = true;
 			};

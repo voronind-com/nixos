@@ -19,6 +19,9 @@ in {
 				listenAddress = cfg.address;
 				port          = cfg.port;
 				dataDir       = "/var/lib/rabbitmq";
+				configItems = {
+					"loopback_users" = "none";
+				};
 			};
 		};
 	};

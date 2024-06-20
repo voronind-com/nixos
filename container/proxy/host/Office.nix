@@ -11,6 +11,7 @@ in {
 				# allow ${container.localAccess};
 				# allow ${container.config.vpn.address};
 				# deny all;
+				add_header X-Forwarded-Proto https;
 				proxy_pass http://''$${name}$request_uri;
 			}
 
