@@ -12,7 +12,7 @@
 		storage = "/storage/hot/container";
 		domain  = "voronind.com";
 		host    = "192.168.1.2";
-		externalInterface  = "enp7s0";
+		externalInterface = "enp7s0";
 		media = {
 			anime    = [ "/storage/cold_1/media/anime" "/storage/cold_2/media/anime" ];
 			book     = [ "/storage/hot/media/book" ];

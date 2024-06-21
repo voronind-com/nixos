@@ -36,7 +36,7 @@
 		# Homepage: https://github.com/nix-community/nix-on-droid
 		# Manual:   https://github.com/nix-community/nix-on-droid/blob/master/README.md
 		nix-on-droid = {
-			url = "github:t184256/nix-on-droid/release-23.05";
+			url = "github:t184256/nix-on-droid/release-23.11";
 			inputs.nixpkgs.follows      = "nixpkgs";
 			inputs.home-manager.follows = "home-manager";
 		};
@@ -131,7 +131,7 @@
 	outputs = { self, nixpkgs, nixpkgsStable, nixpkgsMaster, nix-on-droid, home-manager, stylix, poetry2nixJobber, nixpkgsJobber, ... } @inputs: {
 		# Constant values.
 		const = {
-			droidStateVersion = "22.11";
+			droidStateVersion = "23.11";
 			stateVersion      = "24.05";
 			timeZone = "Europe/Moscow";
 			url = "https://git.voronind.com/voronind/nixos.git";
