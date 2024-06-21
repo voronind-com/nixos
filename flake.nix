@@ -8,7 +8,7 @@
 		# Manual:   https://nixos.org/manual/nixos/stable
 		# Search:   https://search.nixos.org/packages and https://search.nixos.org/options
 		nixpkgs.url       = "github:nixos/nixpkgs/nixos-unstable";
-		nixpkgsStable.url = "github:nixos/nixpkgs/051f920625ab5aabe37c920346e3e69d7d34400e";
+		nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.05";
 		nixpkgsMaster.url = "github:nixos/nixpkgs/master";
 
 		# This thing manages user's /home directroies. Because NixOS only manages system itself.
@@ -248,7 +248,8 @@
 				./module/AmdCompute.nix
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
-				# ./module/Ollama.nix # ISSUE: Currently broken.
+				./module/DockerRootless.nix
+				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/Print.nix
 				./module/RemoteBuild.nix

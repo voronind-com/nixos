@@ -1,6 +1,14 @@
-{ pkgs, lib, ... }: {
-	# Add Ollama CLI app.
-	environment.systemPackages = with pkgs; [ ollama ];
+# https://github.com/ollama/ollama
+{ pkgsStable, lib, setting, ... }: let
+	pkgs = pkgsStable;
+in {
+	environment = {
+		# Add Ollama CLI app.
+		systemPackages = with pkgs; [ ollama ];
+
+		# Specify default model.
+		variables.OLLAMA_MODEL = setting.ollama.primaryModel;
+	};
 
 	# Enable Ollama server.
 	systemd.services.ollama = {
@@ -23,7 +31,7 @@
 		serviceConfig.Type = "simple";
 		script = ''
 			sleep 5
-			${lib.getExe pkgs.ollama} pull mistral
+			${lib.getExe pkgs.ollama} pull ${setting.ollama.primaryModel}
 		'';
 	};
 }

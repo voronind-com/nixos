@@ -61,4 +61,6 @@
 		layouts = "us,ru";
 		options = "grp:toggle";
 	};
+
+	ollama.primaryModel = "llama3";
 }
