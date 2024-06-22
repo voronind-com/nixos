@@ -22,7 +22,7 @@
 		experimental-features = nix-command flakes
 		keep-derivations = true
 		keep-outputs = true
-		min-free = ${toString 50 * 1000 * 1000 * 1000}
+		min-free = ${toString (50 * 1000 * 1000 * 1000)}
 	'';
 
 	# NOTE: Currently I run GC completely, but this setting (put above near min-free)

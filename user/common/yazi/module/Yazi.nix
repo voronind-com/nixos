@@ -77,10 +77,11 @@
 					mime = "audio/*";
 					use  = "audio";
 				} {
-					name = "*.json";
+					mime = "application/json";
 					use  = "text";
 				} {
-					name = "*.html";
+					# name = "*.html";
+					mime = "text/html";
 					use  = [ "browser" "text" ];
 				}
 			];
