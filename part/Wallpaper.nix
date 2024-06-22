@@ -1,12 +1,12 @@
 { pkgs, ... }: let
-	url    = "https://i.imgur.com/uxNas3C.jpeg";
-	sha256 = "sha256-OxixfSixKYDhNx2vxGV5fLeGrHHV1uXS4MJHLnCIFZs=";
+	url    = "https://i.imgur.com/CrX0Grv.png";
+	sha256 = "sha256-b9kHrg+EtLCQvIgpvv4hFp79jswAurntty3YnFKr5j0=";
 
 	# Sometimes stylix does not generate enough contrast for text.
 	# This setting forces white text to ensure contrast on dark backgrounds.
-	forceWhiteText = false;
+	forceContrastText = true;
 in {
-	inherit forceWhiteText;
+	inherit forceContrastText;
 
 	path = pkgs.fetchurl {
 		url    = url;

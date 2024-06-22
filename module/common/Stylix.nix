@@ -41,8 +41,8 @@ in {
 				name = "Noto Color Emoji";
 			};
 		};
-		override = if wallpaper.forceWhiteText then {
-			base04 = "ffffff";
+		override = if wallpaper.forceContrastText then {
+			base04 = "000000";
 			base05 = "ffffff";
 			base06 = "ffffff";
 		} else {};

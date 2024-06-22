@@ -5,7 +5,7 @@ in {
 		globalSection = {
 			anchor           = "top-center";
 			background-color = "#${style.color.bg.dark}${alpha}";
-			border-color     = "#${style.color.bg.regular}${alpha}";
+			border-color     = "#${style.color.border}${alpha}";
 			default-timeout  = setting.popup.timeout.ms;
 			font             = "${style.font.serif.name} ${toString style.font.size.popup}";
 			height           = 120;

@@ -75,7 +75,7 @@
 	};
 
 	window = {
-		gap    = 8;
+		gap    = 12;
 		border = 4;
 	};
 }
