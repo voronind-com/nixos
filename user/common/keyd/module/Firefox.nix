@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 	file = (pkgs.formats.ini {}).generate "KeydFirefoxConfig" {
-		"firefox" = {
+		"firefox-esr" = {
 			"alt.E" = "C-S-pagedown";
 			"alt.N" = "S-f3";
 			"alt.Q" = "C-S-pageup";
