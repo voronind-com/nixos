@@ -43,6 +43,11 @@
 			fi
 		}
 
+		# CLI cd. Opens CLI file manager.
+		function ccd() {
+			yazi
+		}
+
 		# Get list of all parent dirs.
 		function _cdd_directories() {
 			local array
