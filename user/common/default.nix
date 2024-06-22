@@ -13,6 +13,7 @@
 	btop   = import ./top/btop     args;
 	editor = import ./editorconfig args;
 	foot   = import ./foot         args;
+	fuzzel = import ./fuzzel       args;
 	gtk3   = import ./gtk/3        args;
 	htop   = import ./top/htop     args;
 	keyd   = import ./keyd         args;
@@ -29,18 +30,19 @@ in {
 				homeDirectory = homeDir;
 				stateVersion  = const.stateVersion;
 				file = {
-					".config/btop/btop.conf".text     = btop.text;
-					".config/foot/foot.ini".source    = foot.file;
-					".config/gtk-3.0/bookmarks".text  = gtk3.bookmarks;
-					".config/htop/htoprc".text        = htop.text;
-					".config/keyd/app.conf".text      = keyd.text;
-					".config/mako/config".source      = mako.file;
-					".config/yazi/init.lua".source    = yazi.init;
-					".config/yazi/keymap.toml".source = yazi.keymap;
-					".config/yazi/yazi.toml".source   = yazi.yazi;
-					".editorconfig".source            = editor.file;
-					".parallel/will-cite".text        = "";
-					"media/template".source           = ./template;
+					".config/btop/btop.conf".text      = btop.text;
+					".config/foot/foot.ini".source     = foot.file;
+					".config/fuzzel/fuzzel.ini".source = fuzzel.file;
+					".config/gtk-3.0/bookmarks".text   = gtk3.bookmarks;
+					".config/htop/htoprc".text         = htop.text;
+					".config/keyd/app.conf".text       = keyd.text;
+					".config/mako/config".source       = mako.file;
+					".config/yazi/init.lua".source     = yazi.init;
+					".config/yazi/keymap.toml".source  = yazi.keymap;
+					".config/yazi/yazi.toml".source    = yazi.yazi;
+					".editorconfig".source             = editor.file;
+					".parallel/will-cite".text         = "";
+					"media/template".source            = ./template;
 				};
 			};
 

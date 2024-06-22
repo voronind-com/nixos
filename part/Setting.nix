@@ -45,7 +45,6 @@
 	foot = {
 		font = {
 			step = 1;
-			dpi = true;
 		};
 	};
 
@@ -64,5 +63,8 @@
 
 	ollama.primaryModel = "llama3";
 
-	browser = "firefox-esr";
+	browser  = "firefox-esr";
+	terminal = "foot";
+
+	dpiAware = true;
 }

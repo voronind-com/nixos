@@ -53,9 +53,6 @@ in {
 			# timezone = "America/New_York";
 			tooltip-format = "<big><tt>{calendar}</tt></big>";
 			format-alt = "{:%d %a %H:%M}";
-			calendar = {
-				on-scroll = 1;
-			};
 		};
 		battery = {
 			states = {
