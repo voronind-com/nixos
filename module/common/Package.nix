@@ -35,6 +35,7 @@
 		ventoy             # Boot multiple ISO/images from a single USB stick.
 		wget               # CLI http download tool.
 		wireguard-tools    # Tools to work with Wireguard.
+		yazi               # CLI file manager.
 		zip unzip          # Zip archive/unarchive tools.
 
 		universal-android-debloater # Debloat Android devices.
