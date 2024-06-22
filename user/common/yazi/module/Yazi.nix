@@ -1,7 +1,7 @@
 { pkgs, setting, ... }: {
 	file = (pkgs.formats.toml {}).generate "YaziYaziConfig" {
 		manager = {
-			linemode       = "mtime";
+			# linemode       = "mtime";
 			mouse_events   = [];
 			ratio          = [ 1 4 3 ];
 			scrolloff      = 1;
