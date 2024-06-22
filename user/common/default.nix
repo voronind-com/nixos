@@ -10,13 +10,14 @@
 , util
 , ... } @args: let
 	# Configuration modules.
-	btop         = import ./top/btop     args;
-	editorconfig = import ./editorconfig args;
-	foot         = import ./foot         args;
-	gtk3         = import ./gtk/3        args;
-	htop         = import ./top/htop     args;
-	keyd         = import ./keyd         args;
-	mako         = import ./mako         args;
+	btop   = import ./top/btop     args;
+	editor = import ./editorconfig args;
+	foot   = import ./foot         args;
+	gtk3   = import ./gtk/3        args;
+	htop   = import ./top/htop     args;
+	keyd   = import ./keyd         args;
+	mako   = import ./mako         args;
+	yazi   = import ./yazi         args;
 in {
 	home-manager = {
 		# If file exists, rename it with a new extension.
@@ -28,15 +29,18 @@ in {
 				homeDirectory = homeDir;
 				stateVersion  = const.stateVersion;
 				file = {
-					".config/btop/btop.conf".text    = btop.text;
-					".config/foot/foot.ini".text     = foot.text;
-					".config/gtk-3.0/bookmarks".text = gtk3.bookmarks;
-					".config/htop/htoprc".text       = htop.text;
-					".config/keyd/app.conf".text     = keyd.text;
-					".config/mako/config".text       = mako.text;
-					".editorconfig".text             = editorconfig.text;
-					".parallel/will-cite".text       = "";
-					"media/template".source          = ./template;
+					".config/btop/btop.conf".text     = btop.text;
+					".config/foot/foot.ini".source    = foot.file;
+					".config/gtk-3.0/bookmarks".text  = gtk3.bookmarks;
+					".config/htop/htoprc".text        = htop.text;
+					".config/keyd/app.conf".text      = keyd.text;
+					".config/mako/config".source      = mako.file;
+					".config/yazi/init.lua".source    = yazi.init;
+					".config/yazi/keymap.toml".source = yazi.keymap;
+					".config/yazi/yazi.toml".source   = yazi.yazi;
+					".editorconfig".source            = editor.file;
+					".parallel/will-cite".text        = "";
+					"media/template".source           = ./template;
 				};
 			};
 

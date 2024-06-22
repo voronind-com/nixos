@@ -8,9 +8,9 @@ in {
 			"position": "top",
 			"height": 30,
 			"spacing": 4,
-			"margin-top": ${toString(style.window.gap)},
-			"margin-left": ${toString(style.window.gap)},
-			"margin-right": ${toString(style.window.gap)},
+			"margin-top": ${toString style.window.gap},
+			"margin-left": ${toString style.window.gap},
+			"margin-right": ${toString style.window.gap},
 			"mode": "dock",
 			// "exclusive": false,
 			"start_hidden": false,
@@ -68,15 +68,15 @@ in {
 				"format-alt": "{time} {icon}",
 				"format-icons": ["󰂎", "󱊡", "󱊢", "󱊣", "󱊣"],
 				"on-click-right": "powerlimit toggle",
-				"interval": ${toString(refreshInterval)},
+				"interval": ${toString refreshInterval},
 			},
 			"custom/powerlimit": {
 				"exec": "powerlimit waybar",
-				"interval": ${toString(refreshInterval)},
+				"interval": ${toString refreshInterval},
 				"on-click-right": "powerlimit toggle"
 			},
 			"pulseaudio": {
-				"scroll-step": ${toString(setting.volume.step)},
+				"scroll-step": ${toString setting.volume.step},
 				"format": "{volume}% {icon}",
 				"format-muted": "󰸈",
 				"format-icons": {
@@ -105,29 +105,29 @@ in {
 				"tooltip": false,
 				"on-click": "foot -e bash -c btop",
 				"on-click-right": "powersave toggle",
-				"interval": ${toString(refreshInterval)},
+				"interval": ${toString refreshInterval},
 			},
 			"memory": {
 				"format": "{percentage}%",
 				"on-click": "foot -e bash -c btop",
 				"on-click-right": "powersave toggle",
-				"interval": ${toString(refreshInterval)},
+				"interval": ${toString refreshInterval},
 			},
 			"temperature": {
 				"format": "{temperatureC}°C",
 				"on-click": "foot -e bash -c btop",
 				"on-click-right": "powersave toggle",
-				"interval": ${toString(refreshInterval)},
+				"interval": ${toString refreshInterval},
 			},
 			"custom/powersave": {
 				"exec": "powersave waybar",
-				"interval": ${toString(refreshInterval)},
+				"interval": ${toString refreshInterval},
 				"on-click": "foot -e bash -c btop",
 				"on-click-right": "powersave toggle"
 			},
 			"custom/display": {
 				"exec": "swayscript monbar",
-				"interval": ${toString(refreshInterval)},
+				"interval": ${toString refreshInterval},
 				"return-type": "json",
 				"on-click": "sleep 0.1 && swayscript montoggle", // FIXME: remove sleep when resolved: https://github.com/Alexays/Waybar/issues/2166
 				"on-click-right": "sleep 0.1 && swayscript vrrtoggle"

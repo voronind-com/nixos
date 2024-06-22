@@ -1,3 +1,3 @@
 { util, ... } @args: {
-	text = util.catText (util.ls ./module) args;
+	text = util.catFile (util.ls ./module) args;
 }

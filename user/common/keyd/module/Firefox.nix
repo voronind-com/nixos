@@ -1,5 +1,5 @@
-{ lib, ... }: {
-	text = lib.generators.toINI {} {
+{ pkgs, ... }: {
+	file = (pkgs.formats.ini {}).generate "KeydFirefoxConfig" {
 		"firefox" = {
 			"alt.E" = "C-S-pagedown";
 			"alt.N" = "S-f3";

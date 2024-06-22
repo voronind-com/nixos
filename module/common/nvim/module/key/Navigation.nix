@@ -19,10 +19,10 @@
 		rekey_normal("<Leader>${key.action.hide}",             "<C-w>q") -- Close split.
 
 		-- Resize splits.
-		rekey_normal("<Leader>${key.action.resize.left}",  "${toString(setting.tmux.resize.step.horizontal)}<C-w><")
-		rekey_normal("<Leader>${key.action.resize.right}", "${toString(setting.tmux.resize.step.horizontal)}<C-w>>")
-		rekey_normal("<Leader>${key.action.resize.down}",  "${toString(setting.tmux.resize.step.vertical)}<C-w>+")
-		rekey_normal("<Leader>${key.action.resize.up}",    "${toString(setting.tmux.resize.step.vertical)}<C-w>-")
+		rekey_normal("<Leader>${key.action.resize.left}",  "${toString setting.tmux.resize.step.horizontal}<C-w><")
+		rekey_normal("<Leader>${key.action.resize.right}", "${toString setting.tmux.resize.step.horizontal}<C-w>>")
+		rekey_normal("<Leader>${key.action.resize.down}",  "${toString setting.tmux.resize.step.vertical}<C-w>+")
+		rekey_normal("<Leader>${key.action.resize.up}",    "${toString setting.tmux.resize.step.vertical}<C-w>-")
 
 		-- Move splits.
 		rekey_normal("<Leader>${key.navigation.move.left}",  "<C-w>A")

@@ -63,4 +63,6 @@
 	};
 
 	ollama.primaryModel = "llama3";
+
+	browser = "firefox-esr";
 }

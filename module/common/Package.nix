@@ -8,6 +8,7 @@
 		curl               # CLI http client.
 		ddrescue testdisk  # Apps to recover data from drives.
 		dnsutils           # Dns utilities like host.
+		exiftool           # Image info.
 		fastfetch          # Systeminfo summary.
 		ffmpeg             # Video/audio converter.
 		file               # Get general info about a file.

@@ -1,4 +1,4 @@
-{ lib, container, ... }: let
+{ pkgs, container, ... }: let
 	iconTheme = "fa-solid";
 
 	mkGroup = name: icon: items: {
@@ -15,7 +15,6 @@
 	config = {
 		title    = "Dashboard";
 		subtitle = "Home";
-
 		header = false;
 		footer = false;
 		connectivityCheck = false;
@@ -97,5 +96,5 @@
 		];
 	};
 in {
-	text = lib.generators.toYAML {} config;
+	text = (pkgs.formats.yaml {}).generate "HomerConfig" config;
 }

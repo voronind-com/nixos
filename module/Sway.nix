@@ -18,6 +18,7 @@ in {
 	services.gnome.gnome-keyring.enable = lib.mkForce false;
 	environment = {
 		systemPackages = with pkgs; [
+			fuzzel                         # Application launcher.
 			grim slurp                     # Screenshot.
 			mako                           # Notification system.
 			networkmanagerapplet           # Internet configuration.

@@ -16,6 +16,11 @@
 		acc + trimTabs ((import mod args).text)
 	) "" files;
 
+	# Concat all file paths by `file` key.
+	catFile = files: args: builtins.foldl' (acc: mod:
+		acc + trimTabs (builtins.readFile (import mod args).file)
+	) "" files;
+
 	# Concat all files as a set.
 	catSet = files: args: lib.mkMerge (map (file: import file args) files);
 

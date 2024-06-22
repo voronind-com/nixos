@@ -38,6 +38,6 @@
 		}
 
 		# Hide mouse cursor after a period of inactivity.
-		seat seat0 hide_cursor ${toString(setting.popup.timeout.ms)}
+		seat seat0 hide_cursor ${toString setting.popup.timeout.ms}
 	'';
 }

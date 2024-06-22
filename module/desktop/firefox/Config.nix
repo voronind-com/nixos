@@ -7,9 +7,9 @@
 
 		// Fonts.
 		pref("browser.display.use_document_fonts", 0);
-		lockPref("font.minimum-size.x-cyrillic", ${toString(style.font.size.application)});
-		lockPref("font.minimum-size.x-unicode",  ${toString(style.font.size.application)});
-		lockPref("font.minimum-size.x-western",  ${toString(style.font.size.application)});
+		lockPref("font.minimum-size.x-cyrillic", ${toString style.font.size.application});
+		lockPref("font.minimum-size.x-unicode",  ${toString style.font.size.application});
+		lockPref("font.minimum-size.x-western",  ${toString style.font.size.application});
 		lockPref("font.name.monospace.x-cyrillic", "${style.font.monospace.name}");
 		lockPref("font.name.monospace.x-unicode",  "${style.font.monospace.name}");
 		lockPref("font.name.monospace.x-western",  "${style.font.monospace.name}");

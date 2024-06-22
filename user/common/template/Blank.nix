@@ -15,7 +15,7 @@
 				nativeBuildInputs = with pkgs; [ ];
 				buildInputs = with pkgs; [ ];
 
-				SOURCE_DATE_EPOCH = "${toString(self.lastModified)}";
+				SOURCE_DATE_EPOCH = "${toString self.lastModified}";
 			};
 		};
 	};

@@ -9,10 +9,10 @@ in {
 		bind -n ${mod}-${key.action.split.vertical}   split-window  -h -c "#{pane_current_path}"
 		bind -n ${mod}-${key.action.split.horizontal} split-window  -v -c "#{pane_current_path}"
 		bind -n ${mod}-${key.action.resize.equalize}  select-layout tiled
-		bind -n ${mod}-${key.action.resize.up}        resize-pane   -U ${toString(setting.tmux.resize.step.vertical)}
-		bind -n ${mod}-${key.action.resize.down}      resize-pane   -D ${toString(setting.tmux.resize.step.vertical)}
-		bind -n ${mod}-${key.action.resize.left}      resize-pane   -L ${toString(setting.tmux.resize.step.horizontal)}
-		bind -n ${mod}-${key.action.resize.right}     resize-pane   -R ${toString(setting.tmux.resize.step.horizontal)}
+		bind -n ${mod}-${key.action.resize.up}        resize-pane   -U ${toString setting.tmux.resize.step.vertical}
+		bind -n ${mod}-${key.action.resize.down}      resize-pane   -D ${toString setting.tmux.resize.step.vertical}
+		bind -n ${mod}-${key.action.resize.left}      resize-pane   -L ${toString setting.tmux.resize.step.horizontal}
+		bind -n ${mod}-${key.action.resize.right}     resize-pane   -R ${toString setting.tmux.resize.step.horizontal}
 		bind -n ${mod}-${key.navigation.move.left}    swap-pane     -U
 		bind -n ${mod}-${key.navigation.move.right}   swap-pane     -D
 		unbind '"'

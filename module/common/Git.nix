@@ -8,7 +8,7 @@
 			push.autoSetupRemote       = true;
 			rebase.autoStash           = true;
 			user.signingkey            = builtins.readFile secret.crypto.sign.git.key;
-			gpg.ssh.allowedSignersFile = toString(secret.crypto.sign.git.allowed);
+			gpg.ssh.allowedSignersFile = toString secret.crypto.sign.git.allowed;
 			gpg.format                 = secret.crypto.sign.git.format;
 		};
 	};

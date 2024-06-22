@@ -1,5 +1,5 @@
-{ lib, ... }: {
-	text = lib.generators.toINIWithGlobalSection {} {
+{ pkgs, ... }: {
+	file = (pkgs.formats.iniWithGlobalSection {}).generate "EditorconfigConfig" {
 		globalSection.root = true;
 
 		sections = {

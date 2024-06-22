@@ -1,5 +1,5 @@
 { style, ... }: let
-	borderSize = toString(style.window.border);
+	borderSize = toString style.window.border;
 in {
 	text = ''
 		# Disable title bar.

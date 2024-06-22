@@ -30,7 +30,7 @@
 		bindsym $mod+${key.action.close} kill
 
 		# Add gaps.
-		gaps inner ${toString(style.window.gap)}
+		gaps inner ${toString style.window.gap}
 
 		# Launch everything tiled.
 		# for_window [all] floating disable

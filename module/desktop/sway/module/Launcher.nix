@@ -1,6 +1,6 @@
 { style, key, ... }: let
 	fontName = style.font.serif.name;
-	fontSize = toString(style.font.size.desktop);
+	fontSize = toString style.font.size.desktop;
 
 	accent = style.color.accent;
 	bg     = style.color.bg.dark;

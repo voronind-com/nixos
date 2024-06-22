@@ -8,7 +8,8 @@
 		# Current dir by default.
 		# Usage: l [DIRS]
 		function l() {
-			ls -lhv --si --group-directories-first --color=auto -- "$@"
+			# ls -lhv --si --group-directories-first --color=auto -- "$@"
+			ccd
 		}
 
 		# List last modified files first.
