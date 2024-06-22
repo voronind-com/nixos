@@ -54,7 +54,7 @@ in {
 			tooltip-format = "<big><tt>{calendar}</tt></big>";
 			format-alt = "{:%d %a %H:%M}";
 			calendar = {
-				mode-mon-col = 3;
+				on-scroll = 1;
 			};
 		};
 		battery = {
