@@ -31,6 +31,7 @@ in {
 	environment = {
 		systemPackages = with pkgs; [
 			adwsteamgtk              # Steam GTK theme. Need to run the app to apply.
+			anilibria-winmaclinux    # Anime!
 			appimage-run             # Tool to run .AppImage files in NixOS.
 			aseprite                 # Pixel Art draw app. WARNING: Always builds from source.
 			blanket                  # Sounds generator.
