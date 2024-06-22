@@ -39,6 +39,7 @@ in {
 					".config/mako/config".source       = mako.file;
 					".config/yazi/init.lua".source     = yazi.init;
 					".config/yazi/keymap.toml".source  = yazi.keymap;
+					".config/yazi/theme.toml".source   = yazi.theme;
 					".config/yazi/yazi.toml".source    = yazi.yazi;
 					".editorconfig".source             = editor.file;
 					".parallel/will-cite".text         = "";
