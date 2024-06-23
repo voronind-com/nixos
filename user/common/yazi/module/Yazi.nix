@@ -14,8 +14,8 @@
 		};
 
 		preview = {
-			# image_filter = "triangle";
-			image_filter = "lanczos3";
+			# image_filter  = "triangle";
+			image_filter  = "lanczos3";
 			image_quality = 80;
 		};
 
@@ -23,67 +23,68 @@
 			openWith = app: "${app} \"$@\"";
 		in {
 			default = [{
+				desc   = "Default";
 				orphan = true;
-				run   = openWith "xdg-open";
+				run    = openWith "xdg-open";
 			}];
 			browser = [{
+				desc   = "Browser";
 				orphan = true;
 				run    = openWith setting.browser.bin;
 			}];
 			text = [{
+				desc  = "Text";
 				block = true;
 				run   = openWith "nvim";
 			}];
 			audio = [{
+				desc   = "Audio";
 				orphan = true;
 				run    = openWith "mpv --no-video";
 			}];
 			video = [{
+				desc   = "Video";
 				orphan = true;
 				run    = openWith "mpv";
 			}];
 			document = [{
+				desc   = "Document";
 				orphan = true;
-				run   = openWith "onlyoffice-desktopeditors";
+				run    = openWith "onlyoffice-desktopeditors";
 			}];
 			pdf = [{
+				desc   = "Pdf";
 				orphan = true;
-				run   = openWith "evince";
+				run    = openWith "evince";
 			}];
 			image = [{
+				desc   = "Image";
 				orphan = true;
-				run   = openWith "loupe";
+				run    = openWith "loupe";
+			}];
+			archive = [{
+				desc  = "Archive";
+				block = true;
+				run   = openWith "unpack";
 			}];
 		};
 
 		open = {
-			rules = [
-				{
-					mime = "application/pdf";
-					use  = "pdf";
-				} {
-					mime = "text/*";
-					use  = "text";
-				} {
-					mime = "application/vnd.openxmlformats-officedocument.*";
-					use  = "document";
-				} {
-					mime = "image/*";
-					use  = "image";
-				} {
-					mime = "video/*";
-					use  = "video";
-				} {
-					mime = "audio/*";
-					use  = "audio";
-				} {
-					mime = "application/json";
-					use  = "text";
-				} {
-					# name = "*.html";
-					mime = "text/html";
-					use  = [ "browser" "text" ];
-				}
+			rules = let
+				mkRule = mime: use: { inherit mime use; };
+			in [
+				(mkRule "application/gzip"  "archive")
+				(mkRule "application/json"  "text")
+				(mkRule "application/pdf"   "pdf")
+				(mkRule "application/x-tar" "archive")
+				(mkRule "application/x-xz"  "archive")
+				(mkRule "application/zip"   "archive")
+				(mkRule "audio/*" "audio")
+				(mkRule "image/*" "image")
+				(mkRule "text/*"  "text")
+				(mkRule "video/*" "video")
+				(mkRule "text/html" [ "browser" "text" ])
+				(mkRule "application/vnd.openxmlformats-officedocument.*" "document")
 			];
 		};
 	};
