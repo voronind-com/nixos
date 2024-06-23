@@ -2,7 +2,7 @@
 	refreshInterval = 2;
 in {
 	file = (pkgs.formats.json {}).generate "WaybarConfig" {
-		height       = 2 * (style.window.gap + style.window.border);
+		height       = 34;
 		layer        = "top";
 		margin-left  = style.window.gap;
 		margin-right = style.window.gap;
