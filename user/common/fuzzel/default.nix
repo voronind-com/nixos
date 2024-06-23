@@ -6,7 +6,7 @@ in {
 			dpi-aware    = dpiAware;
 			font         = "${style.font.serif.name}:size=${toString style.font.size.popup}";
 			lines        = 20;
-			# prompt       = "\"$ \"";
+			prompt       = "\"\"";
 			show-actions = "yes";
 			terminal     = setting.terminal.bin;
 			width        = 40;
