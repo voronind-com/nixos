@@ -16,14 +16,16 @@ in {
 			radius = 0;
 			width  = 1;
 		};
-		colors = {
-			background      = style.color.bg.dark  + style.opacity.hex;
-			border          = style.color.border   + style.opacity.hex;
-			match           = style.color.fg.light + style.opacity.hex;
-			selection       = style.color.bg.light + style.opacity.hex;
-			selection-match = style.color.fg.dark  + style.opacity.hex;
-			selection-text  = style.color.fg.dark  + style.opacity.hex;
-			text            = style.color.fg.light + style.opacity.hex;
+		colors = let
+			defaultOpacity = "ff";
+		in {
+			background      = style.color.bg.dark + style.opacity.hex;
+			border          = style.color.border  + style.opacity.hex;
+			match           = style.color.fg.light + defaultOpacity;
+			selection       = style.color.bg.dark  + defaultOpacity;
+			selection-match = style.color.accent   + defaultOpacity;
+			selection-text  = style.color.fg.light + defaultOpacity;
+			text            = style.color.fg.light + defaultOpacity;
 		};
 	};
 }
