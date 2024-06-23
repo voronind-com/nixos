@@ -4,7 +4,7 @@
 	ollama.primaryModel = "llama3";
 	browser.bin  = "firefox-esr";
 	terminal.bin = "foot";
-	dpiAware = true;
+	dpiAware = false;
 	sysctrl = "print";
 
 	keyboard = {

@@ -23,7 +23,7 @@ in {
 		fonts = {
 			sizes = {
 				applications = 12;
-				terminal     = 12;
+				terminal     = 14;
 				popups       = 12;
 				desktop      = 14;
 			};
