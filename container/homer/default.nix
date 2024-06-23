@@ -1,5 +1,5 @@
 { stdenv, pkgs, ... } @args: let
-	cfg = pkgs.writeText "HomerConfig" (import ./Config.nix args).text;
+	cfg = (import ./Config.nix args).file;
 in stdenv.mkDerivation (finalAttrs:  {
 	pname   = "Homer";
 	version = "24.05.1";

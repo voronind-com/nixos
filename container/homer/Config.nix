@@ -96,5 +96,5 @@
 		];
 	};
 in {
-	text = (pkgs.formats.yaml {}).generate "HomerConfig" config;
+	file = (pkgs.formats.yaml {}).generate "HomerConfig" config;
 }
