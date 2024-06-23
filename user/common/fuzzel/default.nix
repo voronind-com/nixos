@@ -19,13 +19,13 @@ in {
 		colors = let
 			defaultOpacity = "ff";
 		in {
-			background      = style.color.bg.dark + style.opacity.hex;
-			border          = style.color.border  + style.opacity.hex;
-			match           = style.color.fg.light + defaultOpacity;
-			selection       = style.color.bg.dark  + defaultOpacity;
-			selection-match = style.color.accent   + defaultOpacity;
-			selection-text  = style.color.fg.light + defaultOpacity;
-			text            = style.color.fg.light + defaultOpacity;
+			background      = style.color.bg.dark    + style.opacity.hex;
+			border          = style.color.border     + style.opacity.hex;
+			match           = style.color.fg.light   + defaultOpacity;
+			selection       = style.color.bg.regular + defaultOpacity;
+			selection-match = style.color.accent     + defaultOpacity;
+			selection-text  = style.color.fg.light   + defaultOpacity;
+			text            = style.color.fg.light   + defaultOpacity;
 		};
 	};
 }
