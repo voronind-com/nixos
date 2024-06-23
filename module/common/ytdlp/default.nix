@@ -1,6 +1,6 @@
 { lib, stdenv, fetchurl, autoPatchelfHook }: let
-	version = "2024.04.09";
-	hash    = "sha256-agT93DYJ0ic2w5ojumGRMzJomt6DgIkqrIRvTO11PHs=";
+	version = "2024.05.27";
+	hash    = "sha256-rwVwteYBlqF4WhLn9I/Hy3tXRbC7mHDKL+btkN3YC0Y=";
 in stdenv.mkDerivation {
 	name = "ytdlp";
 
