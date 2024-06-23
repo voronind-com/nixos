@@ -52,7 +52,6 @@ in {
 		(import ../../container/Paper.nix args)
 		(import ../../container/Pass.nix args)
 		(import ../../container/Paste.nix args)
-		(import ../../container/Photoprocess.nix args)
 		(import ../../container/Postgres.nix args)
 		(import ../../container/Print.nix args)
 		(import ../../container/Proxy.nix args)

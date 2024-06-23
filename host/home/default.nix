@@ -4,6 +4,7 @@
 		./Container.nix
 		./Filesystem.nix
 		./Network.nix
+		./Photoprocess.nix
 	];
 
 	# Disable auto-switch.

@@ -141,11 +141,6 @@
 			port    = 80;
 			storage = "${storage}/paste";
 		};
-		photoprocess = {
-			inherit (media) photo;
-			address = "10.1.0.4";
-			storage = "${storage}/photoprocess";
-		};
 		print = {
 			domain  = "print.${domain}";
 			address = "10.1.0.46";
