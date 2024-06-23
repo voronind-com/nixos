@@ -19,6 +19,8 @@ in {
 					captcha_enabled      = false;
 					check_tables         = true;
 					registration_enabled = false;
+					external_port        = 443;
+					https_only           = true;
 				};
 			};
 		};
