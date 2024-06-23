@@ -60,7 +60,7 @@ in {
 		(import ../../container/Read.nix args)
 		(import ../../container/Redis.nix args)
 		(import ../../container/Search.nix args)
-		# (import ../../container/Status.nix args)
+		(import ../../container/Status.nix args)
 		(import ../../container/Stock.nix args)
 		(import ../../container/Vpn.nix args)
 		(import ../../container/Watch.nix args)

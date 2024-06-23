@@ -11,7 +11,10 @@ in {
 				allow ${container.localAccess};
 				allow ${container.config.vpn.address};
 				deny all;
+
 				proxy_pass http://''$${name}$request_uri;
+
+				add_header Referrer-Policy 'origin';
 			}
 
 			ssl_certificate /etc/letsencrypt/live/${domain}/fullchain.pem;

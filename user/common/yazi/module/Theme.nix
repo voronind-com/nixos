@@ -1,4 +1,4 @@
-{ pkgs, setting, style, ... }: let
+{ pkgs, style, ... }: let
 	border = {
 		fg = "#${style.color.border}";
 	};
@@ -7,7 +7,7 @@ in {
 		manager = {
 			cwd = {
 				fg = "#${style.color.fg.light}";
-				bg = "#${style.color.bg.dark}";
+				# bg = "#${style.color.bg.dark}";
 			};
 			hovered = {
 				fg = "#${style.color.fg.light}";
