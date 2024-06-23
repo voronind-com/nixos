@@ -44,7 +44,7 @@
 			}];
 			document = [{
 				orphan = true;
-				run   = openWith "onlyoffice";
+				run   = openWith "onlyoffice-desktopeditors";
 			}];
 			pdf = [{
 				orphan = true;
