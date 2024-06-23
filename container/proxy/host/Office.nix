@@ -9,6 +9,7 @@ in {
 
 			location / {
 				# allow ${container.localAccess};
+				# allow ${container.config.status.address};
 				# allow ${container.config.vpn.address};
 				# deny all;
 				add_header X-Forwarded-Proto https;

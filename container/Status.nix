@@ -19,6 +19,7 @@ in {
 					container.config.dns.address
 				];
 			};
+
 			services.uptime-kuma = {
 				enable = true;
 				settings = {

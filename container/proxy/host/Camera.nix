@@ -7,6 +7,7 @@ in {
 
 			location / {
 				allow ${container.localAccess};
+				allow ${container.config.status.address};
 				allow ${container.config.vpn.address};
 				deny all;
 				return 301 rtsp://${cfg.address}:${cfg.port}/live/main;

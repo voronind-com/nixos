@@ -9,6 +9,7 @@ in {
 
 			location ~ ^/(settings/admin|settings/users|settings/apps|login|api) {
 				allow ${container.localAccess};
+				allow ${container.config.status.address};
 				allow ${container.config.vpn.address};
 				deny all;
 				proxy_pass http://''$${name}$request_uri;

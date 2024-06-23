@@ -8,14 +8,14 @@
 , ... }: {
 	inherit host;
 
-	mkContainer = config: cfg: lib.recursiveUpdate cfg {
+	mkContainer = config: cfg: lib.recursiveUpdate {
 		autoStart      = true;
 		hostAddress    = host;
 		localAddress   = config.address;
 		privateNetwork = true;
-	};
+	} cfg;
 
-	mkContainerConfig = config: cfg: lib.recursiveUpdate cfg {
+	mkContainerConfig = config: cfg: lib.recursiveUpdate {
 		nixpkgs.pkgs = lib.mkForce pkgs;
 		system.stateVersion = const.stateVersion;
 
@@ -29,13 +29,13 @@
 			useHostResolvConf = lib.mkForce false;
 			firewall.enable = false;
 		};
-	};
+	} cfg;
 
 	mkContainerDir = cfg: dirs: map (path: "d '${cfg.storage}/${path}' 1777 root root - -") dirs;
 
-	mkServer = cfg: lib.recursiveUpdate cfg {
+	mkServer = cfg: lib.recursiveUpdate {
 		forceSSL = false;
-	};
+	} cfg;
 
 	attachMedia = type: paths: ro: builtins.listToAttrs (lib.imap0 (i: path:
 		{
@@ -69,6 +69,7 @@
 		};
 		ddns = {
 			address = "10.1.0.31";
+			port    = 53;
 			storage = "${storage}/ddns";
 		};
 		dns = {
