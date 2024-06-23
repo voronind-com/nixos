@@ -27,6 +27,7 @@
 		tree
 		wget
 		yt-dlp
+		yazi chafa
 		zip unzip
 	];
 }

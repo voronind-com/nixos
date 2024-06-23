@@ -14,6 +14,7 @@
 	nvim = import ../common/nvim args;
 	ssh  = import ../common/ssh  args;
 	tmux = import ../common/tmux args;
+	yazi = import ../../user/common/yazi args;
 in {
 	time.timeZone    = const.timeZone;
 	nix.extraOptions = nix.extraOptions;
@@ -29,6 +30,10 @@ in {
 				".ssh/config".text = ssh.config;
 				".termux/_font.ttf".source        = termux.font;
 				".termux/_colors.properties".text = termux.colors;
+				".config/yazi/init.lua".source    = yazi.init;
+				".config/yazi/keymap.toml".source = yazi.keymap;
+				".config/yazi/theme.toml".source  = yazi.theme;
+				".config/yazi/yazi.toml".source   = yazi.yazi;
 			};
 		};
 

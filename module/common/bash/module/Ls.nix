@@ -9,14 +9,15 @@
 		# Usage: l [DIRS]
 		function l() {
 			# ls -lhv --si --group-directories-first --color=auto -- "$@"
-			ccd
+			ccd "$@"
 		}
 
 		# List last modified files first.
 		# Current dir by default.
 		# Usage: ll [DIRS]
 		function ll() {
-			ls -lhvtr --si --color=auto -- "$@"
+			ls -lhv --si --group-directories-first --color=auto -- "$@"
+			# ls -lhvtr --si --color=auto -- "$@"
 		}
 
 		# List files in tree structure.
