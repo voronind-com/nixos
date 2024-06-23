@@ -1,6 +1,6 @@
 { pkgs, ... }: let
-	url    = "https://i.imgur.com/rmRsEtO.jpeg";
-	sha256 = "sha256-def6O2CEjubDfKiL/d7h9IE+Q5bXa4iY093nzl0t8oA=";
+	url    = "https://i.imgur.com/0RldJsX.jpeg";
+	sha256 = "sha256-hbbUz9+m/bLahDiflAoio6+4H0DHfxlbh92cWSjE4R4=";
 
 	# Sometimes stylix does not generate enough contrast for text.
 	# This setting forces white text to ensure contrast on dark backgrounds.
