@@ -16,8 +16,8 @@ in {
 		rekey_normal("<Leader>q", "<cmd>BufferLineCyclePrev<cr>")
 
 		-- Splits.
-		rekey_normal("<Leader>-",  "<cmd>vsplit<cr>")
-		rekey_normal("<Leader>\\", "<cmd>split<cr>")
+		rekey_normal("<Leader>\\",  "<cmd>vsplit<cr>")
+		rekey_normal("<Leader>-", "<cmd>split<cr>")
 		rekey_normal("<Leader>=",  "<C-w>=") -- Equalize split sizes.
 		rekey_normal("<Leader>c",  "<C-w>q") -- Close split.
 

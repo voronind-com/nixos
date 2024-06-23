@@ -5,7 +5,7 @@
 	browser.bin  = "firefox-esr";
 	terminal.bin = "foot";
 	dpiAware = false;
-	sysctrl = "print";
+	sysctrl = "Print";
 
 	keyboard = {
 		layouts = "us,ru";
