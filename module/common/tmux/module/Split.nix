@@ -9,15 +9,15 @@
 	stepHorizontal = 1;
 in {
 	text = ''
-		bind -n ${mod}--  split-window  -h -c "#{pane_current_path}"
-		bind -n ${mod}-\\ split-window  -v -c "#{pane_current_path}"
+		bind -n ${mod}-\\ split-window  -h -c "#{pane_current_path}"
+		bind -n ${mod}--  split-window  -v -c "#{pane_current_path}"
 		bind -n ${mod}-=  select-layout tiled
-		bind -n ${mod}-k  resize-pane   -U ${toString stepVertical}
-		bind -n ${mod}-j  resize-pane   -D ${toString stepVertical}
-		bind -n ${mod}-h  resize-pane   -L ${toString stepHorizontal}
-		bind -n ${mod}-l  resize-pane   -R ${toString stepHorizontal}
-		bind -n ${mod}-a  swap-pane     -U
-		bind -n ${mod}-d  swap-pane     -D
+		bind -n ${mod}-k  resize-pane -U ${toString stepVertical}
+		bind -n ${mod}-j  resize-pane -D ${toString stepVertical}
+		bind -n ${mod}-h  resize-pane -L ${toString stepHorizontal}
+		bind -n ${mod}-l  resize-pane -R ${toString stepHorizontal}
+		bind -n ${mod}-a  swap-pane   -U
+		bind -n ${mod}-d  swap-pane   -D
 		unbind '"'
 		unbind %
 

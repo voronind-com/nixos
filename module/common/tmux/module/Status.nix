@@ -7,6 +7,7 @@
 in {
 	text = ''
 		bind-key -n ${mod}-f set-option -g status;
+		set -g status-left-length 50
 		set -g status-position bottom
 		set -g status-justify  left
 		set -g status-style "fg=#${fg}"
