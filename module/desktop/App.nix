@@ -30,7 +30,6 @@ in {
 
 	environment = {
 		systemPackages = with pkgs; [
-			adwsteamgtk              # Steam GTK theme. Need to run the app to apply.
 			anilibria-winmaclinux    # Anime!
 			appimage-run             # Tool to run .AppImage files in NixOS.
 			aseprite                 # Pixel Art draw app. WARNING: Always builds from source.
@@ -43,7 +42,6 @@ in {
 			gnome.gnome-calculator   # Calculator.
 			gnome.gnome-font-viewer  # Font viewer.
 			gnome.nautilus           # File manager.
-			godot_4                  # Game development engine.
 			jellyfin-media-player    # Jellyfin client (self-hosted Netflix).
 			loupe                    # Image viewer.
 			obs-studio               # Streaming/recording app.
