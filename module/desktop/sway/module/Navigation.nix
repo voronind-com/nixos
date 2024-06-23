@@ -1,10 +1,10 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		# Navigation keys.
-		set $down  ${key.navigation.go.down}
-		set $left  ${key.navigation.go.left}
-		set $right ${key.navigation.go.right}
-		set $up    ${key.navigation.go.up}
+		set $down  s
+		set $left  a
+		set $right d
+		set $up    w
 
 		# Move focus.
 		bindsym $mod+$down  focus down

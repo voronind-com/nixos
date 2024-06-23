@@ -26,7 +26,7 @@
 			"alt.w" = "macro(enter 10ms r enter)";
 			"alt.x" = "macro(enter 10ms > space H e r e space < enter)";
 			"alt.z" = "macro(enter 10ms < space L e f t enter)";
-			leftshift = "timeout(leftcontrol, ${toString setting.keyd.timeout.ms}, leftshift)";
+			leftshift = "timeout(leftcontrol, ${toString setting.timeout.keyd}, leftshift)";
 		};
 	};
 }

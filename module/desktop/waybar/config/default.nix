@@ -73,7 +73,7 @@ in {
 			on-click-right = "powerlimit toggle";
 		};
 		pulseaudio = {
-			scroll-step  = setting.volume.step;
+			scroll-step  = setting.step.volume;
 			format       = "{volume}% {icon}";
 			format-muted = "󰸈";
 			format-icons = {
@@ -100,26 +100,26 @@ in {
 		cpu = {
 			format         = "{usage}% ({load})";
 			interval       = refreshInterval;
-			on-click       = "foot -e bash -c btop";
+			on-click       = "${setting.terminal.bin} -e bash -c btop";
 			on-click-right = "powersave toggle";
 			tooltip        = false;
 		};
 		memory = {
 			format         = "{percentage}%";
 			interval       = refreshInterval;
-			on-click       = "foot -e bash -c btop";
+			on-click       = "${setting.terminal.bin} -e bash -c btop";
 			on-click-right = "powersave toggle";
 		};
 		temperature = {
 			format         = "{temperatureC}°C";
 			interval       = refreshInterval;
-			on-click       = "foot -e bash -c btop";
+			on-click       = "${setting.terminal.bin} -e bash -c btop";
 			on-click-right = "powersave toggle";
 		};
 		"custom/powersave" = {
 			exec           = "powersave waybar";
 			interval       = refreshInterval;
-			on-click       = "foot -e bash -c btop";
+			on-click       = "${setting.terminal.bin} -e bash -c btop";
 			on-click-right = "powersave toggle";
 		};
 		"custom/display" = {

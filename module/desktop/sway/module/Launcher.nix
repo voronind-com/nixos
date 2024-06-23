@@ -1,4 +1,4 @@
-{ style, key, ... }: let
+{ style, ... }: let
 	fontName = style.font.serif.name;
 	fontSize = toString style.font.size.desktop;
 
@@ -13,6 +13,6 @@ in {
 		# set $menu _dmenu_path_wrapped | wmenu -b -p 'Run:' -i -f "${fontName} ${fontSize}" -M ${bg}D9 -S ${bg}D9 -N ${bg}D9 -m ${accent} -s ${accent} -n ${fg} | xargs swaymsg exec --
 		set $menu fuzzel
 
-		bindsym $mod+${key.action.launch} exec $menu
+		bindsym $mod+space exec $menu
 	'';
 }

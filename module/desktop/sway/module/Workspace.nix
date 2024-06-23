@@ -1,4 +1,4 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		# Switch to workspace.
 		bindsym $mod+1 workspace number 1
@@ -27,11 +27,11 @@
 		# We just use 1-10 as the default.
 
 		# Switch left-right.
-		bindsym $mod+${key.navigation.go.next} workspace next
-		bindsym $mod+${key.navigation.go.prev} workspace prev
+		bindsym $mod+e workspace next
+		bindsym $mod+q workspace prev
 
 		# Move left-right.
-		bindsym $mod+Shift+${key.navigation.move.next} move container to workspace next
-		bindsym $mod+Shift+${key.navigation.move.prev} move container to workspace prev
+		bindsym $mod+Shift+e move container to workspace next
+		bindsym $mod+Shift+q move container to workspace prev
 	'';
 }

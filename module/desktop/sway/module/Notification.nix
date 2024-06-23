@@ -1,9 +1,9 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		# Show last notification.
-		bindsym $mod+${key.sway.notification.restore} exec makoctl restore
+		bindsym $mod+n exec makoctl restore
 
 		# Hide all notifications.
-		bindsym $mod+${key.sway.notification.dismiss} exec makoctl dismiss --all
+		bindsym $mod+shift+N exec makoctl dismiss --all
 	'';
 }

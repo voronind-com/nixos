@@ -1,13 +1,13 @@
-{ key, ... }: let
-	mod = key.tmux.mod;
+{ ... }: let
+	mod = "M";
 in {
 	text = ''
-		bind -n ${mod}-${key.action.wait} detach-client
-		bind -n ${mod}-${key.action.exit} detach-client -a
+		bind -n ${mod}-z detach-client
+		bind -n ${mod}-Z detach-client -a
 
-		bind -n ${mod}-${key.tmux.session.prev}   switch-client -p
-		bind -n ${mod}-${key.tmux.session.next}   switch-client -n
-		bind -n ${mod}-${key.tmux.session.choose} choose-session
+		bind -n ${mod}-( switch-client -p
+		bind -n ${mod}-) switch-client -n
+		bind -n ${mod}-g choose-session
 
 		set -g window-size smallest
 	'';

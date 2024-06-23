@@ -1,8 +1,8 @@
-{ key, ... }: let
-	mod = key.tmux.mod;
+{ ... }: let
+	mod = "M";
 in {
 	text = ''
 		unbind-key C-b
-		bind -n ${mod}-${key.tmux.reload} source-file /etc/tmux.conf
+		bind -n ${mod}-r source-file /etc/tmux.conf
 	'';
 }

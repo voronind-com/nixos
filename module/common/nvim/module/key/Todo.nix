@@ -1,6 +1,6 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		-- Toggle To-do window.
-		rekey_normal("<Leader>${key.nvim.window.todo}", "<cmd>TroubleToggle todo<cr>")
+		rekey_normal("<Leader>3", "<cmd>TroubleToggle todo<cr>")
 	'';
 }

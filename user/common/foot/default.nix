@@ -1,5 +1,6 @@
 { style, setting, pkgs, ... }: let
 	dpiAware = if setting.dpiAware then "yes" else "no";
+	fontStep = 1;
 in {
 	file = (pkgs.formats.iniWithGlobalSection {}).generate "FootConfig" {
 		globalSection = {
@@ -8,7 +9,7 @@ in {
 			font-italic          = "${style.font.monospace.name}:size=${toString style.font.size.terminal}";
 			font-bold-italic     = "${style.font.monospace.name}:size=${toString style.font.size.terminal}";
 			dpi-aware            = dpiAware;
-			font-size-adjustment = setting.foot.font.step;
+			font-size-adjustment = fontStep;
 		};
 
 		sections = {

@@ -43,14 +43,14 @@
 		bg-g = config.lib.stylix.colors.base00-rgb-g;
 		bg-r = config.lib.stylix.colors.base00-rgb-r;
 
+		fg-b = config.lib.stylix.colors.base06-rgb-b;
+		fg-g = config.lib.stylix.colors.base06-rgb-g;
+		fg-r = config.lib.stylix.colors.base06-rgb-r;
+
 		border   = config.lib.stylix.colors.base01;
 		border-b = config.lib.stylix.colors.base01-rgb-b;
 		border-g = config.lib.stylix.colors.base01-rgb-g;
 		border-r = config.lib.stylix.colors.base01-rgb-r;
-
-		fg-b = config.lib.stylix.colors.base06-rgb-b;
-		fg-g = config.lib.stylix.colors.base06-rgb-g;
-		fg-r = config.lib.stylix.colors.base06-rgb-r;
 	};
 
 	font = {

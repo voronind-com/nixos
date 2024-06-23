@@ -193,7 +193,6 @@
 				const     = self.const; # Constant values.
 				flake     = self;       # This Flake itself.
 				inputs    = inputs;     # Our dependencies.
-				key       = import ./part/Key.nix       {}; # Keyboard keys config.
 				secret    = import ./part/Secret.nix    {}; # Secrets (public keys).
 				setting   = import ./part/Setting.nix   {}; # My own global settings.
 				style     = import ./part/Style.nix     { inherit config;   }; # Style abstraction.
@@ -359,7 +358,6 @@
 				const   = self.const; # Constant values.
 				flake   = self;       # This Flake itself.
 				inputs  = inputs;     # Our dependencies.
-				key     = import ./part/Key.nix     {}; # Keyboard keys config.
 				secret  = import ./part/Secret.nix  {}; # Secrets (public keys).
 				setting = import ./part/Setting.nix {}; # My own global settings.
 				style   = import ./part/Style.nix   { config = import ./part/style/Gruvbox.nix {}; }; # Style abstraction. Stylix is not available for Android so I provide static Gruvbox style.

@@ -1,6 +1,6 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		-- Toggle diagnostics window.
-		rekey_normal("<Leader>${key.nvim.window.trouble}", "<cmd>TroubleToggle document_diagnostics<cr>")
+		rekey_normal("<Leader>2", "<cmd>TroubleToggle document_diagnostics<cr>")
 	'';
 }

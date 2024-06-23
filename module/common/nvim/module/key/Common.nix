@@ -1,4 +1,4 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		-- Write all we can and exit. Created this to drop non-writable stuff when piping to nvim.
 		function bye()
@@ -22,17 +22,17 @@
 			end
 		end
 
-		rekey_normal("<Leader>${key.nvim.editor.indent.size}", "<cmd>lua toggle_tab_width()<cr>")
+		rekey_normal("<Leader><Tab>", "<cmd>lua toggle_tab_width()<cr>")
 
 		-- Repeat previous command.
-		rekey_normal("<Leader>${key.action.repeat}", "@:")
-		rekey_visual("<Leader>${key.action.repeat}", "@:")
+		rekey_normal("<Leader>.", "@:")
+		rekey_visual("<Leader>.", "@:")
 
 		-- Save everything.
-		rekey_normal("${key.action.wait}${key.action.wait}", "<cmd>wa<cr>")
+		rekey_normal("zz", "<cmd>wa<cr>")
 
 		-- Save all we can and leave.
-		rekey_normal("<Leader>${key.action.wait}", "<cmd>lua bye()<cr>")
+		rekey_normal("<Leader>z", "<cmd>lua bye()<cr>")
 
 		-- Remap ; to :.
 		rekey_normal(";", ":")

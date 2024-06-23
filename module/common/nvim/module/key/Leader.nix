@@ -1,6 +1,6 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
-		leader = "${key.nvim.leader}"
+		leader = " "
 
 		vim.g.mapleader      = leader
 		vim.g.maplocalleader = leader

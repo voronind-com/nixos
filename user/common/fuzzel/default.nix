@@ -8,7 +8,7 @@ in {
 			lines        = 20;
 			prompt       = "\"$ \"";
 			show-actions = "yes";
-			terminal     = setting.terminal;
+			terminal     = setting.terminal.bin;
 			width        = 40;
 			# list-executables-in-path = "no";
 		};

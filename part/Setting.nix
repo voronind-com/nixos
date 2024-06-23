@@ -1,54 +1,29 @@
 # Global settings.
 # Just like I can configure each package, here I configure my config! :O)
 { ... }: {
-	tmux = {
-		resize.step = {
-			vertical   = 1;
-			horizontal = 1;
-		};
-	};
-
-	nvim = {
-		editor = {
-			relativenumber = true;
-			indent.default = 2;
-		};
-		resize.step = {
-			vertical   = 2;
-			horizontal = 4;
-		};
-	};
-
-	sway = {
-		resize.step = {
-			vertical   = 10;
-			horizontal = 10;
-		};
-	};
-
-	foot = {
-		font = {
-			step = 1;
-		};
-	};
-
-	top.refresh.ms   = 2000;
-	popup.timeout.ms = 5000;
-	keyd.timeout.ms  = 150;
-
-	brightness.step = 5;
-	volume.step     = 5;
-	media.step      = 10;
+	ollama.primaryModel = "llama3";
+	browser.bin  = "firefox-esr";
+	terminal.bin = "foot";
+	dpiAware = true;
+	sysctrl = "print";
 
 	keyboard = {
 		layouts = "us,ru";
 		options = "grp:toggle";
 	};
 
-	ollama.primaryModel = "llama3";
+	refresh = {
+		top = 2000;
+	};
 
-	browser  = "firefox-esr";
-	terminal = "foot";
+	step = {
+		brightness = 5;
+		volume     = 5;
+		media      = 10;
+	};
 
-	dpiAware = true;
+	timeout = {
+		popup = 5000;
+		keyd  = 150;
+	};
 }

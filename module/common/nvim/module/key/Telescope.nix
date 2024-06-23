@@ -1,12 +1,12 @@
-{ key, ... }: let
-	mod = key.nvim.telescope.mod;
+{ ... }: let
+	mod = "f";
 in {
 	text = ''
-		rekey_normal("<Leader>${mod}${key.nvim.telescope.all}", "<cmd>Telescope<cr>")
-		rekey_normal("<Leader>${mod}${key.nvim.telescope.buffer}", "<cmd>lua require('telescope.builtin').buffers()<cr>")
-		rekey_normal("<Leader>${mod}${key.nvim.telescope.file}", "<cmd>lua require('telescope.builtin').find_files()<cr>")
-		rekey_normal("<Leader>${mod}${key.nvim.telescope.grep}", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-		rekey_normal("<Leader>${mod}${key.nvim.telescope.help}", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
-		rekey_normal("<Leader>${mod}${key.nvim.telescope.treesitter}", "<cmd>Telescope treesitter<cr>")
+		rekey_normal("<Leader>${mod}a", "<cmd>Telescope<cr>")
+		rekey_normal("<Leader>${mod}b", "<cmd>lua require('telescope.builtin').buffers()<cr>")
+		rekey_normal("<Leader>${mod}f", "<cmd>lua require('telescope.builtin').find_files()<cr>")
+		rekey_normal("<Leader>${mod}g", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+		rekey_normal("<Leader>${mod}h", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
+		rekey_normal("<Leader>${mod}t", "<cmd>Telescope treesitter<cr>")
 	'';
 }

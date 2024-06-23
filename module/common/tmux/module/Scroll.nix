@@ -1,8 +1,8 @@
-{ key, ... }: let
-	mod = key.tmux.mod;
+{ ... }: let
+	mod = "M";
 in {
 	text = ''
-		bind -n ${mod}-${key.tmux.scroll.up} copy-mode -u
-		bind -n ${mod}-${key.tmux.scroll.down} send-keys Pagedown
+		bind -n ${mod}-p copy-mode -u
+		bind -n ${mod}-n send-keys Pagedown
 	'';
 }

@@ -1,4 +1,4 @@
-{ setting, lib, ... }: {
+{ ... }: {
 	text = ''
 		-- TODO: Add comments and separate files.
 		vim.opt.clipboard     = "unnamedplus"
@@ -26,7 +26,7 @@
 		vim.cmd("set list listchars=tab:>\\ ,trail:-,lead:.")
 
 		-- Relative line numbers.
-		vim.wo.relativenumber = ${lib.boolToString(setting.nvim.editor.relativenumber)}
+		vim.wo.relativenumber = true
 
 		-- Disable swap files.
 		vim.opt.swapfile = false

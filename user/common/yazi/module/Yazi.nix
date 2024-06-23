@@ -28,7 +28,7 @@
 			}];
 			browser = [{
 				orphan = true;
-				run    = openWith setting.browser;
+				run    = openWith setting.browser.bin;
 			}];
 			text = [{
 				block = true;

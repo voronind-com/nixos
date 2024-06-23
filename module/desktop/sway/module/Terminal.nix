@@ -1,8 +1,7 @@
-{ key, ... }: {
+{ setting, ... }: {
 	text = ''
-		# Terminal emulator.
-		set $term foot
+		set $term ${setting.terminal.bin}
 
-		bindsym $mod+${key.sway.launch.terminal} exec $term -e bash -c "tmux new-session -A -s $USER; bash"
+		bindsym $mod+Escape exec $term -e bash -c "tmux new-session -A -s $USER; bash"
 	'';
 }

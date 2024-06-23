@@ -1,12 +1,12 @@
-{ style, key, ... }: let
-	mod = key.tmux.mod;
+{ style, ... }: let
+	mod = "M";
 
 	accent = style.color.accent;
-	bg     = style.color.bg.dark;
+	# bg     = style.color.bg.dark;
 	fg     = style.color.fg.light;
 in {
 	text = ''
-		bind-key -n ${mod}-${key.tmux.status.toggle} set-option -g status;
+		bind-key -n ${mod}-f set-option -g status;
 		set -g status-position bottom
 		set -g status-justify  left
 		set -g status-style "fg=#${fg}"

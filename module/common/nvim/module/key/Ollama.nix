@@ -1,8 +1,6 @@
-{ key, ... }: let
-	prompt = key.nvim.text.prompt;
-in {
+{ ... }: {
 	text = ''
-		rekey_normal("<Leader>${prompt}", ":<c-u>lua require('ollama').prompt()<cr>")
-		rekey_visual("<Leader>${prompt}", ":<c-u>lua require('ollama').prompt()<cr>")
+		rekey_normal("<Leader>p", ":<c-u>lua require('ollama').prompt()<cr>")
+		rekey_visual("<Leader>p", ":<c-u>lua require('ollama').prompt()<cr>")
 	'';
 }

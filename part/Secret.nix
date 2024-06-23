@@ -1,6 +1,6 @@
 { ... }: {
 	# Password used for root user.
-	hashedPassword = "$y$j9T$oqCB16i5E2t1t/HAWaFd5.$tTaHtAcifXaDVpTcRv.yH2/eWKxKE9xM8KcqXHfHrD7"; # Use `mkpasswd`.
+	hashedPassword = "$y$j9T$oqCB16i5E2t1t/HAWaFd5.$tTaHtAcifXaDVpTcRv.yH2/eWKxKE9xM8KcqXHfHrD7"; # Use `mkpasswd -s`.
 
 	ssh = {
 		# Keys that are allowed to connect via SSH.
@@ -16,7 +16,6 @@
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJSWdbkYsRiDlKu8iT/k+JN4KY08iX9qh4VyqxlpEZcE root@home"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgiYKFkMfiGOZCZIk+O7LtaoF6A3cHEFCqaPwXOM4rR root@work"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA+KKCkFOshUznJlXW/LDie0vZLd4b+KWodSm8N8vM+ root@laptop"
-			(builtins.readFile ./secret/public/Ssh.key)
 		];
 	};
 

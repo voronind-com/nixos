@@ -1,9 +1,9 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		-- Autocomplete.
-		rekey_input("<C-${key.action.launch}>", "<C-n>")
+		rekey_input("<C-space>", "<C-n>")
 
 		-- LSP autocomplete.
-		rekey_normal("<C-${key.action.launch}>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+		rekey_normal("<C-space>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 	'';
 }

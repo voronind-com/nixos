@@ -1,15 +1,15 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		# Sway has a "scratchpad", which is a bag of holding for windows.
 		# You can send windows there and get them back later.
 		# NOTE: Get id with `swaymsg -t get_tree`.
 
 		# Move the currently focused window to the scratchpad
-		bindsym $mod+shift+${key.action.seek} move scratchpad
+		bindsym $mod+shift+C move scratchpad
 
 		# Show the next scratchpad window or hide the focused scratchpad window.
 		# If there are multiple scratchpad windows, this command cycles through them.
-		bindsym $mod+${key.action.hide} scratchpad show
+		bindsym $mod+c scratchpad show
 
 		# Fix for a goddamn Firefox WebRTC indicator.
 		for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {

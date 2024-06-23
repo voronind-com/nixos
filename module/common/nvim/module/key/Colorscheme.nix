@@ -1,4 +1,4 @@
-{ key, ... }: {
+{ ... }: {
 	text = ''
 		function toggle_contrast()
 			if vim.g.gruvbox_material_background == "light" then
@@ -20,7 +20,7 @@
 			-- require("lualine").setup()
 		end
 
-		rekey_normal("<Leader>${key.nvim.colorscheme.toggle.contrast}", "<cmd>lua toggle_contrast()<cr>")
-		rekey_normal("<Leader>${key.nvim.colorscheme.toggle.light}", "<cmd>lua toggle_light()<cr>")
+		rekey_normal("<Leader>[", "<cmd>lua toggle_contrast()<cr>")
+		rekey_normal("<Leader>]", "<cmd>lua toggle_light()<cr>")
 	'';
 }

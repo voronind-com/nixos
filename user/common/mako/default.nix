@@ -6,7 +6,7 @@ in {
 			anchor           = "top-center";
 			background-color = "#${style.color.bg.dark}${alpha}";
 			border-color     = "#${style.color.border}${alpha}";
-			default-timeout  = setting.popup.timeout.ms;
+			default-timeout  = setting.timeout.popup;
 			font             = "${style.font.serif.name} ${toString style.font.size.popup}";
 			height           = 120;
 			icons            = 0;

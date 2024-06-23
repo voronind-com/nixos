@@ -1,30 +1,33 @@
-{ key, setting, style, ... }: let
-	mod = key.tmux.mod;
+{ style, ... }: let
+	mod = "M";
 
 	accent = style.color.accent;
 	bg     = style.color.bg.regular;
-	fg     = style.color.fg.light;
+	# fg     = style.color.fg.light;
+
+	stepVertical   = 1;
+	stepHorizontal = 1;
 in {
 	text = ''
-		bind -n ${mod}-${key.action.split.vertical}   split-window  -h -c "#{pane_current_path}"
-		bind -n ${mod}-${key.action.split.horizontal} split-window  -v -c "#{pane_current_path}"
-		bind -n ${mod}-${key.action.resize.equalize}  select-layout tiled
-		bind -n ${mod}-${key.action.resize.up}        resize-pane   -U ${toString setting.tmux.resize.step.vertical}
-		bind -n ${mod}-${key.action.resize.down}      resize-pane   -D ${toString setting.tmux.resize.step.vertical}
-		bind -n ${mod}-${key.action.resize.left}      resize-pane   -L ${toString setting.tmux.resize.step.horizontal}
-		bind -n ${mod}-${key.action.resize.right}     resize-pane   -R ${toString setting.tmux.resize.step.horizontal}
-		bind -n ${mod}-${key.navigation.move.left}    swap-pane     -U
-		bind -n ${mod}-${key.navigation.move.right}   swap-pane     -D
+		bind -n ${mod}--  split-window  -h -c "#{pane_current_path}"
+		bind -n ${mod}-\\ split-window  -v -c "#{pane_current_path}"
+		bind -n ${mod}-=  select-layout tiled
+		bind -n ${mod}-k  resize-pane   -U ${toString stepVertical}
+		bind -n ${mod}-j  resize-pane   -D ${toString stepVertical}
+		bind -n ${mod}-h  resize-pane   -L ${toString stepHorizontal}
+		bind -n ${mod}-l  resize-pane   -R ${toString stepHorizontal}
+		bind -n ${mod}-a  swap-pane     -U
+		bind -n ${mod}-d  swap-pane     -D
 		unbind '"'
 		unbind %
 
-		bind -n ${mod}-${key.navigation.go.left}  select-pane -L
-		bind -n ${mod}-${key.navigation.go.right} select-pane -R
-		bind -n ${mod}-${key.navigation.go.up}    select-pane -U
-		bind -n ${mod}-${key.navigation.go.down}  select-pane -D
+		bind -n ${mod}-a select-pane -L
+		bind -n ${mod}-d select-pane -R
+		bind -n ${mod}-w select-pane -U
+		bind -n ${mod}-s select-pane -D
 
-		bind -n ${mod}-${key.action.hide} kill-pane
-		bind -n ${mod}-${key.action.seek} kill-pane -a
+		bind -n ${mod}-c kill-pane
+		bind -n ${mod}-C kill-pane -a
 
 		set -g pane-border-style        "fg=#${bg}"
 		set -g pane-active-border-style "fg=#${accent}"
