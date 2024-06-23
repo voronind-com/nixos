@@ -59,7 +59,6 @@
 				(mkLink "Read"     "fa-book"          "https://${container.config.read.domain}")
 				(mkLink "Search"   "fa-search"        "https://${container.config.search.domain}")
 				(mkLink "Stock"    "fa-boxes-stacked" "https://${container.config.stock.domain}")
-				# (mkLink "Tool"     "fa-toolbox"       "https://${container.config.tool.domain}")
 				(mkLink "Watch"    "fa-film"          "https://${container.config.watch.domain}")
 				(mkLink "YouTube"  "fab fa-youtube"   "https://${container.config.yt.domain}")
 			])
@@ -76,6 +75,7 @@
 				(mkLink "MonkeyType"  "fa-keyboard"         "https://monkeytype.com")
 				(mkLink "NerdFonts"   "fa-font"             "https://www.nerdfonts.com/cheat-sheet")
 				(mkLink "Reddit"      "fab fa-reddit"       "https://reddit.com")
+				(mkLink "Toolbox"     "fa-toolbox"          "https://it-tools.tech")
 				(mkLink "Zigbee"      "fa-satellite-dish"   "https://zigbee.blakadder.com")
 			])
 			(mkGroup "Work" "fa-briefcase" [
