@@ -96,7 +96,7 @@ Tmux:<br>
 </details>
 
 <details>
-<summary>System controls (Sway)</summary>
+<summary>System controls</summary>
 <img src="https://i.imgur.com/rBFA2Xu.png" />
 </details>
 
