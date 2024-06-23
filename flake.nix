@@ -346,7 +346,7 @@
 				{ system.stateVersion = inputs.self.const.droidStateVersion; }
 
 				# I put all my Android configuration there.
-				./module/android
+				./android
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.

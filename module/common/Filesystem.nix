@@ -11,4 +11,12 @@
 		device = "/dev/disk/by-partlabel/NIXBOOT";
 		fsType = "vfat";
 	};
+
+	# /etc overlay.
+	# boot.initrd.systemd.enable = true;
+	# systemd.sysusers.enable    = true;
+	# system.etc.overlay = {
+	# 	enable  = true;
+	# 	mutable = false;
+	# };
 }
