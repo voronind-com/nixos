@@ -39,7 +39,7 @@ in {
 	imports = [
 		(import ../../container/Change.nix args)
 		(import ../../container/Cloud.nix args)
-		# (import ../../container/Ddns.nix args)
+		(import ../../container/Ddns.nix args)
 		(import ../../container/Dns.nix args)
 		(import ../../container/Download.nix args)
 		(import ../../container/Git.nix args)
