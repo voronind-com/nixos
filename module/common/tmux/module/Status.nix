@@ -1,4 +1,4 @@
-{ style, key, setting, ... }: let
+{ style, key, ... }: let
 	mod = key.tmux.mod;
 
 	accent = style.color.accent;
@@ -7,13 +7,11 @@
 in {
 	text = ''
 		bind-key -n ${mod}-${key.tmux.status.toggle} set-option -g status;
-		set -g status-interval ${toString setting.tmux.status.interval}
 		set -g status-position bottom
 		set -g status-justify  left
 		set -g status-style "fg=#${fg}"
 
 		set -g status-left "#[bold] #H-#S "
-		set -g status-left-length  ${toString setting.tmux.status.length}
 		set -g status-right ""
 
 		set-window-option -g window-status-separator ""

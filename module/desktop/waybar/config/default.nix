@@ -2,7 +2,7 @@
 	refreshInterval = 2;
 in {
 	file = (pkgs.formats.json {}).generate "WaybarConfig" {
-		height       = 30;
+		height       = 2 * (style.window.gap + style.window.border);
 		layer        = "top";
 		margin-left  = style.window.gap;
 		margin-right = style.window.gap;
@@ -11,7 +11,6 @@ in {
 		position     = "top";
 		spacing      = 4;
 		start_hidden = false;
-		# exclusive = false;
 		modules-left = [
 			"sway/workspaces"
 			"sway/scratchpad"

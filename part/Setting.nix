@@ -6,22 +6,6 @@
 			vertical   = 1;
 			horizontal = 1;
 		};
-		status = {
-			interval = 2;
-			length   = 50;
-			battery.threshold = {
-				high   = 60;
-				medium = 40;
-				low    = 20;
-				show   = 40;
-			};
-			volume.threshold = {
-				high   = 80;
-				medium = 40;
-				low    = 10;
-				show   = 100;
-			};
-		};
 	};
 
 	nvim = {

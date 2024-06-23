@@ -13,11 +13,11 @@
 			sort_translit  = true;
 		};
 
-		# preview = {
-		# 	# image_filter = "triangle";
-		# 	image_filter = "lanczos3";
-		# 	image_quality = 80;
-		# };
+		preview = {
+			# image_filter = "triangle";
+			image_filter = "lanczos3";
+			image_quality = 80;
+		};
 
 		opener = let
 			openWith = app: "${app} \"$@\"";
