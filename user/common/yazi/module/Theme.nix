@@ -7,15 +7,15 @@ in {
 		manager = {
 			cwd = {
 				fg = "#${style.color.fg.light}";
-				# bg = "#${style.color.bg.dark}";
+				# bg = "#${style.color.bg.regular}";
 			};
 			hovered = {
 				fg = "#${style.color.fg.light}";
-				bg = "#${style.color.bg.dark}";
+				bg = "#${style.color.bg.regular}";
 			};
 			preview_hovered = {
 				fg = "#${style.color.fg.light}";
-				bg = "#${style.color.bg.dark}";
+				bg = "#${style.color.bg.regular}";
 			};
 			border_style = border;
 			tab_active = {
