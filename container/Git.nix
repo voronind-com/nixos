@@ -55,6 +55,7 @@ in {
 						ENABLED      = true;
 						RUN_AT_START = true;
 					};
+					"repo-archive".ENABLED = false;
 					"cron.update_mirrors".SCHEDULE = "@midnight";
 					"cron.cleanup_actions".ENABLED = true;
 					"cron.git_gc_repos" = {
