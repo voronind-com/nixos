@@ -24,15 +24,22 @@
 	tmux = import ../module/common/tmux args;
 	yazi = import ../user/common/yazi args;
 in {
+	# Configure system.
 	time.timeZone    = const.timeZone;
 	nix.extraOptions = nix.extraOptions;
 
+	# Install packages.
 	environment.packages = package.list;
 
 	home-manager.config = {
 		home = {
-			stateVersion     = const.droidStateVersion;
+			# Release version.
+			stateVersion = const.droidStateVersion;
+
+			# Environment variables.
 			sessionVariables = environment.variables;
+
+			# Where to put config files.
 			file = {
 				".dotfiles".source = inputs.self;
 				".ssh/config".text = ssh.config;
@@ -45,6 +52,7 @@ in {
 			};
 		};
 
+		# Special app configuration.
 		programs = {
 			bash = {
 				enable = true;
@@ -68,7 +76,7 @@ in {
 
 			gpg = {
 				enable = true;
-				publicKeys = secret.crypto.publicKeys;
+				inherit (secret.crypto) publicKeys;
 			};
 		};
 	};

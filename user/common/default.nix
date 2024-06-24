@@ -67,7 +67,7 @@ in {
 				home-manager.enable = true;
 				gpg = {
 					enable = true;
-					publicKeys = secret.crypto.publicKeys;
+					inherit (secret.crypto) publicKeys;
 				};
 			};
 		};

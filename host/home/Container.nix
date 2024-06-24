@@ -9,10 +9,19 @@
 , pkgsStable
 , ... }: let
 	args = let
+		# Path where all the container data will be stored.
 		storage = "/storage/hot/container";
+
+		# Domain used to host stuff. All the services will be like `service.${domain}`.
 		domain  = "voronind.com";
+
+		# External IP address of the host, where all the services will listen to.
 		host    = "192.168.1.2";
+
+		# External interface where all the services will listen on.
 		externalInterface = "enp7s0";
+
+		# Paths to media content. Later they can be plugged to the containers using the `attachMedia "photo"` function.
 		media = {
 			anime    = [ "/storage/cold_1/media/anime" "/storage/cold_2/media/anime" ];
 			book     = [ "/storage/hot/media/book" ];
@@ -29,13 +38,16 @@
 			youtube  = [ "/storage/cold_1/media/youtube" "/storage/cold_2/media/youtube" ];
 		};
 	in {
+		# Pass all the arguments further.
 		inherit storage domain host pkgs const lib config util media externalInterface;
 		inherit poetry2nixJobber pkgsJobber;
 		inherit pkgsMaster pkgsStable;
 
+		# Pass the global container configuration.
 		container = import ../../container args;
 	};
 in {
+	# List of containers enabled on this host.
 	imports = [
 		(import ../../container/Change.nix args)
 		(import ../../container/Cloud.nix args)
@@ -66,83 +78,12 @@ in {
 		(import ../../container/Yt.nix args)
 	];
 
+	# This is the network for all the containers.
+	# They are not available to the external interface by default,
+	# instead they all expose specific ports in their configuration.
 	networking.nat = {
 		enable = true;
 		internalInterfaces = [ "ve-+" ];
 		inherit (args) externalInterface;
-
-		# TODO: Do I even need this?
-		forwardPorts = with args.container.config; [
-			# Dns Server.
-			{
-				destination = "${dns.address}:53";
-				proto       = "udp";
-				sourcePort  = 53;
-			} {
-				destination = "${dns.address}:53";
-				proto       = "tcp";
-				sourcePort  = 53;
-			}
-
-			# Reverse proxy.
-			#{
-			#	destination = "${proxy.address}:80";
-			#	proto       = "tcp";
-			#	sourcePort  = 80;
-			#} {
-			{
-				destination = "${proxy.address}:443";
-				proto       = "tcp";
-				sourcePort  = 443;
-			}
-
-			# Cups.
-			{
-				destination = "${print.address}:${toString print.port}";
-				proto       = "tcp";
-				sourcePort  = 631;
-			} {
-				destination = "${print.address}:6566";
-				proto       = "tcp";
-				sourcePort  = 6566;
-			}
-
-			# Wireguard.
-			{
-				destination = "${vpn.address}:${toString vpn.port}";
-				proto       = "udp";
-				sourcePort  = 51820;
-			}
-
-			# Deluge.
-			{
-				destination = "${download.address}:${toString download.port}";
-				proto       = "tcp";
-				sourcePort  = 8112;
-			} {
-				destination = "${download.address}:54630-54631";
-				proto       = "udp";
-				sourcePort  = "54630:54631";
-			} {
-				destination = "${download.address}:54630-54631";
-				proto       = "tcp";
-				sourcePort  = "54630:54631";
-			}
-
-			# Mail.
-			{
-				destination = "${mail.address}:25";
-				proto       = "tcp";
-				sourcePort  = 25;
-			} {
-				destination = "${mail.address}:465";
-				proto       = "tcp";
-				sourcePort  = 465;
-			} {
-				destination = "${mail.address}:993";
-				proto       = "tcp";
-				sourcePort  = 993;
-			}
-		];
 	};
 }

@@ -1,4 +1,4 @@
-{ pkgs, pkgsStable, pkgsMaster, ... } @args: let
+{ pkgs, pkgsStable, pkgsMaster, setting, ... } @args: let
 	mangohud = import ./mangohud args;
 in {
 	imports = [
@@ -37,6 +37,7 @@ in {
 			blender-hip              # Blender with HiP support.
 			calibre                  # Book library manager.
 			evince                   # Document viewer.
+			foot                     # Terminal emulator.
 			gimp                     # Image manipulation program.
 			gnome.adwaita-icon-theme # GTK icons.
 			gnome.gnome-calculator   # Calculator.
@@ -65,6 +66,10 @@ in {
 
 			# GTK apps compat.
 			GTK_CSD = 0;
+
+			# Terminal settings.
+			TERM     = "xterm-256color";
+			TERMINAL = setting.terminal.bin;
 		};
 	};
 

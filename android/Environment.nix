@@ -1,10 +1,18 @@
-{ pkgs, setting, ... }: {
+{ pkgs, ... }: {
 	variables = {
-		EDITOR               = "nvim";
-		MANPAGER             = "nvim +Man!";
+		# Default text editor.
+		EDITOR = "nvim";
+
+		# App to use for man pages.
+		MANPAGER = "nvim +Man!";
+
+		# Allow unfree packages in shell.
 		NIXPKGS_ALLOW_UNFREE = "1";
-		NIX_CURRENT_SYSTEM   = "${pkgs.stdenv.system}";
-		TERM                 = "xterm-256color";
-		TERMINAL             = setting.terminal.bin;
+
+		# Current system architecture.
+		NIX_CURRENT_SYSTEM = "${pkgs.stdenv.system}";
+
+		# Terminal settings.
+		TERM = "xterm-256color";
 	};
 }
