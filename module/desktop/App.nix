@@ -1,4 +1,4 @@
-{ pkgs, pkgsStable, pkgsMaster, setting, ... } @args: let
+{ pkgs, pkgsStable, pkgsMaster, config, ... } @args: let
 	mangohud = import ./mangohud args;
 in {
 	imports = [
@@ -69,7 +69,7 @@ in {
 
 			# Terminal settings.
 			TERM     = "xterm-256color";
-			TERMINAL = setting.terminal.bin;
+			TERMINAL = config.setting.terminal.bin;
 		};
 	};
 

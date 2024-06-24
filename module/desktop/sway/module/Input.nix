@@ -1,4 +1,4 @@
-{ setting, ... }: {
+{ config, ... }: {
 	text = ''
 		### Input configuration
 		#
@@ -33,11 +33,11 @@
 		}
 
 		input type:keyboard {
-			xkb_layout ${setting.keyboard.layouts}
-			xkb_options ${setting.keyboard.options}
+			xkb_layout ${config.setting.keyboard.layouts}
+			xkb_options ${config.setting.keyboard.options}
 		}
 
 		# Hide mouse cursor after a period of inactivity.
-		seat seat0 hide_cursor ${toString setting.timeout.popup}
+		seat seat0 hide_cursor ${toString config.setting.timeout.popup}
 	'';
 }

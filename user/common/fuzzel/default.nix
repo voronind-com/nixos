@@ -1,5 +1,5 @@
-{ pkgs, style, setting, ... }: let
-	dpiAware = if setting.dpiAware then "yes" else "no";
+{ pkgs, style, config, ... }: let
+	dpiAware = if config.setting.dpiAware then "yes" else "no";
 in {
 	file = (pkgs.formats.ini {}).generate "FuzzelConfig" {
 		main = {
@@ -8,7 +8,7 @@ in {
 			lines        = 20;
 			prompt       = "\"\"";
 			show-actions = "yes";
-			terminal     = setting.terminal.bin;
+			terminal     = config.setting.terminal.bin;
 			width        = 40;
 			# list-executables-in-path = "no";
 		};

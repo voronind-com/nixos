@@ -4,7 +4,6 @@
 , style
 , util
 , key
-, setting
 , secret
 , ... } @args: let
 	# Path where Termux stores user data.

@@ -1,4 +1,4 @@
-{ pkgs, setting, ... }: {
+{ pkgs, config, ... }: {
 	file = (pkgs.formats.toml {}).generate "YaziYaziConfig" {
 		manager = {
 			# linemode       = "mtime";
@@ -30,7 +30,7 @@
 			browser = [{
 				desc   = "Browser";
 				orphan = true;
-				run    = openWith setting.browser.bin;
+				run    = openWith config.setting.browser.bin;
 			}];
 			text = [{
 				desc  = "Text";

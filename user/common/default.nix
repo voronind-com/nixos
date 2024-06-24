@@ -4,7 +4,7 @@
 , key
 , pkgs
 , secret
-, setting
+, config
 , style
 , username
 , util

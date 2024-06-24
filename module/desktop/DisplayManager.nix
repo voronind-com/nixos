@@ -1,7 +1,7 @@
-{ setting, ... }: {
+{ config, ... }: {
 	services.xserver.enable = true;
 	services.xserver.xkb = {
-		layout  = setting.keyboard.layouts;
-		options = setting.keyboard.options;
+		layout  = config.setting.keyboard.layouts;
+		options = config.setting.keyboard.options;
 	};
 }

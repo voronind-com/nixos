@@ -3,7 +3,7 @@
 , style
 , pkgs
 , lib
-, setting
+, config
 , key
 , secret
 , ... } @args: {

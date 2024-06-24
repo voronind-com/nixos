@@ -1,5 +1,5 @@
 # https://github.com/ollama/ollama
-{ pkgsStable, lib, setting, ... }: let
+{ pkgsStable, lib, config, ... }: let
 	pkgs = pkgsStable;
 in {
 	environment = {
@@ -7,7 +7,7 @@ in {
 		systemPackages = with pkgs; [ ollama ];
 
 		# Specify default model.
-		variables.OLLAMA_MODEL = setting.ollama.primaryModel;
+		variables.OLLAMA_MODEL = config.setting.ollama.primaryModel;
 	};
 
 	# Enable Ollama server.
@@ -31,7 +31,7 @@ in {
 		serviceConfig.Type = "simple";
 		script = ''
 			sleep 5
-			${lib.getExe pkgs.ollama} pull ${setting.ollama.primaryModel}
+			${lib.getExe pkgs.ollama} pull ${config.setting.ollama.primaryModel}
 		'';
 	};
 }

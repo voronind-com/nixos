@@ -1,4 +1,4 @@
-{ setting, ... }: let
+{ config, ... }: let
 	mod = "<Super>";
 in {
 	"org/gnome/desktop/wm/keybindings" = {
@@ -82,31 +82,31 @@ in {
 	};
 
 	"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-		binding = "${setting.sysctrl}z";
+		binding = "${config.setting.sysctrl}z";
 		command = "systemctl suspend -i";
 		name    = "System Sleep";
 	};
 
 	"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-		binding = "${setting.sysctrl}x";
+		binding = "${config.setting.sysctrl}x";
 		command = "systemctl poweroff -i";
 		name    = "System Poweroff";
 	};
 
 	"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-		binding = "${setting.sysctrl}c";
+		binding = "${config.setting.sysctrl}c";
 		command = "systemctl reboot -i";
 		name    = "System Reboot";
 	};
 
 	"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
-		binding = "${setting.sysctrl}p";
+		binding = "${config.setting.sysctrl}p";
 		command = "powersave toggle";
 		name    = "Toggle Powersave";
 	};
 
 	"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
-		binding = "${setting.sysctrl}l";
+		binding = "${config.setting.sysctrl}l";
 		command = "powerlimit toggle";
 		name    = "Toggle Powerlimit";
 	};

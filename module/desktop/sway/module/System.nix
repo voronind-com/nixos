@@ -1,5 +1,5 @@
-{ setting, ... }: let
-	mod = setting.sysctrl;
+{ config, ... }: let
+	mod = config.setting.sysctrl;
 in {
 	text = ''
 		bindsym ${mod}+c exec 'systemctl reboot -i'

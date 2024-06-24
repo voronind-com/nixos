@@ -2,7 +2,7 @@
 , util
 , style
 , pkgs
-, setting
+, config
 , key
 , secret
 , ... } @args: {

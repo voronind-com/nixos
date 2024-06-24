@@ -1,5 +1,5 @@
-{ style, setting, pkgs, ... }: let
-	dpiAware = if setting.dpiAware then "yes" else "no";
+{ style, config, pkgs, ... }: let
+	dpiAware = if config.setting.dpiAware then "yes" else "no";
 	fontStep = 1;
 in {
 	file = (pkgs.formats.iniWithGlobalSection {}).generate "FootConfig" {

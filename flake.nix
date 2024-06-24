@@ -148,7 +148,10 @@
 			);
 		in {
 			# Here I import everything from those directories.
-			imports = (lsFiles ./module/common) ++ (lsFiles ./overlay) ++ [ ./user/Root.nix ];
+			imports = (lsFiles ./module/common) ++ (lsFiles ./overlay) ++ [
+				./part/Setting.nix
+				./user/Root.nix
+			];
 		};
 
 		# Function to create a host. It does basic setup, like adding common modules.
@@ -194,7 +197,6 @@
 				flake     = self;       # This Flake itself.
 				inputs    = inputs;     # Our dependencies.
 				secret    = import ./part/Secret.nix    {}; # Secrets (public keys).
-				setting   = import ./part/Setting.nix   {}; # My own global settings.
 				style     = import ./part/Style.nix     { inherit config;   }; # Style abstraction.
 				util      = import ./part/Util.nix      { inherit pkgs lib; }; # Util functions.
 				wallpaper = import ./part/Wallpaper.nix { inherit pkgs;     }; # Wallpaper.
@@ -347,6 +349,9 @@
 
 				# I put all my Android configuration there.
 				./android
+
+				# Common settings.
+				./part/Setting.nix
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.
@@ -359,7 +364,6 @@
 				flake   = self;       # This Flake itself.
 				inputs  = inputs;     # Our dependencies.
 				secret  = import ./part/Secret.nix  {}; # Secrets (public keys).
-				setting = import ./part/Setting.nix {}; # My own global settings.
 				style   = import ./part/Style.nix   { config = import ./part/style/Gruvbox.nix {}; }; # Style abstraction. Stylix is not available for Android so I provide static Gruvbox style.
 				util    = import ./part/Util.nix    { inherit pkgs lib; }; # Util functions.
 			};

@@ -1,4 +1,4 @@
-{ inputs, pkgs, util, key, setting, ... } @args: let
+{ inputs, pkgs, util, key, config, ... } @args: let
 	nvim = import ./nvim args;
 in {
 	environment = {

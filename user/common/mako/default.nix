@@ -1,4 +1,4 @@
-{ style, pkgs, setting, ... }: let
+{ style, pkgs, config, ... }: let
 	alpha = style.opacity.hex;
 in {
 	file = (pkgs.formats.iniWithGlobalSection {}).generate "MakoConfig" {
@@ -6,7 +6,7 @@ in {
 			anchor           = "top-center";
 			background-color = "#${style.color.bg.dark}${alpha}";
 			border-color     = "#${style.color.border}${alpha}";
-			default-timeout  = setting.timeout.popup;
+			default-timeout  = config.setting.timeout.popup;
 			font             = "${style.font.serif.name} ${toString style.font.size.popup}";
 			height           = 120;
 			icons            = 0;

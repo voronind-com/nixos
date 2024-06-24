@@ -1,29 +1,119 @@
 # Global settings.
 # Just like I can configure each package, here I configure my config! :O)
-{ ... }: {
-	ollama.primaryModel = "llama3";
-	browser.bin  = "firefox-esr";
-	terminal.bin = "foot";
-	dpiAware = false;
-	sysctrl = "print";
+{ pkgs
+, config
+,lib
+, ... }: {
+	options.setting = with lib; {
+		ollama = mkOption {
+			default = { };
+			type = types.submodule {
+				# freeformType = lib.jsonFormat.type;
+				options = {
+					primaryModel = mkOption {
+						default = "llama3";
+						type    = types.str;
+					};
+				};
+			};
+		};
 
-	keyboard = {
-		layouts = "us,ru";
-		options = "grp:toggle";
-	};
+		browser = mkOption {
+			default = { };
+			type = types.submodule {
+				options = {
+					bin = mkOption {
+						default = "firefox-esr";
+						type    = types.str;
+					};
+				};
+			};
+		};
 
-	refresh = {
-		top = 2000;
-	};
+		terminal = mkOption {
+			default = { };
+			type = types.submodule {
+				options = {
+					bin = mkOption {
+						default = "foot";
+						type    = types.str;
+					};
+				};
+			};
+		};
 
-	step = {
-		brightness = 5;
-		volume     = 5;
-		media      = 10;
-	};
+		dpiAware = mkOption {
+			default = false;
+			type    = types.bool;
+		};
 
-	timeout = {
-		popup = 5000;
-		keyd  = 150;
+		sysctrl = mkOption {
+			default = "print";
+			type    = types.str;
+		};
+
+		keyboard = mkOption {
+			default = { };
+			type = types.submodule {
+				options = {
+					layouts = mkOption {
+						default = "us,ru";
+						type    = types.str;
+					};
+					options = mkOption {
+						default = "grp:toggle";
+						type    = types.str;
+					};
+				};
+			};
+		};
+
+		refresh = mkOption {
+			default = { };
+			type = types.submodule {
+				options = {
+					top = mkOption {
+						default = 2000;
+						type    = types.int;
+					};
+				};
+			};
+		};
+
+		step = mkOption {
+			default = { };
+			type = types.submodule {
+				options = {
+					brightness = mkOption {
+						default = 5;
+						type    = types.int;
+					};
+					volume = mkOption {
+						default = 5;
+						type    = types.int;
+					};
+					media = mkOption {
+						default = 10;
+						type    = types.int;
+					};
+				};
+			};
+		};
+
+		timeout = mkOption {
+			default = { };
+			type = types.submodule {
+				options = {
+					popup = mkOption {
+						default = 5000;
+						type    = types.int;
+					};
+					keyd = mkOption {
+						default = 150;
+						type    = types.int;
+					};
+				};
+			};
+		};
 	};
 }

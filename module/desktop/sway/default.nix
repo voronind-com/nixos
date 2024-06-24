@@ -1,4 +1,4 @@
-{ pkgs, wallpaper, style, util, setting, ... } @args: let
+{ pkgs, wallpaper, style, util, config, ... } @args: let
 	# Order is required for Sway configuration.
 	swayRc = util.catText [
 		./module/Style.nix
