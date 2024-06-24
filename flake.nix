@@ -347,11 +347,11 @@
 				# Android release version.
 				{ system.stateVersion = inputs.self.const.droidStateVersion; }
 
-				# I put all my Android configuration there.
-				./android
-
 				# Common settings.
 				./part/Setting.nix
+
+				# I put all my Android configuration there.
+				./android
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.
