@@ -18,8 +18,8 @@
 	nix.settings = let
 		substituters = [ "ssh-ng://nixbuilder" ];
 	in {
-		substituters         = lib.mkForce substituters;
-		trusted-substituters = lib.mkForce substituters;
+		substituters = lib.mkForce substituters;
+		trusted-substituters = substituters;
 		builders-use-substitutes = true;
 		max-jobs = 0;
 		trusted-public-keys = [ secret.ssh.builderKey ];
