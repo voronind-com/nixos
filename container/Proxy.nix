@@ -26,8 +26,8 @@ in {
 			# 	protocol      = "tcp";
 			# } {
 			{
-				containerPort = 443;
-				hostPort      = 443;
+				containerPort = cfg.port;
+				hostPort      = cfg.port;
 				protocol      = "tcp";
 			}
 		];

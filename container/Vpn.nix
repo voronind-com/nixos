@@ -11,6 +11,13 @@ in {
 	};
 
 	containers.vpn = container.mkContainer cfg {
+		forwardPorts = [
+			{
+				containerPort = cfg.port;
+				hostPort      = cfg.port;
+				protocol      = "udp";
+			}
+		];
 		bindMounts = {
 			"/var/lib/wireguard" = {
 				hostPath   = "${cfg.storage}/data";

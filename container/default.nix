@@ -179,6 +179,7 @@
 		};
 		proxy = {
 			address = "10.1.0.2";
+			port    = 443;
 			storage = "${storage}/proxy";
 		};
 		postgres = {
