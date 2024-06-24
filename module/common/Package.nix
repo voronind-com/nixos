@@ -31,6 +31,7 @@
 		nmap              # Network analyzer.
 		parallel          # Run programs in parallel.
 		pv                # IO progress bar.
+		radare2           # Hex editor.
 		ripgrep           # Grep for file search.
 		rsync             # File copy tool.
 		scanmem           # Memory edit tool.

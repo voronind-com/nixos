@@ -19,6 +19,7 @@
 		openssh         # Ssh client.
 		parallel        # Run programs in parallel.
 		pv              # IO progress bar.
+		radare2         # Hex editor.
 		ripgrep         # Grep for file search.
 		rsync           # File copy tool.
 		sqlite          # Serverless file-based database engine.

@@ -67,23 +67,29 @@
 				block = true;
 				run   = openWith "unpack";
 			}];
+			hex = [{
+				desc  = "Hex";
+				block = true;
+				run   = openWith "radare2 -c V";
+			}];
 		};
 
 		open = {
 			rules = let
 				mkRule = mime: use: { inherit mime use; };
 			in [
-				(mkRule "application/gzip"  "archive")
-				(mkRule "application/json"  "text")
-				(mkRule "application/pdf"   "pdf")
-				(mkRule "application/x-tar" "archive")
-				(mkRule "application/x-xz"  "archive")
-				(mkRule "application/zip"   "archive")
+				(mkRule "application/gzip"         "archive")
+				(mkRule "application/json"         "text")
+				(mkRule "application/octet-stream" [ "text" "hex" ])
+				(mkRule "application/pdf"          "pdf")
+				(mkRule "application/x-tar"        "archive")
+				(mkRule "application/x-xz"         "archive")
+				(mkRule "application/zip"          "archive")
 				(mkRule "audio/*" "audio")
 				(mkRule "image/*" "image")
+				(mkRule "text/html" [ "browser" "text" ])
 				(mkRule "text/*"  "text")
 				(mkRule "video/*" "video")
-				(mkRule "text/html" [ "browser" "text" ])
 				(mkRule "application/vnd.openxmlformats-officedocument.*" "document")
 			];
 		};
