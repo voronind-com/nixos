@@ -11,6 +11,10 @@ in {
 		position     = "top";
 		spacing      = 4;
 		start_hidden = false;
+		output = [
+			"!Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622"
+			"*"
+		];
 		modules-left = [
 			"sway/workspaces"
 			"sway/scratchpad"
@@ -31,6 +35,9 @@ in {
 			"custom/display"
 			"tray"
 		];
+		"sway/workspaces" = {
+			all-outputs = true;
+		};
 		"sway/language" = {
 			tooltip = false;
 			on-click = "swaymsg 'input * xkb_switch_layout next'";
