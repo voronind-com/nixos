@@ -249,7 +249,7 @@
 				./module/AmdCompute.nix
 				./module/AmdCpu.nix
 				./module/AmdGpu.nix
-				./module/DockerRootless.nix
+				./module/Docker.nix
 				./module/Ollama.nix
 				./module/PowersaveAmd.nix
 				./module/Print.nix
