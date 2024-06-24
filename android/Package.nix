@@ -14,7 +14,7 @@
 		jq              # Json parser.
 		lsof            # Find current file users.
 		man             # App to read manuals.
-		neovim gcc      # CLI text editor.
+		gcc             # C compiler.
 		nmap            # Network analyzer.
 		openssh         # Ssh client.
 		parallel        # Run programs in parallel.
