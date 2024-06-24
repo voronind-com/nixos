@@ -24,7 +24,7 @@
 in {
 	# Configure system.
 	time.timeZone    = const.timeZone;
-	nix.extraOptions = "experimental-features nix-command flakes";
+	nix.extraOptions = "experimental-features = nix-command flakes";
 
 	# Install packages.
 	environment.packages = package.list;
