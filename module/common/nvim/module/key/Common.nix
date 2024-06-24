@@ -34,6 +34,9 @@
 		-- Save all we can and leave.
 		rekey_normal("<Leader>z", "<cmd>lua bye()<cr>")
 
+		-- Just leave, no saves.
+		rekey_normal("<Leader>Z", "<cmd>qa!<cr>")
+
 		-- Remap ; to :.
 		rekey_normal(";", ":")
 		rekey_visual(";", ":")

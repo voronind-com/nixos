@@ -70,27 +70,25 @@
 			hex = [{
 				desc  = "Hex";
 				block = true;
-				run   = openWith "radare2 -c V";
+				run   = openWith "radare2 -c V -w";
 			}];
 		};
 
 		open = {
 			rules = let
-				mkRule = mime: use: { inherit mime use; };
+				mkRule = mime: use: { inherit mime; use = use ++ [ "text" "hex" ]; };
 			in [
-				(mkRule "application/gzip"         "archive")
-				(mkRule "application/json"         "text")
-				(mkRule "application/octet-stream" [ "text" "hex" ])
-				(mkRule "application/pdf"          "pdf")
-				(mkRule "application/x-tar"        "archive")
-				(mkRule "application/x-xz"         "archive")
-				(mkRule "application/zip"          "archive")
-				(mkRule "audio/*" "audio")
-				(mkRule "image/*" "image")
-				(mkRule "text/html" [ "browser" "text" ])
-				(mkRule "text/*"  "text")
-				(mkRule "video/*" "video")
-				(mkRule "application/vnd.openxmlformats-officedocument.*" "document")
+				(mkRule "application/gzip"  [ "archive" ])
+				(mkRule "application/x-tar" [ "archive" ])
+				(mkRule "application/x-xz"  [ "archive" ])
+				(mkRule "application/zip"   [ "archive" ])
+				(mkRule "application/pdf" [ "pdf" ])
+				(mkRule "audio/*" [ "audio" ])
+				(mkRule "image/*" [ "image" ])
+				(mkRule "video/*" [ "video" ])
+				(mkRule "text/html" [ "browser" ])
+				(mkRule "application/vnd.openxmlformats-officedocument.*" [ "document" ])
+				(mkRule "*" [ ])
 			];
 		};
 	};
