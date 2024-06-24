@@ -10,20 +10,22 @@
 	# Allow installation of proprietary software.
 	nixpkgs.config.allowUnfree = true;
 
-	# Deduplicate store automatically. Slows down switches a bit, but saves space.
-	nix.settings.auto-optimise-store = true;
+	nix.settings = {
+		# Deduplicate store automatically. Slows down switches a bit, but saves space.
+		auto-optimise-store = true;
 
-	# Extra configuration line-by-line:
-	# 1. Allow use of flakes.
-	# 2. When running GC, keep .drv files.
-	# 3. When running GC, keep build dependencies.
-	# 4. Run GC automatically when there's a 50 GB or less free space.
-	nix.extraOptions = ''
-		experimental-features = nix-command flakes
-		keep-derivations = true
-		keep-outputs = true
-		min-free = ${toString (50 * 1000 * 1000 * 1000)}
-	'';
+		# Allow use of flakes.
+		experimental-features = [ "nix-command " "flakes" ];
+
+		# When running GC, keep .drv files.
+		keep-derivations = true;
+
+		# When running GC, keep build dependencies.
+		keep-outputs = true;
+
+		# Run GC automatically when there's a 50 GB or less free space.
+		min-free = 50 * 1000 * 1000 * 1000;
+	};
 
 	# NOTE: Currently I run GC completely, but this setting (put above near min-free)
 	# can stop GC when you hit 101 GB of free space available.

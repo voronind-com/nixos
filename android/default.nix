@@ -12,7 +12,6 @@
 	# Android modules.
 	environment = import ./Environment.nix args;
 	git         = import ./Git.nix         args;
-	nix         = import ./Nix.nix         args;
 	package     = import ./Package.nix     args;
 	termux      = import ./Termux.nix      args;
 
@@ -25,7 +24,9 @@
 in {
 	# Configure system.
 	time.timeZone    = const.timeZone;
-	nix.extraOptions = nix.extraOptions;
+	nix.settings = {
+		experimental-features = [ "nix-command " "flakes" ];
+	};
 
 	# Install packages.
 	environment.packages = package.list;
