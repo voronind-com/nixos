@@ -23,6 +23,7 @@
 		builders-use-substitutes = true;
 		max-jobs = 0;
 		trusted-public-keys = [ secret.ssh.builderKey ];
+		# require-sigs = false;
 		# substitute = false;
 	};
 }
