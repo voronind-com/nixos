@@ -8,5 +8,8 @@
 
 		# I don't use FA, but add it for compatibility.
 		font-awesome
+
+		# Minecraft font.
+		minecraftia
 	];
 }

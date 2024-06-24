@@ -4,7 +4,8 @@ in {
 	file = (pkgs.formats.ini {}).generate "FuzzelConfig" {
 		main = {
 			dpi-aware    = dpiAware;
-			font         = "${style.font.serif.name}:size=${toString style.font.size.popup}";
+			# font         = "${style.font.serif.name}:size=${toString style.font.size.popup}";
+			font         = "Minecraftia:size=${toString style.font.size.popup}";
 			lines        = 20;
 			prompt       = "\"\"";
 			show-actions = "yes";
