@@ -231,12 +231,13 @@
 			modules = [
 				./module/AmdGpu.nix
 				./module/CapsToggle.nix
-				./module/Gnome.nix
+				# ./module/Gnome.nix
 				./module/IntelCpu.nix
 				./module/PowersaveIntel.nix
 				./module/Print.nix
 				./module/RemoteBuild.nix
 				./module/StrongSwan.nix
+				./module/Sway.nix
 				./module/Tablet.nix
 				./user/Dasha.nix
 			];
