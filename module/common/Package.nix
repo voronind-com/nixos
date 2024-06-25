@@ -50,10 +50,14 @@
 	];
 
 	# Special packages.
-	programs.adb.enable     = true;
-	services.udisks2.enable = true;
-	programs.java = {
-		enable  = true;
-		package = pkgs.corretto21;
+	programs = {
+		adb.enable = true;
+		java = {
+			enable  = true;
+			package = pkgs.corretto21;
+		};
+	};
+	services = {
+		udisks2.enable = true;
 	};
 }

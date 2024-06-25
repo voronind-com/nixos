@@ -1,17 +1,17 @@
-{ style, pkgs, config, ... }: let
-	alpha = style.opacity.hex;
+{ pkgs, config, ... }: let
+	alpha = config.module.style.opacity.hex;
 in {
 	file = (pkgs.formats.iniWithGlobalSection {}).generate "MakoConfig" {
 		globalSection = {
 			anchor           = "top-center";
-			background-color = "#${style.color.bg.dark}${alpha}";
-			border-color     = "#${style.color.border}${alpha}";
+			background-color = "#${config.module.style.color.bg.dark}${alpha}";
+			border-color     = "#${config.module.style.color.border}${alpha}";
 			default-timeout  = config.setting.timeout.popup;
-			font             = "${style.font.serif.name} ${toString style.font.size.popup}";
+			font             = "${config.module.style.font.serif.name} ${toString config.module.style.font.size.popup}";
 			height           = 120;
 			icons            = 0;
 			margin           = 32;
-			text-color       = "#${style.color.fg.light}";
+			text-color       = "#${config.module.style.color.fg.light}";
 			width            = 480;
 		};
 	};

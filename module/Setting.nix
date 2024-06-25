@@ -5,6 +5,8 @@
 ,lib
 , ... }: {
 	options.setting = with lib; {
+		# Ollama settings.
+		# I use the best light model by default.
 		ollama = mkOption {
 			default = { };
 			type = types.submodule {
@@ -18,6 +20,7 @@
 			};
 		};
 
+		# Default browser settings.
 		browser = mkOption {
 			default = { };
 			type = types.submodule {
@@ -30,6 +33,7 @@
 			};
 		};
 
+		# Terminal settings.
 		terminal = mkOption {
 			default = { };
 			type = types.submodule {
@@ -42,16 +46,19 @@
 			};
 		};
 
+		# Whether to use Dpi-aware setting in supported apps.
 		dpiAware = mkOption {
 			default = false;
 			type    = types.bool;
 		};
 
+		# The key used for system-related shortcuts.
 		sysctrl = mkOption {
 			default = "print";
 			type    = types.str;
 		};
 
+		# Keyboard options.
 		keyboard = mkOption {
 			default = { };
 			type = types.submodule {
@@ -68,6 +75,7 @@
 			};
 		};
 
+		# Settings related to different refreshes, like top apps.
 		refresh = mkOption {
 			default = { };
 			type = types.submodule {
@@ -80,6 +88,7 @@
 			};
 		};
 
+		# Configure steps for different actions.
 		step = mkOption {
 			default = { };
 			type = types.submodule {
@@ -100,6 +109,7 @@
 			};
 		};
 
+		# Specify timeouts.
 		timeout = mkOption {
 			default = { };
 			type = types.submodule {

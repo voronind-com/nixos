@@ -3,7 +3,15 @@
 		./Filesystem.nix
 	];
 
-	# Disable keyd.
-	# services.keyd.enable = lib.mkForce false;
-	# systemd.services.keyd-application-mapper.enable = lib.mkForce false;
+	user.dasha.enable = true;
+
+	module = {
+		amd.gpu.enable        = true;
+		builder.client.enable = true;
+		desktop.sway.enable   = true;
+		intel.cpu.enable      = true;
+		print.enable          = true;
+		strongswan.enable     = true;
+		tablet.enable         = true;
+	};
 }

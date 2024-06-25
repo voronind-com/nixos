@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
 	imports = [
 		./Backup.nix
 		./Container.nix
@@ -7,7 +7,21 @@
 		./Photoprocess.nix
 	];
 
+	user.voronind.enable = true;
+
+	module = {
+		builder.server.enable = true;
+		desktop.sway.enable   = true;
+		ftpd = {
+			enable  = true;
+			storage = "/storage/hot/ftp";
+		};
+		amd = {
+			cpu.enable = true;
+			gpu.enable = true;
+		};
+	};
+
 	# Disable auto-switch.
-	systemd.services.autoupdate.enable = lib.mkForce false;
-	systemd.timers.autoupdate.enable   = lib.mkForce false;
+	module.common.autoupdate.enable = false;
 }

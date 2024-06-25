@@ -1,22 +1,42 @@
-{ container, pkgs, util, ... } @args: let
-	cfg = container.config.home;
+{ container, pkgs, util, lib, config, ... } @args: with lib; let
+	cfg = config.container.module.home;
 	package = (pkgs.callPackage ./homer args);
 in {
-	containers.home = container.mkContainer cfg {
-		config = { ... }: container.mkContainerConfig cfg {
-			environment.systemPackages = [ package ];
-			systemd.packages = [ package ];
+	options = {
+		container.module.home = {
+			enable = mkEnableOption "Dashboard.";
+			address = mkOption {
+				default = "10.1.0.18";
+				type    = types.str;
+			};
+			port = mkOption {
+				default = 80;
+				type    = types.int;
+			};
+			domain = mkOption {
+				default = "home.${config.container.domain}";
+				type    = types.str;
+			};
+		};
+	};
 
-			services.nginx = {
-				enable = true;
-				virtualHosts.${cfg.domain} = container.mkServer {
-					default = true;
-					root = "${package}";
+	config = mkIf cfg.enable {
+		containers.home = container.mkContainer cfg {
+			config = { ... }: container.mkContainerConfig cfg {
+				environment.systemPackages = [ package ];
+				systemd.packages = [ package ];
 
-					locations = {
-						"/".extraConfig = ''
-							try_files $uri $uri/index.html;
-						'';
+				services.nginx = {
+					enable = true;
+					virtualHosts.${cfg.domain} = container.mkServer {
+						default = true;
+						root = "${package}";
+
+						locations = {
+							"/".extraConfig = ''
+								try_files $uri $uri/index.html;
+							'';
+						};
 					};
 				};
 			};

@@ -1,10 +1,10 @@
-{ style, ... }: let
-	fontName = style.font.serif.name;
-	fontSize = toString style.font.size.desktop;
+{ config, ... }: let
+	fontName = config.module.style.font.serif.name;
+	fontSize = toString config.module.style.font.size.desktop;
 
-	accent = style.color.accent;
-	bg     = style.color.bg.dark;
-	fg     = style.color.fg.light;
+	accent = config.module.style.color.accent;
+	bg     = config.module.style.color.bg.dark;
+	fg     = config.module.style.color.fg.light;
 in {
 	text = ''
 		# Application launcher.

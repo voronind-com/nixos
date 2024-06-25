@@ -1,4 +1,4 @@
-{ style, ... }: {
+{ config, ... }: {
 	text = ''
 		# Toggle tiling.
 		bindsym $mod+shift+f floating toggle
@@ -30,7 +30,7 @@
 		bindsym $mod+x kill
 
 		# Add gaps.
-		gaps inner ${toString style.window.gap}
+		gaps inner ${toString config.module.style.window.gap}
 
 		# Launch everything tiled.
 		# for_window [all] floating disable

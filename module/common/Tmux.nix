@@ -1,4 +1,4 @@
-{ pkgs, style, key, util, ... } @args: let
+{ pkgs, key, util, ... } @args: let
 	tmux = import ./tmux args;
 in {
 	programs.tmux = {

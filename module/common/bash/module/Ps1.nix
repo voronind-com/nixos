@@ -1,8 +1,8 @@
-{ style, ... }: let
-	accent   = "${style.color.accent-r};${style.color.accent-g};${style.color.accent-b}";
-	negative = "${style.color.negative-r};${style.color.negative-g};${style.color.negative-b}";
-	neutral  = "${style.color.neutral-r};${style.color.neutral-g};${style.color.neutral-b}";
-	positive = "${style.color.positive-r};${style.color.positive-g};${style.color.positive-b}";
+{ config, ... }: let
+	accent   = "${config.module.style.color.accent-r};${config.module.style.color.accent-g};${config.module.style.color.accent-b}";
+	negative = "${config.module.style.color.negative-r};${config.module.style.color.negative-g};${config.module.style.color.negative-b}";
+	neutral  = "${config.module.style.color.neutral-r};${config.module.style.color.neutral-g};${config.module.style.color.neutral-b}";
+	positive = "${config.module.style.color.positive-r};${config.module.style.color.positive-g};${config.module.style.color.positive-b}";
 in {
 	text = ''
 		export PROMPT_COMMAND=(__prompt_command "''${PROMPT_COMMAND[@]}")

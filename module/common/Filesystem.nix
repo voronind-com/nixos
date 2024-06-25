@@ -13,6 +13,7 @@
 	};
 
 	# /etc overlay.
+	# ISSUE: Should be fixed when you read this. Try it!
 	# boot.initrd.systemd.enable = true;
 	# systemd.sysusers.enable    = true;
 	# system.etc.overlay = {

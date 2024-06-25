@@ -20,7 +20,7 @@
 <a href="https://i.imgur.com/H943DFl.jpeg">Wallpaper link</a>
 </details>
 
-[My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/part/Wallpaper.nix#L2)
+[My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/module/common/Wallpaper.nix#L2)
 
 Color theming based on wallpaper thanks to [Stylix](https://github.com/danth/stylix).
 

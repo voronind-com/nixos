@@ -2,41 +2,51 @@
 # This is a systemd service that pulls updates every hour.
 # Unlike system.autoUpgrade, this script also verifies my git signature
 # to prevent unathorized changes to hosts.
-{ const, pkgs, lib, secret, util, ... }: {
-	systemd.services.autoupdate = util.mkStaticSystemdService {
-		enable      = true;
-		description = "Signed system auto-update.";
-		serviceConfig.Type = "oneshot";
-		path = with pkgs; [
-			bash
-			git
-			gnumake
-			nixos-rebuild
-			openssh
-		];
-		script = ''
-			pushd /tmp
-			rm -rf ./nixos
-			${lib.getExe pkgs.git} clone --depth=1 --single-branch --branch=main ${const.url} ./nixos
-			pushd ./nixos
-			${lib.getExe pkgs.git} verify-commit HEAD || {
-				echo "Verification failed."
-				exit 1
-			};
-			${lib.getExe pkgs.gnumake} switch
-		'';
-		after = [ "network-online.target" ];
-		wants = [ "network-online.target" ];
+{ const, pkgs, lib, util, config, ... }: with lib; let
+	cfg = config.module.common.autoupdate;
+in {
+	options = {
+		module.common.autoupdate = {
+			enable = mkEnableOption "System auto-updates." // { default = true; };
+		};
 	};
 
-	systemd.timers.autoupdate = {
-		enable = true;
-		timerConfig = {
-			OnCalendar = "hourly";
-			Persistent = true;
-			Unit       = "autoupdate.service";
-			# RandomizedDelaySec = 60;
+	config = mkIf cfg.enable {
+		systemd.services.autoupdate = util.mkStaticSystemdService {
+			enable      = true;
+			description = "Signed system auto-update.";
+			serviceConfig.Type = "oneshot";
+			path = with pkgs; [
+				bash
+				git
+				gnumake
+				nixos-rebuild
+				openssh
+			];
+			script = ''
+				pushd /tmp
+				rm -rf ./nixos
+				${getExe pkgs.git} clone --depth=1 --single-branch --branch=main ${const.url} ./nixos
+				pushd ./nixos
+				${getExe pkgs.git} verify-commit HEAD || {
+					echo "Verification failed."
+					exit 1
+				};
+				${getExe pkgs.gnumake} switch
+			'';
+			after = [ "network-online.target" ];
+			wants = [ "network-online.target" ];
 		};
-		wantedBy = [ "timers.target" ];
+
+		systemd.timers.autoupdate = {
+			enable = true;
+			timerConfig = {
+				OnCalendar = "hourly";
+				Persistent = true;
+				Unit       = "autoupdate.service";
+				# RandomizedDelaySec = 60;
+			};
+			wantedBy = [ "timers.target" ];
+		};
 	};
 }

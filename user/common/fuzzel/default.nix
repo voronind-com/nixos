@@ -1,11 +1,11 @@
-{ pkgs, style, config, ... }: let
+{ pkgs, config, ... }: let
 	dpiAware = if config.setting.dpiAware then "yes" else "no";
 in {
 	file = (pkgs.formats.ini {}).generate "FuzzelConfig" {
 		main = {
 			dpi-aware    = dpiAware;
 			# font         = "${style.font.serif.name}:size=${toString style.font.size.popup}";
-			font         = "Minecraftia:size=${toString style.font.size.popup}";
+			font         = "Minecraftia:size=${toString config.module.style.font.size.popup}";
 			lines        = 20;
 			prompt       = "\"\"";
 			show-actions = "yes";
@@ -20,13 +20,13 @@ in {
 		colors = let
 			defaultOpacity = "ff";
 		in {
-			background      = style.color.bg.dark    + style.opacity.hex;
-			border          = style.color.border     + style.opacity.hex;
-			match           = style.color.fg.light   + defaultOpacity;
-			selection       = style.color.bg.regular + defaultOpacity;
-			selection-match = style.color.accent     + defaultOpacity;
-			selection-text  = style.color.fg.light   + defaultOpacity;
-			text            = style.color.fg.light   + defaultOpacity;
+			background      = config.module.style.color.bg.dark    + config.module.style.opacity.hex;
+			border          = config.module.style.color.border     + config.module.style.opacity.hex;
+			match           = config.module.style.color.fg.light   + defaultOpacity;
+			selection       = config.module.style.color.bg.regular + defaultOpacity;
+			selection-match = config.module.style.color.accent     + defaultOpacity;
+			selection-text  = config.module.style.color.fg.light   + defaultOpacity;
+			text            = config.module.style.color.fg.light   + defaultOpacity;
 		};
 	};
 }

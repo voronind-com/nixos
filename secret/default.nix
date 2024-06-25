@@ -6,7 +6,7 @@
 		# Keys that are allowed to connect via SSH.
 		trustedKeys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJTI4IUkHH0JSzWDKOAMbzEDbyBXOrmTHRy+tpqJ8twx nix-on-droid@nothing2"
-			(builtins.readFile ./secret/public/Ssh.key)
+			(builtins.readFile ./Ssh.key)
 		];
 
 		# Keys that are allowd to connect via SSH to nixbuild user for Nix remote builds.
@@ -24,14 +24,14 @@
 		# Git commit signing.
 		sign.git = {
 			format  = "ssh";
-			key     = ./secret/public/Ssh.key;
-			allowed = ./secret/public/Signers.key;
+			key     = ./Ssh.key;
+			allowed = ./Signers.key;
 		};
 
 		# List of accepted public keys.
 		publicKeys = [
 			{
-				source = ./secret/public/Gpg.key;
+				source = ./Gpg.key;
 				trust  = 5;
 			}
 		];

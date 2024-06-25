@@ -1,9 +1,9 @@
-{ style, ... }: {
+{ config, ... }: {
 	text = ''
 		* {
-			font-family: "${style.font.serif.name}", "Terminess Nerd Font Propo";
-			font-size: ${toString style.font.size.desktop}px;
-			color: #${style.color.fg.light};
+			font-family: "${config.module.style.font.serif.name}", "Terminess Nerd Font Propo";
+			font-size: ${toString config.module.style.font.size.desktop}px;
+			color: #${config.module.style.color.fg.light};
 		}
 	'';
 }

@@ -1,4 +1,4 @@
-{ lib, style, util, pkgs, ... } @args: let
+{ lib, util, pkgs, ... } @args: let
 	bash = import ./bash args;
 in {
 	# Add my bash configuration to all *interactive* shells.

@@ -1,4 +1,4 @@
-{ style, util, pkgs, ... } @args: let
+{ config, util, pkgs, ... } @args: let
 	modules     = util.catText (util.ls ./module) args;
 	modulesFile = pkgs.writeText "bashModules" modules;
 in {

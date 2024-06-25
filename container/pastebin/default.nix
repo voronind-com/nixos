@@ -1,4 +1,4 @@
-{ php, pkgs, util, ... } @args: let
+{ php, pkgs, util, config, ... } @args: let
 	cfg = pkgs.writeText "PrivateBinConfig" (import ./Config.nix args).text;
 in php.buildComposerProject (finalAttrs:  {
 	pname   = "PrivateBin";

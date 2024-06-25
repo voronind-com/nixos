@@ -137,182 +137,85 @@
 			url = "https://git.voronind.com/voronind/nixos.git";
 		};
 
-		# Common modules used across all the hosts.
-		nixosModules.common = let
-			# This function allows me to get the list of all the files from the directories I need.
-			# It differs from the util.ls function because it also filters out all the directories.
+		nixosConfigurations = let
+			# List all files in a dir.
 			lsFiles = path: map (f: "${path}/${f}") (
 				builtins.filter (i: builtins.readFileType "${path}/${i}" == "regular") (
 					builtins.attrNames (builtins.readDir path)
 				)
 			);
-		in {
-			# Here I import everything from those directories.
-			imports = (lsFiles ./module/common) ++ (lsFiles ./overlay) ++ [
-				./part/Setting.nix
-				./user/Root.nix
-			];
-		};
 
-		# Function to create a host. It does basic setup, like adding common modules.
-		mkHost = { system, hostname, modules } @args: nixpkgs.lib.nixosSystem {
-			# `Inherit` is just an alias for `system = system;`, which means that
-			# keep the `system` argument as a property in a resulting set.
-			inherit system;
+			# Function to create a host. It does basic setup, like adding common modules.
+			mkHost = { system, hostname, modules } @args: nixpkgs.lib.nixosSystem {
+				# `Inherit` is just an alias for `system = system;`, which means that
+				# keep the `system` argument as a property in a resulting set.
+				inherit system;
 
-			# List of modules to use by defualt for all the hosts.
-			modules = [
-				# There I put host-specific configurations.
-				./host/${hostname}
+				# List of modules to use by defualt for all the hosts.
+				modules = modules ++ [
+					# There I put host-specific configurations.
+					./host/${hostname}
 
-				# Make a device hostname match the one from this config.
-				{ networking.hostName = hostname; }
+					# Make a device hostname match the one from this config.
+					{ networking.hostName = hostname; }
 
-				# Specify current release version.
-				{ system.stateVersion = self.const.stateVersion; }
+					# Specify current release version.
+					{ system.stateVersion = self.const.stateVersion; }
 
-				# Add common modules.
-				inputs.self.nixosModules.common
+					# Add modules.
+					{ imports =
+						(lsFiles ./container) ++
+						(lsFiles ./module) ++
+						(lsFiles ./module/common) ++
+						(lsFiles ./module/desktop) ++
+						(lsFiles ./overlay) ++
+						(lsFiles ./user);
+					}
 
-				# Add Home Manager module.
-				home-manager.nixosModules.home-manager
+					# Add Home Manager module.
+					home-manager.nixosModules.home-manager
 
-				# Add Stylix module.
-				stylix.nixosModules.stylix
-			]
-			# Also add host-specific modules from mkHost args.
-			++ modules;
+					# Add Stylix module.
+					stylix.nixosModules.stylix
+				];
 
-			# SpecialArgs allows you to pass objects down to other NixOS modules.
-			specialArgs = let
-				pkgs   = nixpkgs.legacyPackages.${system}.pkgs;
-				lib    = nixpkgs.lib;
-				config = self.nixosConfigurations.${hostname}.config;
+				# SpecialArgs allows you to pass objects down to other NixOS modules.
+				specialArgs = let
+					pkgs   = nixpkgs.legacyPackages.${system}.pkgs;
+					lib    = nixpkgs.lib;
+					config = self.nixosConfigurations.${hostname}.config;
 
-				pkgsJobber = nixpkgsJobber.legacyPackages.${system}.pkgs;
-				pkgsStable = nixpkgsJobber.legacyPackages.${system}.pkgs;
-				pkgsMaster = nixpkgsJobber.legacyPackages.${system}.pkgs;
-			in {
-				const     = self.const; # Constant values.
-				flake     = self;       # This Flake itself.
-				inputs    = inputs;     # Our dependencies.
-				secret    = import ./part/Secret.nix    {}; # Secrets (public keys).
-				style     = import ./part/Style.nix     { inherit config;   }; # Style abstraction.
-				util      = import ./part/Util.nix      { inherit pkgs lib; }; # Util functions.
-				wallpaper = import ./part/Wallpaper.nix { inherit pkgs;     }; # Wallpaper.
+					pkgsJobber = nixpkgsJobber.legacyPackages.${system}.pkgs;
+					pkgsStable = nixpkgsJobber.legacyPackages.${system}.pkgs;
+					pkgsMaster = nixpkgsJobber.legacyPackages.${system}.pkgs;
 
-				# Stable and Master pkgs.
-				inherit pkgsStable pkgsMaster;
+					secret    = import ./secret {}; # Secrets (public keys).
+					container = import ./lib/Container.nix { inherit lib pkgs config; inherit (self) const; }; # Container utils.
+					util      = import ./lib/Util.nix { inherit pkgs lib; }; # Util functions.
+				in {
+					flake = self;
 
-				# Stuff for Jobber container, skip this part.
-				inherit poetry2nixJobber pkgsJobber;
+					inherit secret container util inputs;
+					inherit (self) const;
+
+					# Stable and Master pkgs.
+					inherit pkgsStable pkgsMaster;
+
+					# Stuff for Jobber container, skip this part.
+					inherit poetry2nixJobber pkgsJobber;
+				};
 			};
-		};
 
-		# Bellow is the list of all the hosts I currently use.
-		# They call the `mkHost` function that I defined above
-		# with their specific parameters.
-		# You might be interested in `live` and `nixOnDroidConfiguration`
-		# for Live ISO and Android configurations respectively.
-		nixosConfigurations.basic = self.mkHost {
-			hostname = "basic";        # Hostname to use.
-			system   = "x86_64-linux"; # System architecture.
+			mkSystem = hostname: system: modules: {
+				"${hostname}" = mkHost {
+					inherit hostname system modules;
+				};
+			};
 
-			# Host-specific modules.
-			modules = [
-				# Force LTS kernel.
-				({ pkgs, ... }: { boot.kernelPackages = nixpkgs.lib.mkForce pkgs.linuxPackages; })
-			];
-		};
-
-		nixosConfigurations.dasha = self.mkHost {
-			hostname = "dasha";
-			system   = "x86_64-linux";
-			modules = [
-				./module/AmdGpu.nix
-				./module/CapsToggle.nix
-				# ./module/Gnome.nix
-				./module/IntelCpu.nix
-				./module/PowersaveIntel.nix
-				./module/Print.nix
-				./module/RemoteBuild.nix
-				./module/StrongSwan.nix
-				./module/Sway.nix
-				./module/Tablet.nix
-				./user/Dasha.nix
-			];
-		};
-
-		nixosConfigurations.desktop = self.mkHost {
-			hostname = "desktop";
-			system   = "x86_64-linux";
-			modules = [
-				./module/AmdCompute.nix
-				./module/AmdCpu.nix
-				./module/AmdGpu.nix
-				./module/Docker.nix
-				./module/Ollama.nix
-				./module/PowersaveAmd.nix
-				./module/Print.nix
-				./module/RemoteBuild.nix
-				./module/Sway.nix
-				./module/VirtManager.nix
-				./user/Voronind.nix
-			];
-		};
-
-		nixosConfigurations.fsight = self.mkHost {
-			hostname = "fsight";
-			system   = "x86_64-linux";
-			modules = [
-				./module/Docker.nix
-			];
-		};
-
-		nixosConfigurations.home = self.mkHost {
-			hostname = "home";
-			system   = "x86_64-linux";
-			modules = [
-				./module/AmdCpu.nix
-				./module/AmdGpu.nix
-				./module/Ftpd.nix
-				./module/RemoteBuilder.nix
-				./module/Sway.nix
-				./user/Voronind.nix
-			];
-		};
-
-		nixosConfigurations.laptop = self.mkHost {
-			hostname = "laptop";
-			system   = "x86_64-linux";
-			modules = [
-				./module/AmdCpu.nix
-				./module/AmdGpu.nix
-				./module/CapsToggle.nix
-				./module/Gnome.nix
-				./module/PowersaveAmd.nix
-				./module/Print.nix
-				./module/RemoteBuild.nix
-				./module/StrongSwan.nix
-				./module/Tablet.nix
-				./user/Dasha.nix
-				./user/Voronind.nix
-			];
-		};
-
-		# Live ISO configuration.
-		nixosConfigurations.live = self.mkHost {
-			hostname = "live";
-			system   = "x86_64-linux";
-			modules = [
-				# Those are basic modules for Live ISO image.
-				# You can discover other possible base images here:
-				# https://github.com/NixOS/nixpkgs/tree/master/nixos/modules/installer/cd-dvd
+			liveModules = [
 				"${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
 				"${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
 
-				# This is required for Live ISO in my case because I use NetworkManager,
-				# but base Live images require this.
 				{ networking.wireless.enable = nixpkgs.lib.mkForce false; }
 
 				# Override my settings to allow SSH logins using root password.
@@ -320,36 +223,35 @@
 				{ services.openssh.settings.PermitRootLogin        = nixpkgs.lib.mkForce "yes"; }
 
 				# Disable auto-updates as they are not possible for Live ISO.
-				{ systemd.services.autoupdate.enable = nixpkgs.lib.mkForce false; }
-				{ systemd.timers.autoupdate.enable   = nixpkgs.lib.mkForce false; }
+				{ module.common.autoupdate.enable = false; }
 
 				# Base Live images also require the LTS kernel.
-				({ pkgs, ... }: { boot.kernelPackages = nixpkgs.lib.mkForce pkgs.linuxPackages; })
+				{ module.common.kernel.latest = false; }
 			];
-		};
 
-		nixosConfigurations.work = self.mkHost {
-			hostname = "work";
-			system   = "x86_64-linux";
-			modules = [
-				./module/IntelCpu.nix
-				./module/PowerlimitThinkpad.nix
-				./module/PowersaveIntel.nix
-				./module/Print.nix
-				./module/RemoteBuild.nix
-				./module/Sway.nix
-				./user/Voronind.nix
-			];
-		};
+			x86System = hostname: mkSystem hostname "x86_64-linux" [];
+
+			x86LiveSystem = hostname: mkSystem hostname "x86_64-linux" liveModules;
+		in
+			# Bellow is the list of all the hosts I currently use.
+			# They call the `mkSystem` function that I defined above
+			# with their specific parameters.
+			# You might be interested in `live` and `nixOnDroidConfiguration`
+			# for Live ISO and Android configurations respectively.
+			(x86System "dasha")   //
+			(x86System "desktop") //
+			(x86System "fsight")  //
+			(x86System "home")    //
+			(x86System "laptop")  //
+			(x86System "work")    //
+			(x86LiveSystem "live")
+			;
 
 		# Android.
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
 			modules = [
 				# Android release version.
 				{ system.stateVersion = inputs.self.const.droidStateVersion; }
-
-				# Common settings.
-				./part/Setting.nix
 
 				# I put all my Android configuration there.
 				./android
@@ -364,9 +266,8 @@
 				const   = self.const; # Constant values.
 				flake   = self;       # This Flake itself.
 				inputs  = inputs;     # Our dependencies.
-				secret  = import ./part/Secret.nix  {}; # Secrets (public keys).
-				style   = import ./part/Style.nix   { config = import ./part/style/Gruvbox.nix {}; }; # Style abstraction. Stylix is not available for Android so I provide static Gruvbox style.
-				util    = import ./part/Util.nix    { inherit pkgs lib; }; # Util functions.
+				secret  = import ./lib/Secret.nix  {}; # Secrets (public keys).
+				util    = import ./lib/Util.nix    { inherit pkgs lib; }; # Util functions.
 			};
 		};
 	};

@@ -1,37 +1,54 @@
 # https://github.com/ollama/ollama
-{ pkgsStable, lib, config, ... }: let
+{ pkgsStable, lib, config, ... }: with lib; let
 	pkgs = pkgsStable;
+	cfg  = config.module.ollama;
 in {
-	environment = {
-		# Add Ollama CLI app.
-		systemPackages = with pkgs; [ ollama ];
-
-		# Specify default model.
-		variables.OLLAMA_MODEL = config.setting.ollama.primaryModel;
+	options = {
+		module.ollama = {
+			enable = mkEnableOption "Local LLM server";
+			primaryModel = mkOption {
+				default = "llama3";
+				type    = types.str;
+			};
+			models = mkOption {
+				default = [ cfg.primaryModel ];
+				type    = types.listOf types.str;
+			};
+		};
 	};
 
-	# Enable Ollama server.
-	systemd.services.ollama = {
-		description = "Ollama LLM server.";
-		wantedBy    = [ "multi-user.target" ];
-		wants       = [ "NetworkManager-wait-online.service" ];
-		after       = [ "NetworkManager-wait-online.service" ];
-		serviceConfig.Type = "simple";
-		script = ''
-			HOME=/root ${lib.getExe pkgs.ollama} serve
-		'';
-	};
+	config = mkIf cfg.enable {
+		environment = {
+			# Add Ollama CLI app.
+			systemPackages = with pkgs; [ ollama ];
 
-	# Download Ollama models.
-	systemd.services.ollamamodel = {
-		description = "Ollama LLM model.";
-		wantedBy    = [ "multi-user.target" ];
-		wants       = [ "ollama.service" ];
-		after       = [ "ollama.service" ];
-		serviceConfig.Type = "simple";
-		script = ''
-			sleep 5
-			${lib.getExe pkgs.ollama} pull ${config.setting.ollama.primaryModel}
-		'';
+			# Specify default model.
+			variables.OLLAMA_MODEL = cfg.primaryModel;
+		};
+
+		# Enable Ollama server.
+		systemd.services.ollama = {
+			description = "Ollama LLM server.";
+			wantedBy    = [ "multi-user.target" ];
+			wants       = [ "NetworkManager-wait-online.service" ];
+			after       = [ "NetworkManager-wait-online.service" ];
+			serviceConfig.Type = "simple";
+			script = ''
+				HOME=/root ${getExe pkgs.ollama} serve
+			'';
+		};
+
+		# Download Ollama models.
+		systemd.services.ollamamodel = {
+			description = "Ollama LLM model.";
+			wantedBy    = [ "multi-user.target" ];
+			wants       = [ "ollama.service" ];
+			after       = [ "ollama.service" ];
+			serviceConfig.Type = "simple";
+			script = ''
+				sleep 5
+				${getExe pkgs.ollama} pull ${concatStringsSep " " cfg.models}
+			'';
+		};
 	};
 }

@@ -3,8 +3,29 @@
 		./Filesystem.nix
 	];
 
-	# Disable docker service.
-	systemd.services.docker-prune.enable = lib.mkForce false;
-	systemd.services.docker.enable       = lib.mkForce false;
-	systemd.sockets.docker.enable        = lib.mkForce false;
+	user.voronind.enable = true;
+
+	module = {
+		builder.client.enable = true;
+		desktop.sway.enable   = true;
+		print.enable          = true;
+		virtmanager.enable    = true;
+		amd = {
+			compute.enable = true;
+			cpu.enable     = true;
+			gpu.enable     = true;
+		};
+		docker = {
+			enable    = true;
+			autostart = false;
+			rootless  = false;
+		};
+		ollama = {
+			enable = true;
+			models = [
+				"llama3"
+				"llama3:70b"
+			];
+		};
+	};
 }

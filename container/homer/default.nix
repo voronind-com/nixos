@@ -1,4 +1,4 @@
-{ stdenv, pkgs, ... } @args: let
+{ stdenv, pkgs, config, ... } @args: let
 	cfg = (import ./Config.nix args).file;
 in stdenv.mkDerivation (finalAttrs:  {
 	pname   = "Homer";

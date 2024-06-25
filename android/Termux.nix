@@ -1,11 +1,11 @@
-{ pkgs, style, util, ... }: {
+{ pkgs, config, util, ... }: {
 	font = pkgs.runCommandNoCC "font" {} ''
 		cp ${pkgs.nerdfonts.override { fonts = [ "Terminus" ]; }}/share/fonts/truetype/NerdFonts/TerminessNerdFontMono-Regular.ttf $out
 	'';
 
 	colors = util.trimTabs ''
-		background=#${style.color.bg.dark}
-		foreground=#${style.color.fg.light}
+		background=#${config.module.style.color.bg.dark}
+		foreground=#${config.module.style.color.fg.light}
 	'';
 
 	initScript = util.trimTabs ''

@@ -1,15 +1,15 @@
-{ config, style, pkgs, ... }: let
+{ config, pkgs, ... }: let
 	refreshInterval = 2;
 in {
 	file = (pkgs.formats.json {}).generate "WaybarConfig" {
 		height       = 34;
 		layer        = "top";
-		margin-left  = style.window.gap;
-		margin-right = style.window.gap;
-		margin-top   = style.window.gap;
+		margin-left  = config.module.style.window.gap;
+		margin-right = config.module.style.window.gap;
+		margin-top   = config.module.style.window.gap;
 		mode         = "dock";
 		position     = "top";
-		spacing      = 4;
+		# spacing      = 4;
 		start_hidden = false;
 		output = [
 			"!Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622"
@@ -54,7 +54,7 @@ in {
 		};
 		tray = {
 			# icon-size = 21;
-			spacing = 1;
+			spacing = 8;
 		};
 		clock = {
 			# timezone = "America/New_York";

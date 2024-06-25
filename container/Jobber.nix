@@ -1,48 +1,64 @@
-{ container, pkgsJobber, poetry2nixJobber, lib, ... } @args: let
-	cfg    = container.config.jobber;
+{ container, pkgsJobber, poetry2nixJobber, lib, config, ... }: with lib; let
+	cfg    = config.container.module.jobber;
 	script = import ./jobber { poetry2nix = poetry2nixJobber; pkgs = pkgsJobber; };
 in {
-	systemd.tmpfiles.rules = container.mkContainerDir cfg [
-		"data"
-	];
-
-	containers.jobber = container.mkContainer cfg {
-		bindMounts = {
-			"/data" = {
-				hostPath   = "${cfg.storage}/data";
-				isReadOnly = true;
+	options = {
+		container.module.jobber = {
+			enable = mkEnableOption "Button pusher Stanley.";
+			address = mkOption {
+				default = "10.1.0.32";
+				type    = types.str;
+			};
+			storage = mkOption {
+				default = "${config.container.storage}/jobber";
+				type    = types.str;
 			};
 		};
+	};
 
-		enableTun = true;
+	config = mkIf cfg.enable {
+		systemd.tmpfiles.rules = container.mkContainerDir cfg [
+			"data"
+		];
 
-		config = { lib, ... }: let
-			packages = [ script ] ++ (with pkgsJobber; [
-				firefox
-				geckodriver
-				openvpn
-				python311
-			]);
-		in container.mkContainerConfig cfg {
-			networking = lib.mkForce {
-				nameservers = [
-					"10.9.0.5"
-				];
+		containers.jobber = container.mkContainer cfg {
+			bindMounts = {
+				"/data" = {
+					hostPath   = "${cfg.storage}/data";
+					isReadOnly = true;
+				};
 			};
 
-			systemd.services.jobber = {
-				description = "My job is pushing the button.";
-				enable      = true;
-				wantedBy    = [ "multi-user.target" ];
-				path        = packages;
-				environment = {
-					PYTHONUNBUFFERED        = "1";
-					PYTHONDONTWRITEBYTECODE = "1";
+			enableTun = true;
+
+			config = { lib, ... }: let
+				packages = [ script ] ++ (with pkgsJobber; [
+					firefox
+					geckodriver
+					openvpn
+					python311
+				]);
+			in container.mkContainerConfig cfg {
+				networking = lib.mkForce {
+					nameservers = [
+						"10.9.0.5"
+					];
 				};
-				serviceConfig = {
-					Type      = "simple";
-					ExecStart = "${script}/bin/jobber -u";
-					Restart   = "on-failure";
+
+				systemd.services.jobber = {
+					description = "My job is pushing the button.";
+					enable      = true;
+					wantedBy    = [ "multi-user.target" ];
+					path        = packages;
+					environment = {
+						PYTHONUNBUFFERED        = "1";
+						PYTHONDONTWRITEBYTECODE = "1";
+					};
+					serviceConfig = {
+						Type      = "simple";
+						ExecStart = "${script}/bin/jobber -u";
+						Restart   = "on-failure";
+					};
 				};
 			};
 		};

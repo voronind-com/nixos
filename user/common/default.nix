@@ -8,7 +8,10 @@
 , style
 , username
 , util
-, ... } @args: let
+, lib
+, ... } @args: with lib; let
+	cfg = config.user.common;
+
 	# Configuration modules.
 	btop   = import ./top/btop     args;
 	editor = import ./editorconfig args;
@@ -20,56 +23,70 @@
 	mako   = import ./mako         args;
 	yazi   = import ./yazi         args;
 in {
-	home-manager = {
-		# If file exists, rename it with a new extension.
-		backupFileExtension = "old";
+	options = {
+		user.common.users = mkOption {
+			default = [{
+				name    = "root";
+				homeDir = "/root";
+			}];
+			type = types.listOf types.attrs;
+		};
+	};
 
-		users.${username} = {
-			home = {
-				username      = username;
-				homeDirectory = homeDir;
-				stateVersion  = const.stateVersion;
-				file = {
-					".config/btop/btop.conf".text      = btop.text;
-					".config/foot/foot.ini".source     = foot.file;
-					".config/fuzzel/fuzzel.ini".source = fuzzel.file;
-					".config/gtk-3.0/bookmarks".text   = gtk3.bookmarks;
-					".config/htop/htoprc".text         = htop.text;
-					".config/keyd/app.conf".text       = keyd.text;
-					".config/mako/config".source       = mako.file;
-					".config/yazi/init.lua".source     = yazi.init;
-					".config/yazi/keymap.toml".source  = yazi.keymap;
-					".config/yazi/theme.toml".source   = yazi.theme;
-					".config/yazi/yazi.toml".source    = yazi.yazi;
-					".editorconfig".source             = editor.file;
-					".parallel/will-cite".text         = "";
-					"media/template".source            = ./template;
-				};
-			};
+	config = {
+		home-manager = {
+			users = builtins.foldl' (acc: user: acc // {
+				${user.name} = {
+					home = {
+						username = user.name;
+						homeDirectory = user.homeDir;
+						stateVersion  = const.stateVersion;
+						file = {
+							".config/btop/btop.conf".text      = btop.text;
+							".config/foot/foot.ini".source     = foot.file;
+							".config/fuzzel/fuzzel.ini".source = fuzzel.file;
+							".config/gtk-3.0/bookmarks".text   = gtk3.bookmarks;
+							".config/htop/htoprc".text         = htop.text;
+							".config/keyd/app.conf".text       = keyd.text;
+							".config/mako/config".source       = mako.file;
+							".config/yazi/init.lua".source     = yazi.init;
+							".config/yazi/keymap.toml".source  = yazi.keymap;
+							".config/yazi/theme.toml".source   = yazi.theme;
+							".config/yazi/yazi.toml".source    = yazi.yazi;
+							".editorconfig".source             = editor.file;
+							".parallel/will-cite".text         = "";
+							"media/template".source            = ./template;
+						};
+					};
 
-			xdg.userDirs = {
-				enable = true;
-				createDirectories = true;
-				desktop     = "${homeDir}/";
-				documents   = "${homeDir}/document/";
-				download    = "${homeDir}/download/";
-				music       = "${homeDir}/media/music/";
-				pictures    = "${homeDir}/media/picture/";
-				publicShare = "${homeDir}/media/share/";
-				templates   = "${homeDir}/media/template/";
-				videos      = "${homeDir}/media/video/";
-				extraConfig = {
-					XDG_TMP_DIR = "${homeDir}/tmp/";
-				};
-			};
+					xdg.userDirs = {
+						enable = true;
+						createDirectories = true;
+						desktop     = "${user.homeDir}/";
+						documents   = "${user.homeDir}/document/";
+						download    = "${user.homeDir}/download/";
+						music       = "${user.homeDir}/media/music/";
+						pictures    = "${user.homeDir}/media/picture/";
+						publicShare = "${user.homeDir}/media/share/";
+						templates   = "${user.homeDir}/media/template/";
+						videos      = "${user.homeDir}/media/video/";
+						extraConfig = {
+							XDG_TMP_DIR = "${user.homeDir}/tmp/";
+						};
+					};
 
-			programs = {
-				home-manager.enable = true;
-				gpg = {
-					enable = true;
-					inherit (secret.crypto) publicKeys;
+					programs = {
+						home-manager.enable = true;
+						gpg = {
+							enable = true;
+							inherit (secret.crypto) publicKeys;
+						};
+					};
 				};
-			};
+			}) {} cfg.users;
+
+			# If file exists, rename it with a new extension.
+			backupFileExtension = "old";
 		};
 	};
 }

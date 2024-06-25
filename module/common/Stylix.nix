@@ -1,12 +1,11 @@
-{ pkgs, config, wallpaper, ... }: let
-in {
+{ pkgs, config, ... }: {
 	# Add a permanent link for the wallpaper to /etc/wallpaper.
-	environment.etc.wallpaper.source = wallpaper.path;
+	environment.etc.wallpaper.source = config.module.common.wallpaper.path;
 
 	stylix = {
 		# NOTE: Enable this later...
 		# enable = true;
-		image = wallpaper.path;
+		image = config.module.common.wallpaper.path;
 		autoEnable = true;
 		polarity = "dark";
 		opacity = {
@@ -41,7 +40,7 @@ in {
 				name = "Noto Color Emoji";
 			};
 		};
-		override = if wallpaper.forceContrastText then {
+		override = if config.module.common.wallpaper.forceContrastText then {
 			base04 = "000000";
 			base05 = "ffffff";
 			base06 = "ffffff";

@@ -1,8 +1,8 @@
-{ style, ... }: let
+{ config, ... }: let
 	mod = "M";
 
-	fg        = style.color.bg.dark;
-	selection = style.color.selection;
+	fg        = config.module.style.color.bg.dark;
+	selection = config.module.style.color.selection;
 in {
 	text = ''
 		setw -g mode-keys vi

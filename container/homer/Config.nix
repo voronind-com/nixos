@@ -1,4 +1,4 @@
-{ pkgs, container, ... }: let
+{ pkgs, config, ... }: let
 	iconTheme = "fa-solid";
 
 	mkGroup = name: icon: items: {
@@ -12,7 +12,7 @@
 		target = "_blank";
 	};
 
-	config = {
+	cfg = {
 		title    = "Dashboard";
 		subtitle = "Home";
 		header = false;
@@ -41,33 +41,32 @@
 		};
 
 		links = [
-			(mkLink "Status" "fa-heartbeat" "https://status.voronind.com")
+			(mkLink "Status" "fa-heartbeat" "https://${config.container.module.status.domain}")
 		];
 
 		services = [
 			(mkGroup "App" "fa-server" [
-				(mkLink "Change"   "fa-user-secret"   "https://${container.config.change.domain}")
-				(mkLink "Cloud"    "fa-cloud"         "https://${container.config.cloud.domain}")
-				(mkLink "Download" "fa-download"      "https://${container.config.download.domain}")
-				(mkLink "Git"      "fab fa-git-alt"   "https://${container.config.download.domain}")
-				(mkLink "Iot"      "fa-home"          "https://${container.config.iot.domain}")
-				(mkLink "Mail"     "fa-envelope"      "https://${container.config.mail.domain}")
-				(mkLink "Paper"    "fa-paperclip"     "https://${container.config.paper.domain}")
-				(mkLink "Pass"     "fa-key"           "https://${container.config.pass.domain}")
-				(mkLink "Paste"    "fa-paste"         "https://${container.config.paste.domain}/s")
-				(mkLink "Print"    "fa-print"         "https://${container.config.print.domain}")
-				(mkLink "Read"     "fa-book"          "https://${container.config.read.domain}")
-				(mkLink "Search"   "fa-search"        "https://${container.config.search.domain}")
-				(mkLink "Stock"    "fa-boxes-stacked" "https://${container.config.stock.domain}")
-				(mkLink "Watch"    "fa-film"          "https://${container.config.watch.domain}")
-				(mkLink "YouTube"  "fab fa-youtube"   "https://${container.config.yt.domain}")
+				(mkLink "Change"   "fa-user-secret"   "https://${config.container.module.change.domain}")
+				(mkLink "Cloud"    "fa-cloud"         "https://${config.container.module.cloud.domain}")
+				(mkLink "Download" "fa-download"      "https://${config.container.module.download.domain}")
+				(mkLink "Git"      "fab fa-git-alt"   "https://${config.container.module.download.domain}")
+				(mkLink "Iot"      "fa-home"          "https://${config.container.module.iot.domain}")
+				(mkLink "Mail"     "fa-envelope"      "https://${config.container.module.mail.domain}")
+				(mkLink "Paper"    "fa-paperclip"     "https://${config.container.module.paper.domain}")
+				(mkLink "Pass"     "fa-key"           "https://${config.container.module.pass.domain}")
+				(mkLink "Paste"    "fa-paste"         "https://${config.container.module.paste.domain}/s")
+				(mkLink "Print"    "fa-print"         "https://${config.container.module.print.domain}")
+				(mkLink "Read"     "fa-book"          "https://${config.container.module.read.domain}")
+				(mkLink "Search"   "fa-search"        "https://${config.container.module.search.domain}")
+				(mkLink "Stock"    "fa-boxes-stacked" "https://${config.container.module.stock.domain}")
+				(mkLink "Watch"    "fa-film"          "https://${config.container.module.watch.domain}")
+				(mkLink "YouTube"  "fab fa-youtube"   "https://${config.container.module.yt.domain}")
 			])
 			(mkGroup "System" "fa-shield" [
-				(mkLink "Camera"       "fa-camera"      "https://${container.config.camera.domain}")
-				# (mkLink "Hdd"          "fa-hard-drive" "https://${container.config.hdd.domain}")
+				(mkLink "Camera"       "fa-camera"     "https://camera.${config.container.domain}")
 				(mkLink "NixOS Search" "fa-snowflake"  "https://search.nixos.org")
-				(mkLink "Printer"      "fa-print"      "https://${container.config.printer.domain}")
-				(mkLink "Router"       "fa-route"      "https://${container.config.router.domain}")
+				(mkLink "Printer"      "fa-print"      "https://printer.${config.container.domain}")
+				(mkLink "Router"       "fa-route"      "https://router.${config.container.domain}")
 			])
 			(mkGroup "Bookmark" "fa-bookmark" [
 				(mkLink "2gis"        "fa-map-location-dot" "https://2gis.ru")
@@ -96,5 +95,5 @@
 		];
 	};
 in {
-	file = (pkgs.formats.yaml {}).generate "HomerConfig" config;
+	file = (pkgs.formats.yaml {}).generate "HomerConfig" cfg;
 }
