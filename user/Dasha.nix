@@ -20,6 +20,9 @@
 		isNormalUser   = true;
 		uid            = 1001;
 		extraGroups = [
+			"input"
+			"keyd"
+			"libvirtd"
 			"networkmanager"
 			"video"
 		];
