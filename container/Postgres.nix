@@ -70,6 +70,15 @@ in {
 					package     = pkgs.postgresql_14;
 					dataDir     = "/var/lib/postgresql/data/14";
 					enableTCPIP = true;
+
+					# NOTE: Debug mode.
+					# settings = {
+					# 	log_connections    = true;
+					# 	log_destination    = lib.mkForce "syslog";
+					# 	log_disconnections = true;
+					# 	log_statement      = "all";
+					# 	logging_collector  = true;
+					# };
 				};
 			};
 		};
