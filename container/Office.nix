@@ -40,7 +40,7 @@ in {
 				};
 			};
 
-			config = { ... }: container.mkContainerConfig cfg {
+			config = { pkgs, ... }: container.mkContainerConfig cfg {
 				services.onlyoffice = let
 					dbName = "onlyoffice";
 				in {

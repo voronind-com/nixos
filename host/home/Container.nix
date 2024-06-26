@@ -32,10 +32,11 @@
 			yt.enable       = true;
 		};
 
-		storage   = "/storage/hot/container";
-		domain    = "voronind.com";
-		host      = "192.168.1.2";
-		interface = "enp7s0";
+		storage     = "/storage/hot/container";
+		domain      = "voronind.com";
+		host        = "192.168.1.2";
+		interface   = "enp7s0";
+		localAccess = "192.168.1.0/24";
 		media = {
 			anime    = [ "/storage/cold_1/media/anime" "/storage/cold_2/media/anime" ];
 			book     = [ "/storage/hot/media/book" ];
