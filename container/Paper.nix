@@ -1,4 +1,4 @@
-{ container, pkgs, util, lib, config, ... }: with lib; let
+{ container, pkgs, pkgsStable, lib, config, ... }: with lib; let
 	cfg = config.container.module.paper;
 in {
 	options = {
@@ -41,14 +41,13 @@ in {
 			};
 
 			config = { lib, ... }: container.mkContainerConfig cfg {
-				environment.systemPackages = with pkgs; [ postgresql inetutils ];
-
 				services.paperless = {
 					enable = true;
 					dataDir = "/var/lib/paperless";
 					# address = cfg.domain;
 					address = "0.0.0.0";
 					port    = cfg.port;
+					package = pkgsStable.paperless-ngx;
 					passwordFile = pkgs.writeText "PaperlessPassword" "root";
 					settings = {
 						PAPERLESS_URL          = "https://${cfg.domain}";

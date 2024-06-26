@@ -40,7 +40,6 @@ in {
 			};
 
 			config = { config, ... }: container.mkContainerConfig cfg {
-				environment.systemPackages = [ pkgs.postgresql ];
 				services.nextcloud = {
 					enable = true;
 					# package = pkgs.nextcloud29;

@@ -191,7 +191,7 @@
 
 					secret    = import ./secret {}; # Secrets (public keys).
 					container = import ./lib/Container.nix { inherit lib pkgs config; inherit (self) const; }; # Container utils.
-					util      = import ./lib/Util.nix { inherit pkgs lib; }; # Util functions.
+					util      = import ./lib/Util.nix { inherit lib; }; # Util functions.
 				in {
 					flake = self;
 
@@ -267,7 +267,7 @@
 				flake   = self;       # This Flake itself.
 				inputs  = inputs;     # Our dependencies.
 				secret  = import ./lib/Secret.nix  {}; # Secrets (public keys).
-				util    = import ./lib/Util.nix    { inherit pkgs lib; }; # Util functions.
+				util    = import ./lib/Util.nix    { inherit lib; }; # Util functions.
 			};
 		};
 	};
