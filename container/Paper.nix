@@ -47,6 +47,7 @@ in {
 					# address = cfg.domain;
 					address = "0.0.0.0";
 					port    = cfg.port;
+					# ISSUE: https://github.com/NixOS/nixpkgs/issues/322596
 					package = pkgsStable.paperless-ngx;
 					passwordFile = pkgs.writeText "PaperlessPassword" "root";
 					settings = {
