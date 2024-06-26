@@ -41,6 +41,13 @@ in {
 			};
 
 			config = { pkgs, ... }: container.mkContainerConfig cfg {
+				# HACK: For whatever reason it does not detect my global allowUnfree (I pass pkgs from host system in mkContainerConfig).
+				nixpkgs.overlays = [ (final: prev: {
+					corefonts = prev.corefonts.overrideAttrs (old: {
+						meta.license = mkForce licenses.mit;
+					});
+				})];
+
 				services.onlyoffice = let
 					dbName = "onlyoffice";
 				in {

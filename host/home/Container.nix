@@ -14,7 +14,7 @@
 			iot.enable      = true;
 			jobber.enable   = true;
 			mail.enable     = true;
-			# ISSUE: office.enable   = true;
+			office.enable   = true;
 			paper.enable    = true;
 			pass.enable     = true;
 			paste.enable    = true;

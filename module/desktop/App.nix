@@ -19,7 +19,7 @@ in {
 			"video/*" = "mpv.desktop";
 		};
 
-		hardware.opengl = let
+		hardware.graphics = let
 			packages = with pkgs; [
 				dxvk
 				gamescope
