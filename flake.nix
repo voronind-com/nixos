@@ -27,7 +27,7 @@
 		# Manual:   https://danth.github.io/stylix
 		stylix.url  = "github:danth/stylix";
 
-		# I use this for a single container called jobber.
+		# I use this for a single container called jobber. WARN: Do not update.
 		# You likely won't need this one, so just skip it for now.
 		poetry2nixJobber.url = "github:nix-community/poetry2nix/304f8235fb0729fd48567af34fcd1b58d18f9b95";
 		nixpkgsJobber.url    = "github:nixos/nixpkgs/051f920625ab5aabe37c920346e3e69d7d34400e";

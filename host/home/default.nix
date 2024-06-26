@@ -5,6 +5,7 @@
 		./Filesystem.nix
 		./Network.nix
 		./Photoprocess.nix
+		./YaMusicDownload.nix
 	];
 
 	user.voronind.enable = true;
