@@ -19,6 +19,7 @@
 			pass.enable     = true;
 			paste.enable    = true;
 			postgres.enable = true;
+			print.enable    = true;
 			proxy.enable    = true;
 			rabbitmq.enable = true;
 			read.enable     = true;
