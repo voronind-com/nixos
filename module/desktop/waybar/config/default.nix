@@ -9,7 +9,7 @@ in {
 		margin-top   = config.module.style.window.gap;
 		mode         = "dock";
 		position     = "top";
-		# spacing      = 4;
+		spacing      = 4;
 		start_hidden = false;
 		output = [
 			"!Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622"
