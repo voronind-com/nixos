@@ -3,11 +3,10 @@
 	environment.etc.wallpaper.source = config.module.common.wallpaper.path;
 
 	stylix = {
-		# NOTE: Enable this later...
-		# enable = true;
-		image = config.module.common.wallpaper.path;
+		enable     = true;
+		image      = config.module.common.wallpaper.path;
 		autoEnable = true;
-		polarity = "dark";
+		polarity   = "dark";
 		opacity = {
 			applications = 0.85;
 			terminal     = 0.85;
