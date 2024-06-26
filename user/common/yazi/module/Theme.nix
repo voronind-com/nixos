@@ -2,6 +2,9 @@
 	border = {
 		fg = "#${config.module.style.color.border}";
 	};
+	borderLight = {
+		fg = "#${config.module.style.color.accent}";
+	};
 in {
 	file = (pkgs.formats.toml {}).generate "YaziThemeConfig" {
 		manager = {
@@ -22,9 +25,9 @@ in {
 				bg = "#${config.module.style.color.accent}";
 			};
 		};
-		select     = { inherit border; };
-		input      = { inherit border; };
-		completion = { inherit border; };
-		tasks      = { inherit border; };
+		select     = { inherit borderLight; };
+		input      = { inherit borderLight; };
+		completion = { inherit borderLight; };
+		tasks      = { inherit borderLight; };
 	};
 }
