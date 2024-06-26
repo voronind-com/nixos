@@ -7,7 +7,6 @@
 		fps_sampling_period=1000
 		frame_timing=0
 		gl_vsync=1
-		no_display=0
 		preset=0,1,2
 		toggle_preset=F1
 		toggle_logging=F2
@@ -16,7 +15,7 @@
 
 	presets = util.trimTabs ''
 		[preset 0]
-		no_display
+		no_display=1
 
 		[preset 1]
 		alpha=1.0
