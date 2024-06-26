@@ -48,7 +48,7 @@ in {
 					address = "0.0.0.0";
 					port    = cfg.port;
 					# ISSUE: https://github.com/NixOS/nixpkgs/issues/322596
-					package = pkgsStable.paperless-ngx;
+					# package = pkgsStable.paperless-ngx;
 					passwordFile = pkgs.writeText "PaperlessPassword" "root";
 					settings = {
 						PAPERLESS_URL          = "https://${cfg.domain}";
@@ -65,11 +65,30 @@ in {
 				};
 
 				# HACK: This is required for TCP postgres connection.
-				systemd.services.paperless-scheduler.serviceConfig = {
-					PrivateNetwork = lib.mkForce false;
-				};
-				systemd.services.paperless-consumer.serviceConfig = {
-					PrivateNetwork = lib.mkForce false;
+				systemd = {
+					services = {
+						paperless-scheduler = {
+							serviceConfig.PrivateNetwork = lib.mkForce false;
+							wantedBy = lib.mkForce [];
+						};
+						paperless-consumer = {
+							serviceConfig.PrivateNetwork = lib.mkForce false;
+							wantedBy = lib.mkForce [];
+						};
+						paperless-web = {
+							wantedBy = lib.mkForce [];
+						};
+						paperless-task-queue = {
+							wantedBy = lib.mkForce [];
+						};
+					};
+					timers.fixsystemd = {
+						timerConfig = {
+							OnBootSec = 5;
+							Unit      = "paperless-web.service";
+						};
+						wantedBy = [ "timers.target" ];
+					};
 				};
 			};
 		};

@@ -46,10 +46,13 @@ in {
 		# This is the network for all the containers.
 		# They are not available to the external interface by default,
 		# instead they all expose specific ports in their configuration.
-		networking.nat = {
-			enable = true;
-			internalInterfaces = [ "ve-+" ];
-			externalInterface = config.container.interface;
+		networking = {
+			nat = {
+				enable = true;
+				internalInterfaces = [ "ve-+" ];
+				externalInterface = config.container.interface;
+			};
+			networkmanager.unmanaged = [ "interface-name:ve-*" ];
 		};
 	};
 }
