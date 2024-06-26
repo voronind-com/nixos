@@ -13,7 +13,7 @@ in {
 
 	config = mkIf cfg.enable {
 		module.desktop = {
-			app.enable        = true;
+			app.common.enable = true;
 			bluetooth.enable  = true;
 			brightness.enable = true;
 			dconf.enable      = true;

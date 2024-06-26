@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
 	imports = [
 		./Filesystem.nix
 	];
@@ -17,6 +17,15 @@
 			compute.enable = true;
 			cpu.enable     = true;
 			gpu.enable     = true;
+		};
+		desktop = {
+			sway.enable = true;
+			app = {
+				common.enable   = true;
+				gaming.enable   = true;
+				creative.enable = true;
+				dev.enable      = true;
+			};
 		};
 	};
 }

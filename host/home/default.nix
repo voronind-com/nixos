@@ -11,7 +11,12 @@
 
 	module = {
 		builder.server.enable = true;
-		desktop.sway.enable   = true;
+		desktop = {
+			sway.enable = true;
+			app = {
+				common.enable = true;
+			};
+		};
 		ftpd = {
 			enable  = true;
 			storage = "/storage/hot/ftp";

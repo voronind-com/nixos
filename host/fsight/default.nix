@@ -4,5 +4,9 @@
 		./Root.nix
 	];
 
-	module.docker.enable = true;
+	module.docker = {
+		enable    = true;
+		autostart = true;
+		rootless  = false;
+	};
 }

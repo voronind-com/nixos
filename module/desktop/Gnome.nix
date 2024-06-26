@@ -7,11 +7,11 @@ in {
 
 	config = mkIf cfg.enable {
 		module.desktop = {
-			app.enable     = true;
-			dconf.enable   = true;
-			dm.enable      = true;
-			sound.enable   = true;
-			wayland.enable = true;
+			app.common.enable = true;
+			dconf.enable      = true;
+			dm.enable         = true;
+			sound.enable      = true;
+			wayland.enable    = true;
 		};
 
 		services.xserver.displayManager.gdm.enable   = true;
