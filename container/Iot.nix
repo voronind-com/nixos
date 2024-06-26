@@ -88,6 +88,18 @@ in {
 					# NOTE: Using imperative config because of secrets.
 					config = null;
 				};
+
+				# HACK: Delay so that nextcloud calendar can reply on reboot.
+				systemd = {
+					services."home-assistant".wantedBy = mkForce [];
+					timers.fixsystemd = {
+						timerConfig = {
+							OnBootSec = 5;
+							Unit      = "home-assistant.service";
+						};
+						wantedBy = [ "timers.target" ];
+					};
+				};
 			};
 		};
 	};

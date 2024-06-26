@@ -68,18 +68,18 @@ in {
 				systemd = {
 					services = {
 						paperless-scheduler = {
-							serviceConfig.PrivateNetwork = lib.mkForce false;
-							wantedBy = lib.mkForce [];
+							serviceConfig.PrivateNetwork = mkForce false;
+							wantedBy = mkForce [];
 						};
 						paperless-consumer = {
-							serviceConfig.PrivateNetwork = lib.mkForce false;
-							wantedBy = lib.mkForce [];
+							serviceConfig.PrivateNetwork = mkForce false;
+							wantedBy = mkForce [];
 						};
 						paperless-web = {
-							wantedBy = lib.mkForce [];
+							wantedBy = mkForce [];
 						};
 						paperless-task-queue = {
-							wantedBy = lib.mkForce [];
+							wantedBy = mkForce [];
 						};
 					};
 					timers.fixsystemd = {
