@@ -17,7 +17,10 @@
 			storage = "/storage/hot/ftp";
 		};
 		amd = {
-			cpu.enable = true;
+			cpu = {
+				enable = true;
+				powersave.enable = false;
+			};
 			gpu.enable = true;
 		};
 	};
