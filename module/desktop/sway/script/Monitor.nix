@@ -1,16 +1,11 @@
 { ... }: {
 	text = ''
-		export _swaymonlist=(
-			"ASUSTek COMPUTER INC ASUS VA24E R2LMTF127165"
-			"AU Optronics 0x418D Unknown"
-		)
-
 		# Enable monitors.
 		function monon() {
 			on() {
-				for mon in ''${_swaymonlist[@]}; do
-					swaymsg "output \"''${mon}\" power on"
-				done
+				swaymsg "output \"ASUSTek COMPUTER INC ASUS VA24E R2LMTF127165\" power on"
+				swaymsg "output \"AU Optronics 0x418D Unknown\" power on"
+				swaymsg "output \"AOC 24G2W1G4 ATNL61A129625\" power on"
 				_monstate on
 			}
 			_sway_iterate_sockets on
@@ -19,9 +14,9 @@
 		# Disable monitors.
 		function monoff() {
 			off() {
-				for mon in ''${_swaymonlist[@]}; do
-					swaymsg "output \"''${mon}\" power off"
-				done
+				swaymsg "output \"ASUSTek COMPUTER INC ASUS VA24E R2LMTF127165\" power off"
+				swaymsg "output \"AU Optronics 0x418D Unknown\" power off"
+				swaymsg "output \"AOC 24G2W1G4 ATNL61A129625\" power off"
 				_monstate off
 			}
 			_sway_iterate_sockets off
