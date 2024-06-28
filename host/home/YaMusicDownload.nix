@@ -31,8 +31,9 @@ in {
 				Restart   = "on-failure";
 			};
 			path = with pkgs; [
-				python313
+				curl
 				firefox-esr
+				python313
 			];
 		};
 
