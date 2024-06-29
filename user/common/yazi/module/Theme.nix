@@ -25,9 +25,9 @@ in {
 				bg = "#${config.style.color.accent}";
 			};
 		};
-		select     = { inherit borderLight; };
-		input      = { inherit borderLight; };
-		completion = { inherit borderLight; };
-		tasks      = { inherit borderLight; };
+		select     = { border = borderLight; };
+		input      = { border = borderLight; };
+		completion = { border = borderLight; };
+		tasks      = { border = borderLight; };
 	};
 }
