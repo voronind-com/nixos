@@ -1,5 +1,11 @@
 { lib, pkgs, const, config, ... }: {
 	mkContainer = cfg: extra: lib.recursiveUpdate {
+		# Allow nested containers.
+		additionalCapabilities = [
+			''all" --system-call-filter="add_key keyctl bpf" --capability="all''
+		];
+		enableTun = true;
+
 		# Start containers with the system by default.
 		autoStart = config.container.autoStart;
 
@@ -15,6 +21,8 @@
 
 	# Common configuration for the system inside the container.
 	mkContainerConfig = cfg: extra: lib.recursiveUpdate {
+		boot.isContainer = true;
+
 		# HACK: Do not evaluate nixpkgs inside the container. Use host's instead.
 		nixpkgs.pkgs = lib.mkForce pkgs;
 
