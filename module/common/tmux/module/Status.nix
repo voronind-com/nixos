@@ -1,9 +1,9 @@
 { config, ... }: let
 	mod = "M";
 
-	accent = config.module.style.color.accent;
+	accent = config.style.color.accent;
 	# bg     = style.color.bg.dark;
-	fg     = config.module.style.color.fg.light;
+	fg     = config.style.color.fg.light;
 in {
 	text = ''
 		bind-key -n ${mod}-f set-option -g status;

@@ -1,9 +1,7 @@
 { pkgs
 , inputs
 , const
-, style
 , util
-, key
 , secret
 , ... } @args: let
 	# Path where Termux stores user data.

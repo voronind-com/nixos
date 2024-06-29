@@ -1,13 +1,12 @@
-{ pkgs, lib, config, ... }: with lib; let
-	cfg = config.module.style;
+{ lib, config, ... }: with lib; let
+	cfg = config.style;
+
+	mkTypeOption  = default: type: mkOption { inherit default type; };
+	mkStrOption   = default: mkTypeOption default types.str;
+	mkIntOption   = default: mkTypeOption default types.int;
+	mkFloatOption = default: mkTypeOption default types.float;
 in {
-	options = let
-		mkTypeOption  = default: type: mkOption { inherit default type; };
-		mkStrOption   = default: mkTypeOption default types.str;
-		mkIntOption   = default: mkTypeOption default types.int;
-		mkFloatOption = default: mkTypeOption default types.float;
-	in {
-		module.style = {
+	options.style = {
 			color = {
 				bg = {
 					dark    = mkStrOption config.lib.stylix.colors.base00;

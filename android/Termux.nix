@@ -4,8 +4,8 @@
 	'';
 
 	colors = util.trimTabs ''
-		background=#${config.module.style.color.bg.dark}
-		foreground=#${config.module.style.color.fg.light}
+		background=#${config.style.color.bg.dark}
+		foreground=#${config.style.color.fg.light}
 	'';
 
 	initScript = util.trimTabs ''

@@ -4,9 +4,9 @@ in {
 	file = (pkgs.formats.json {}).generate "WaybarConfig" {
 		height       = 34;
 		layer        = "top";
-		margin-left  = config.module.style.window.gap;
-		margin-right = config.module.style.window.gap;
-		margin-top   = config.module.style.window.gap;
+		margin-left  = config.style.window.gap;
+		margin-right = config.style.window.gap;
+		margin-top   = config.style.window.gap;
 		mode         = "dock";
 		position     = "top";
 		spacing      = 4;

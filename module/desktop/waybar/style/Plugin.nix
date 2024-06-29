@@ -17,8 +17,8 @@ in {
 		#scratchpad,
 		#language {
 			padding: ${paddingV} ${paddingH};
-			border-top: ${toString config.module.style.window.border}px solid transparent;
-			border-bottom: ${toString config.module.style.window.border}px solid transparent;
+			border-top: ${toString config.style.window.border}px solid transparent;
+			border-bottom: ${toString config.style.window.border}px solid transparent;
 		}
 
 		#cpu {
@@ -58,24 +58,24 @@ in {
 		#tray:hover,
 		#scratchpad:hover,
 		#workspaces button:hover {
-			background-color: rgba(${config.module.style.color.border-r},${config.module.style.color.border-g},${config.module.style.color.border-b},${toString config.module.style.opacity.desktop});
+			background-color: rgba(${config.style.color.border-r},${config.style.color.border-g},${config.style.color.border-b},${toString config.style.opacity.desktop});
 		}
 
 		#pulseaudio.muted,
 		#battery.critical,
 		#tray.needs-attention,
 		#custom-display.modified {
-			border-top: ${toString config.module.style.window.border}px solid #${config.module.style.color.accent};
+			border-top: ${toString config.style.window.border}px solid #${config.style.color.accent};
 		}
 
 		#workspaces button {
 			padding: ${paddingV} 4px;
-			border-top: ${toString config.module.style.window.border}px solid transparent;
+			border-top: ${toString config.style.window.border}px solid transparent;
 			border-radius: 0;
 		}
 
 		#workspaces button.focused {
-			border-top: ${toString config.module.style.window.border}px solid #${config.module.style.color.accent};
+			border-top: ${toString config.style.window.border}px solid #${config.style.color.accent};
 		}
 	'';
 }

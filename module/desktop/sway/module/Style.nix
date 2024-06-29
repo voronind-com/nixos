@@ -1,9 +1,9 @@
 { config, ... }: let
-	alpha  = config.module.style.opacity.hex;
-	accent = config.module.style.color.accent  + alpha;
-	bg     = config.module.style.color.bg.dark + alpha;
-	border = config.module.style.color.border  + alpha;
-	fg     = config.module.style.color.fg.light;
+	alpha  = config.style.opacity.hex;
+	accent = config.style.color.accent  + alpha;
+	bg     = config.style.color.bg.dark + alpha;
+	border = config.style.color.border  + alpha;
+	fg     = config.style.color.fg.light;
 in {
 	text = ''
 		output * bg ${config.module.common.wallpaper.path} fill

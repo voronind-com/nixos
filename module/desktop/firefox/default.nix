@@ -7,18 +7,18 @@
 
 		// Fonts.
 		pref("browser.display.use_document_fonts", 0);
-		lockPref("font.minimum-size.x-cyrillic", ${toString config.module.style.font.size.application});
-		lockPref("font.minimum-size.x-unicode",  ${toString config.module.style.font.size.application});
-		lockPref("font.minimum-size.x-western",  ${toString config.module.style.font.size.application});
-		lockPref("font.name.monospace.x-cyrillic", "${config.module.style.font.monospace.name}");
-		lockPref("font.name.monospace.x-unicode",  "${config.module.style.font.monospace.name}");
-		lockPref("font.name.monospace.x-western",  "${config.module.style.font.monospace.name}");
-		lockPref("font.name.sans-serif.x-cyrillic", "${config.module.style.font.sansSerif.name}");
-		lockPref("font.name.sans-serif.x-unicode",  "${config.module.style.font.sansSerif.name}");
-		lockPref("font.name.sans-serif.x-western",  "${config.module.style.font.sansSerif.name}");
-		lockPref("font.name.serif.x-cyrillic", "${config.module.style.font.serif.name}");
-		lockPref("font.name.serif.x-unicode",  "${config.module.style.font.serif.name}");
-		lockPref("font.name.serif.x-western",  "${config.module.style.font.serif.name}");
+		lockPref("font.minimum-size.x-cyrillic", ${toString config.style.font.size.application});
+		lockPref("font.minimum-size.x-unicode",  ${toString config.style.font.size.application});
+		lockPref("font.minimum-size.x-western",  ${toString config.style.font.size.application});
+		lockPref("font.name.monospace.x-cyrillic", "${config.style.font.monospace.name}");
+		lockPref("font.name.monospace.x-unicode",  "${config.style.font.monospace.name}");
+		lockPref("font.name.monospace.x-western",  "${config.style.font.monospace.name}");
+		lockPref("font.name.sans-serif.x-cyrillic", "${config.style.font.sansSerif.name}");
+		lockPref("font.name.sans-serif.x-unicode",  "${config.style.font.sansSerif.name}");
+		lockPref("font.name.sans-serif.x-western",  "${config.style.font.sansSerif.name}");
+		lockPref("font.name.serif.x-cyrillic", "${config.style.font.serif.name}");
+		lockPref("font.name.serif.x-unicode",  "${config.style.font.serif.name}");
+		lockPref("font.name.serif.x-western",  "${config.style.font.serif.name}");
 
 		// Animations.
 		lockPref("browser.fullscreen.animateUp", 0);

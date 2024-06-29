@@ -5,7 +5,7 @@ in {
 		main = {
 			dpi-aware    = dpiAware;
 			# font         = "${style.font.serif.name}:size=${toString style.font.size.popup}";
-			font         = "Minecraftia:size=${toString config.module.style.font.size.popup}";
+			font         = "Minecraftia:size=${toString config.style.font.size.popup}";
 			lines        = 20;
 			prompt       = "\"\"";
 			show-actions = "yes";
@@ -20,13 +20,13 @@ in {
 		colors = let
 			defaultOpacity = "ff";
 		in {
-			background      = config.module.style.color.bg.dark    + config.module.style.opacity.hex;
-			border          = config.module.style.color.border     + config.module.style.opacity.hex;
-			match           = config.module.style.color.fg.light   + defaultOpacity;
-			selection       = config.module.style.color.bg.regular + defaultOpacity;
-			selection-match = config.module.style.color.accent     + defaultOpacity;
-			selection-text  = config.module.style.color.fg.light   + defaultOpacity;
-			text            = config.module.style.color.fg.light   + defaultOpacity;
+			background      = config.style.color.bg.dark    + config.style.opacity.hex;
+			border          = config.style.color.border     + config.style.opacity.hex;
+			match           = config.style.color.fg.light   + defaultOpacity;
+			selection       = config.style.color.bg.regular + defaultOpacity;
+			selection-match = config.style.color.accent     + defaultOpacity;
+			selection-text  = config.style.color.fg.light   + defaultOpacity;
+			text            = config.style.color.fg.light   + defaultOpacity;
 		};
 	};
 }

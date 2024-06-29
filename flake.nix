@@ -193,8 +193,6 @@
 					container = import ./lib/Container.nix { inherit lib pkgs config; inherit (self) const; }; # Container utils.
 					util      = import ./lib/Util.nix { inherit lib; }; # Util functions.
 				in {
-					flake = self;
-
 					inherit secret container util inputs;
 					inherit (self) const;
 
@@ -255,6 +253,14 @@
 
 				# I put all my Android configuration there.
 				./android
+				./android/style/Gruvbox.nix
+
+				# Some common modules.
+				./module/common/Setting.nix
+				# ./module/common/Style.nix
+
+				# Stylix.
+				# inputs.stylix.homeManagerModules.stylix
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.
@@ -263,11 +269,11 @@
 				pkgs = nixpkgs.legacyPackages."aarch64-linux".pkgs;
 				lib  = nixpkgs.lib;
 			in {
-				const   = self.const; # Constant values.
-				flake   = self;       # This Flake itself.
-				inputs  = inputs;     # Our dependencies.
-				secret  = import ./lib/Secret.nix  {}; # Secrets (public keys).
-				util    = import ./lib/Util.nix    { inherit lib; }; # Util functions.
+				inherit inputs;
+				inherit (self) const;
+
+				secret  = import ./secret {}; # Secrets (public keys).
+				util    = import ./lib/Util.nix { inherit lib; }; # Util functions.
 			};
 		};
 	};

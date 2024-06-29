@@ -30,7 +30,7 @@
 		bindsym $mod+x kill
 
 		# Add gaps.
-		gaps inner ${toString config.module.style.window.gap}
+		gaps inner ${toString config.style.window.gap}
 
 		# Launch everything tiled.
 		# for_window [all] floating disable

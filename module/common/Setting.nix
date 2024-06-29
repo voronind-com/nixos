@@ -1,9 +1,6 @@
 # Global settings.
 # Just like I can configure each package, here I configure my config! :O)
-{ pkgs
-, config
-,lib
-, ... }: {
+{ lib, ... }: {
 	options.setting = with lib; {
 		# Ollama settings.
 		# I use the best light model by default.

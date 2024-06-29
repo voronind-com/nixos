@@ -1,5 +1,5 @@
 { config, ... }: let
-	borderSize = toString config.module.style.window.border;
+	borderSize = toString config.style.window.border;
 in {
 	text = ''
 		# Disable title bar.

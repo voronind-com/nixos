@@ -1,4 +1,4 @@
-{ inputs, pkgs, util, key, ... } @args: let
+{ inputs, pkgs, util, ... } @args: let
 	# Create Neovim configuration.
 	nvimRc = { runtimes, configs }: let
 		# Plugin paths to install.

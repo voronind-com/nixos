@@ -1,3 +1,3 @@
-{ key, util, config, ... } @args: {
+{ util, config, ... } @args: {
 	config = util.catText (util.ls ./module) args;
 }

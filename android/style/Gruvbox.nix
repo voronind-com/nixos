@@ -1,68 +1,81 @@
-{ ... }: {
-	lib.stylix.colors = {
-		base0A = "b8bb26";
-		base01 = "3c3836";
-		base00 = "1d2021";
-		base07 = "504945";
-		base05 = "ebdbb2";
-		base04 = "a89984";
-		base06 = "fbf1c7";
-		base0D = "d5c4a1";
-		base03 = "98971a";
-		base0E = "98971a";
-		base09 = "076678";
-		base0F = "808080";
-		base08 = "cc241d";
-		base0C = "458588";
-		base0B = "87af87";
-		base02 = "87af87";
+{ lib, ... }: with lib; let
+	mkTypeOption  = default: type: mkOption { inherit default type; };
+	mkStrOption   = default: mkTypeOption default types.str;
+	mkIntOption   = default: mkTypeOption default types.int;
+	mkFloatOption = default: mkTypeOption default types.float;
+in {
+	options.style = {
+		color = {
+			bg = {
+				dark    = mkStrOption "1d2021";
+				light   = mkStrOption "504945";
+				regular = mkStrOption "3c3836";
+			};
+			fg = {
+				dark    = mkStrOption "a89984";
+				light   = mkStrOption "fbf1c7";
+				regular = mkStrOption "ebdbb2";
+			};
+			accent      = mkStrOption "b8bb26";
+			heading     = mkStrOption "d5c4a1";
+			hl          = mkStrOption "98971a";
+			keyword     = mkStrOption "98971a";
+			link        = mkStrOption "076678";
+			misc        = mkStrOption "808080";
+			negative    = mkStrOption "cc241d";
+			neutral     = mkStrOption "458588";
+			positive    = mkStrOption "87af87";
+			selection   = mkStrOption "87af87";
+			transparent = mkStrOption "ffffff00";
 
-		base0A-rgb-b = "38";
-		base0A-rgb-g = "187";
-		base0A-rgb-r = "184";
+			accent-b   = mkStrOption "38";
+			accent-g   = mkStrOption "187";
+			accent-r   = mkStrOption "184";
 
-		base08-rgb-b = "29";
-		base08-rgb-g = "36";
-		base08-rgb-r = "204";
+			negative-b = mkStrOption "29";
+			negative-g = mkStrOption "36";
+			negative-r = mkStrOption "204";
 
-		base0C-rgb-b = "136";
-		base0C-rgb-g = "133";
-		base0C-rgb-r = "69";
+			neutral-b  = mkStrOption "136";
+			neutral-g  = mkStrOption "133";
+			neutral-r  = mkStrOption "69";
 
-		base0B-rgb-b = "135";
-		base0B-rgb-g = "175";
-		base0B-rgb-r = "135";
+			positive-b = mkStrOption "135";
+			positive-g = mkStrOption "175";
+			positive-r = mkStrOption "135";
 
-		base00-rgb-b = "33";
-		base00-rgb-g = "32";
-		base00-rgb-r = "29";
+			bg-b = mkStrOption "33";
+			bg-g = mkStrOption "32";
+			bg-r = mkStrOption "29";
 
-		base01-rgb-b = "54";
-		base01-rgb-g = "56";
-		base01-rgb-r = "60";
+			fg-b = mkStrOption "199";
+			fg-g = mkStrOption "241";
+			fg-r = mkStrOption "251";
 
-		base06-rgb-b = "199";
-		base06-rgb-g = "241";
-		base06-rgb-r = "251";
-	};
-	stylix = {
+			border   = mkStrOption "3c3836";
+			border-b = mkStrOption "54";
+			border-g = mkStrOption "56";
+			border-r = mkStrOption "60";
+		};
+
 		fonts = {
-			monospace.name = "Terminess Nerd Font Mono";
-			emoji.name     = "Noto Color Emoji";
-			serif.name     = "SF Pro Display";
-			sansSerif.name = "SF Pro Display";
+			monospace.name = mkStrOption "Terminess Nerd Font Mono";
+			emoji.name     = mkStrOption "Noto Color Emoji";
+			serif.name     = mkStrOption "SF Pro Display";
+			sansSerif.name = mkStrOption "SF Pro Display";
 			sizes = {
-				applications = 12;
-				terminal     = 12;
-				popups       = 12;
-				desktop      = 12;
+				applications = mkIntOption 12;
+				terminal     = mkIntOption 12;
+				popups       = mkIntOption 12;
+				desktop      = mkIntOption 12;
 			};
 		};
+
 		opacity = {
-			application = 1.0;
-			desktop     = 1.0;
-			popup       = 1.0;
-			terminal    = 1.0;
+			application = mkFloatOption 1.0;
+			desktop     = mkFloatOption 1.0;
+			popup       = mkFloatOption 1.0;
+			terminal    = mkFloatOption 1.0;
 		};
 	};
 }

@@ -1,8 +1,8 @@
 { config, ... }: let
 	mod = "M";
 
-	accent = config.module.style.color.accent;
-	bg     = config.module.style.color.bg.regular;
+	accent = config.style.color.accent;
+	bg     = config.style.color.bg.regular;
 	# fg     = style.color.fg.light;
 
 	stepVertical   = 1;
