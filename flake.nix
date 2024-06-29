@@ -247,16 +247,20 @@
 
 		# Android.
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-			modules = [
+			modules = let
+				lib    = nixpkgs.lib;
+				config = self.nixOnDroidConfigurations.default.config;
+			in [
 				# Android release version.
 				{ system.stateVersion = self.const.droidStateVersion; }
 
 				# I put all my Android configuration there.
 				./android
-				./android/Style.nix
 
+				# Some common modules.
 				./module/common/Setting.nix
 				./module/common/Wallpaper.nix
+				(import ./module/common/Style.nix { inherit lib; inherit (config.home-manager) config; })
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.
