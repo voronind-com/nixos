@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
 	file = (pkgs.formats.ini {}).generate "KeydDrgConfig" {
 		steam-app-548430 = {
-			"alt.1" = "macro(enter 10ms L e t ' s space d o space t h i s space T e x a s space s t y l e ! enter)";
+			"alt.1" = "macro(enter 10ms L e t ' s 10ms space d o 10ms space t h i s 10ms space T e x a s 10ms space s t y l e ! 10ms enter)";
 			"alt.2" = "macro(enter 10ms H e c k space y e s ! enter)";
 			"alt.3" = "macro(enter 10ms J u s t space a space s i d e - j o b space w h i l e 10ms space w a i t i n g space f o r space a space s e x space u p d a t e . enter)";
 			"alt.4" = "macro(enter 10ms < 3 enter)";
