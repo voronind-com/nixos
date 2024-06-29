@@ -20,6 +20,9 @@
 					return 0
 				};
 
+				# Cut full paths.
+				target="''${target##*/}"
+
 				local date=$(_archive_date)
 
 				# Parse name.
@@ -57,6 +60,9 @@
 					_iterate_skip "Already an archive."
 					return 0
 				};
+
+				# Cut full paths.
+				target="''${target##*/}"
 
 				# Start timestamp.
 				local date=$(_archive_date)
