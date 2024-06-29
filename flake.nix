@@ -249,18 +249,14 @@
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
 			modules = [
 				# Android release version.
-				{ system.stateVersion = inputs.self.const.droidStateVersion; }
+				{ system.stateVersion = self.const.droidStateVersion; }
 
 				# I put all my Android configuration there.
 				./android
-				./android/style/Gruvbox.nix
+				./android/Style.nix
 
-				# Some common modules.
 				./module/common/Setting.nix
-				# ./module/common/Style.nix
-
-				# Stylix.
-				# inputs.stylix.homeManagerModules.stylix
+				./module/common/Wallpaper.nix
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.

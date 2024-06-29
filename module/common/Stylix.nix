@@ -1,11 +1,8 @@
 { pkgs, config, ... }: {
-	# Add a permanent link for the wallpaper to /etc/wallpaper.
-	environment.etc.wallpaper.source = config.module.common.wallpaper.path;
-
-	stylix = {
+	config.stylix = {
 		enable     = true;
 		image      = config.module.common.wallpaper.path;
-		autoEnable = true;
+		autoEnable = false;
 		polarity   = "dark";
 		opacity = {
 			applications = 0.85;
@@ -18,18 +15,20 @@
 			package = pkgs.gnome3.adwaita-icon-theme;
 			size    = 14;
 		};
-		fonts = {
+		fonts = let
+			serif = {
+				package = (pkgs.callPackage ./applefont {});
+				name    = "SF Pro Display";
+			};
+		in {
+			inherit serif;
 			sizes = {
 				applications = 12;
 				terminal     = 14;
 				popups       = 12;
 				desktop      = 14;
 			};
-			serif = {
-				package = (pkgs.callPackage ./applefont {});
-				name    = "SF Pro Display";
-			};
-			sansSerif = config.stylix.fonts.serif;
+			sansSerif = serif;
 			monospace = {
 				package = (pkgs.nerdfonts.override { fonts = [ "Terminus" ]; });
 				name    = "Terminess Nerd Font Mono";
