@@ -85,7 +85,7 @@
 		}
 
 		# Get recommended keyframe interval for a file.
-		_ffprobe_keyint() {
+		function _ffprobe_keyint() {
 			local fps=$(_ffprobe_fps "''${1}")
 			echo $((fps*5))
 		}
