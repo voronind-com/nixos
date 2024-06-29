@@ -94,7 +94,7 @@ in {
 					services."home-assistant".wantedBy = mkForce [];
 					timers.fixsystemd = {
 						timerConfig = {
-							OnBootSec = 5;
+							OnBootSec = 15;
 							Unit      = "home-assistant.service";
 						};
 						wantedBy = [ "timers.target" ];
