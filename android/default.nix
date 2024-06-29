@@ -16,11 +16,12 @@
 	termux      = import ./Termux.nix      args;
 
 	# External modules.
-	bash = import ../module/common/bash args;
-	nvim = import ../module/common/nvim args;
-	ssh  = import ../module/common/ssh  args;
-	tmux = import ../module/common/tmux args;
-	yazi = import ../user/common/yazi args;
+	bash   = import ../module/common/bash args;
+	nvim   = import ../module/common/nvim args;
+	ssh    = import ../module/common/ssh  args;
+	stylix = import ../module/common/Stylix.nix args;
+	tmux   = import ../module/common/tmux args;
+	yazi   = import ../user/common/yazi args;
 in {
 	# Configure system.
 	time.timeZone     = const.timeZone;
@@ -30,58 +31,56 @@ in {
 	# Install packages.
 	environment.packages = package.list;
 
-	home-manager.config = {
+	home-manager.config = stylix // {
 		imports = [
 			inputs.stylix.homeManagerModules.stylix
-			# ../module/common/Stylix.nix
-			# ../module/common/Wallpaper.nix
 		];
 
-		stylix = {
-			enable     = true;
-			image      = config.module.common.wallpaper.path;
-			autoEnable = false;
-			polarity   = "dark";
-			opacity = {
-				applications = 0.85;
-				terminal     = 0.85;
-				popups       = 0.85;
-				desktop      = 0.85;
-			};
-			cursor = {
-				name    = "Adwaita";
-				package = pkgs.gnome3.adwaita-icon-theme;
-				size    = 14;
-			};
-			fonts = let
-				serif = {
-					package = (pkgs.callPackage ../module/common/applefont {});
-					name    = "SF Pro Display";
-				};
-			in {
-				inherit serif;
-				sizes = {
-					applications = 12;
-					terminal     = 14;
-					popups       = 12;
-					desktop      = 14;
-				};
-				sansSerif = serif;
-				monospace = {
-					package = (pkgs.nerdfonts.override { fonts = [ "Terminus" ]; });
-					name    = "Terminess Nerd Font Mono";
-				};
-				emoji = {
-					package = pkgs.noto-fonts-emoji;
-					name = "Noto Color Emoji";
-				};
-			};
-			override = if config.module.common.wallpaper.forceContrastText then {
-				base04 = "000000";
-				base05 = "ffffff";
-				base06 = "ffffff";
-			} else {};
-		};
+		# stylix = {
+		# 	enable     = true;
+		# 	image      = config.module.common.wallpaper.path;
+		# 	autoEnable = false;
+		# 	polarity   = "dark";
+		# 	opacity = {
+		# 		applications = 0.85;
+		# 		terminal     = 0.85;
+		# 		popups       = 0.85;
+		# 		desktop      = 0.85;
+		# 	};
+		# 	cursor = {
+		# 		name    = "Adwaita";
+		# 		package = pkgs.gnome3.adwaita-icon-theme;
+		# 		size    = 14;
+		# 	};
+		# 	fonts = let
+		# 		serif = {
+		# 			package = (pkgs.callPackage ../module/common/applefont {});
+		# 			name    = "SF Pro Display";
+		# 		};
+		# 	in {
+		# 		inherit serif;
+		# 		sizes = {
+		# 			applications = 12;
+		# 			terminal     = 14;
+		# 			popups       = 12;
+		# 			desktop      = 14;
+		# 		};
+		# 		sansSerif = serif;
+		# 		monospace = {
+		# 			package = (pkgs.nerdfonts.override { fonts = [ "Terminus" ]; });
+		# 			name    = "Terminess Nerd Font Mono";
+		# 		};
+		# 		emoji = {
+		# 			package = pkgs.noto-fonts-emoji;
+		# 			name = "Noto Color Emoji";
+		# 		};
+		# 	};
+		# 	override = if config.module.common.wallpaper.forceContrastText then {
+		# 		base04 = "000000";
+		# 		base05 = "ffffff";
+		# 		base06 = "ffffff";
+		# 	} else {};
+		# };
 
 		home = {
 			# Release version.

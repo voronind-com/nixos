@@ -1,5 +1,5 @@
 { pkgs, config, ... }: {
-	config.stylix = {
+	stylix = {
 		enable     = true;
 		image      = config.module.common.wallpaper.path;
 		autoEnable = false;
