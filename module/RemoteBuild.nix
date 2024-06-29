@@ -67,7 +67,7 @@ in {
 				substituters = [ "ssh-ng://nixbuilder" ];
 			in {
 				substituters = mkForce substituters;
-				trusted-substituters = substituters;
+				trusted-substituters = substituters ++ [ "https://cache.nixos.org/" ];
 				builders-use-substitutes = true;
 				max-jobs = 0;
 				trusted-public-keys = [ secret.ssh.builderKey ];
