@@ -1,7 +1,7 @@
 { ... }: {
 	text = ''
-		_PARSE_ALLOWED_CHARS="_-"
-		_PARSE_SPLIT_CHARS="\.\ _-"
+		export _PARSE_ALLOWED_CHARS="_-"
+		export _PARSE_SPLIT_CHARS="\.\ _-"
 
 		# Parse data and output simplified format.
 		# Usage: parse_simple <STRING>
