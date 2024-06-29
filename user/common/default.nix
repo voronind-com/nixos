@@ -25,11 +25,8 @@
 in {
 	options = {
 		user.common.users = mkOption {
-			default = [{
-				name    = "root";
-				homeDir = "/root";
-			}];
-			type = types.listOf types.attrs;
+			default = [];
+			type    = types.listOf types.attrs;
 		};
 	};
 

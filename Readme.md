@@ -1,4 +1,4 @@
-# Voronind NixOS configuration.
+# Dmitry 🌊 NixOS configuration.
 
 ## Screenshots.
 
