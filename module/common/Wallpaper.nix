@@ -1,6 +1,6 @@
-{ pkgs, lib, config, ... }: with lib; let
-	url    = "https://i.imgur.com/0RldJsX.jpeg";
-	sha256 = "sha256-hbbUz9+m/bLahDiflAoio6+4H0DHfxlbh92cWSjE4R4=";
+{ pkgs, lib, ... }: with lib; let
+	url    = "https://i.postimg.cc/Q82Vg4z0/7680-Doom.jpg";
+	sha256 = "sha256-GxPQzXlJFAl6VBhH+IoTdjwlOHMiUReu+dUdNcADN8Q=";
 	forceContrastText = false;
 in {
 	options = {
