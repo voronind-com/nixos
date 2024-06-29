@@ -15,6 +15,7 @@
 				nativeBuildInputs = with pkgs; [ ];
 				buildInputs = with pkgs; [ ];
 
+				LD_LIBRARY_PATH   = "${lib.makeLibraryPath buildInputs}";
 				SOURCE_DATE_EPOCH = "${toString self.lastModified}";
 			};
 		};
