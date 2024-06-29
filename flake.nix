@@ -232,20 +232,20 @@
 			x86System = hostname: mkSystem hostname "x86_64-linux" [];
 
 			x86LiveSystem = hostname: mkSystem hostname "x86_64-linux" liveModules;
-		in
+		in nixpkgs.lib.foldl' (acc: h: acc // h) {} [
 			# Bellow is the list of all the hosts I currently use.
 			# They call the `mkSystem` function that I defined above
 			# with their specific parameters.
 			# You might be interested in `live` and `nixOnDroidConfiguration`
 			# for Live ISO and Android configurations respectively.
-			(x86System "dasha")   //
-			(x86System "desktop") //
-			(x86System "fsight")  //
-			(x86System "home")    //
-			(x86System "laptop")  //
-			(x86System "work")    //
+			(x86System "dasha")
+			(x86System "desktop")
+			(x86System "fsight")
+			(x86System "home")
+			(x86System "laptop")
+			(x86System "work")
 			(x86LiveSystem "live")
-			;
+		];
 
 		# Android.
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
