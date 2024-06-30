@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: with lib; let
+{ lib, config, ... }: with lib; let
 	cfg = config.module.tablet;
 in {
 	options = {
@@ -7,8 +7,5 @@ in {
 
 	config = mkIf cfg.enable {
 		hardware.opentabletdriver.enable = true;
-		environment.systemPackages = with pkgs; [
-			krita
-		];
 	};
 }

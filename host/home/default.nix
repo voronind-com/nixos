@@ -8,14 +8,17 @@
 		./YaMusicDownload.nix
 	];
 
+	home.nixos.enable    = true;
 	user.voronind.enable = true;
 
 	module = {
+		autoupdate.enable = false;
 		builder.server.enable = true;
 		desktop = {
 			sway.enable = true;
 			app = {
-				common.enable = true;
+				common.enable  = true;
+				desktop.enable = true;
 			};
 		};
 		ftpd = {
@@ -30,7 +33,4 @@
 			gpu.enable = true;
 		};
 	};
-
-	# Disable auto-switch.
-	module.common.autoupdate.enable = false;
 }

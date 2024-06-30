@@ -1,6 +1,6 @@
-{ pkgs, util, lib, ... }: let
+{ pkgs, util, lib, __findFile, ... }: let
 	storage = "/storage/hot/media/music";
-	package = import ./yamusicdownload { inherit pkgs; };
+	package = import <package/yamusicdownload> { inherit pkgs; };
 	pattern = "#album-artist/#year_#album/#number_#title";
 in {
 	systemd.user = {

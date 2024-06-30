@@ -137,14 +137,18 @@
 			url = "https://git.voronind.com/voronind/nixos.git";
 		};
 
-		nixosConfigurations = let
-			# List all files in a dir.
-			lsFiles = path: map (f: "${path}/${f}") (
-				builtins.filter (i: builtins.readFileType "${path}/${i}" == "regular") (
-					builtins.attrNames (builtins.readDir path)
-				)
-			);
+		# Hack to use <container/Change.nix> in other files.
+		# Need to add __findFile to args tho.
+		__findFile = _: p: ./${p};
 
+		# List all files in a dir.
+		lsFiles = path: map (f: "${path}/${f}") (
+			builtins.filter (i: builtins.readFileType "${path}/${i}" == "regular") (
+				builtins.attrNames (builtins.readDir path)
+			)
+		);
+
+		nixosConfigurations = let
 			# Function to create a host. It does basic setup, like adding common modules.
 			mkHost = { system, hostname, modules } @args: nixpkgs.lib.nixosSystem {
 				# `Inherit` is just an alias for `system = system;`, which means that
@@ -164,12 +168,11 @@
 
 					# Add modules.
 					{ imports =
-						(lsFiles ./container) ++
-						(lsFiles ./module) ++
-						(lsFiles ./module/common) ++
-						(lsFiles ./module/desktop) ++
-						(lsFiles ./overlay) ++
-						(lsFiles ./user);
+						(self.lsFiles ./config) ++
+						(self.lsFiles ./container) ++
+						(self.lsFiles ./module) ++
+						(self.lsFiles ./overlay) ++
+						[ ./home/NixOs.nix ];
 					}
 
 					# Add Home Manager module.
@@ -184,23 +187,20 @@
 					pkgs   = nixpkgs.legacyPackages.${system}.pkgs;
 					lib    = nixpkgs.lib;
 					config = self.nixosConfigurations.${hostname}.config;
+				in {
+					inherit inputs self;
+					inherit (self) const __findFile;
 
 					pkgsJobber = nixpkgsJobber.legacyPackages.${system}.pkgs;
-					pkgsStable = nixpkgsJobber.legacyPackages.${system}.pkgs;
-					pkgsMaster = nixpkgsJobber.legacyPackages.${system}.pkgs;
+					pkgsStable = nixpkgsStable.legacyPackages.${system}.pkgs;
+					pkgsMaster = nixpkgsMaster.legacyPackages.${system}.pkgs;
 
 					secret    = import ./secret {}; # Secrets (public keys).
 					container = import ./lib/Container.nix { inherit lib pkgs config; inherit (self) const; }; # Container utils.
 					util      = import ./lib/Util.nix { inherit lib; }; # Util functions.
-				in {
-					inherit secret container util inputs;
-					inherit (self) const;
-
-					# Stable and Master pkgs.
-					inherit pkgsStable pkgsMaster;
 
 					# Stuff for Jobber container, skip this part.
-					inherit poetry2nixJobber pkgsJobber;
+					inherit poetry2nixJobber;
 				};
 			};
 
@@ -221,10 +221,10 @@
 				{ services.openssh.settings.PermitRootLogin        = nixpkgs.lib.mkForce "yes"; }
 
 				# Disable auto-updates as they are not possible for Live ISO.
-				{ module.common.autoupdate.enable = false; }
+				{ module.autoupdate.enable = false; }
 
 				# Base Live images also require the LTS kernel.
-				{ module.common.kernel.latest = false; }
+				{ module.kernel.latest = false; }
 			];
 
 			x86System = hostname: mkSystem hostname "x86_64-linux" [];
@@ -245,6 +245,58 @@
 			(x86LiveSystem "live")
 		];
 
+
+		# Home manager (distro-independent).
+		# Install nix: sh <(curl -L https://nixos.org/nix/install) --no-daemon
+		# Or with --daemon for multi-user (as root).
+		# $ nix run home-manager/master -- init --switch
+		# $ nix shell '<home-manager>' -A install
+		# Add to /etc/nix/nix.conf > experimental-features = nix-command flakes
+		# And then # systemctl restart nix-daemon.service
+		# $ home-manager switch --flake ~/hmconf
+		homeConfigurations = let
+			lib    = nixpkgs.lib;
+			secret = import ./secret {};
+			util   = import ./lib/Util.nix { inherit lib; };
+
+			mkCommonHome = username: homeDirectory: system: modules: let
+				pkgs       = nixpkgs.legacyPackages.${system};
+				pkgsStable = nixpkgsStable.legacyPackages.${system};
+				pkgsMaster = nixpkgsMaster.legacyPackages.${system};
+			in {
+				${username} = home-manager.lib.homeManagerConfiguration {
+					inherit pkgs;
+
+					extraSpecialArgs = {
+						inherit self inputs secret util pkgs pkgsStable pkgsMaster;
+						inherit (self) const __findFile;
+					};
+					modules = modules ++ (self.lsFiles ./config) ++ [
+						./home/HomeManager.nix
+						{ home.hm.enable        = true; }
+						{ home.hm.username      = username; }
+						{ home.hm.homeDirectory = homeDirectory; }
+						{ home.hm.packages.core.enable = true; }
+
+						{ nixpkgs.config.allowUnfree = true; }
+						{ nixpkgs.config.allowUnfreePredicate = (pkg: true); }
+						{ nix.package = pkgs.nix; }
+						{ nix.settings.experimental-features = [ "nix-command " "flakes" ]; }
+
+						inputs.stylix.homeManagerModules.stylix
+					];
+				};
+			};
+
+			x86LinuxHome = username: modules: mkCommonHome username "/home/${username}" "x86_64-linux" modules;
+			x86LinuxRoot = mkCommonHome "root" "/root" "x86_64-linux" [];
+		in nixpkgs.lib.foldl' (acc: h: acc // h) {} [
+			x86LinuxRoot
+			(x86LinuxHome "voronind" [
+				{ home.hm.packages.common.enable = true; }
+			])
+		];
+
 		# Android.
 		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
 			modules = let
@@ -255,12 +307,18 @@
 				{ system.stateVersion = self.const.droidStateVersion; }
 
 				# I put all my Android configuration there.
-				./android
+				./home/Android.nix
+				{ home.android.enable = true; }
+
+				# { nixpkgs.config.allowUnfree = true; }
+				# { nixpkgs.config.allowUnfreePredicate = (pkg: true); }
+				{ nix.extraOptions = "experimental-features = nix-command flakes"; }
+				{ home-manager.config.stylix.autoEnable = lib.mkForce false; }
 
 				# Some common modules.
-				./module/common/Setting.nix
-				./module/common/Wallpaper.nix
-				(import ./module/common/Style.nix { inherit lib; inherit (config.home-manager) config; })
+				./config/Setting.nix
+				./config/Wallpaper.nix
+				(import ./config/Style.nix { inherit lib; inherit (config.home-manager) config; })
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.
@@ -269,11 +327,11 @@
 				pkgs = nixpkgs.legacyPackages."aarch64-linux".pkgs;
 				lib  = nixpkgs.lib;
 			in {
-				inherit inputs;
-				inherit (self) const;
+				inherit inputs self;
+				inherit (self) const __findFile;
 
-				secret  = import ./secret {}; # Secrets (public keys).
-				util    = import ./lib/Util.nix { inherit lib; }; # Util functions.
+				secret = import ./secret {}; # Secrets (public keys).
+				util   = import ./lib/Util.nix { inherit lib; }; # Util functions.
 			};
 		};
 	};

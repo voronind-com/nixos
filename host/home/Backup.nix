@@ -1,7 +1,7 @@
-{ pkgs, util, ... } @args: let
-	bash = import ../../module/common/bash args;
+{ pkgs, util, __findFile, ... } @args: let
+	bash = import <home/config/bash> args;
 	script = pkgs.writeText "backupScript" ''
-		source ${bash.modules}
+		source ${bash.modulesFile}
 
 		function report() {
 			echo "''${*}"

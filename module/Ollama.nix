@@ -19,9 +19,6 @@ in {
 
 	config = mkIf cfg.enable {
 		environment = {
-			# Add Ollama CLI app.
-			systemPackages = with pkgs; [ ollama ];
-
 			# Specify default model.
 			variables.OLLAMA_MODEL = cfg.primaryModel;
 		};
