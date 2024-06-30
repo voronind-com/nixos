@@ -2,7 +2,7 @@
 	stylix = {
 		enable     = true;
 		image      = config.module.common.wallpaper.path;
-		autoEnable = false;
+		autoEnable = true;
 		polarity   = "dark";
 		opacity = {
 			applications = 0.85;
