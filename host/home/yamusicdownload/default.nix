@@ -12,17 +12,9 @@
 	];
 
 	src = pkgs.fetchFromGitHub {
-		owner = "voronind-com";
+		owner = "llistochek";
 		repo  = "yandex-music-downloader";
-		rev   = "8266917793d17fd9dd020154bb5aabc44f88b129";
-		hash  = "sha256-lhEdeN9Vl4wcptWbF/fNfD3KqAdShs6MLYfJK5IDdXE=";
+		rev   = "08ea384869cbc31efb1e78b831e2356882219951";
+		hash  = "sha256-WOFesD7HjskyqHaXZAPy3pgSPaEO+tOyQ+5MV3ZO7XU=";
 	};
-
-	# NOTE: Waiting for PR https://github.com/llistochek/yandex-music-downloader/pull/49
-	# src = pkgs.fetchFromGitHub {
-	# 	owner = "llistochek";
-	# 	repo  = "yandex-music-downloader";
-	# 	rev   = "";
-	# 	hash  = "";
-	# };
 }

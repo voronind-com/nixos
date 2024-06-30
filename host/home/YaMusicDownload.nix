@@ -14,7 +14,7 @@ in {
 
 				cd ${storage}
 
-				output=$(${package}/bin/yandex-music-downloader --browser "firefox" --hq --skip-broken --add-lyrics --embed-cover --skip-existing --stick-to-artist --only-music --path-pattern "${pattern}" --url https://music.yandex.ru/users/cakee.ru/playlists/3)
+				output=$(${package}/bin/yandex-music-downloader --browser "firefox" --hq --add-lyrics --embed-cover --skip-existing --stick-to-artist --only-music --path-pattern "${pattern}" --url https://music.yandex.ru/users/cakee.ru/playlists/3)
 
 				if [[ $? = 0 ]]; then
 					notify_silent "Music download complete: ''${output}"
