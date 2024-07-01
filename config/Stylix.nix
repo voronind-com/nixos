@@ -4,40 +4,20 @@
 		image      = config.module.wallpaper.path;
 		autoEnable = true;
 		polarity   = "dark";
-		opacity = {
-			applications = 0.85;
-			terminal     = 0.85;
-			popups       = 0.85;
-			desktop      = 0.85;
-		};
-		cursor = {
-			name    = "Adwaita";
-			package = pkgs.gnome3.adwaita-icon-theme;
-			size    = 14;
-		};
-		fonts = let
-			serif = {
-				package = (pkgs.callPackage <package/applefont> {});
-				name    = "SF Pro Display";
-			};
-		in {
-			inherit serif;
+		fonts = {
+			inherit (config.style.font) serif sansSerif monospace emoji;
 			sizes = {
-				applications = 12;
-				terminal     = 14;
-				popups       = 12;
-				desktop      = 14;
-			};
-			sansSerif = serif;
-			monospace = {
-				package = (pkgs.nerdfonts.override { fonts = [ "Terminus" ]; });
-				name    = "Terminess Nerd Font Mono";
-			};
-			emoji = {
-				package = pkgs.noto-fonts-emoji;
-				name = "Noto Color Emoji";
+				inherit (config.style.font.size) terminal desktop;
+				popups       = config.style.font.size.popup;
+				applications = config.style.font.size.application;
 			};
 		};
+		opacity = {
+			inherit (config.style.opacity) desktop terminal;
+			applications = config.style.opacity.application;
+			popups       = config.style.opacity.popups;
+		};
+		inherit (config.style) cursor;
 		override = if config.module.wallpaper.forceContrastText then {
 			base04 = "000000";
 			base05 = "ffffff";

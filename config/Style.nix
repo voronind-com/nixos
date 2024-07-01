@@ -1,10 +1,11 @@
-{ lib, config, ... }: with lib; let
+{ lib, config, pkgs, __findFile, ... }: with lib; let
 	cfg = config.style;
 
 	mkTypeOption  = default: type: mkOption { inherit default type; };
 	mkStrOption   = default: mkTypeOption default types.str;
 	mkIntOption   = default: mkTypeOption default types.int;
 	mkFloatOption = default: mkTypeOption default types.float;
+	mkPkgOption   = default: mkTypeOption default types.package;
 in {
 	options.style = {
 		color = {
@@ -61,24 +62,42 @@ in {
 		};
 
 		font = {
-			emoji.name     = mkStrOption config.stylix.fonts.emoji.name;
-			monospace.name = mkStrOption config.stylix.fonts.monospace.name;
-			sansSerif.name = mkStrOption config.stylix.fonts.sansSerif.name;
-			serif.name     = mkStrOption config.stylix.fonts.serif.name;
 			size = {
-				terminal    = mkIntOption config.stylix.fonts.sizes.terminal;
-				popup       = mkIntOption config.stylix.fonts.sizes.popups;
-				application = mkIntOption config.stylix.fonts.sizes.applications;
-				desktop     = mkIntOption config.stylix.fonts.sizes.desktop;
+				application = mkIntOption 12;
+				terminal    = mkIntOption 14;
+				popup       = mkIntOption 12;
+				desktop     = mkIntOption 14;
+			};
+			serif = {
+				package = mkPkgOption (pkgs.callPackage <package/applefont> {});
+				name    = mkStrOption "SF Pro Display";
+			};
+			sansSerif = {
+				package = mkPkgOption (pkgs.callPackage <package/applefont> {});
+				name    = mkStrOption "SF Pro Display";
+			};
+			monospace = {
+				package = mkPkgOption (pkgs.nerdfonts.override { fonts = [ "Terminus" ]; });
+				name    = mkStrOption "Terminess Nerd Font Mono";
+			};
+			emoji = {
+				package = mkPkgOption pkgs.noto-fonts-emoji;
+				name    = mkStrOption "Noto Color Emoji";
 			};
 		};
 
 		opacity = {
-			application = mkFloatOption config.stylix.opacity.applications;
-			desktop     = mkFloatOption config.stylix.opacity.desktop;
-			popup       = mkFloatOption config.stylix.opacity.popups;
-			terminal    = mkFloatOption config.stylix.opacity.terminal;
-			hex = mkStrOption "D9";
+			application = mkFloatOption 0.85;
+			desktop     = mkFloatOption 0.85;
+			popup       = mkFloatOption 0.85;
+			terminal    = mkFloatOption 0.85;
+			hex         = mkStrOption "D9";
+		};
+
+		cursor = {
+			name    = mkStrOption "Adwaita";
+			package = mkPkgOption pkgs.gnome3.adwaita-icon-theme;
+			size    = mkIntOption 14;
 		};
 
 		window = {

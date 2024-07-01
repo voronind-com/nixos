@@ -34,9 +34,7 @@ in {
 					".termux/_colors.properties".text = android.colors;
 				};
 			};
-			# ISSUE: Firefox causes inf rec for some reason.
-			# programs = import ./program args;
-			programs = (import ./program args) // { firefox = {}; };
+			programs = import ./program args;
 		};
 	};
 }

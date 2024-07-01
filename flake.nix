@@ -298,11 +298,12 @@
 		];
 
 		# Android.
-		nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-			modules = let
-				lib    = nixpkgs.lib;
-				config = self.nixOnDroidConfigurations.default.config;
-			in [
+		nixOnDroidConfigurations.default = let
+			config = self.nixOnDroidConfigurations.default.config;
+			lib    = nixpkgs.lib;
+			pkgs   = nixpkgs.legacyPackages."aarch64-linux".pkgs;
+		in nix-on-droid.lib.nixOnDroidConfiguration {
+			modules = [
 				# Android release version.
 				{ system.stateVersion = self.const.droidStateVersion; }
 
@@ -318,15 +319,15 @@
 				# Some common modules.
 				./config/Setting.nix
 				./config/Wallpaper.nix
-				(import ./config/Style.nix { inherit lib; inherit (config.home-manager) config; })
+				(import ./config/Style.nix {
+					inherit (config.home-manager) config;
+					inherit (self) __findFile;
+					inherit lib pkgs;
+				})
 			];
 
 			# SpecialArgs allows you to pass objects down to other configuration.
-			extraSpecialArgs = let
-				# We want arm64 packages for Android.
-				pkgs = nixpkgs.legacyPackages."aarch64-linux".pkgs;
-				lib  = nixpkgs.lib;
-			in {
+			extraSpecialArgs = {
 				inherit inputs self;
 				inherit (self) const __findFile;
 
