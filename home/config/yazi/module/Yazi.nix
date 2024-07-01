@@ -62,6 +62,11 @@
 				orphan = true;
 				run    = openWith "loupe";
 			}];
+			image_edit = [{
+				desc   = "Image Edit";
+				orphan = true;
+				run    = openWith "gimp";
+			}];
 			archive = [{
 				desc  = "Archive";
 				block = true;
@@ -84,7 +89,7 @@
 				(mkRule "application/zip"   [ "archive" ])
 				(mkRule "application/pdf" [ "pdf" ])
 				(mkRule "audio/*" [ "audio" ])
-				(mkRule "image/*" [ "image" ])
+				(mkRule "image/*" [ "image" "image_edit" ])
 				(mkRule "video/*" [ "video" ])
 				(mkRule "text/html" [ "browser" ])
 				(mkRule "application/vnd.openxmlformats-officedocument.*" [ "document" ])
