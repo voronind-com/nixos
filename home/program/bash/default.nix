@@ -20,19 +20,19 @@ in {
 		fi
 	'';
 
-	bash_profile = util.trimTabs ''
-		# Home manager.
-		[ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
+	# bash_profile = util.trimTabs ''
+	# 	# Home manager.
+	# 	[ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
 
-		# Bashrc.
-		[ -f ~/.bashrc ] && source ~/.bashrc
+	# 	# Bashrc.
+	# 	[ -f ~/.bashrc ] && source ~/.bashrc
 
-		# Profile.
-		[ -f ~/.profile ] && source ~/.profile
-	'';
+	# 	# Profile.
+	# 	[ -f ~/.profile ] && source ~/.profile
+	# '';
 
-	profile = util.trimTabs ''
-		# Load HM vars.
-		[ -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh ] && source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-	'';
+	# profile = util.trimTabs ''
+	# 	# Load HM vars.
+	# 	[ -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh ] && source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+	# '';
 }

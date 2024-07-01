@@ -1,5 +1,4 @@
 { self, config, ... } @args: let
-	bash     = import ./bash         args;
 	btop     = import ./top/btop     args;
 	editor   = import ./editorconfig args;
 	foot     = import ./foot         args;
@@ -17,9 +16,6 @@
 	waybar   = import ./waybar       args;
 	yazi     = import ./yazi         args;
 in {
-	".bashrc".text                          = bash.bashrc;
-	".bash_profile".text                    = bash.bash_profile;
-	".profile".text                         = bash.profile;
 	".config/MangoHud/MangoHud.conf".text   = mangohud.config;
 	".config/MangoHud/presets.conf".text    = mangohud.presets;
 	".config/btop/btop.conf".text           = btop.text;

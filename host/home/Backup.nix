@@ -1,5 +1,5 @@
 { pkgs, util, __findFile, ... } @args: let
-	bash = import <home/config/bash> args;
+	bash = import <home/program/bash> args;
 	script = pkgs.writeText "backupScript" ''
 		source ${bash.modulesFile}
 
