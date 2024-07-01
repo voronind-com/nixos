@@ -43,7 +43,7 @@ in {
 				Persistent = true;
 				Unit       = "yamusicdownload.service";
 			};
-			wantedBy = [ "timers.target" ];
+			wantedBy = [ "default.target" ];
 		};
 	};
 }
