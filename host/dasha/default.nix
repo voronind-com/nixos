@@ -8,7 +8,7 @@
 
 	module = {
 		amd.gpu.enable        = true;
-		# builder.client.enable = true;
+		builder.client.enable = true;
 		intel.cpu.enable      = true;
 		print.enable          = true;
 		strongswan.enable     = true;

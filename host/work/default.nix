@@ -10,7 +10,7 @@
 	user.voronind.enable = true;
 
 	module = {
-		# builder.client.enable      = true;
+		builder.client.enable      = true;
 		intel.cpu.enable           = true;
 		powerlimit.thinkpad.enable = true;
 		print.enable               = true;
