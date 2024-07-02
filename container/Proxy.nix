@@ -71,6 +71,7 @@ in {
 					enable = true;
 					recommendedOptimisation  = true;
 					recommendedProxySettings = true;
+					clientMaxBodySize = "1024m";
 					appendConfig = util.trimTabs ''
 						worker_processes 4;
 					'';

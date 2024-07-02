@@ -8,6 +8,7 @@
 			ddns.enable     = true;
 			dns.enable      = true;
 			download.enable = true;
+			fsight.enable   = true;
 			git.enable      = true;
 			# ISSUE: hdd.enable      = true;
 			home.enable     = true;

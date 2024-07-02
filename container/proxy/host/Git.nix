@@ -14,20 +14,6 @@ in {
 				proxy_pass http://''$${name}$request_uri;
 			}
 
-			location /markdown {
-				allow ${config.container.localAccess};
-				allow ${config.container.module.vpn.address};
-				deny all;
-
-				proxy_set_header Content-Type "application/json";
-				proxy_set_header Authorization "Basic dm9yb25pbmQ6QUxwWHZoRlRNYmpIazY3OVBkZDhCTjZNS0hyWjZ4aGU=";
-
-				proxy_pass_header Content-Type;
-				proxy_pass_header Authorization;
-
-				proxy_pass http://''$${name}/api/v1/markdown/raw;
-			}
-
 			location / {
 				# allow ${config.container.localAccess};
 				# allow ${config.container.module.status.address};

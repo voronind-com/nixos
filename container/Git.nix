@@ -50,6 +50,7 @@ in {
 						host = postgre.address;
 						port = postgre.port;
 						user = "gitea";
+						name = "gitea";
 						createDatabase = false;
 					};
 
