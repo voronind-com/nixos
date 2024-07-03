@@ -46,6 +46,8 @@ in {
 						"paste"
 						"play"
 						"vpn"
+						"fmp-git"
+						"fmp-cloud"
 					];
 				};
 			};
