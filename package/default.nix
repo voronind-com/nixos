@@ -51,7 +51,8 @@
 
 		(pkgs.callPackage ./apks {})
 		(pkgs.callPackage ./yamusicdownload {})
-		(pkgs.callPackage ./ytdlp {})
+		# (pkgs.callPackage ./ytdlp {})
+		yt-dlp
 	];
 
 	desktop = with pkgs; [
