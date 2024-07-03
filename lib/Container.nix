@@ -39,6 +39,7 @@
 			# Default DNS servers.
 			nameservers = [
 				"1.1.1.1"
+				"1.0.0.1"
 			];
 
 			# HACK: Fix for upstream issue: https://github.com/NixOS/nixpkgs/issues/162686
