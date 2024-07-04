@@ -4,8 +4,8 @@
 
 <details>
 <summary>Screenshot 1</summary>
-<img src="https://i.imgur.com/F7ki7sQ.jpeg" />
-<a href="https://i.imgur.com/0RldJsX.jpeg">Wallpaper link</a>
+<img src="https://i.imgur.com/LbxpvMt.jpeg" />
+<a href="https://i.imgur.com/GA96791.jpeg">Wallpaper link</a>
 </details>
 
 <details>
@@ -20,7 +20,7 @@
 <a href="https://i.imgur.com/H943DFl.jpeg">Wallpaper link</a>
 </details>
 
-[My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/module/common/Wallpaper.nix#L2)
+[My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/config/Wallpaper.nix#L2)
 
 Color theming based on wallpaper thanks to [Stylix](https://github.com/danth/stylix).
 
@@ -32,11 +32,11 @@ Please tell me if you find any undocumented parts.
 
 ## Configuration highlights.
 
-* [Keyd](module/common/Keyd.nix) allows you to have QMK-like keyboard remaps. Killer-feature is the ability to have remaps per-application. I have pretty common remaps like CapsLock to Ctrl/Esc combo, Right Shift to Backspace, Backspace to Delete and overlays for System/Windows/Media/Application controls as well as Macros.
+* [Keyd](module/Keyd.nix) allows you to have QMK-like keyboard remaps. Killer-feature is the ability to have remaps per-application. I have pretty common remaps like CapsLock to Ctrl/Esc combo, Right Shift to Backspace, Backspace to Delete and overlays for System/Windows/Media/Application controls as well as Macros.
 * NixOS Containers (nspawn). Containers are great. I LOVE containers! Containers! Containers! Containers! Containers! Containers! Containers! Containers! Containers! Containers! Containers! Containers! [Here](host/home/Container.nix) is how I add containers to the host, [here](container/default.nix) is the global configuration and [here](container) are all the containers.
-* NixOnDroid can be used to set up your environment inside the Termux app on Android. It also gives you access to all the Nixpkgs binaries for Arm. Configuration can be found [here](android/), but you also need to add the definition to the root `flake.nix (nixOnDroidConfigurations.default)`. [Here](https://github.com/nix-community/nix-on-droid) are the docs.
-* [Stylix](module/common/Stylix.nix) can be used to change colors for the whole system based on current wallpaper. Example usages: [Sway](module/desktop/sway/module/Style.nix), [fuzzel](user/common/fuzzel/default.nix) and [Tmux](module/common/tmux/module/Status.nix).
-* [Signed auto-updates](module/common/AutoUpdateSigned.nix). Updates are pulled every hour and require the last commit to be signed with my signature.
+* NixOnDroid can be used to set up your environment inside the Termux app on Android. It also gives you access to all the Nixpkgs binaries for Arm. Configuration can be found [here](home/Android.nix), but you also need to add the definition to the root `flake.nix (nixOnDroidConfigurations.default)`. [Here](https://github.com/nix-community/nix-on-droid) are the docs.
+* [Stylix](config/Stylix.nix) can be used to change colors for the whole system based on current wallpaper. Example usages: [Sway](home/config/sway/module/Style.nix), [fuzzel](home/config/fuzzel/default.nix) and [Tmux](home/config/tmux/module/Status.nix).
+* [Signed auto-updates](module/AutoUpdateSigned.nix). Updates are pulled every hour and require the last commit to be signed with my signature.
 
 ## WIP: NixOS learning roadmap.
 
