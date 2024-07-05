@@ -38,7 +38,7 @@ in {
 					proxied       = false;
 					domains = let
 						domain = config.container.domain;
-						in [ domain ] ++ map (sub: "${sub}.${domain}") [
+					in [ domain ] ++ map (sub: "${sub}.${domain}") [
 						"cloud"
 						"git"
 						"mail"
@@ -48,6 +48,7 @@ in {
 						"vpn"
 						"fmp-git"
 						"fmp-cloud"
+						"fmp-dev"
 					];
 				};
 			};

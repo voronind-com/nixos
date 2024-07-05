@@ -47,4 +47,21 @@ in {
 			ssl_dhparam /etc/letsencrypt/conf/ssl-dhparams.pem;
 		'';
 	};
+
+	"fmp-dev.${domain}" = container.mkServer {
+		extraConfig = util.trimTabs ''
+			listen 443 ssl;
+			set $fmpdev ${config.container.host}:8079;
+
+			location / {
+				proxy_pass http://$fmpdev$request_uri;
+				add_header Referrer-Policy 'origin';
+			}
+
+			ssl_certificate /etc/letsencrypt/live/${config.container.domain}/fullchain.pem;
+			ssl_certificate_key /etc/letsencrypt/live/${config.container.domain}/privkey.pem;
+			include /etc/letsencrypt/conf/options-ssl-nginx.conf;
+			ssl_dhparam /etc/letsencrypt/conf/ssl-dhparams.pem;
+		'';
+	};
 }

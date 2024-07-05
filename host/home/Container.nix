@@ -1,4 +1,7 @@
 { ... }: {
+	# TODO: Remove this with Fsight container.
+	virtualisation.docker.enable = true;
+
 	container = {
 		enable = true;
 
