@@ -1,4 +1,4 @@
-options = --option eval-cache false
+options = --option eval-cache false --fallback
 flake   = .
 
 .PHONY: boot
