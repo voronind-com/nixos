@@ -1,6 +1,7 @@
 { config, pkgs, ... }: let
-	dpiAware = if config.setting.dpiAware then "yes" else "no";
-	fontStep = 1;
+	dpiAware   = if config.setting.dpiAware then "yes" else "no";
+	borderSize = toString config.style.window.border;
+	fontStep   = 1;
 in {
 	file = (pkgs.formats.iniWithGlobalSection {}).generate "FootConfig" {
 		globalSection = {
@@ -10,6 +11,7 @@ in {
 			font-bold-italic     = "${config.style.font.monospace.name}:size=${toString config.style.font.size.terminal}";
 			dpi-aware            = dpiAware;
 			font-size-adjustment = fontStep;
+			pad                  = "${borderSize}x${borderSize} center";
 		};
 
 		sections = {
