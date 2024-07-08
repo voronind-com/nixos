@@ -28,6 +28,8 @@ in {
 			};
 
 			environment.systemPackages = package.common;
+
+			services.gvfs.enable = true;
 		})
 
 		# Desktop apps.
