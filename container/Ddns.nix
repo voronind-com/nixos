@@ -49,6 +49,7 @@ in {
 						"fmp-git"
 						"fmp-cloud"
 						"fmp-dev"
+						"fmp-master"
 					];
 				};
 			};
