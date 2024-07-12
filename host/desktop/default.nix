@@ -8,6 +8,7 @@
 
 	module = {
 		builder.client.enable = true;
+		ollama.enable         = true;
 		print.enable          = true;
 		virtmanager.enable    = true;
 		amd = {
@@ -30,13 +31,6 @@
 			enable    = true;
 			autostart = false;
 			rootless  = false;
-		};
-		ollama = {
-			enable = true;
-			models = [
-				"llama3"
-				"llama3:70b"
-			];
 		};
 	};
 }
