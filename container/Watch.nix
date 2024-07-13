@@ -63,11 +63,16 @@ in {
 			allowedDevices = [
 				{
 					modifier = "rwm";
-					node = "/dev/dri";
+					node = "/dev/dri/renderD128";
 				}
 			];
 
 			config = { ... }: container.mkContainerConfig cfg {
+				# users.users.jellyfin.extraGroups = [
+				# 	"video"
+				# 	"render"
+				# ];
+
 				services.jellyfin = {
 					enable   = true;
 					cacheDir = "/var/cache/jellyfin";
