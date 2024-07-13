@@ -54,7 +54,7 @@ in {
 			bindMounts = {
 				"/etc/letsencrypt" = {
 					hostPath   = "${cfg.storage}/letsencrypt";
-					isReadOnly = true;
+					isReadOnly = false;
 				};
 				"/var/www/.well-known" = {
 					hostPath   = "${cfg.storage}/challenge";
