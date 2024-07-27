@@ -33,14 +33,14 @@
 
 		function monbar() {
 			local __monstate=$(_monstate)
-			local __vrrstate=$(_vrrstate)
+			local __gamingstate=$(_gamingstate)
 			local class=""
 
-			if [[ "''${__monstate}" = "off" ]] || [[ "''${__vrrstate}" = "on" ]]; then
+			if [[ "''${__monstate}" = "off" ]] || [[ "''${__gamingstate}" = "on" ]]; then
 				class="modified"
 			fi
 
-			printf "{\"text\": \"󰍹\", \"tooltip\": \"Mon: ''${__monstate^} / Vrr: ''${__vrrstate^}\", \"class\": \"''${class}\"}\n"
+			printf "{\"text\": \"󰍹\", \"tooltip\": \"Monitor: ''${__monstate^} / Gaming: ''${__gamingstate^}\", \"class\": \"''${class}\"}\n"
 		}
 
 		function _monstate() {

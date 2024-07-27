@@ -134,7 +134,7 @@ in {
 			exec           = "swayscript monbar";
 			interval       = refreshInterval;
 			on-click       = "sleep 0.1 && swayscript montoggle"; # FIXME: remove sleep when resolved: https://github.com/Alexays/Waybar/issues/216
-			on-click-right = "sleep 0.1 && swayscript vrrtoggle";
+			on-click-right = "sleep 0.1 && swayscript gamingtoggle";
 			return-type    = "json";
 		};
 	};
