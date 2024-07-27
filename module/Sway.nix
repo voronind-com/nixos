@@ -1,4 +1,4 @@
-{ lib, config, ... } @args: with lib; let
+{ lib, config, pkgs, ... } @args: with lib; let
 	cfg = config.module.desktop.sway;
 in {
 	options = {
@@ -28,6 +28,9 @@ in {
 				base = true;
 				gtk  = true;
 			};
+			extraPackages = with pkgs; [
+				swaykbdd
+			];
 		};
 	};
 }
