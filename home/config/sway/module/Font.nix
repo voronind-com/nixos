@@ -1,5 +1,8 @@
-{ ... }: {
+{ config, ... }: let
+	fontName = config.style.font.sansSerif.name;
+	# fontSize = toString config.style.font.size.desktop;
+in {
 	text = ''
-		font "SF Pro Display Medium 0.001"
+		font "${fontName} Medium 0.001"
 	'';
 }
