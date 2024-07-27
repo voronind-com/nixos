@@ -90,6 +90,7 @@
 				(mkLink "NnmClub"      "fa-skull-crossbones" "https://nnmclub.to")
 				(mkLink "Rutor"        "fa-skull-crossbones" "https://rutor.info")
 				(mkLink "Rutracker"    "fa-skull-crossbones" "https://rutracker.org")
+				(mkLink "Switch Upd"   "fa-skull-crossbones" "https://sigmapatches.su")
 				(mkLink "Tapochek.net" "fa-skull-crossbones" "https://tapochek.net/index.php")
 			])
 		];
