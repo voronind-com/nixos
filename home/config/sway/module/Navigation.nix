@@ -1,22 +1,16 @@
 { ... }: {
 	text = ''
-		# Navigation keys.
-		set $down  s
-		set $left  a
-		set $right d
-		set $up    w
-
 		# Move focus.
-		bindsym $mod+$down  focus down
-		bindsym $mod+$left  focus left
-		bindsym $mod+$right focus right
-		bindsym $mod+$up    focus up
+		bindsym --to-code $mod+a focus left
+		bindsym --to-code $mod+d focus right
+		bindsym --to-code $mod+s focus down
+		bindsym --to-code $mod+w focus up
 
 		# Move the focused window.
-		bindsym $mod+Shift+$down  move down
-		bindsym $mod+Shift+$left  move left
-		bindsym $mod+Shift+$right move right
-		bindsym $mod+Shift+$up    move up
+		bindsym --to-code $mod+Shift+a move left
+		bindsym --to-code $mod+Shift+d move right
+		bindsym --to-code $mod+Shift+s move down
+		bindsym --to-code $mod+Shift+w move up
 
 		# Focus mouse following.
 		focus_follows_mouse yes

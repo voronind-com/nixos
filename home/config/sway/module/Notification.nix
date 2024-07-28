@@ -1,9 +1,9 @@
 { ... }: {
 	text = ''
 		# Show last notification.
-		bindsym $mod+n exec makoctl restore
+		bindsym --to-code $mod+n exec makoctl restore
 
 		# Hide all notifications.
-		bindsym $mod+shift+N exec makoctl dismiss --all
+		bindsym --to-code $mod+shift+N exec makoctl dismiss --all
 	'';
 }

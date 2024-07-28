@@ -1,23 +1,20 @@
 { config, ... }: {
 	text = ''
 		# Toggle tiling.
-		bindsym $mod+shift+f floating toggle
+		bindsym --to-code $mod+shift+f floating toggle
 
 		# Swap focus between the tiling area and the floating area
-		bindsym $mod+r focus mode_toggle
-
-		# Move focus to the parent container
-		# bindsym $mod+a focus parent
+		bindsym --to-code $mod+r focus mode_toggle
 
 		# Split directions.
-		bindsym $mod+backslash splith
-		bindsym $mod+minus     splitv
+		bindsym --to-code $mod+backslash splith
+		bindsym --to-code $mod+minus     splitv
 
 		# Switch the current container between different layout styles.
-		bindsym $mod+Tab layout toggle split tabbed
+		bindsym --to-code $mod+Tab layout toggle split tabbed
 
 		# Fullscreen.
-		bindsym $mod+f fullscreen
+		bindsym --to-code $mod+f fullscreen
 
 		# Drag floating windows by holding down $mod and left mouse button.
 		# Resize them with right mouse button + $mod.
@@ -27,7 +24,7 @@
 		floating_modifier $mod normal
 
 		# Kill focused window.
-		bindsym $mod+x kill
+		bindsym --to-code $mod+x kill
 
 		# Add gaps.
 		gaps inner ${toString config.style.window.gap}

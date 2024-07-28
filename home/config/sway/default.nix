@@ -22,6 +22,7 @@
 		./module/Keyd.nix
 		./module/Waybar.nix
 		./module/System.nix
+		./module/Mouse.nix
 	] args;
 in {
 	text = (util.trimTabs ''
