@@ -20,6 +20,9 @@ in {
 				background = config.style.color.bg.dark;
 				foreground = config.style.color.fg.light;
 			};
+			key-bindings = {
+				show-urls-launch = "Mod1+o";
+			};
 		};
 	};
 }

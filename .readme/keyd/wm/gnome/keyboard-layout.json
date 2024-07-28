@@ -1,0 +1,134 @@
+[
+  [
+    "~\n`",
+    "!\n1",
+    "@\n2",
+    "#\n3",
+    "$\n4",
+    "%\n5",
+    "^\n6",
+    "&\n7",
+    "*\n8",
+    "(\n9",
+    ")\n0",
+    "_\n-",
+    "+\n=",
+    {
+      "w": 2
+    },
+    "Backspace"
+  ],
+  [
+    {
+      "c": "#8ec07c",
+      "w": 1.5
+    },
+    "Switch app",
+    "Prev Work-space",
+    "Maxi-mize",
+    "Next Work-space",
+    "Resize Mode",
+    {
+      "c": "#cccccc"
+    },
+    "T",
+    "Y",
+    "U",
+    "I",
+    "O",
+    "P",
+    "{\n[",
+    "}\n]",
+    {
+      "w": 1.5
+    },
+    "|\n\\"
+  ],
+  [
+    {
+      "c": "#8ec07c",
+      "w": 1.75
+    },
+    "Terminal",
+    "Tile Left",
+    "Mini-mize",
+    "Rile Right",
+    "Full-screen",
+    {
+      "c": "#cccccc"
+    },
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    ":\n;",
+    "\"\n'",
+    {
+      "w": 2.25
+    },
+    "Enter"
+  ],
+  [
+    {
+      "c": "#8ec07c",
+      "w": 2.25
+    },
+    "Alternative action",
+    "Lock",
+    "Close Window",
+    "Hide All Window",
+    "Screen select",
+    {
+      "c": "#cccccc"
+    },
+    "B",
+    "N",
+    "M",
+    "<\n,",
+    ">\n.",
+    "?\n/",
+    {
+      "w": 2.75
+    },
+    "Shift"
+  ],
+  [
+    {
+      "w": 1.25
+    },
+    "Ctrl",
+    {
+      "c": "#d79921",
+      "w": 1.25
+    },
+    "WM Controls",
+    {
+      "c": "#cccccc",
+      "w": 1.25
+    },
+    "Alt",
+    {
+      "c": "#8ec07c",
+      "w": 6.25
+    },
+    "Run",
+    {
+      "c": "#cccccc",
+      "w": 1.25
+    },
+    "Alt",
+    {
+      "w": 1.25
+    },
+    "Win",
+    {
+      "w": 1.25
+    },
+    "Menu",
+    {
+      "w": 1.25
+    },
+    "Ctrl"
+  ]
+]
