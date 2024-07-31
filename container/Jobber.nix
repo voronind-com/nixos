@@ -41,7 +41,7 @@ in {
 			in container.mkContainerConfig cfg {
 				networking = lib.mkForce {
 					nameservers = [
-						"10.9.0.5"
+						"10.30.218.2"
 					];
 				};
 
