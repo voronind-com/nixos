@@ -82,7 +82,7 @@ in {
 						matchConfig.Name = "wg0";
 						address = ["10.1.1.0/24"];
 						networkConfig = {
-							IPv4Forwarding = true;
+							IPv4Forwarding = "yes";
 							IPMasquerade   = "ipv4";
 						};
 					};
