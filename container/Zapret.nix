@@ -147,7 +147,7 @@ in {
 							requires = [ "network.target" ];
 							path = with pkgs; [ iptables ];
 							serviceConfig = {
-								ExecStart = "iptables -t mangle -I POSTROUTING -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass";
+								ExecStart = "${pkgs.iptables}/bin/iptables -t mangle -I POSTROUTING -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass";
 								Type = "oneshot";
 							};
 						};

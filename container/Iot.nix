@@ -1,4 +1,4 @@
-{ container, lib, config, ... }: with lib; let
+{ container, lib, config, pkgsStable, ... }: with lib; let
 	cfg = config.container.module.iot;
 in {
 	options = {
@@ -70,7 +70,6 @@ in {
 						aiodiscover
 						aiogithubapi
 						async-upnp-client
-						# ha-av
 						ha-ffmpeg
 						hassil
 						home-assistant-intents
