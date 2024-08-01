@@ -82,8 +82,8 @@ in {
 						matchConfig.Name = "wg0";
 						address = ["10.1.1.0/24"];
 						networkConfig = {
-							IPForward    = true;
-							IPMasquerade = "ipv4";
+							IPv4Forwarding = true;
+							IPMasquerade   = "ipv4";
 						};
 					};
 				};

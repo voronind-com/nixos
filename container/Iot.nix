@@ -70,7 +70,7 @@ in {
 						aiodiscover
 						aiogithubapi
 						async-upnp-client
-						ha-av
+						# ha-av
 						ha-ffmpeg
 						hassil
 						home-assistant-intents
