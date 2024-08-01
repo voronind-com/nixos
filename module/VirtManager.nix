@@ -13,7 +13,7 @@ in {
 		# May also need to run: `gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"`
 		environment.systemPackages = with pkgs; [
 			# glib
-			gnome3.adwaita-icon-theme # default gnome cursors,
+			adwaita-icon-theme # default gnome cursors,
 		];
 	};
 }

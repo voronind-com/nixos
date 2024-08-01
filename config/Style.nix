@@ -96,7 +96,7 @@ in {
 
 		cursor = {
 			name    = mkStrOption "Adwaita";
-			package = mkPkgOption pkgs.gnome3.adwaita-icon-theme;
+			package = mkPkgOption pkgs.adwaita-icon-theme;
 			size    = mkIntOption 14;
 		};
 

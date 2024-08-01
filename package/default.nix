@@ -44,6 +44,7 @@
 		wget              # CLI http download tool.
 		wireguard-tools   # Tools to work with Wireguard.
 		yazi chafa        # CLI file manager.
+		zapret            # FRKN.
 		zip unzip         # Zip archive/unarchive tools.
 
 		coreutils dnsutils diffutils findutils utillinux # Common utilities.
@@ -69,16 +70,16 @@
 	];
 
 	common = with pkgs; [
-		evince                   # Document viewer.
-		firefox-esr              # Web browser.
-		gimp                     # Image manipulation program.
-		gnome.adwaita-icon-theme # GTK icons.
-		gnome.gnome-calculator   # Calculator.
-		gnome.nautilus           # File manager.
-		jellyfin-media-player    # Jellyfin client (self-hosted Netflix).
-		loupe                    # Image viewer.
-		obs-studio               # Streaming/recording app.
-		onlyoffice-bin           # Office documents app suite.
+		adwaita-icon-theme    # GTK icons.
+		evince                # Document viewer.
+		firefox-esr           # Web browser.
+		gimp                  # Image manipulation program.
+		gnome-calculator      # Calculator.
+		nautilus              # File manager.
+		jellyfin-media-player # Jellyfin client (self-hosted Netflix).
+		loupe                 # Image viewer.
+		obs-studio            # Streaming/recording app.
+		onlyoffice-bin        # Office documents app suite.
 
 		(mpv.override {scripts = [mpvScripts.mpris];}) # Media player.
 	];
@@ -104,7 +105,7 @@
 		appimage-run                # Tool to run .AppImage files in NixOS.
 		blanket                     # Sounds generator.
 		calibre                     # Book library manager.
-		gnome.gnome-font-viewer     # Font viewer.
+		gnome-font-viewer           # Font viewer.
 		tor-browser                 # Privacy browser.
 		universal-android-debloater # Debloat Android devices.
 	];
