@@ -34,6 +34,7 @@
 			vpn.enable      = true;
 			watch.enable    = true;
 			yt.enable       = true;
+			zapret.enable   = true;
 		};
 
 		storage     = "/storage/hot/container";
