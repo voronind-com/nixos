@@ -52,7 +52,7 @@ in {
 				networking = {
 					firewall = {
 						extraCommands = ''
-							iptables -t mangle -I POSTROUTING -o "${config.container.interface}" -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass
+							iptables -t mangle -I POSTROUTING -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass
 						'';
 						#iptables -A OUTPUT -p tcp -m tcp --sport 443 --tcp-flags SYN,ACK SYN,ACK -j NFQUEUE --queue-num 200 --queue-bypass
 					};
@@ -100,18 +100,56 @@ in {
 					};
 				};
 
-				systemd.services = {
-					zapret = {
-						description = "FRKN";
-						wantedBy = [ "multi-user.target" ];
-						requires = [ "network.target" ];
-						serviceConfig = {
-							ExecStart  = "${pkgs.zapret}/bin/nfqws --pidfile=/run/nfqws.pid --dpi-desync=disorder --dpi-desync-ttl=1 --dpi-desync-split-pos=3 --qnum=200";
-							Type       = "forking";
-							PIDFile    = "/run/nfqws.pid";
-							ExecReload = "/bin/kill -HUP $MAINPID";
-							Restart    = "always";
-							RestartSec = "5s";
+				systemd = {
+					timers = {
+						tor = {
+							timerConfig = {
+								OnBootSec = 5;
+								Unit      = "tor.service";
+							};
+							wantedBy = [ "timers.target" ];
+						};
+						zapret = {
+							timerConfig = {
+								OnBootSec = 5;
+								Unit      = "zapret.service";
+							};
+							wantedBy = [ "timers.target" ];
+						};
+						routes = {
+							timerConfig = {
+								OnBootSec = 5;
+								Unit      = "routes.service";
+							};
+							wantedBy = [ "timers.target" ];
+						};
+					};
+
+					services = {
+						tor.wantedBy = lib.mkForce [];
+						zapret = {
+							description = "FRKN";
+							wantedBy = [ ];
+							requires = [ "network.target" ];
+							path = with pkgs; [ zapret ];
+							serviceConfig = {
+								ExecStart  = "${pkgs.zapret}/bin/nfqws --pidfile=/run/nfqws.pid --dpi-desync=disorder --dpi-desync-ttl=1 --dpi-desync-split-pos=3 --qnum=200";
+								Type       = "simple";
+								PIDFile    = "/run/nfqws.pid";
+								ExecReload = "/bin/kill -HUP $MAINPID";
+								Restart    = "always";
+								RestartSec = "5s";
+							};
+						};
+						routes = {
+							description = "FRKN routes";
+							wantedBy = [ ];
+							requires = [ "network.target" ];
+							path = with pkgs; [ iptables ];
+							serviceConfig = {
+								ExecStart = "iptables -t mangle -I POSTROUTING -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass";
+								Type = "oneshot";
+							};
 						};
 					};
 				};
