@@ -47,6 +47,8 @@ in {
 			];
 
 			config = { ... }: container.mkContainerConfig cfg {
+				environment.systemPackages = with pkgs; [ iptables ];
+
 				networking = {
 					firewall = {
 						extraCommands = ''
