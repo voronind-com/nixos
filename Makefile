@@ -9,7 +9,7 @@ android:
 boot:
 	nixos-rebuild boot $(options) --flake $(flake)
 
-boot-vanilla:
+boot-no-nixconf:
 	mv /etc/nix/nix.conf /etc/nix/nix.conf_
 	nixos-rebuild boot $(options) --flake $(flake)
 	mv /etc/nix/nix.conf_ /etc/nix/nix.conf
