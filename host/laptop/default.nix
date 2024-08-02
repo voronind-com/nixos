@@ -11,6 +11,7 @@
 
 	module = {
 		builder.client.enable = true;
+		desktop.sway.enable   = true;
 		print.enable          = true;
 		strongswan.enable     = true;
 		tablet.enable         = true;
@@ -19,15 +20,13 @@
 			cpu.enable     = true;
 			gpu.enable     = true;
 		};
-		desktop = {
-			sway.enable = true;
-			app = {
-				common.enable   = true;
-				desktop.enable  = true;
-				gaming.enable   = true;
-				creative.enable = true;
-				dev.enable      = true;
-			};
+		package = {
+			common.enable   = true;
+			core.enable     = true;
+			desktop.enable  = true;
+			gaming.enable   = true;
+			creative.enable = true;
+			dev.enable      = true;
 		};
 	};
 }

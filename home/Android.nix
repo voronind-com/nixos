@@ -23,7 +23,7 @@ in {
 
 	config = mkIf cfg.enable {
 		time.timeZone        = const.timeZone;
-		environment.packages = package.core;
+		environment.packages = package.core ++ package.android;
 		home-manager.config = stylix // {
 			imports = [ inputs.stylix.homeManagerModules.stylix ];
 			home = {

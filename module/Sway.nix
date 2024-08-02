@@ -9,7 +9,6 @@ in {
 
 	config = mkIf cfg.enable {
 		module.desktop = {
-			app.common.enable = true;
 			bluetooth.enable  = true;
 			brightness.enable = true;
 			portal.enable     = true;

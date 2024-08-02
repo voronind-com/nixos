@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
 	imports = [
 		./Filesystem.nix
 	];
@@ -8,6 +8,7 @@
 
 	module = {
 		builder.client.enable = true;
+		desktop.sway.enable   = true;
 		ollama.enable         = true;
 		print.enable          = true;
 		virtmanager.enable    = true;
@@ -16,21 +17,19 @@
 			cpu.enable     = true;
 			gpu.enable     = true;
 		};
-		desktop = {
-			sway.enable = true;
-			app = {
-				common.enable   = true;
-				desktop.enable  = true;
-				creative.enable = true;
-				dev.enable      = true;
-				extra.enable    = true;
-				gaming.enable   = true;
-			};
-		};
 		docker = {
 			enable    = true;
 			autostart = false;
 			rootless  = false;
+		};
+		package = {
+			common.enable   = true;
+			core.enable     = true;
+			creative.enable = true;
+			desktop.enable  = true;
+			dev.enable      = true;
+			extra.enable    = true;
+			gaming.enable   = true;
 		};
 	};
 }

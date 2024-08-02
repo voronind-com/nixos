@@ -1,6 +1,6 @@
-{ container, pkgs, util, lib, config, ... } @args: with lib; let
+{ container, pkgs, util, lib, config, __findFile, ... } @args: with lib; let
 	cfg = config.container.module.home;
-	package = (pkgs.callPackage ./homer args);
+	package = (pkgs.callPackage <package/homer> args);
 in {
 	options = {
 		container.module.home = {

@@ -238,7 +238,6 @@
 			# for Live ISO and Android configurations respectively.
 			(x86System "dasha")
 			(x86System "desktop")
-			(x86System "fsight")
 			(x86System "home")
 			(x86System "laptop")
 			(x86System "work")
@@ -293,7 +292,13 @@
 		in nixpkgs.lib.foldl' (acc: h: acc // h) {} [
 			x86LinuxRoot
 			(x86LinuxHome "voronind" [
-				{ home.hm.packages.common.enable = true; }
+				{
+					home.hm.package = {
+						android.enable = true;
+						core.enable    = true;
+						common.enable  = true;
+					};
+				}
 			])
 		];
 

@@ -2,9 +2,9 @@
 
 # ipp://192.168.2.237
 # Pantum M6500W-Series
-{ container, pkgs, lib, config, ... } @args: with lib; let
+{ container, pkgs, lib, config, __findFile, ... } @args: with lib; let
 	cfg     = config.container.module.print;
-	package = pkgs.callPackage ./print args;
+	package = pkgs.callPackage <package/print> args;
 in {
 	options = {
 		container.module.print = {

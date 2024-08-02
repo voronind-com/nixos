@@ -8,8 +8,8 @@
 			inherit (config.style.font) serif sansSerif monospace emoji;
 			sizes = {
 				inherit (config.style.font.size) terminal desktop;
-				popups       = config.style.font.size.popup;
 				applications = config.style.font.size.application;
+				popups       = config.style.font.size.popup;
 			};
 		};
 		opacity = {

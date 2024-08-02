@@ -3,20 +3,28 @@
 		android-tools     # Android adb tool. Can be used to connect to itself via wireless debugging.
 		binwalk           # Can analyze files for other files inside them.
 		btop htop         # System monitors.
+		coreutils         # UNIX Core utilities.
 		cryptsetup        # Filesystem encryption (LUKS).
 		curl              # CLI http client.
 		ddrescue testdisk # Apps to recover data from drives.
+		diffutils         # Diff tool.
+		dnsutils          # NS utilities.
 		exiftool          # Image info.
 		fastfetch         # Systeminfo summary.
 		ffmpeg            # Video/audio converter.
 		file              # Get general info about a file.
+		findutils         # Find tool.
+		gawk              # Awk.
 		gcc               # C compiler.
 		gdu               # TUI storage analyzer.
 		git               # Version control system.
+		gnugrep           # Grep.
+		gnumake           # Make.
+		gnused            # Sed.
 		gnutar gzip xz    # Archive and compression tools.
-		gparted parted    # GUI/CLI disk partition tool.
 		imagemagick       # Image converter and transformation tool.
 		inetutils         # Things like FTP.
+		iputils           # IP tools.
 		jq                # Json parser.
 		lm_sensors        # Hardware sensors, like temperature and fan speeds.
 		lshw              # Detailed hardware info tool.
@@ -26,12 +34,12 @@
 		neovim            # Text editor.
 		nixd              # Nix LSP.
 		nmap              # Network analyzer.
-		ollama            # LLMs.
 		openssh sshfs     # Ssh client.
 		parallel          # Run programs in parallel.
+		parted gparted    # GUI/CLI disk partition tool.
 		pv                # IO progress bar.
 		radare2           # Hex editor.
-		ripgrep           # Grep for file search.
+		ripgrep           # Better grep.
 		rsync             # File copy tool.
 		scanmem           # Memory edit tool.
 		smartmontools     # S.M.A.R.T. tools.
@@ -44,16 +52,12 @@
 		wget              # CLI http download tool.
 		wireguard-tools   # Tools to work with Wireguard.
 		yazi chafa        # CLI file manager.
+		yt-dlp            # Video downloader.
 		zapret            # FRKN.
 		zip unzip         # Zip archive/unarchive tools.
 
-		coreutils dnsutils diffutils findutils utillinux # Common utilities.
-		gawk gnused gnugrep gnumake ripgrep              # Common Gnu utils.
-
-		(pkgs.callPackage ./apks {})
 		(pkgs.callPackage ./yamusicdownload {})
 		# (pkgs.callPackage ./ytdlp {})
-		yt-dlp
 	];
 
 	desktop = with pkgs; [
@@ -100,12 +104,19 @@
 		jetbrains.idea-community
 	];
 
+	android = [
+		(pkgs.callPackage ./apks {})
+	];
+
 	extra = with pkgs; [
 		anilibria-winmaclinux       # Anime!
 		appimage-run                # Tool to run .AppImage files in NixOS.
 		blanket                     # Sounds generator.
 		calibre                     # Book library manager.
+		cbonsai cmatrix             # CLI Screensavers.
+		cowsay lolcat               # CLI funni.
 		gnome-font-viewer           # Font viewer.
+		ollama                      # LLMs.
 		tor-browser                 # Privacy browser.
 		universal-android-debloater # Debloat Android devices.
 	];

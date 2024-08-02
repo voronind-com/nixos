@@ -7,7 +7,6 @@ in {
 
 	config = mkIf cfg.enable {
 		module.desktop = {
-			app.common.enable = true;
 			dm.enable         = true;
 			sound.enable      = true;
 			wayland.enable    = true;

@@ -77,9 +77,7 @@ in {
 	systemd.services.backup = util.mkStaticSystemdService {
 		enable = true;
 		description = "Home system backup.";
-		serviceConfig = {
-			Type = "oneshot";
-		};
+		serviceConfig.Type = "oneshot";
 		path = with pkgs; [
 			bashInteractive
 			curl

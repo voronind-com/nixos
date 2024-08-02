@@ -1,6 +1,6 @@
-{ pkgs, util, container, lib, config, ... } @args: with lib; let
+{ pkgs, util, container, lib, config, __findFile, ... } @args: with lib; let
 	cfg = config.container.module.paste;
-	package = (pkgs.callPackage ./pastebin args);
+	package = (pkgs.callPackage <package/pastebin> args);
 in {
 	options = {
 		container.module.paste = {

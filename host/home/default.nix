@@ -12,25 +12,25 @@
 	user.voronind.enable = true;
 
 	module = {
-		autoupdate.enable = false;
+		autoupdate.enable     = false;
 		builder.server.enable = true;
-		desktop = {
-			sway.enable = true;
-			app = {
-				common.enable  = true;
-				desktop.enable = true;
-			};
-		};
-		ftpd = {
-			enable  = true;
-			storage = "/storage/hot/ftp";
-		};
+		desktop.sway.enable   = true;
 		amd = {
 			cpu = {
 				enable = true;
 				powersave.enable = false;
 			};
 			gpu.enable = true;
+		};
+		ftpd = {
+			enable  = true;
+			storage = "/storage/hot/ftp";
+		};
+		package = {
+			android.enable = true;
+			common.enable  = true;
+			core.enable    = true;
+			desktop.enable = true;
 		};
 	};
 }

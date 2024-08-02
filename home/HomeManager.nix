@@ -19,17 +19,18 @@ in {
 				default = "/home/${cfg.username}";
 				type    = types.str;
 			};
-			packages = mkOption {
+			package = mkOption {
 				default = {};
 				type    = types.submodule {
 					options = {
-						core.enable     = mkEnableOption "Core apps.";
+						android.enable  = mkEnableOption "Android apks.";
 						common.enable   = mkEnableOption "Common apps.";
-						desktop.enable  = mkEnableOption "Desktop apps.";
-						gaming.enable   = mkEnableOption "Gaming apps.";
+						core.enable     = mkEnableOption "Core apps.";
 						creative.enable = mkEnableOption "Creative apps.";
+						desktop.enable  = mkEnableOption "Desktop apps.";
 						dev.enable      = mkEnableOption "Dev apps.";
 						extra.enable    = mkEnableOption "Extra apps.";
+						gaming.enable   = mkEnableOption "Gaming apps.";
 					};
 				};
 			};
@@ -48,12 +49,13 @@ in {
 			programs = import ./program args;
 			dconf.settings = util.catSet (util.ls ./config/dconf) args;
 		}
-		(mkIf cfg.packages.core.enable     { home.packages = package.core;     })
-		(mkIf cfg.packages.common.enable   { home.packages = package.common;   })
-		(mkIf cfg.packages.desktop.enable  { home.packages = package.desktop;  })
-		(mkIf cfg.packages.gaming.enable   { home.packages = package.gaming;   })
-		(mkIf cfg.packages.creative.enable { home.packages = package.creative; })
-		(mkIf cfg.packages.dev.enable      { home.packages = package.dev;      })
-		(mkIf cfg.packages.extra.enable    { home.packages = package.extra;    })
+		(mkIf cfg.package.android.enable  { home.packages = package.android;  })
+		(mkIf cfg.package.common.enable   { home.packages = package.common;   })
+		(mkIf cfg.package.core.enable     { home.packages = package.core;     })
+		(mkIf cfg.package.creative.enable { home.packages = package.creative; })
+		(mkIf cfg.package.desktop.enable  { home.packages = package.desktop;  })
+		(mkIf cfg.package.dev.enable      { home.packages = package.dev;      })
+		(mkIf cfg.package.extra.enable    { home.packages = package.extra;    })
+		(mkIf cfg.package.gaming.enable   { home.packages = package.gaming;   })
 	]);
 }

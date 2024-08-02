@@ -1,6 +1,6 @@
-{ container, pkgsJobber, poetry2nixJobber, lib, config, ... }: with lib; let
+{ container, pkgsJobber, poetry2nixJobber, lib, config, __findFile, ... }: with lib; let
 	cfg    = config.container.module.jobber;
-	script = import ./jobber { poetry2nix = poetry2nixJobber; pkgs = pkgsJobber; };
+	script = import <package/jobber> { poetry2nix = poetry2nixJobber; pkgs = pkgsJobber; };
 in {
 	options = {
 		container.module.jobber = {

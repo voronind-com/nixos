@@ -11,18 +11,17 @@
 
 	module = {
 		builder.client.enable      = true;
+		desktop.sway.enable        = true;
 		intel.cpu.enable           = true;
 		powerlimit.thinkpad.enable = true;
 		print.enable               = true;
-		desktop = {
-			sway.enable = true;
-			app = {
-				common.enable   = true;
-				desktop.enable  = true;
-				gaming.enable   = true;
-				dev.enable      = true;
-				extra.enable    = true;
-			};
+		package = {
+			common.enable   = true;
+			core.enable     = true;
+			desktop.enable  = true;
+			dev.enable      = true;
+			extra.enable    = true;
+			gaming.enable   = true;
 		};
 	};
 }
