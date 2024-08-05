@@ -132,7 +132,8 @@ in {
 					enableSubmission    = true;
 					enableSubmissionSsl = true;
 
-					virusScanning = false;
+					enableManageSieve = true;
+					virusScanning     = false;
 
 					certificateScheme = "manual";
 					keyFile           = "/acme/live/${domain}/privkey.pem";
@@ -179,6 +180,9 @@ in {
 					enable = true;
 					dicts = with pkgs.aspellDicts; [ en ru ];
 					hostName = cfg.domain;
+					plugins = [
+						"managesieve"
+					];
 					extraConfig = ''
 						# starttls needed for authentication, so the fqdn required to match
 						# the certificate
