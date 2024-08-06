@@ -1,7 +1,4 @@
 { ... }: {
-	# TODO: Remove this with Fsight container. ALSO!!! delete images and everything before that.
-	virtualisation.docker.enable = true;
-
 	container = {
 		enable = true;
 
@@ -11,7 +8,6 @@
 			ddns.enable     = true;
 			dns.enable      = true;
 			download.enable = true;
-			fsight.enable   = true;
 			git.enable      = true;
 			# ISSUE: hdd.enable      = true;
 			home.enable     = true;
