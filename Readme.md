@@ -20,6 +20,12 @@
 <a href="https://i.imgur.com/H943DFl.jpeg">Wallpaper link</a>
 </details>
 
+<details>
+<summary>Screenshot 4</summary>
+<img src="https://i.imgur.com/Am6QLu7.jpeg" />
+<a href="https://i.imgur.com/4lqm0AZ.jpeg">Wallpaper link</a>
+</details>
+
 [My current wallpaper](https://git.voronind.com/voronind/nixos/src/branch/main/config/Wallpaper.nix#L2)
 
 Color theming based on wallpaper thanks to [Stylix](https://github.com/danth/stylix).
