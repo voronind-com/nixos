@@ -122,5 +122,18 @@
 				};
 			};
 		};
+
+		# Zapret params.
+		zapret = mkOption {
+			default = {};
+			type = types.submodule {
+				options = {
+					params = mkOption {
+						default = "--dpi-desync=disorder --dpi-desync-ttl=1 --dpi-desync-split-pos=3";
+						type    = types.str;
+					};
+				};
+			};
+		};
 	};
 }

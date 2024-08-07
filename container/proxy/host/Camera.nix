@@ -11,6 +11,7 @@ in {
 				allow ${config.container.localAccess};
 				allow ${config.container.module.status.address};
 				allow ${config.container.module.vpn.address};
+				allow ${config.container.module.zapret.address};
 				deny all;
 				return 301 rtsp://${address}:${toString port}/live/main;
 			}

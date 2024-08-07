@@ -46,6 +46,52 @@ in {
 						https_only           = true;
 					};
 				};
+
+				systemd = {
+					timers = {
+						zapret = {
+							timerConfig = {
+								OnBootSec = 5;
+								Unit      = "zapret.service";
+							};
+							wantedBy = [ "timers.target" ];
+						};
+						routes = {
+							timerConfig = {
+								OnBootSec = 5;
+								Unit      = "routes.service";
+							};
+							wantedBy = [ "timers.target" ];
+						};
+					};
+
+					services = {
+						zapret = {
+							description = "FRKN";
+							wantedBy = [ ];
+							requires = [ "network.target" ];
+							path = with pkgs; [ zapret ];
+							serviceConfig = {
+								ExecStart  = "${pkgs.zapret}/bin/nfqws --pidfile=/run/nfqws.pid ${config.setting.zapret.params} --qnum=200";
+								Type       = "simple";
+								PIDFile    = "/run/nfqws.pid";
+								ExecReload = "/bin/kill -HUP $MAINPID";
+								Restart    = "always";
+								RestartSec = "5s";
+							};
+						};
+						routes = {
+							description = "FRKN routes";
+							wantedBy = [ ];
+							requires = [ "network.target" ];
+							path = with pkgs; [ iptables ];
+							serviceConfig = {
+								ExecStart = "${pkgs.iptables}/bin/iptables -t mangle -I POSTROUTING -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass";
+								Type = "oneshot";
+							};
+						};
+					};
+				};
 			};
 		};
 	};

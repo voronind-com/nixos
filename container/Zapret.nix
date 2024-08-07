@@ -47,9 +47,18 @@ in {
 			];
 
 			config = { ... }: container.mkContainerConfig cfg {
+				boot.kernel.sysctl = {
+					"net.ipv4.conf.all.src_valid_mark" = 1;
+					"net.ipv4.ip_forward" = 1;
+				};
+
 				environment.systemPackages = with pkgs; [ iptables ];
 
 				networking = {
+					nameservers = [
+						"10.1.0.6"
+						"1.1.1.1"
+					];
 					firewall = {
 						extraCommands = ''
 							iptables -t mangle -I POSTROUTING -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass
@@ -133,7 +142,7 @@ in {
 							requires = [ "network.target" ];
 							path = with pkgs; [ zapret ];
 							serviceConfig = {
-								ExecStart  = "${pkgs.zapret}/bin/nfqws --pidfile=/run/nfqws.pid --dpi-desync=disorder --dpi-desync-ttl=1 --dpi-desync-split-pos=3 --qnum=200";
+								ExecStart  = "${pkgs.zapret}/bin/nfqws --pidfile=/run/nfqws.pid ${config.setting.zapret.params} --qnum=200";
 								Type       = "simple";
 								PIDFile    = "/run/nfqws.pid";
 								ExecReload = "/bin/kill -HUP $MAINPID";
