@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: with lib; let
-	url    = "https://i.imgur.com/4lqm0AZ.jpeg";
-	sha256 = "1bkc2rm1jy0bva9z78rq9a5gchwa61ns1gn59kdp1k63brawhx62";
+	url    = "https://i.imgur.com/e94Lz8h.png";
+	sha256 = "0ndqh7xx7dqjlb21cp5zv99g7scdfqcaivbmsbg0jdbj9q4bqpab";
 	forceContrastText = false;
 in {
 	options = {
