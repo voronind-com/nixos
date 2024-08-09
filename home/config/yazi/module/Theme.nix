@@ -29,5 +29,54 @@ in {
 		input      = { border = borderLight; };
 		completion = { border = borderLight; };
 		tasks      = { border = borderLight; };
+
+		status = {
+			separator_open  = "";
+			separator_close = "";
+			# NOTE: Inversed because yazi dev is fckin weird. Also add manpages ffs.
+			separator_style = {
+				bg = "#${config.style.color.fg.light}";
+				fg = "#${config.style.color.bg.regular}";
+			};
+			mode_normal = {
+				fg = "#${config.style.color.fg.light}";
+				bg = "#${config.style.color.bg.regular}";
+			};
+			mode_select = {
+				fg = "#${config.style.color.fg.light}";
+				bg = "#${config.style.color.selection}";
+			};
+			mode_unset = {
+				fg = "#${config.style.color.fg.light}";
+				bg = "#${config.style.color.neutral}";
+			};
+			progress_label = {
+				fg = "#${config.style.color.fg.light}";
+				bg = "#${config.style.color.bg.regular}";
+			};
+			progress_normal = {
+				fg = "#${config.style.color.fg.light}";
+				bg = "#${config.style.color.bg.regular}";
+			};
+			progress_error = {
+				fg = "#${config.style.color.fg.light}";
+				bg = "#${config.style.color.negative}";
+			};
+			permissions_t = {
+				fg = "#${config.style.color.fg.light}";
+			};
+			permissions_r = {
+				fg = "#${config.style.color.fg.light}";
+			};
+			permissions_w = {
+				fg = "#${config.style.color.fg.light}";
+			};
+			permissions_x = {
+				fg = "#${config.style.color.fg.light}";
+			};
+			permissions_s = {
+				fg = "#${config.style.color.fg.light}";
+			};
+		};
 	};
 }
