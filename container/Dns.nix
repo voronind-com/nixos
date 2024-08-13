@@ -17,18 +17,6 @@ in {
 
 	config = mkIf cfg.enable {
 		containers.dns = container.mkContainer cfg {
-			forwardPorts = [
-				{
-					containerPort = cfg.port;
-					hostPort      = cfg.port;
-					protocol      = "udp";
-				} {
-					containerPort = cfg.port;
-					hostPort      = cfg.port;
-					protocol      = "tcp";
-				}
-			];
-
 			config = { ... }: container.mkContainerConfig cfg {
 				environment.systemPackages = [
 					pkgs.cloudflared

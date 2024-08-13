@@ -35,22 +35,6 @@ in {
 		];
 
 		containers.mail = container.mkContainer cfg {
-			forwardPorts = [
-				{
-					containerPort = 993;
-					hostPort      = 993;
-					protocol      = "tcp";
-				} {
-					containerPort = 25;
-					hostPort      = 25;
-					protocol      = "tcp";
-				} {
-					containerPort = 465;
-					hostPort      = 465;
-					protocol      = "tcp";
-				}
-			];
-
 			bindMounts = {
 				"/var/lib/dovecot/indices" = {
 					hostPath   = "${cfg.storage}/data/indices";

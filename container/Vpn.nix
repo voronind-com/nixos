@@ -39,19 +39,7 @@ in {
 			"data/preshared"
 		];
 
-		boot.kernel.sysctl = {
-			"net.ipv4.conf.all.src_valid_mark" = 1;
-			"net.ipv4.ip_forward" = 1;
-		};
-
 		containers.vpn = container.mkContainer cfg {
-			forwardPorts = [
-				{
-					containerPort = cfg.port;
-					hostPort      = cfg.port;
-					protocol      = "udp";
-				}
-			];
 			bindMounts = {
 				"/var/lib/wireguard" = {
 					hostPath   = "${cfg.storage}/data";

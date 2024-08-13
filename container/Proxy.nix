@@ -38,19 +38,6 @@ in {
 		];
 
 		containers.proxy = container.mkContainer cfg {
-			forwardPorts = [
-				# {
-				# 	containerPort = 80;
-				# 	hostPort      = 80;
-				# 	protocol      = "tcp";
-				# } {
-				{
-					containerPort = cfg.port;
-					hostPort      = cfg.port;
-					protocol      = "tcp";
-				}
-			];
-
 			bindMounts = {
 				"/etc/letsencrypt" = {
 					hostPath   = "${cfg.storage}/letsencrypt";

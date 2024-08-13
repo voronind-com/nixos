@@ -23,29 +23,6 @@ in {
 
 	config = mkIf cfg.enable {
 		containers.zapret = container.mkContainer cfg {
-			forwardPorts = [
-				{
-					containerPort = cfg.port;
-					hostPort      = cfg.port;
-					protocol      = "tcp";
-				}
-				{
-					containerPort = cfg.port;
-					hostPort      = cfg.port;
-					protocol      = "udp";
-				}
-				{
-					containerPort = cfg.torport;
-					hostPort      = cfg.torport;
-					protocol      = "tcp";
-				}
-				{
-					containerPort = cfg.torport;
-					hostPort      = cfg.torport;
-					protocol      = "udp";
-				}
-			];
-
 			config = { ... }: container.mkContainerConfig cfg {
 				boot.kernel.sysctl = {
 					"net.ipv4.conf.all.src_valid_mark" = 1;

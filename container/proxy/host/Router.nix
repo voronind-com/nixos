@@ -1,5 +1,5 @@
 { util, container, config, ... }: let
-	address = "192.168.1.1";
+	address = "10.0.0.2";
 	domain  = "router.${config.container.domain}";
 	port    = 80;
 	name    = "router";

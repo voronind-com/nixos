@@ -5,6 +5,7 @@
 { container, pkgs, lib, config, __findFile, ... } @args: with lib; let
 	cfg     = config.container.module.print;
 	package = pkgs.callPackage <package/print> args;
+	host    = config.container.host;
 in {
 	options = {
 		container.module.print = {
@@ -42,6 +43,12 @@ in {
 			};
 
 			config = { ... }: container.mkContainerConfig cfg {
+				networking.interfaces."eth0".ipv4.routes = [{
+					address      = "192.168.2.237";
+					prefixLength = 32;
+					via          = host;
+				}];
+
 				services.printing = {
 					enable          = true;
 					allowFrom       = [ "all" ];

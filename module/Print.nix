@@ -10,7 +10,7 @@ in {
 			enable = true;
 			clientConf = ''
 				DigestOptions DenyMD5
-				ServerName 192.168.1.2
+				ServerName 10.0.0.1
 			'';
 		};
 	};

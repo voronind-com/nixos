@@ -4,6 +4,7 @@
 	services.openssh = {
 		enable    = true;
 		allowSFTP = true;
+		openFirewall = false;
 		ports = [ 22143 ];
 		listenAddresses = [
 			{

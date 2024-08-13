@@ -2,12 +2,12 @@
 { util, ... }: {
 	text = util.trimTabs ''
 		Host dasha
-			HostName 192.168.1.7
+			HostName 10.0.0.7
 			User root
 			Port 22143
 
 		Host desktop
-			Hostname 192.168.1.3
+			Hostname 10.0.0.3
 			User root
 			Port 22143
 
@@ -22,23 +22,23 @@
 			Port 22143
 
 		Host home
-			HostName 192.168.1.2
+			HostName 10.0.0.1
 			User root
 			Port 22143
 
 		Host nixbuilder
-			HostName 192.168.1.2
+			HostName 10.0.0.1
 			User nixbuilder
 			StrictHostKeyChecking=accept-new
 			Port 22143
 
 		Host laptop
-			Hostname 192.168.1.9
+			Hostname 10.0.0.9
 			User root
 			Port 22143
 
 		Host pi
-			Hostname 192.168.1.6
+			Hostname 10.0.0.6
 			User root
 			Port 22143
 
@@ -48,7 +48,7 @@
 			Port 22143
 
 		Host work
-			Hostname 192.168.1.5
+			Hostname 10.0.0.5
 			User root
 			Port 22143
 	'';
