@@ -31,10 +31,10 @@ in {
 			extraCommands = let
 				cfg = config.container.module;
 
-				# mkForward = src: sport: dst: dport: proto: "iptables -t nat -I PREROUTING -i ${src} -p ${proto} --dport ${toString sport} -j DNAT --to-destination ${dst}:${toString dport}\n";
 				mkForward = src: sport: dst: dport: proto: "iptables -t nat -I PREROUTING -d ${src} -p ${proto} --dport ${toString sport} -j DNAT --to-destination ${dst}:${toString dport}\n";
 			in ''
 				iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -d 0/0 -o ${wan} -j MASQUERADE
+				iptables -I INPUT -j ACCEPT -s ${cfg.vpn.address} -d ${internal}
 			''
 			+ (mkForward internal cfg.dns.port cfg.dns.address cfg.dns.port "tcp")
 			+ (mkForward internal cfg.dns.port cfg.dns.address cfg.dns.port "udp")
@@ -61,14 +61,14 @@ in {
 			;
 
 			interfaces = {
-				"${wan}" = {
+				${wan} = {
 					allowedUDPPorts = [
 					];
 					allowedTCPPorts = [
 						# 22143
 					];
 				};
-				"${lan}" = {
+				${lan} = {
 					allowedUDPPorts = [
 					];
 					allowedTCPPorts = [
@@ -84,7 +84,7 @@ in {
 		];
 
 		interfaces = {
-			"${lan}".ipv4 = {
+			${lan}.ipv4 = {
 				addresses = [{
 					address      = internal;
 					prefixLength = 24;
