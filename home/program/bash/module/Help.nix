@@ -10,7 +10,7 @@
 				return 2
 			fi
 
-			cat /etc/bashrc | sed -n -e "/^function ''${fun}()/q;p" | tac | sed -n -e "/^[^#]/q;p" | tac | sed -e "s/^# \+//" -e "\$i \ " | sed "1{/^$/d}" | sed "1{/^ *$/d}"
+			cat ~/.bashrc | sed -n -e "/^function ''${fun}()/q;p" | tac | sed -n -e "/^[^#]/q;p" | tac | sed -e "s/^# \+//" -e "\$i \ " | sed "1{/^$/d}" | sed "1{/^ *$/d}"
 		}
 
 		# Short for help.
