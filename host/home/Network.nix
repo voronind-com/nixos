@@ -35,6 +35,10 @@ in {
 				# Container configs.
 				cfg = config.container.module;
 
+				# Const.
+				tcp = "tcp";
+				udp = "udp";
+
 				# Create port forwarding rule.
 				mkForward = src: sport: dst: dport: proto: "iptables -t nat -I PREROUTING -d ${src} -p ${proto} --dport ${toString sport} -j DNAT --to-destination ${dst}:${toString dport}\n";
 			in ''
@@ -48,33 +52,33 @@ in {
 				iptables -I INPUT -j ACCEPT -i ${lan} -d ${internal}
 			''
 			# Expose DNS server for internal network.
-			+ (mkForward internal cfg.dns.port cfg.dns.address cfg.dns.port "tcp")
-			+ (mkForward internal cfg.dns.port cfg.dns.address cfg.dns.port "udp")
+			+ (mkForward internal cfg.dns.port cfg.dns.address cfg.dns.port tcp)
+			+ (mkForward internal cfg.dns.port cfg.dns.address cfg.dns.port udp)
 
 			# Email server.
-			+ (mkForward external 25  cfg.mail.address 25  "tcp")
-			+ (mkForward internal 25  cfg.mail.address 25  "tcp")
-			+ (mkForward internal 465 cfg.mail.address 465 "tcp")
-			+ (mkForward internal 993 cfg.mail.address 993 "tcp")
+			+ (mkForward external 25  cfg.mail.address 25  tcp)
+			+ (mkForward internal 25  cfg.mail.address 25  tcp)
+			+ (mkForward internal 465 cfg.mail.address 465 tcp)
+			+ (mkForward internal 993 cfg.mail.address 993 tcp)
 
 			# FRKN internal proxy server.
-			+ (mkForward internal cfg.zapret.port    cfg.zapret.address cfg.zapret.port    "tcp")
-			+ (mkForward internal cfg.zapret.torport cfg.zapret.address cfg.zapret.torport "tcp")
-			+ (mkForward internal cfg.zapret.port    cfg.zapret.address cfg.zapret.port    "udp")
-			+ (mkForward internal cfg.zapret.torport cfg.zapret.address cfg.zapret.torport "udp")
+			+ (mkForward internal cfg.zapret.port    cfg.zapret.address cfg.zapret.port    tcp)
+			+ (mkForward internal cfg.zapret.torport cfg.zapret.address cfg.zapret.torport tcp)
+			+ (mkForward internal cfg.zapret.port    cfg.zapret.address cfg.zapret.port    udp)
+			+ (mkForward internal cfg.zapret.torport cfg.zapret.address cfg.zapret.torport udp)
 
 			# Allow VPN connections from Wan.
-			+ (mkForward external cfg.vpn.port cfg.vpn.address cfg.vpn.port "udp")
+			+ (mkForward external cfg.vpn.port cfg.vpn.address cfg.vpn.port udp)
 
 			# Nginx HTTP access from Wan.
-			+ (mkForward external cfg.proxy.port cfg.proxy.address cfg.proxy.port "tcp")
-			+ (mkForward internal cfg.proxy.port cfg.proxy.address cfg.proxy.port "tcp")
+			+ (mkForward external cfg.proxy.port cfg.proxy.address cfg.proxy.port tcp)
+			+ (mkForward internal cfg.proxy.port cfg.proxy.address cfg.proxy.port tcp)
 
 			# Download ports for torrents.
-			+ (mkForward external 54630 cfg.download.address 54630 "tcp")
-			+ (mkForward external 54631 cfg.download.address 54631 "tcp")
-			+ (mkForward external 54630 cfg.download.address 54630 "udp")
-			+ (mkForward external 54631 cfg.download.address 54631 "udp")
+			+ (mkForward external 54630 cfg.download.address 54630 tcp)
+			+ (mkForward external 54631 cfg.download.address 54631 tcp)
+			+ (mkForward external 54630 cfg.download.address 54630 udp)
+			+ (mkForward external 54631 cfg.download.address 54631 udp)
 			;
 		};
 
