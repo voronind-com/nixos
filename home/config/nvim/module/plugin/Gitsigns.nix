@@ -36,9 +36,6 @@
 				row      = 0,
 				style    = "minimal",
 			},
-			yadm = {
-				enable = false,
-			},
 		}
 
 		-- Set custom color.
