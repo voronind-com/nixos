@@ -52,3 +52,7 @@ update:
 
 verify:
 	git verify-commit HEAD
+
+# Untested.
+vm:
+	nix run $(options) $(flake)#nixosConfigurations.${nixosConfig.networking.hostName}.config.system.build.vm
