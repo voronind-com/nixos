@@ -3,7 +3,7 @@
 		enable = true;
 
 		module = {
-			# ISSUE: change.enable   = true;
+			change.enable   = true;
 			cloud.enable    = true;
 			ddns.enable     = true;
 			dns.enable      = true;
