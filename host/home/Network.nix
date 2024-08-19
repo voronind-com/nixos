@@ -47,6 +47,7 @@ in {
 
 				# Full access from VPN clients.
 				iptables -I INPUT -j ACCEPT -s ${cfg.vpn.address} -d ${internal}
+				iptables -I INPUT -j ACCEPT -s ${cfg.zapret.address} -d ${internal}
 
 				# Full access from Lan.
 				iptables -I INPUT -j ACCEPT -i ${lan} -d ${internal}
