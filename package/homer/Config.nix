@@ -49,7 +49,7 @@
 				(mkLink "Change"   "fa-user-secret"   "https://${config.container.module.change.domain}")
 				(mkLink "Cloud"    "fa-cloud"         "https://${config.container.module.cloud.domain}")
 				(mkLink "Download" "fa-download"      "https://${config.container.module.download.domain}")
-				(mkLink "Git"      "fab fa-git-alt"   "https://${config.container.module.download.domain}")
+				(mkLink "Git"      "fab fa-git-alt"   "https://${config.container.module.git.domain}")
 				(mkLink "Iot"      "fa-home"          "https://${config.container.module.iot.domain}")
 				(mkLink "Mail"     "fa-envelope"      "https://${config.container.module.mail.domain}")
 				(mkLink "Paper"    "fa-paperclip"     "https://${config.container.module.paper.domain}")
